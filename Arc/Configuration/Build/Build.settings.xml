@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="common-settings" default="none" basedir=".">
+
+	<!-- Project settings -->
+	<property name="project.name" value="Arc" />
+	<property name="project.version" value="1.0.0" />  
+
+	<!-- Project directories -->
+	<property name="project.config.dir" value="Configuration" />
+	<property name="project.config.build.dir" value="Build" />
+	<property name="project.external_libraries.dir" value="External Libraries" />
+	<property name="project.schema.dir" value="Schema" />
+	<property name="project.source.dir" value="Source" />
+	<property name="project.tests.dir" value="Tests" />
+
+	<!-- Project paths -->
+	<property name="project.root.path" value="${path.workspace}\${project.name}" />
+	<property name="project.config.path" value="${project.root.path}\${project.config.dir}" />
+	<property name="project.config.build.path" value="${project.config.path}\${project.config.build.dir}" />
+	<property name="project.external_library.path" value="${project.root.path}\${project.external_libraries.dir}" />
+	<property name="project.schema.path" value="${project.root.path}\${project.schema.dir}" />
+	<property name="project.source.path" value="${project.root.path}\${project.source.dir}" />
+	<property name="project.tests.path" value="${project.root.path}\${project.tests.dir}" />
+	
+	<!-- Build directories -->
+	<property name="build.root.dir" value="build" />
+	<property name="build.binary.dir" value="bin" />
+	<property name="build.documentation.dir" value="doc" /> 
+	<property name="build.tests.dir" value="tests" />
+	<property name="build.results.dir" value="results" />
+	<property name="build.deploy.dir" value="deploy" />
+	<property name="build.package.dir" value="packages" />
+	<property name="build.source.dir" value="source" />
+	
+	<!-- Build paths -->
+	<property name="build.root.path" value="${project.root.path}\${build.root.dir}" />
+	<property name="build.binary.path" value="${build.root.path}\${build.binary.dir}" />
+	<property name="build.documentation.path" value="${build.root.path}\${build.documentation.dir}" /> 
+	<property name="build.tests.path" value="${build.root.path}\${build.tests.dir}" />
+	<property name="build.results.path" value="${build.root.path}\${build.results.dir}" />
+	<property name="build.deploy.path" value="${build.root.path}\${build.deploy.dir}" />
+	<property name="build.deploy.packages.path" value="${build.deploy.path}\${build.package.dir}" />
+	<property name="build.source.path" value="${build.root.path}\${build.source.dir}" />
+	
+</project>

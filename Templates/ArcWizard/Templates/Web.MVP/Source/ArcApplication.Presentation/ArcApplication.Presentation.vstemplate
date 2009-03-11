@@ -1,0 +1,43 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ArcApplication.Presentation</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ArcApplication.Presentation</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ArcApplication.Presentation.csproj" File="ArcApplication.Presentation.csproj" ReplaceParameters="true">
+      <Folder Name="Presenters" TargetFolderName="Presenters">
+        <ProjectItem ReplaceParameters="true" TargetFileName="IHomePresenter.cs">IHomePresenter.cs</ProjectItem>
+        <Folder Name="Impl" TargetFolderName="Impl">
+          <ProjectItem ReplaceParameters="true" TargetFileName="HomePresenter.cs">HomePresenter.cs</ProjectItem>
+        </Folder>
+        <Folder Name="Templates" TargetFolderName="Templates">
+          <Folder Name="Impl" TargetFolderName="Impl">
+            <ProjectItem ReplaceParameters="true" TargetFileName="SiteTemplatePresenter.cs">SiteTemplatePresenter.cs</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="ISiteTemplatePresenter.cs">ISiteTemplatePresenter.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties" />
+      <Folder Name="Views" TargetFolderName="Views">
+        <ProjectItem ReplaceParameters="true" TargetFileName="IHomeView.cs">IHomeView.cs</ProjectItem>
+        <Folder Name="Templates" TargetFolderName="Templates">
+          <ProjectItem ReplaceParameters="true" TargetFileName="ITemplateView.cs">ITemplateView.cs</ProjectItem>
+        </Folder>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.SourceProjectWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="Default" default="RunAll" basedir=".">
+  <description />
+
+  <!-- Load project settings -->
+  <include buildfile="Build.local.xml" />
+  <include buildfile="Build.settings.xml" />
+  <include buildfile="Build.environment.xml" />
+  <include buildfile="Build.environment.local.xml" if="${file::exists('Build.environment.local.xml')}" />
+    
+  <!-- Load external tasks -->
+  <loadtasks assembly="${path.nantcontrib.tasks}" />
+  
+  <!-- Load buildfiles -->
+  <include buildfile="Build.prepare.xml" />
+  <include buildfile="Build.compile.xml" />
+  <include buildfile="Build.test.xml" />
+
+  <!-- Targets -->
+  <target name="RunAll" 
+          description="Compiles and tests solution"
+          depends="Prepare,Compile,FullTest" />
+  
+  <target name="RunFast" 
+          description="Compiles and tests solution"
+          depends="Prepare,Compile" />
+  
+  <target name="RunCleanUp" 
+          description="Cleans solution"
+          depends="Clean" />
+  
+</project>

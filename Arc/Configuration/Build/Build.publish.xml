@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Publish" default="Publish">
+
+  <!-- Main target -->
+  <target name="Publish" description="Publishes all projects">
+
+    <foreach item="String" delim=";" in="${project.publishable}" property="project.publishable.value">
+      
+      <echo message="Publishing ${project.publishable.value}" />
+
+      <copy todir="${build.deploy.path}\${project.publishable.value}">
+        <fileset basedir="${project.source.path}\${project.publishable.value}">
+          <include name="**/*.xml" />
+          <include name="**/*.config" />
+          <include name="**/*.dll" />
+
+          <include name="**/*.js" />
+          <include name="**/*.css" />
+          
+          <include name="**/*.gif" />
+          <include name="**/*.png" />
+          <include name="**/*.jpg" />
+          <include name="**/*.ico" />
+          
+          <include name="**/*.aspx" />
+          <include name="**/*.ascx" />
+          <include name="**/*.asax" />
+          <include name="**/*.Master" />
+          <include name="**/*.resx" />
+
+          
+          <exclude name="**/CVS/**" />
+          <exclude name="**/svn/**" />
+          <exclude name="**/*resharper*" />
+          <exclude name="**/obj/**" />
+          <exclude name="**/Properties/**" />
+        </fileset>
+      </copy>
+
+    </foreach>
+    
+  </target>
+  
+</project>

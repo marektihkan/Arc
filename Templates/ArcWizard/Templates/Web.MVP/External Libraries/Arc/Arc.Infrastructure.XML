@@ -1,0 +1,1636 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Configuration.ArcApplication">
+            <summary>
+            Web application configuration.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.ArcApplication.Init">
+            <summary>
+            Executes custom initialization code after all event handler modules have been added.
+            Registers Ninject's OnePerRequestBehavior module.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.ArcApplication.RegisterUnitOfWorkWebModule">
+            <summary>
+            Registers the unit of work web module.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.ArcApplication.RegisterNinjectWebBehaviorModule">
+            <summary>
+            Registers the ninject web behavior module.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.ArcApplication.ConfigureApplication">
+            <summary>
+            Configures the application.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Configuration.Bootstrapper">
+            <summary>
+            Bootstrapper.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Bootstrapper.Configure">
+            <summary>
+            Configures application.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Bootstrapper.ConfigureData">
+            <summary>
+            Configures the data access infrastructure.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Bootstrapper.ConfigureLogging">
+            <summary>
+            Configures the logging infrastructure.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Bootstrapper.ConfigureValidation">
+            <summary>
+            Configures the validation infrastructure.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.BaseRepository`1">
+            <summary>
+            Base repository.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.BaseRepository`1.#ctor(Arc.Infrastructure.Data.IRepository{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.BaseRepository`1"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.BaseRepository`1.InnerRepository">
+            <summary>
+            Gets the inner repository.
+            </summary>
+            <value>The inner repository.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.BaseRepository`1.UnitOfWork">
+            <summary>
+            Gets the unit of work.
+            </summary>
+            <value>The unit of work.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.IRepository">
+            <summary>
+            Generic repository.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.GetEntityById``1(System.Object)">
+            <summary>
+            Gets the entity by identity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="identity">The identity.</param>
+            <returns>Entity which matches to specified identity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.GetEntityBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Entity which matces to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.GetAllEntities``1">
+            <summary>
+            Gets all entities.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>List of all entities of specified type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.GetEntitiesBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>List of entitis which matches to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.CreateCriteria``1">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.Save``1(``0)">
+            <summary>
+            Saves the specified entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="saveable">The saveable entity.</param>
+            <returns>Saved entity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository.Delete``1(``0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="deleteable">The deleteable entity.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.IRepository.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The session.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.IRepository.UnitOfWork">
+            <summary>
+            Gets the unit of work.
+            </summary>
+            <value>The unit of work.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.IRepository`1">
+            <summary>
+            Repository for concrete type of entity.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.GetEntityById(System.Object)">
+            <summary>
+            Gets the entity by identity.
+            </summary>
+            <param name="identity">The identity.</param>
+            <returns>Entity which matches to specified identity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.GetEntityBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>Entity which matces to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.GetAllEntities">
+            <summary>
+            Gets all entities.
+            </summary>
+            <returns>List of all entities.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.GetEntitiesBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>List of entitis which matches to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.Save(`0)">
+            <summary>
+            Saves the specified entity.
+            </summary>
+            <param name="saveable">The saveable entity.</param>
+            <returns>Saved entity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.Delete(`0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <param name="deleteable">The deleteable entity.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IRepository`1.CreateCriteria">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.ITransaction">
+            <summary>
+            Transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.ITransaction.Commit">
+            <summary>
+            Commits this transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.ITransaction.Rollback">
+            <summary>
+            Rollbacks this transaction.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.ITransaction.IsActive">
+            <summary>
+            Gets a value indicating whether this tranaction is active.
+            </summary>
+            <value><c>true</c> if this transaction is active; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.IUnitOfWork">
+            <summary>
+            Unit of work.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IUnitOfWork.BeginTransaction">
+            <summary>
+            Begins the transaction.
+            </summary>
+            <returns>Transaction.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IUnitOfWork.TransactionalFlush">
+            <summary>
+            Flushes changes in transaction.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.IUnitOfWork.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The NHibernate session.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.IUnitOfWork.IsInTransaction">
+            <summary>
+            Gets a value indicating whether this instance is in transaction.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is in transaction; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.IUnitOfWorkFactory">
+            <summary>
+            Factory for unit of work.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IUnitOfWorkFactory.Create">
+            <summary>
+            Creates new unit of work.
+            </summary>
+            <returns>Unit of work.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.IUnitOfWorkFactory.Release(Arc.Infrastructure.Data.IUnitOfWork)">
+            <summary>
+            Releases the specified unit of work.
+            </summary>
+            <param name="releasable">The releasable unit of work.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory">
+            <summary>
+            Unit of work factory.
+            </summary>
+        </member>
+        <member name="F:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.UnitOfWorkKey">
+            <summary>
+            Key for registering unit of work to registry.
+            </summary>
+        </member>
+        <member name="F:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.SessionKey">
+            <summary>
+            Key for registring NHibernate session to registry.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.#ctor(Arc.Infrastructure.Registry.IRegistry,NHibernate.ISessionFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory"/> class.
+            </summary>
+            <param name="registry">The registry.</param>
+            <param name="factory">The NHibernate session factory.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.Create">
+            <summary>
+            Creates new unit of work or returns existing.
+            </summary>
+            <returns>New or existing unit of work.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.Release(Arc.Infrastructure.Data.IUnitOfWork)">
+            <summary>
+            Releases the specified unit of work.
+            </summary>
+            <param name="releasable">The releasable unit of work.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.CurrentUnitOfWork">
+            <summary>
+            Gets the current unit of work.
+            </summary>
+            <value>The current unit of work.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.CurrentSession">
+            <summary>
+            Gets the current session.
+            </summary>
+            <value>The current session.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Repository`1">
+            <summary>
+            Repository.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.#ctor(Arc.Infrastructure.Data.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.Repository`1"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityById(System.Object)">
+            <summary>
+            Gets the entity by identity.
+            </summary>
+            <param name="identity">The identity.</param>
+            <returns>
+            Entity which matches to specified identity.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityById``1(System.Object)">
+            <summary>
+            Gets the entity by identity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="identity">The identity.</param>
+            <returns>
+            Entity which matches to specified identity.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            Entity which matces to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            Entity which matces to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetAllEntities">
+            <summary>
+            Gets all entities.
+            </summary>
+            <returns>List of all entities.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetAllEntities``1">
+            <summary>
+            Gets all entities.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>List of all entities of specified type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntitiesBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            List of entitis which matches to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntitiesBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            List of entitis which matches to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.CreateCriteria">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.CreateCriteria``1">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Save(`0)">
+            <summary>
+            Saves the specified entity.
+            </summary>
+            <param name="saveable">The saveable entity.</param>
+            <returns>Saved entity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Save``1(``0)">
+            <summary>
+            Saves the specified entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="saveable">The saveable entity.</param>
+            <returns>Saved entity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Delete(`0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <param name="deleteable">The deleteable entity.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Delete``1(``0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="deleteable">The deleteable entity.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.Repository`1.UnitOfWork">
+            <summary>
+            Gets the unit of work.
+            </summary>
+            <value>The unit of work.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.Repository`1.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The session.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Transaction">
+            <summary>
+            NHibernate transaction adapter.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.#ctor(NHibernate.ITransaction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.Transaction"/> class.
+            </summary>
+            <param name="transaction">The NHibernate transaction.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Commit">
+            <summary>
+            Commits this transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Rollback">
+            <summary>
+            Rollbacks this transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.Transaction.IsActive">
+            <summary>
+            Gets a value indicating whether this tranaction is active.
+            </summary>
+            <value>
+            	<c>true</c> if this transaction is active; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.UnitOfWork">
+            <summary>
+            NHibernate unit of work adapter.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.#ctor(NHibernate.ISession,Arc.Infrastructure.Data.IUnitOfWorkFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.UnitOfWork"/> class.
+            </summary>
+            <param name="session">The NHibernate session.</param>
+            <param name="factory">The factory.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.BeginTransaction">
+            <summary>
+            Begins the transaction.
+            </summary>
+            <returns>Transaction.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.TransactionalFlush">
+            <summary>
+            Flushes changes in transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWork.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The NHibernate session.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWork.IsInTransaction">
+            <summary>
+            Gets a value indicating whether this instance is in transaction.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is in transaction; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.UnitOfWorkWebModule">
+            <summary>
+            Web module for releasing unit of work at the end of request.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.UnitOfWorkWebModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes a module and prepares it to handle requests.
+            </summary>
+            <param name="context">An <see cref="T:System.Web.HttpApplication"/> that provides access to the methods, properties, and events common to all application objects within an ASP.NET application</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.UnitOfWorkWebModule.Dispose">
+            <summary>
+            Disposes of the resources (other than memory) used by the module that implements <see cref="T:System.Web.IHttpModule"/>.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.IScope">
+            <summary>
+            Scope for services.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.IScope.Implementation">
+            <summary>
+            Gets the implementation of scope.
+            </summary>
+            <value>The implementation of scope.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.IScopeFactory">
+            <summary>
+            Factory for scopes.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.IScopeFactory.Transient">
+            <summary>
+            Gets the transient scope.
+            </summary>
+            <value>The transient scope.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.IScopeFactory.OnePerRequest">
+            <summary>
+            Gets the one per request scope.
+            </summary>
+            <value>The one per request scope.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.IScopeFactory.OnePerThread">
+            <summary>
+            Gets the one per thread scope.
+            </summary>
+            <value>The one per thread scope.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.IScopeFactory.Singleton">
+            <summary>
+            Gets the singleton scope.
+            </summary>
+            <value>The singleton scope.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.IServiceLocator">
+            <summary>
+            Finds requested services.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Load(System.String)">
+            <summary>
+            Loads the specified module by name.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Load(System.String[])">
+            <summary>
+            Loads the specified modules by name.
+            </summary>
+            <param name="moduleNames">The module names.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Load(Arc.Infrastructure.Dependencies.IDependencyConfiguration)">
+            <summary>
+            Loads the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Register``2">
+            <summary>
+            Registers service to implementation.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Register``2(Arc.Infrastructure.Dependencies.IScope)">
+            <summary>
+            Registers service to implementation in specified scope.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="scope">The scope.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Register(System.Type,System.Type)">
+            <summary>
+            Registers service to implementation.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="implementation">The implementation.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Register(System.Type,System.Type,Arc.Infrastructure.Dependencies.IScope)">
+            <summary>
+            Registers service to implementation in specified scope.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="implementation">The implementation.</param>
+            <param name="scope">The scope.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Resolve``1">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Resolve(System.Type)">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <param name="type">The service type.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.ResolveWith``1(System.String,System.Object)">
+            <summary>
+            Resolves the service with specified dependency.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The dependency name.</param>
+            <param name="value">The value.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.ResolveWith(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves the service with specified depenency.
+            </summary>
+            <param name="type">The type of the service.</param>
+            <param name="name">The dependency name.</param>
+            <param name="value">The value.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IServiceLocator.Release(System.Object)">
+            <summary>
+            Releases the specified object.
+            </summary>
+            <param name="releasable">The releasable object.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.IServiceLocator.Scopes">
+            <summary>
+            Gets the scope factory.
+            </summary>
+            <value>The scope factory.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.IDependencyConfiguration">
+            <summary>
+            Configuration module for dependencies.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.IDependencyConfiguration.Configure(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Configures the specified locator.
+            </summary>
+            <param name="locator">The service locator.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Configuration.Dependencies.DataConfiguration">
+            <summary>
+            Configures data access infrastructure.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Dependencies.DataConfiguration.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Configuration.Dependencies.LoggingConfiguration">
+            <summary>
+            Configures logging infrastructure.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Dependencies.LoggingConfiguration.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Configuration.Dependencies.ValidationConfiguration">
+            <summary>
+            Configures validation infrastructure.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Configuration.Dependencies.ValidationConfiguration.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.Ninject.Scope">
+            <summary>
+            Ninject scope.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.Scope.#ctor(Ninject.Core.Behavior.IBehavior)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Dependencies.Ninject.Scope"/> class.
+            </summary>
+            <param name="implementation">The implementation.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.Ninject.Scope.Implementation">
+            <summary>
+            Gets or sets the implementation of scope.
+            </summary>
+            <value>The implementation of scope.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator">
+            <summary>
+            Ninject adapter for service locator.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.#ctor(Ninject.Core.IKernel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator"/> class.
+            </summary>
+            <param name="kernel">The kernel.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Load(System.String)">
+            <summary>
+            Loads the specified module by name.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Load(System.String[])">
+            <summary>
+            Loads the specified modules by name.
+            </summary>
+            <param name="moduleNames">The module names.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Load(Arc.Infrastructure.Dependencies.IDependencyConfiguration)">
+            <summary>
+            Loads the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Register``2">
+            <summary>
+            Registers service to implementation.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Register``2(Arc.Infrastructure.Dependencies.IScope)">
+            <summary>
+            Registers service to implementation in specified scope.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="scope">The scope.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Register(System.Type,System.Type)">
+            <summary>
+            Registers service to implementation.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="implementation">The implementation.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Register(System.Type,System.Type,Arc.Infrastructure.Dependencies.IScope)">
+            <summary>
+            Registers service to implementation in specified scope.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="implementation">The implementation.</param>
+            <param name="scope">The scope.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Resolve``1">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Resolve(System.Type)">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <param name="type">The service type.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.ResolveWith``1(System.String,System.Object)">
+            <summary>
+            Resolves the service with specified dependency.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The dependency name.</param>
+            <param name="value">The value.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.ResolveWith(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves the service with specified depenency.
+            </summary>
+            <param name="type">The type of the service.</param>
+            <param name="name">The dependency name.</param>
+            <param name="value">The value.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Release(System.Object)">
+            <summary>
+            Releases the specified object.
+            </summary>
+            <param name="releasable">The releasable object.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.Ninject.ServiceLocator.Scopes">
+            <summary>
+            Gets the scope factory.
+            </summary>
+            <value>The scope factory.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.Ninject.ScopeFactory">
+            <summary>
+            Scope factory for Ninject.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.Ninject.ScopeFactory.Transient">
+            <summary>
+            Gets the transient scope.
+            </summary>
+            <value>The transient scope.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.Ninject.ScopeFactory.OnePerRequest">
+            <summary>
+            Gets the one per request scope.
+            </summary>
+            <value>The one per request scope.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.Ninject.ScopeFactory.OnePerThread">
+            <summary>
+            Gets the one per thread scope.
+            </summary>
+            <value>The one per thread scope.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.Ninject.ScopeFactory.Singleton">
+            <summary>
+            Gets the singleton scope.
+            </summary>
+            <value>The singleton scope.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.ServiceLocator">
+            <summary>
+            Locates services by type. 
+            This class is wrapper class for Ninject depency inversion container.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Load(System.String)">
+            <summary>
+            Loads the specified module by name.
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Load(System.String[])">
+            <summary>
+            Loads the specified modules by name.
+            </summary>
+            <param name="moduleNames">The module names.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Load(Arc.Infrastructure.Dependencies.IDependencyConfiguration)">
+            <summary>
+            Loads the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Register``2">
+            <summary>
+            Registers service to implementation.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Register``2(Arc.Infrastructure.Dependencies.IScope)">
+            <summary>
+            Registers service to implementation in specified scope.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TImplementation">The type of the implementation.</typeparam>
+            <param name="scope">The scope.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Register(System.Type,System.Type)">
+            <summary>
+            Registers service to implementation.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="implementation">The implementation.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Register(System.Type,System.Type,Arc.Infrastructure.Dependencies.IScope)">
+            <summary>
+            Registers service to implementation in specified scope.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="implementation">The implementation.</param>
+            <param name="scope">The scope.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Resolve``1">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Resolve(System.Type)">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <param name="type">The service type.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.ResolveWith``1(System.String,System.Object)">
+            <summary>
+            Resolves the service with specified dependency.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="name">The dependency name.</param>
+            <param name="value">The value.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.ResolveWith(System.Type,System.String,System.Object)">
+            <summary>
+            Resolves the service with specified depenency.
+            </summary>
+            <param name="type">The type of the service.</param>
+            <param name="name">The dependency name.</param>
+            <param name="value">The value.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.ServiceLocator.Release(System.Object)">
+            <summary>
+            Releases the specified object.
+            </summary>
+            <param name="releasable">The releasable object.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.ServiceLocator.InnerServiceLocator">
+            <summary>
+            Gets or sets the inner service locator.
+            </summary>
+            <value>The inner service locator.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.ServiceLocator.Scopes">
+            <summary>
+            Gets the scope factory.
+            </summary>
+            <value>The scope factory.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Logging.ILogger">
+            <summary>
+            Service for logging.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Debug(System.String)">
+            <summary>
+            Registers debug message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Debug(System.String,System.Exception)">
+            <summary>
+            Registers debug message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Information(System.String)">
+            <summary>
+            Registers information message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Information(System.String,System.Exception)">
+            <summary>
+            Registers information message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Warning(System.String)">
+            <summary>
+            Registers warning message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Warning(System.String,System.Exception)">
+            <summary>
+            Registers warning message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Error(System.String)">
+            <summary>
+            Registers error message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Error(System.String,System.Exception)">
+            <summary>
+            Registers error message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Fatal(System.String)">
+            <summary>
+            Registers fatal message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.ILogger.Fatal(System.String,System.Exception)">
+            <summary>
+            Registers fatal message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Logging.Log4Net.Logger">
+            <summary>
+            Logging service adapter for Log4Net.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.#ctor(log4net.ILog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Logging.Log4Net.Logger"/> class.
+            </summary>
+            <param name="logger">The Log4Net logger.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Debug(System.String)">
+            <summary>
+            Registers debug message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Debug(System.String,System.Exception)">
+            <summary>
+            Registers debug message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Information(System.String)">
+            <summary>
+            Registers information message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Information(System.String,System.Exception)">
+            <summary>
+            Registers information message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Warning(System.String)">
+            <summary>
+            Registers warning message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Warning(System.String,System.Exception)">
+            <summary>
+            Registers warning message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Error(System.String)">
+            <summary>
+            Registers error message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Error(System.String,System.Exception)">
+            <summary>
+            Registers error message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Fatal(System.String)">
+            <summary>
+            Registers fatal message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Fatal(System.String,System.Exception)">
+            <summary>
+            Registers fatal message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Logging.Log4Net.Logger.InnerLogger">
+            <summary>
+            Gets the inner logger.
+            </summary>
+            <value>The inner logger.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Presentation.Mvp.DataFinder">
+            <summary>
+            Helper for getting control's values.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.DataFinder.GetValue``1(System.Web.UI.Control,System.String,System.String)">
+            <summary>
+            Gets the specified control property value from continer.
+            </summary>
+            <typeparam name="T">Value type.</typeparam>
+            <param name="container">The container which contains control.</param>
+            <param name="control">The control name.</param>
+            <param name="property">The property name.</param>
+            <returns>Value of control's property.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Presentation.Mvp.MasterPage`1">
+            <summary>
+            Base class for master pages.
+            For registering event handlers its best to use HookupEventhandlers method.
+            </summary>
+            <remarks>
+            For using it, presenter should have constructor parameter named "view" and MasterPage must be implementing that interface. 
+            </remarks>
+            <typeparam name="TPresenter">The type of the presenter.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.MasterPage`1.OnInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.MasterPage`1.HookupEventHandlers">
+            <summary>
+            Hookups the event handlers.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Presentation.Mvp.MasterPage`1.Presenter">
+            <summary>
+            Gets or sets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Presentation.Mvp.Page`1">
+            <summary>
+            Base class for pages.
+            For registering event handlers its best to use HookupEventhandlers method.
+            </summary>
+            <remarks>
+            For using it, presenter should have constructor parameter named "view" and Page must be implementing that interface. 
+            </remarks>
+            <typeparam name="TPresenter">The type of the presenter.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.Page`1.OnInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.Page`1.HookupEventHandlers">
+            <summary>
+            Hookups the event handlers.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Presentation.Mvp.Page`1.Presenter">
+            <summary>
+            Gets or sets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Presentation.Mvp.UserControl`1">
+            <summary>
+            Base class for user controls.
+            For registering event handlers its best to use HookupEventhandlers method.
+            </summary>
+            <remarks>
+            For using it, presenter should have constructor parameter named "view" and UserControl must be implementing that interface. 
+            </remarks>
+            <typeparam name="TPresenter">The type of the presenter.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.UserControl`1.OnInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Init"/> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> object that contains the event data.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvp.UserControl`1.HookupEventHandlers">
+            <summary>
+            Hookups the event handlers.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Presentation.Mvp.UserControl`1.Presenter">
+            <summary>
+            Gets or sets the presenter.
+            </summary>
+            <value>The presenter.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Registry.BaseRegistry">
+            <summary>
+            Base class for registry.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Registry.IRegistry">
+            <summary>
+            Registry.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.IRegistry.Register(System.String,System.Object)">
+            <summary>
+            Registers item to the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.IRegistry.Get``1(System.String)">
+            <summary>
+            Gets item with the specified key.
+            </summary>
+            <typeparam name="T">Type of item.</typeparam>
+            <param name="key">The key.</param>
+            <returns>Item with specified key.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.IRegistry.Get(System.String)">
+            <summary>
+            Gets item with the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>Item with specified key.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.IRegistry.Unregister``1(System.String)">
+            <summary>
+            Unregisters item from the specified key.
+            </summary>
+            <typeparam name="T">Type of item.</typeparam>
+            <param name="key">The key.</param>
+            <returns>Unregitered item.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.IRegistry.Unregister(System.String)">
+            <summary>
+            Unregisters item from the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>Unregitered item.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.BaseRegistry.Register(System.String,System.Object)">
+            <summary>
+            Registers item to the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.BaseRegistry.Get``1(System.String)">
+            <summary>
+            Gets item with the specified key.
+            </summary>
+            <typeparam name="T">Type of item.</typeparam>
+            <param name="key">The key.</param>
+            <returns>Item with specified key.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.BaseRegistry.Get(System.String)">
+            <summary>
+            Gets item with the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>Item with specified key.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.BaseRegistry.Unregister``1(System.String)">
+            <summary>
+            Unregisters item from the specified key.
+            </summary>
+            <typeparam name="T">Type of item.</typeparam>
+            <param name="key">The key.</param>
+            <returns>Unregitered item.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.BaseRegistry.Unregister(System.String)">
+            <summary>
+            Unregisters item from the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>Unregitered item.</returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Registry.BaseRegistry.Map">
+            <summary>
+            Gets the map where items are stored.
+            </summary>
+            <value>The map.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Registry.LocalRegistry">
+            <summary>
+            Local registry
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Registry.LocalRegistry.Map">
+            <summary>
+            Gets the map where items are stored.
+            </summary>
+            <value>The map.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Registry.WebContextRegistry">
+            <summary>
+            Web context registry.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Registry.WebContextRegistry.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Registry.WebContextRegistry"/> class.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Registry.WebContextRegistry.Context">
+            <summary>
+            Gets the context.
+            </summary>
+            <value>The context.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Registry.WebContextRegistry.Map">
+            <summary>
+            Gets the map where items are stored.
+            </summary>
+            <value>The map.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.EmptyValidationResults">
+            <summary>
+            Empty validation results.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.IValidationResults">
+            <summary>
+            Validation results.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.IValidationResults.GetFirstMessageFor(System.String)">
+            <summary>
+            Gets the first message for given key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>First message for given key or empty string.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.IValidationResults.GetMessagesFor(System.String)">
+            <summary>
+            Gets the messages for given key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>All messages for given key or empty array.</returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.IValidationResults.IsValid">
+            <summary>
+            Gets a value indicating whether this instance is valid.
+            </summary>
+            <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.IValidationResults.Summary">
+            <summary>
+            Gets the summary.
+            </summary>
+            <value>The summary.</value>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EmptyValidationResults.GetFirstMessageFor(System.String)">
+            <summary>
+            Gets the first message for given key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            Empty string.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EmptyValidationResults.GetMessagesFor(System.String)">
+            <summary>
+            Gets the messages for given key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            Empty array.
+            </returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EmptyValidationResults.IsValid">
+            <summary>
+            This is always valid.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EmptyValidationResults.Summary">
+            <summary>
+            Gets the summary.
+            </summary>
+            <value>Empty string.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService">
+            <summary>
+            Validation service.
+            </summary>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.IValidationService">
+            <summary>
+            Validation service.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.IValidationService.Validate(System.Object)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <param name="validatable">The validatable.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.IValidationService.Validate``1(System.Object)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <typeparam name="T">Validatable type.</typeparam>
+            <param name="validatable">The validatable.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.IValidationService.Validate(System.Object,System.Type)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <param name="validatable">The validatable.</param>
+            <param name="validationType">Type of the validation.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService.Validate(System.Object)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <param name="validatable">The validatable.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService.Validate``1(System.Object)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <typeparam name="T">Validation type.</typeparam>
+            <param name="validatable">The validatable.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService.Validate(System.Object,System.Type)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <param name="validatable">The validatable.</param>
+            <param name="validationType">Type of the validation.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter">
+            <summary>
+            Validation results adapter for Enterprise Library Validation Block.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.#ctor(Microsoft.Practices.EnterpriseLibrary.Validation.ValidationResults)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter"/> class.
+            </summary>
+            <param name="errors">The validation errors.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.GetFirstMessageFor(System.String)">
+            <summary>
+            Gets the first message for given key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            First message for given key or empty string.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.GetMessagesFor(System.String)">
+            <summary>
+            Gets the messages for given key.
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+            All messages for given key or empty array.
+            </returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.IsValid">
+            <summary>
+            Gets a value indicating whether this instance is valid.
+            </summary>
+            <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.Summary">
+            <summary>
+            Gets the summary.
+            </summary>
+            <value>The summary.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.NHibernate.BaseValidationListener">
+            <summary>
+            Base class for integrating validation to NHibernate.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernate.BaseValidationListener.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.NHibernate.BaseValidationListener"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernate.BaseValidationListener.#ctor(Arc.Infrastructure.Validation.IValidationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.NHibernate.BaseValidationListener"/> class.
+            </summary>
+            <param name="validation">The validation service.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernate.BaseValidationListener.Validate(System.Object,System.Type)">
+            <summary>
+            Validates the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.NHibernate.PreInsertEventListener">
+            <summary>
+            NHibernate pre insert event listener for validation.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernate.PreInsertEventListener.OnPreInsert(NHibernate.Event.PreInsertEvent)">
+            <summary>
+            Validates entity.
+            </summary>
+            <param name="event"></param>
+            <returns>False; It should not be vetoed.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.NHibernate.PreUpdateEventListener">
+            <summary>
+            NHibernate pre update event lister for validation.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernate.PreUpdateEventListener.OnPreUpdate(NHibernate.Event.PreUpdateEvent)">
+            <summary>
+            Validates entity.
+            </summary>
+            <param name="event"></param>
+            <returns>False; It should not be vetoed.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.ValidationException">
+            <summary>
+            Validation exception.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.ValidationException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.ValidationException"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.ValidationException.#ctor(Arc.Infrastructure.Validation.IValidationResults)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.ValidationException"/> class.
+            </summary>
+            <param name="results">The results.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.ValidationException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null.
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0).
+            </exception>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.ValidationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.ValidationException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.ValidationException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.ValidationException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+            <value></value>
+            <returns>
+            The error message that explains the reason for the exception, or an empty string("").
+            </returns>
+        </member>
+    </members>
+</doc>

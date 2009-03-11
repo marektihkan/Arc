@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Documentation" default="Documentation">
+  <property name="documentation.project.path" value="${project.config.build.path}\Solution.Documentation.shfb" />
+  
+  <!-- Main target -->
+  <target name="Documentation" 
+          description="Creates documentation for solution"
+          depends="CreateDocumentation" />
+
+  <!-- Targets -->
+  <target name="CreateDocumentation">
+    
+    <exec program="${path.sandcastle.helpbuilder.console}" verbose="${verbose}">
+      <arg path="${documentation.project.path}" />
+    </exec>
+    
+  </target>
+  
+</project>

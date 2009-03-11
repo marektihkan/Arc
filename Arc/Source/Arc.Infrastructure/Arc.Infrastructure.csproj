@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F815EB09-BB4F-4011-82A3-03774C64CE20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arc.Infrastructure</RootNamespace>
+    <AssemblyName>Arc.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Configuration\Arc.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Arc.Infrastructure.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=0.2.0.31362, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Enterprise Library\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Enterprise Library\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Core, Version=1.0.0.82, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Ninject\Ninject.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Configuration\ArcApplication.cs" />
+    <Compile Include="Configuration\Bootstrapper.cs" />
+    <Compile Include="Data\FluentCriteria\Alias.cs" />
+    <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\FluentCriteria\AliasImpl.cs" />
+    <Compile Include="Data\FluentCriteria\AliasSyntax.cs" />
+    <Compile Include="Data\FluentCriteria\Criteria.cs" />
+    <Compile Include="Data\FluentCriteria\CriteriaExtensions.cs" />
+    <Compile Include="Data\FluentCriteria\CriteriaJoinExtensions.cs" />
+    <Compile Include="Data\FluentCriteria\CriteriaOrderingExtensions.cs" />
+    <Compile Include="Data\FluentCriteria\IAlias.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\ITransaction.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
+    <Compile Include="Data\IUnitOfWorkFactory.cs" />
+    <Compile Include="Data\NHibernate\Specifications\ActionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\AliasFinder.cs" />
+    <Compile Include="Data\NHibernate\Specifications\BinaryActionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\ExpressionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\FieldAliasProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\IActionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\IAliasProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\MemberFinder.cs" />
+    <Compile Include="Data\NHibernate\Specifications\MethodActionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\NullActionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\NullAliasProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\Pair.cs" />
+    <Compile Include="Data\NHibernate\Specifications\ProcessorFactory.cs" />
+    <Compile Include="Data\NHibernate\Specifications\PropertyRestrictionsFactory.cs" />
+    <Compile Include="Data\NHibernate\Specifications\UnaryActionProcessor.cs" />
+    <Compile Include="Data\NHibernate\Specifications\ValueFinder.cs" />
+    <Compile Include="Data\ObjectMapperExtensions.cs" />
+    <Compile Include="Data\FluentCriteria\Ordering.cs" />
+    <Compile Include="Data\NHibernate\Specifications\RestrictionsFactory.cs" />
+    <Compile Include="Data\NHibernate\Specifications\CriterionConverter.cs" />
+    <Compile Include="Data\NHibernate\UnitOfWorkFactory.cs" />
+    <Compile Include="Data\NHibernate\Repository.cs" />
+    <Compile Include="Data\NHibernate\Transaction.cs" />
+    <Compile Include="Data\NHibernate\UnitOfWork.cs" />
+    <Compile Include="Data\UnitOfWorkWebModule.cs" />
+    <Compile Include="Dependencies\Bindings\BaseRegisterTypeStrategy.cs" />
+    <Compile Include="Dependencies\Bindings\IBindingSyntax.cs" />
+    <Compile Include="Dependencies\Bindings\IPickingSyntax.cs" />
+    <Compile Include="Dependencies\IScope.cs" />
+    <Compile Include="Dependencies\IScopeFactory.cs" />
+    <Compile Include="Dependencies\IServiceLocator.cs" />
+    <Compile Include="Dependencies\AutoConfiguration.cs" />
+    <Compile Include="Configuration\Dependencies\DataConfiguration.cs" />
+    <Compile Include="Configuration\Dependencies\LoggingConfiguration.cs" />
+    <Compile Include="Configuration\Dependencies\ValidationConfiguration.cs" />
+    <Compile Include="Dependencies\IDependencyConfiguration.cs" />
+    <Compile Include="Dependencies\Bindings\ITypeRegistrationStrategy.cs" />
+    <Compile Include="Dependencies\Ninject\Scope.cs" />
+    <Compile Include="Dependencies\Ninject\ServiceLocator.cs" />
+    <Compile Include="Dependencies\Ninject\ScopeFactory.cs" />
+    <Compile Include="Dependencies\Bindings\RegisterTypeToFirstMatchStrategy.cs" />
+    <Compile Include="Dependencies\Bindings\RegisterTypeToSelfStrategy.cs" />
+    <Compile Include="Dependencies\ServiceLocator.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Log4Net\Logger.cs" />
+    <Compile Include="Presentation\Mvp\DataFinder.cs" />
+    <Compile Include="Presentation\Mvp\MasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\Mvp\Page.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\Mvp\UserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registry\BaseRegistry.cs" />
+    <Compile Include="Registry\HttpSessionStateAdapter.cs" />
+    <Compile Include="Registry\IRegistry.cs" />
+    <Compile Include="Registry\LocalRegistry.cs" />
+    <Compile Include="Registry\WebRequestRegistry.cs" />
+    <Compile Include="Registry\WebSessionRegistry.cs" />
+    <Compile Include="Validation\EmptyValidationResults.cs" />
+    <Compile Include="Validation\EnterpriseLibrary\ValdiationService.cs" />
+    <Compile Include="Validation\EnterpriseLibrary\ValidationResultsAdapter.cs" />
+    <Compile Include="Validation\IValidationResults.cs" />
+    <Compile Include="Validation\IValidationService.cs" />
+    <Compile Include="Validation\NHibernate\BaseValidationListener.cs" />
+    <Compile Include="Validation\NHibernate\PreInsertEventListener.cs" />
+    <Compile Include="Validation\NHibernate\PreUpdateEventListener.cs" />
+    <Compile Include="Validation\ValidationException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Configuration\Arc.snk">
+      <Link>Properties\Arc.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Arc.Domain\Arc.Domain.csproj">
+      <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
+      <Name>Arc.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

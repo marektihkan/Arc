@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Domain.Dsl.ActionExtensions">
+            <summary>
+            Extensions for actions.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ActionExtensions.When(System.Action,System.Boolean)">
+            <summary>
+            Executes specified action when condition is true.
+            </summary>
+            <param name="action">The action.</param>
+            <param name="condition">if set to <c>true</c> action is executed.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ActionExtensions.Unless(System.Action,System.Boolean)">
+            <summary>
+            Executes specified action when condition is false.
+            </summary>
+            <param name="action">The action.</param>
+            <param name="condition">if set to <c>false</c> action is executed.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ActionExtensions.On``1(System.Action,System.Action{``0})">
+            <summary>
+            On specified Exception it executes recovery action.
+            </summary>
+            <typeparam name="TException">The type of the exception.</typeparam>
+            <param name="action">The action.</param>
+            <param name="recovery">The recovery action.</param>
+        </member>
+        <member name="T:Arc.Domain.Dsl.Should">
+            <summary>
+            API for actions.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Should.Do(System.Action)">
+            <summary>
+            Does the specified action.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Domain.Identity.GuidIdentityEntity">
+            <summary>
+            GUID identity base for entities.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Identity.IEntity`1">
+            <summary>
+            Marker interface for entities.
+            </summary>
+            <typeparam name="TIdentity">The type of the identity.</typeparam>
+        </member>
+        <member name="T:Arc.Domain.Identity.IEntity">
+            <summary>
+            Marker interface for entities.
+            </summary>
+        </member>
+        <member name="P:Arc.Domain.Identity.IEntity`1.Id">
+            <summary>
+            Gets the entity's identity.
+            </summary>
+            <value>The identity.</value>
+        </member>
+        <member name="P:Arc.Domain.Identity.IEntity`1.IsTransient">
+            <summary>
+            Gets a value indicating whether this instance is transient.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is transient; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Domain.Identity.IVersioned">
+            <summary>
+            Entity versioning.
+            </summary>
+        </member>
+        <member name="P:Arc.Domain.Identity.IVersioned.Version">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.GuidIdentityEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.GuidIdentityEntity"/> class.
+            </summary>
+            <param name="identity">The identity.</param>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Identity.GuidIdentityEntity.Id">
+            <summary>
+            Gets the entity's identity.
+            </summary>
+            <value>The identity.</value>
+        </member>
+        <member name="P:Arc.Domain.Identity.GuidIdentityEntity.IsTransient">
+            <summary>
+            Gets a value indicating whether this instance is transient.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is transient; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Identity.GuidIdentityEntity.Version">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="T:Arc.Domain.Identity.IntegerIdentityEntity">
+            <summary>
+            Integer identity base for entities.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.IntegerIdentityEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.IntegerIdentityEntity"/> class.
+            </summary>
+            <param name="identity">The identity.</param>
+        </member>
+        <member name="P:Arc.Domain.Identity.IntegerIdentityEntity.Id">
+            <summary>
+            Gets the entity's identity.
+            </summary>
+            <value>The identity.</value>
+        </member>
+        <member name="P:Arc.Domain.Identity.IntegerIdentityEntity.IsTransient">
+            <summary>
+            Gets a value indicating whether this instance is transient.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is transient; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Identity.IntegerIdentityEntity.Version">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="T:Arc.Domain.Security.IPasswordGenerator">
+            <summary>
+            Service for password generation and computing hashes.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Security.IPasswordGenerator.Create(System.Int32)">
+            <summary>
+            Creates the password.
+            </summary>
+            <param name="length">The password length.</param>
+            <returns>Generated password.</returns>
+        </member>
+        <member name="M:Arc.Domain.Security.IPasswordGenerator.ComputeHash(System.String)">
+            <summary>
+            Computes the password hash.
+            </summary>
+            <param name="password">The password.</param>
+            <returns>Password hash.</returns>
+        </member>
+        <member name="T:Arc.Domain.Security.PasswordGenerator">
+            <summary>
+            Service for password generation and computing hashes.
+            <remarks>
+            Service uses MD5 for hashing and generatates password from safe letters.
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.Create(System.Int32)">
+            <summary>
+            Creates the password.
+            </summary>
+            <remarks>
+            It generates password from safe letters.
+            </remarks>
+            <param name="length">The length.</param>
+            <returns>Generated password.</returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.ComputeHash(System.String)">
+            <summary>
+            Computes the password hash.
+            </summary>
+            <remarks>
+            It uses MD5 for hashing. 
+            </remarks>
+            <param name="password">The password.</param>
+            <returns>Password hash.</returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.CreateCharacterList(System.Int32)">
+            <summary>
+            Creates random character list.
+            </summary>
+            <param name="length">The length of list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.ShuffleList(System.Collections.Generic.IList{System.Char})">
+            <summary>
+            Shuffles the list.
+            </summary>
+            <param name="list">The list.</param>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.GetRandomCharacters(System.Int32,System.Char[])">
+            <summary>
+            Gets the lis of random characters.
+            </summary>
+            <param name="count">The list count.</param>
+            <param name="characters">The characters list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.GetRandomNumber(System.Int32,System.Int32)">
+            <summary>
+            Creates the random.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.GetSeed">
+            <summary>
+            Gets the seed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Domain.Time.Clock">
+            <summary>
+            System clock.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Time.IClock">
+            <summary>
+            System clock.
+            </summary>
+        </member>
+        <member name="P:Arc.Domain.Time.IClock.Now">
+            <summary>
+            Gets the current date and time.
+            </summary>
+            <value>The current date and time.</value>
+        </member>
+        <member name="P:Arc.Domain.Time.IClock.Today">
+            <summary>
+            Gets the today's date.
+            </summary>
+            <value>The today's date.</value>
+        </member>
+        <member name="P:Arc.Domain.Time.Clock.Now">
+            <summary>
+            Gets the current date and time.
+            </summary>
+            <value>The current date and time.</value>
+        </member>
+        <member name="P:Arc.Domain.Time.Clock.Today">
+            <summary>
+            Gets the today's date.
+            </summary>
+            <value>The today's date.</value>
+        </member>
+        <member name="T:Arc.Domain.Units.DatePeriod">
+            <summary>
+            Time period for dates. 
+            Date part is only considered.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Units.Range`1">
+            <summary>
+            Range for compareble objects.
+            </summary>
+            <typeparam name="T">Compareble type</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Range`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Range`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The upper bound.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.#ctor(`0,System.Boolean,`0,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Range`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The upper bound.</param>
+            <param name="isUpperInclusive">if set to <c>true</c> upper bound is inclusive.</param>
+            <param name="isLowerInclusive">if set to <c>true</c> lower bound is inclusive.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.Contains(`0)">
+            <summary>
+            Determines whether the specified element contains in range.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            	<c>true</c> if the specified element contains in range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.Contains(Arc.Domain.Units.Range{`0})">
+            <summary>
+            Determines whether the specified range contains in this range.
+            </summary>
+            <param name="range">The range.</param>
+            <returns>
+            	<c>true</c> if the specified range contains in this range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Units.Range`1.Upper">
+            <summary>
+            Gets or sets the upper bound.
+            </summary>
+            <value>The upper bound.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Range`1.Lower">
+            <summary>
+            Gets or sets the lower bound.
+            </summary>
+            <value>The lower bound.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Range`1.IsUpperInclusive">
+            <summary>
+            Gets or sets a value indicating whether this instance is upper bound inclusive.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is upper bound inclusive; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Units.Range`1.IsLowerInclusive">
+            <summary>
+            Gets or sets a value indicating whether this instance is lower bound inclusive.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is lower bound inclusive; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Arc.Domain.Units.DatePeriod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.DatePeriod"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.DatePeriod.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.DatePeriod"/> class.
+            </summary>
+            <param name="lower">The lower bound. Beginning of date period.</param>
+            <param name="upper">The upper bound. End of date period.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.DatePeriod.#ctor(System.DateTime,System.Boolean,System.DateTime,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.DatePeriod"/> class.
+            </summary>
+            <param name="lower">The lower bound. Beginning of date period.</param>
+            <param name="upper">The upper bound. End of date period.</param>
+            <param name="isLowerInclusive">if set to <c>true</c> lower bound is inclusive.</param>
+            <param name="isUpperInclusive">if set to <c>true</c> upper bound is inclusive.</param>
+        </member>
+        <member name="P:Arc.Domain.Units.DatePeriod.Lower">
+            <summary>
+            Gets or sets beginning of date period. Considers only date part of time.
+            </summary>
+            <value>The beginning of date period.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.DatePeriod.Upper">
+            <summary>
+            Gets or sets the end of date period. Considers only date part of time.
+            </summary>
+            <value>The end of date period.</value>
+        </member>
+    </members>
+</doc>

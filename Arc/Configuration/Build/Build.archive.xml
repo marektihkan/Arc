@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Archive" default="Archive">
+
+  <!-- Main targets -->
+  <target name="Archive" 
+          description="Archives project"
+          depends="CreateDeployPackage,CopyToDropPath" />
+
+
+  <!-- Targets --> 
+  <target name="CreateDeployPackage" description="Creates deployment package">
+    
+    <mkdir dir="${build.deploy.packages.path}" verbose="${verbose}" />
+    
+    <zip zipfile="${build.deploy.packages.path}\${project.name}_${project.assembly_version}.zip">
+      <fileset basedir="${build.deploy.path}">
+        <include name="**/*" />
+      </fileset>
+    </zip>
+    
+  </target>
+
+  <target name="CopyToDropPath">
+
+    <if test="${directory::exists(property::get-value('deploy.packages.drop.path'))}">
+      
+      <echo message="Copying packages to drop path." />
+      
+      <copy todir="${deploy.packages.drop.path}" overwrite="true" verbose="${verbose}">
+        <fileset basedir="${build.deploy.path}/${build.package.dir}">
+          <include name="*.zip" />
+          <include name="*.rar" />
+        </fileset>
+      </copy>
+      
+    </if>
+    
+  </target>
+
+</project>

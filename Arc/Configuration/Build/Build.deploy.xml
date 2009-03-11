@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Deploy" default="Deploy">
+
+  <!-- Main targets -->
+  <target name="Deploy" 
+          description="Deploies project"
+          depends="CleanUpServer,DeployToServer" />
+  
+  <target name="FullDeploy"
+          description="Deploies project with schema"
+          depends="CleanUpServer,DeploySchema,CopyConfiguration,DeployToServer" />
+ 
+  <!-- Targets -->
+  <target name="DeployToServer">
+    
+    <mkdir dir="${deploy.drop.path}" verbose="${verbose}" />
+    
+    <copy todir="${deploy.drop.path}" overwrite="true" verbose="${verbose}">
+      <fileset basedir="${build.deploy.path}">
+        <include name="**/*" />
+        <exclude name="**/${build.package.dir}/*" />
+        <exclude name="**/${build.package.dir}/**/*" />
+      </fileset>
+    </copy>
+    
+  </target>
+
+  <target name="DeploySchema" description="Deploies project schema">
+    <property name="verbosity" value="quiet" />
+    <property name="verbosity" value="normal" if="${verbose}" />
+
+    <property name="deploy.schema.database.data.path.exists" value="${string::get-length(property::get-value('deploy.schema.database.data.path')) > 0}" />
+    <property name="deploy.schema.database.connection_string.exists" value="${string::get-length(property::get-value('deploy.schema.database.connection_string')) > 0}" />
+    <property name="deploy.schema.database.name.exists" value="${string::get-length(property::get-value('deploy.schema.database.name')) > 0}" />
+    <property name="deploy.schema.database.recreate" value="${string::get-length(property::get-value('deploy.schema.database.recreate')) > 0}" />
+
+    <exec program="${path.msbuild.console}">
+      <arg value="/target:Rebuild,Deploy" />
+      <arg value="/property:TargetDatabase=${deploy.schema.database.name}"
+			   if="${deploy.schema.database.name.exists}" />
+      <arg value='/property:TargetConnectionString="${deploy.schema.database.connection_string}"'
+			   if="${deploy.schema.database.connection_string.exists}" />
+      <arg value='/property:DefaultDataPath="${deploy.schema.database.data.path}"'
+			   if="${deploy.schema.database.data.path.exists}" />
+      <arg value="/property:AlwaysCreateNewDatabase=${deploy.schema.database.recreate}"
+         if="${deploy.schema.database.recreate}"/>
+      <arg value="/verbosity:${verbosity}" />
+      <arg value="/nologo" />
+      <arg path="${project.schema.path}/${project.schema}/${project.schema}.dbproj" />
+    </exec>
+
+  </target>
+
+  <target name="CopyConfiguration">
+    
+    <foreach item="String" delim=";" in="${project.publishable}" property="project.publishable.value">
+
+      <echo message="Configuring ${project.publishable.value}" />
+
+      <copy file="${project.config.path}\hibernate.cfg.deploy.xml" 
+            tofile="${build.deploy.path}\${project.publishable.value}\bin\hibernate.cfg.xml"
+            overwrite="true" />
+
+    </foreach>
+    
+  </target>
+
+  <target name="CleanUpServer">
+    
+    <delete verbose="${verbose}">
+      <fileset basedir="${deploy.drop.path}" >
+        <include name="**" />
+      </fileset>
+    </delete>
+    
+  </target>
+  
+</project>

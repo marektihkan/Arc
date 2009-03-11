@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A765671D-1D0A-4CFE-8993-2693DEB854E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arc.Unit.Tests</RootNamespace>
+    <AssemblyName>Arc.Unit.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Configuration\Arc.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=0.2.0.31362, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\AutoMapper\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Enterprise Library\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.5.0.2, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\RhinoMocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Configuration\Arc.snk">
+      <Link>Properties\Arc.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Source\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Domain\Dsl\ComparableTests.cs" />
+    <Compile Include="Domain\Dsl\DslTests.cs" />
+    <Compile Include="Domain\Dsl\LoopTests.cs" />
+    <Compile Include="Domain\Dsl\NullTests.cs" />
+    <Compile Include="Domain\Dsl\ParseTests.cs" />
+    <Compile Include="Domain\Dsl\Parsing\EmptyParsingResultTests.cs" />
+    <Compile Include="Domain\Dsl\Parsing\ParsingResultTests.cs" />
+    <Compile Include="Domain\Identity\GuidIdentityEntityTests.cs" />
+    <Compile Include="Domain\Identity\IntegerIdentityEntityTests.cs" />
+    <Compile Include="Domain\Specifications\SpecificationTests.cs" />
+    <Compile Include="Domain\Time\ClockTests.cs" />
+    <Compile Include="Domain\Units\CurrencyTests.cs" />
+    <Compile Include="Domain\Units\DatePeriodTests.cs" />
+    <Compile Include="Domain\Units\MoneyBagTests.cs" />
+    <Compile Include="Domain\Units\MoneyTests.cs" />
+    <Compile Include="Domain\Units\QuantityTests.cs" />
+    <Compile Include="Domain\Units\BaseRangeTests.cs" />
+    <Compile Include="Domain\Units\RangeTests.cs" />
+    <Compile Include="Fakes\Data\Repository.cs" />
+    <Compile Include="Fakes\Data\SpecificationConverterStaticTestValues.cs" />
+    <Compile Include="Fakes\DomainObject.cs" />
+    <Compile Include="Fakes\DomainObjectDto.cs" />
+    <Compile Include="Fakes\DummyException.cs" />
+    <Compile Include="Fakes\DummyReflection.cs" />
+    <Compile Include="Fakes\Entities\IService.cs" />
+    <Compile Include="Fakes\Entities\Person.cs" />
+    <Compile Include="Fakes\Entities\PersonDataContract.cs" />
+    <Compile Include="Fakes\Factories\GuidFactory.cs" />
+    <Compile Include="Fakes\Factories\MoneyFactory.cs" />
+    <Compile Include="Fakes\Identity\GuidIdentityEntityTester.cs" />
+    <Compile Include="Fakes\Identity\IntegerIdentityEntityTester.cs" />
+    <Compile Include="Fakes\Units\RangeTester.cs" />
+    <Compile Include="Infrastructure\Data\AliasTests.cs" />
+    <Compile Include="Infrastructure\Data\AssertCriteria.cs" />
+    <Compile Include="Infrastructure\Data\BaseRepositoryTests.cs" />
+    <Compile Include="Infrastructure\Data\CriteriaExamples.cs" />
+    <Compile Include="Infrastructure\Data\CriteriaTests.cs" />
+    <Compile Include="Infrastructure\Data\ObjectMapperExtensionsTests.cs" />
+    <Compile Include="Infrastructure\Data\RepositoryTests.cs" />
+    <Compile Include="Infrastructure\Data\SpecificationConverterTests.cs" />
+    <Compile Include="Fakes\Data\SpecificationConverterTestValues.cs" />
+    <Compile Include="Infrastructure\Data\TransactionTests.cs" />
+    <Compile Include="Infrastructure\Data\UnitOfWorkFactoryTests.cs" />
+    <Compile Include="Infrastructure\Data\UnitOfWorkTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\StaticServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Logging\LoggerTests.cs" />
+    <Compile Include="Infrastructure\Registry\LocalRegistryTests.cs" />
+    <Compile Include="Infrastructure\Validation\EmptyValidationResultsTests.cs" />
+    <Compile Include="Infrastructure\Validation\ValidationExceptionTests.cs" />
+    <Compile Include="Fakes\TestingStyles\ArrangeActAssertTester.cs" />
+    <Compile Include="Fakes\TestingStyles\BaseStyleTester.cs" />
+    <Compile Include="Fakes\TestingStyles\ContextSpecificationTester.cs" />
+    <Compile Include="Fakes\TestingStyles\GivenWhenThenTester.cs" />
+    <Compile Include="Testing\Styles\StyleTests.cs" />
+    <Compile Include="Testing\Utilities\AutoMockerTests.cs" />
+    <Compile Include="Testing\Utilities\DepencyRegistryTests.cs" />
+    <Compile Include="Testing\Utilities\ReflectionExtensionsTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
+      <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
+      <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
+      <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
+      <Name>Arc.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Testing\Arc.Testing.csproj">
+      <Project>{AE5D89CB-216B-443E-A858-5EBD3FC09024}</Project>
+      <Name>Arc.Testing</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Security\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

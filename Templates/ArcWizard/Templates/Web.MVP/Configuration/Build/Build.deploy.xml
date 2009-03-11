@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Deploy" default="Deploy">
+
+  <!-- Main targets -->
+  <target name="Deploy" 
+          description="Deploies project"
+          depends="CleanUpServer,DeployToServer" />
+ 
+  <!-- Targets -->
+  <target name="DeployToServer">
+    
+    <mkdir dir="${deploy.drop.path}" verbose="${verbose}" />
+    
+    <copy todir="${deploy.drop.path}" overwrite="true" verbose="${verbose}">
+      <fileset basedir="${build.deploy.path}">
+        <include name="**/*" />
+        <exclude name="**/${build.package.dir}/*" />
+        <exclude name="**/${build.package.dir}/**/*" />
+      </fileset>
+    </copy>
+    
+  </target>
+
+  <target name="CleanUpServer">
+    
+    <delete verbose="${verbose}">
+      <fileset basedir="${deploy.drop.path}" >
+        <include name="**" />
+      </fileset>
+    </delete>
+    
+  </target>
+  
+</project>

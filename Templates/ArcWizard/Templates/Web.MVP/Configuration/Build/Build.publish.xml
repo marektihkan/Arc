@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Publish" default="Publish">
+
+  <!-- Main target -->
+  <target name="Publish">
+
+    <foreach item="String" delim=";" in="${project.publishable.web}" property="project.publishable.value">
+
+      <echo message="Publishing ${project.publishable.value}" />
+
+      <exec program="${path.msbuild.console}">
+        <arg value="${project.source.path}/${project.publishable.value}/${project.publishable.value}.csproj" />
+        <arg value="/target:_CopyWebApplication" />
+        <arg value="/property:$safeprojectname$=${project.config}" />
+        <arg value='/property:OutDir="${build.deploy.path}\${project.publishable.value}\\"' />
+        <arg value='/property:WebProjectOutputDir="${build.deploy.path}\${project.publishable.value}\\"' />
+        <arg value="/verbosity:${verbosity}" />
+        <arg value="/nologo" />
+      </exec>
+
+      <copy todir="${build.deploy.path}\${project.publishable.value}">
+        <fileset basedir="${project.source.path}\${project.publishable.value}">
+          <include name="bin/*.xml" />
+          <include name="bin/*.dll" />
+        </fileset>
+      </copy>
+
+    </foreach>
+  </target>
+  
+</project>

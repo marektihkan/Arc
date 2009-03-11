@@ -1,0 +1,58 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ExternalLibraries</Name>
+    <Description>Arc application external libraries.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ExternalLibraries</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ExternalLibraries.csproj" File="ExternalLibraries.csproj">
+      <Folder Name="Arc" TargetFolderName="Arc">
+        <ProjectItem>Arc.Domain.dll</ProjectItem>
+        <ProjectItem>Arc.Domain.XML</ProjectItem>
+        <ProjectItem>Arc.Infrastructure.dll</ProjectItem>
+        <ProjectItem>Arc.Infrastructure.XML</ProjectItem>
+        <ProjectItem>Arc.Testing.dll</ProjectItem>
+        <ProjectItem>Arc.Testing.XML</ProjectItem>
+        <ProjectItem>Castle.Core.dll</ProjectItem>
+        <ProjectItem>Castle.Core.xml</ProjectItem>
+        <ProjectItem>Castle.DynamicProxy2.dll</ProjectItem>
+        <ProjectItem>Castle.DynamicProxy2.xml</ProjectItem>
+        <ProjectItem>Iesi.Collections.dll</ProjectItem>
+        <ProjectItem>Iesi.Collections.xml</ProjectItem>
+        <ProjectItem>log4net.dll</ProjectItem>
+        <ProjectItem>log4net.xml</ProjectItem>
+        <ProjectItem>Microsoft.Practices.EnterpriseLibrary.Common.dll</ProjectItem>
+        <ProjectItem>Microsoft.Practices.EnterpriseLibrary.Common.xml</ProjectItem>
+        <ProjectItem>Microsoft.Practices.EnterpriseLibrary.Validation.dll</ProjectItem>
+        <ProjectItem>Microsoft.Practices.EnterpriseLibrary.Validation.xml</ProjectItem>
+        <ProjectItem>Microsoft.Practices.ObjectBuilder2.dll</ProjectItem>
+        <ProjectItem>Microsoft.Practices.Unity.dll</ProjectItem>
+        <ProjectItem>NHibernate.dll</ProjectItem>
+        <ProjectItem>NHibernate.xml</ProjectItem>
+        <ProjectItem>Ninject.Core.dll</ProjectItem>
+        <ProjectItem>Ninject.Core.xml</ProjectItem>
+      </Folder>
+      <Folder Name="NUnit" TargetFolderName="NUnit">
+        <ProjectItem>nunit.framework.dll</ProjectItem>
+        <ProjectItem>nunit.framework.xml</ProjectItem>
+      </Folder>
+      <Folder Name="RhinoMocks" TargetFolderName="RhinoMocks">
+        <ProjectItem>Rhino.Mocks.dll</ProjectItem>
+        <ProjectItem>Rhino.Mocks.xml</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.ExternalLibrariesWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

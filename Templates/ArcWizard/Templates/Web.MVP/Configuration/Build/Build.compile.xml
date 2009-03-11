@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Compile" default="Compile">
+
+  <!-- Variables -->
+  <property name="project.assembly_version" value="${project.version}.0000" />
+  
+  <!-- Main target -->
+  <target name="Compile" 
+          description="Builds entire solution"
+          depends="Build,CopyAssemblies" />
+  
+  <!-- Targets -->
+  <target name="Build" depends="Prepare,Version">
+
+    <property name="verbosity" value="quiet" />
+    <property name="verbosity" value="normal" if="${verbose}" />
+
+    <property name="schema.database.data.path.exists" value="${string::get-length(property::get-value('schema.database.data.path')) > 0}" />
+    <property name="schema.database.connection_string.exists" value="${string::get-length(property::get-value('schema.database.connection_string')) > 0}" />
+    <property name="schema.database.name.exists" value="${string::get-length(property::get-value('schema.database.name')) > 0}" />
+
+    <exec program="${path.msbuild.console}">
+      <arg value="${project.root.path}/${project.name}.sln" />
+      <arg value="/property:$safeprojectname$=${project.config}" />
+      <arg value="/property:TargetDatabase=${schema.database.name}"
+           if="${schema.database.name.exists}" />
+      <arg value='/property:TargetConnectionString="${schema.database.connection_string}"'
+           if="${schema.database.connection_string.exists}" />
+      <arg value='/property:DefaultDataPath="${schema.database.data.path}"'
+           if="${schema.database.data.path.exists}" />
+      <arg value="/property:AlwaysCreateNewDatabase=${schema.database.recreate}" />
+      <arg value="/target:Rebuild" />
+      <arg value="/verbosity:${verbosity}" />
+      <arg value="/nologo" />
+    </exec>
+
+    <echo>[OK] Compiling solution.</echo>
+    
+  </target>
+
+  <target name="Version">
+
+    <property name="project.assembly_version" value="${project.version}.${project.label}" />
+
+    <echo message="Marking this build as version ${project.assembly_version}" />
+
+    <asminfo output="${project.source.path}/CommonAssemblyInfo.cs" language="CSharp">
+      <imports>
+        <import namespace="System" />
+        <import namespace="System.Reflection" />
+        <import namespace="System.Runtime.InteropServices" />
+      </imports>
+      <attributes>
+        <attribute type="ComVisibleAttribute" value="false" />
+        <attribute type="AssemblyVersionAttribute" value="${project.assembly_version}" />
+        <attribute type="AssemblyCopyrightAttribute" value="Copyright (c) ${datetime::get-year(datetime::now())}, ${project.author}" />
+        <attribute type="AssemblyProductAttribute" value="${project.name}" />
+        <attribute type="AssemblyCompanyAttribute" value="" />
+        <attribute type="AssemblyConfigurationAttribute" value="${project.config}" />
+        <attribute type="AssemblyInformationalVersionAttribute" value="${project.assembly_version}" />
+      </attributes>
+      <references>
+        <include name="System.dll" />
+      </references>
+    </asminfo>
+
+    <echo>[OK] Verioning build.</echo>
+  </target>
+
+  <target name="CopyAssemblies" depends="CopyBinaries, CopyTests" />
+
+  <target name="CopyBinaries">
+	  
+    <copy todir="${build.binary.path}" flatten="true" overwrite="true">
+      <fileset basedir="${project.source.path}">
+        <include name="**\bin\${project.config}\*.dll" />
+        <include name="**\bin\${project.config}\*.exe" />
+        <include name="**\bin\${project.config}\*.xml" />
+		    <include name="**\*Presentation*\bin\*.dll" />
+        <include name="**\*Presentation*\bin\*.xml" />
+      </fileset>
+    </copy>
+    
+    <copy todir="${build.binary.path}" overwrite="true">
+      <fileset basedir="${project.config.path}">
+        <include name="*.xml" />
+        <include name="*.config" />
+      </fileset>
+    </copy>
+
+    <echo>[OK] Copying binaries to build directory.</echo>
+  </target>
+  
+  <target name="CopyTests">
+	  
+    <copy todir="${build.tests.path}" flatten="true" overwrite="true">
+      <fileset basedir="${project.tests.path}">
+        <include name="**\bin\${project.config}\*.dll" />
+        <include name="**\bin\${project.config}\*.exe" />
+        <include name="**\bin\${project.config}\*.xml" />
+      </fileset>
+    </copy>
+
+    <copy todir="${build.tests.path}" overwrite="true">
+      <fileset basedir="${project.config.path}">
+        <include name="*.xml" />
+        <include name="*.config" />
+      </fileset>
+    </copy>
+
+    <echo>[OK] Copying test binaries to build directory.</echo>
+  </target>
+  
+</project>

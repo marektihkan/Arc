@@ -1,0 +1,39 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ArcApplication.Unit.Tests</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ArcApplication.Unit.Tests</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ArcApplication.Unit.Tests.csproj" File="ArcApplication.Unit.Tests.csproj" ReplaceParameters="true">
+      <Folder Name="Configuration" TargetFolderName="Configuration" />
+      <Folder Name="Core" TargetFolderName="Core" />
+      <Folder Name="Fakes" TargetFolderName="Fakes" />
+      <Folder Name="Presentation" TargetFolderName="Presentation">
+        <ProjectItem ReplaceParameters="true" TargetFileName="HomePresenterTests.cs">HomePresenterTests.cs</ProjectItem>
+        <Folder Name="Templates" TargetFolderName="Templates">
+          <ProjectItem ReplaceParameters="true" TargetFileName="SiteTemplatePresenterTests.cs">SiteTemplatePresenterTests.cs</ProjectItem>
+        </Folder>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Services" TargetFolderName="Services">
+        <Folder Name="Repositories" TargetFolderName="Repositories" />
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.TestProjectWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B847604A-22FD-4D91-B55F-960D3D189CCE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="Build\Build.analyze.xml" />
+    <Content Include="Build\Build.archive.xml" />
+    <Content Include="Build\Build.compile.xml" />
+    <Content Include="Build\Build.deploy.xml" />
+    <Content Include="Build\Build.documentation.xml" />
+    <Content Include="Build\Build.environment.xml" />
+    <Content Include="Build\Build.prepare.xml" />
+    <Content Include="Build\Build.publish.xml" />
+    <Content Include="Build\Build.schema.xml" />
+    <Content Include="Build\Build.settings.xml" />
+    <Content Include="Build\Build.test.xml" />
+    <Content Include="Build\Solution.NDepend.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Build\Build.local.xml.template" />
+    <None Include="Build\Default.build" />
+    <None Include="Build\Server.build" />
+    <None Include="Build\Solution.Documentation.shfb" />
+    <None Include="Build\Solution.FxCop" />
+    <None Include="hibernate.cfg.xml.template" />
+    <None Include="hibernate.cfg.xml" />
+  </ItemGroup>
+</Project>

@@ -31,18 +31,6 @@ namespace Arc.Unit.Tests.Testing.Styles
         }
 
         [Test]
-        public void All_styles_should_be_able_to_store_dependencies_by_type()
-        {
-            var target = new BaseStyleTester();
-            var expected = new Person();
-
-            target.MainSetup();
-            target.Dependencies.Register(expected);
-
-            Assert.That(target.Dependencies.Get<Person>(), Is.SameAs(expected));
-        }
-
-        [Test]
         public void All_styles_should_be_able_to_get_mocks_by_type()
         {
             var target = new BaseStyleTester();

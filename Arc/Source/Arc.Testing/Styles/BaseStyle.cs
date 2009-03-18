@@ -46,12 +46,6 @@ namespace Arc.Testing.Styles
         public TSystemUnderTest SUT { get; set; }
 
         /// <summary>
-        /// Gets or sets the dependencies.
-        /// </summary>
-        /// <value>The dependencies.</value>
-        public IDependencyRegistry Dependencies { get; set; }
-
-        /// <summary>
         /// Gets or sets the auto mocker.
         /// </summary>
         /// <value>The mockery.</value>
@@ -63,7 +57,6 @@ namespace Arc.Testing.Styles
         [SetUp]
         public void MainSetup()
         {
-            Dependencies = new DependencyRegistry();
             Mockery = new AutoMocker();
             ContextSetUp();
         }

@@ -62,10 +62,8 @@
     <Compile Include="Utilities\AutoMocker.cs" />
     <Compile Include="Styles\BaseStyle.cs" />
     <Compile Include="Styles\ContextSpecification.cs" />
-    <Compile Include="Utilities\DependencyRegistry.cs" />
     <Compile Include="Styles\GivenWhenThen.cs" />
     <Compile Include="Utilities\IAutoMocker.cs" />
-    <Compile Include="Utilities\IDependencyRegistry.cs" />
     <Compile Include="Utilities\ReflectionExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

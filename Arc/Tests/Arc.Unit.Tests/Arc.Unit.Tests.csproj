@@ -127,7 +127,6 @@
     <Compile Include="Fakes\TestingStyles\GivenWhenThenTester.cs" />
     <Compile Include="Testing\Styles\StyleTests.cs" />
     <Compile Include="Testing\Utilities\AutoMockerTests.cs" />
-    <Compile Include="Testing\Utilities\DepencyRegistryTests.cs" />
     <Compile Include="Testing\Utilities\ReflectionExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>

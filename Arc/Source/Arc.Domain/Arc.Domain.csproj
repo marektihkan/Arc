@@ -53,8 +53,10 @@
     <Compile Include="Dsl\Parsing\ParsingResult.cs" />
     <Compile Include="Dsl\Should.cs" />
     <Compile Include="Identity\GuidIdentityEntity.cs" />
+    <Compile Include="Identity\IDomainObject.cs" />
     <Compile Include="Identity\IEntity.cs" />
     <Compile Include="Identity\IntegerIdentityEntity.cs" />
+    <Compile Include="Identity\IValueObject.cs" />
     <Compile Include="Identity\IVersioned.cs" />
     <Compile Include="Security\IPasswordGenerator.cs" />
     <Compile Include="Security\PasswordGenerator.cs" />

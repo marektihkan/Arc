@@ -17,6 +17,15 @@ namespace Arc.Domain.Specifications
         public Expression<Func<T, bool>> Predicate { get; protected set; }
 
         /// <summary>
+        /// Builds the predicate from lambda expression and assigns it to Predicate.
+        /// </summary>
+        /// <param name="expression">The expression.</param>
+        protected void BuildPredicateFrom(Expression<Func<T, bool>> expression)
+        {
+            Predicate = expression;
+        }
+
+        /// <summary>
         /// Adds and operator to this and other.
         /// </summary>
         /// <param name="other">The other.</param>

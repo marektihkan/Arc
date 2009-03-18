@@ -1,5 +1,8 @@
+using System;
 using System.Linq;
+using System.Linq.Expressions;
 using Arc.Domain.Specifications;
+using Arc.Unit.Tests.Fakes.Specifications;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
@@ -72,6 +75,14 @@ namespace Arc.Unit.Tests.Domain.Specifications
             var expected = new Specification<string>(s => s.Contains("a"));
             var target = expected.Or(null);
             Assert.That(target, Is.SameAs(expected));
+        }
+
+        [Test]
+        public void Should_build_predicate_from_lambda()
+        {
+            var target = new TestSpecification<string>(x => string.IsNullOrEmpty(x));
+
+            Assert.That(target.Predicate, Is.SameAs(target.AddedExpression));
         }
 
     }

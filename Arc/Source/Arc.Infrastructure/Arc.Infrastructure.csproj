@@ -137,7 +137,6 @@
     <Compile Include="Dependencies\ServiceLocator.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Log4Net\Logger.cs" />
-    <Compile Include="Presentation\Mvp\DataFinder.cs" />
     <Compile Include="Presentation\Mvp\MasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

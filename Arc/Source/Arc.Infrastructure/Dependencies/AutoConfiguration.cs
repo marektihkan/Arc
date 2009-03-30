@@ -38,7 +38,7 @@ namespace Arc.Infrastructure.Dependencies
     /// <summary>
     /// Auto registration.
     /// </summary>
-    public class AutoConfiguration : IDependencyConfiguration, IBindingSyntax, IPickingSyntax
+    public class AutoConfiguration : IServiceLocatorModule<IServiceLocator>, IBindingSyntax, IPickingSyntax
     {
         private ITypeRegistrationStrategy _strategy;
         private readonly Assembly[] _assemblies;

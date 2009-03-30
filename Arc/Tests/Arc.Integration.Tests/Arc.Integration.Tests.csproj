@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Castle Windsor\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Castle Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\NHibernate\log4net.dll</HintPath>
@@ -76,10 +88,15 @@
     <Compile Include="Configuration\DataTestConfiguration.cs" />
     <Compile Include="Fakes\DependencyInjection\ConfigurationModule.cs" />
     <Compile Include="Fakes\DependencyInjection\DependencyConfiguration.cs" />
-    <Compile Include="Fakes\DependencyInjection\IParameterlessService.cs" />
-    <Compile Include="Fakes\DependencyInjection\IService.cs" />
-    <Compile Include="Fakes\DependencyInjection\ParameterlessServiceImpl.cs" />
-    <Compile Include="Fakes\DependencyInjection\ServiceImpl.cs" />
+    <Compile Include="Fakes\DependencyInjection\RegisterServicesConvention.cs" />
+    <Compile Include="Fakes\Model\Services\GenericServiceHostImpl.cs" />
+    <Compile Include="Fakes\Model\Services\GenericServiceImpl.cs" />
+    <Compile Include="Fakes\Model\Services\IGenericService.cs" />
+    <Compile Include="Fakes\Model\Services\IGenericServiceHost.cs" />
+    <Compile Include="Fakes\Model\Services\IParameterlessService.cs" />
+    <Compile Include="Fakes\Model\Services\IService.cs" />
+    <Compile Include="Fakes\Model\Services\ParameterlessServiceImpl.cs" />
+    <Compile Include="Fakes\Model\Services\ServiceImpl.cs" />
     <Compile Include="Fakes\Validation\DomainEntity.cs" />
     <Compile Include="Fakes\Presentation\Mvp\ITestPresenter.cs" />
     <Compile Include="Fakes\Presentation\Mvp\ITestView.cs" />
@@ -95,8 +112,11 @@
     </Compile>
     <Compile Include="Fakes\Validation\EntityFactory.cs" />
     <Compile Include="Infrastructure\Dependencies\AutoConfigurationTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\BaseServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\CastleWindsorServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\ScopeFactoryTests.cs" />
-    <Compile Include="Infrastructure\Dependencies\ServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\NinjectServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\StructureMapServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\MasterPageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\PageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\UserControlTests.cs" />
@@ -107,6 +127,26 @@
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj">
+      <Project>{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}</Project>
+      <Name>Arc.Infrastructure.Dependencies.CastleWindsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
+      <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>
+      <Name>Arc.Infrastructure.Dependencies.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.StructureMap\Arc.Infrastructure.Dependencies.StructureMap.csproj">
+      <Project>{DE37A51C-1BD2-4AE6-9CCA-EC3C5B93F5EE}</Project>
+      <Name>Arc.Infrastructure.Dependencies.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
+      <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
+      <Name>Arc.Infrastructure.Logging.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Validation.EnterpriseLibrary\Arc.Infrastructure.Validation.EnterpriseLibrary.csproj">
+      <Project>{4CE43D2B-4EF9-4097-8690-B8AFDD0F9170}</Project>
+      <Name>Arc.Infrastructure.Validation.EnterpriseLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>

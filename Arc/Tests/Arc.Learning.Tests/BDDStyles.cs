@@ -7,6 +7,7 @@ using Arc.Testing.Utilities;
 namespace Arc.Learning.Tests
 {
     [TestFixture]
+    [Description("")]
     public class When_person_should_do_something : ContextSpecification<Person>
     {
         public override void Context()
@@ -14,7 +15,6 @@ namespace Arc.Learning.Tests
             SUT = new Person { DomainService = Mockery.Get<IDomainService>() };
         }
 
-        [Description("")]
         public override void Because()
         {
             SUT.DoSomething();

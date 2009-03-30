@@ -1,4 +1,4 @@
-namespace Arc.Integration.Tests.Fakes.DependencyInjection
+namespace Arc.Integration.Tests.Fakes.Model.Services
 {
     public interface IService
     {

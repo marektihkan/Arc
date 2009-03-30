@@ -1,4 +1,4 @@
-using Arc.Infrastructure.Dependencies;
+using Arc.Infrastructure.Configuration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Presentation.Mvp;
 using NUnit.Framework;
@@ -19,8 +19,11 @@ namespace Arc.Integration.Tests.Infrastructure.Presentation.Mvp
         [Test]
         public void Should_inject_presenter_to_view_and_hookup_events()
         {
-            ServiceLocator.Load(ConfigurationModule.ValidModuleName);
+            var serviceLocator = new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator();
 
+            Configure.ServiceLocator.ProviderTo(serviceLocator)
+                .With(new DependencyConfiguration());
+            
             var target = CreateSUT();
 
             target.Initialize();

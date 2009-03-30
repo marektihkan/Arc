@@ -53,11 +53,11 @@ namespace Arc.Infrastructure.Dependencies.Bindings
         {
             if (Scope != null)
             {
-                locator.Register(service, implementation, Scope);
+                locator.Configuration.Register(service, implementation, Scope);
             }
             else
             {
-                locator.Register(service, implementation);
+                locator.Configuration.Register(service, implementation);
             }
         }
     }

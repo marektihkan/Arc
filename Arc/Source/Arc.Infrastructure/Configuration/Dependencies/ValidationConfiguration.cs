@@ -29,7 +29,7 @@
 #endregion
 
 using Arc.Infrastructure.Validation;
-using Arc.Infrastructure.Validation.EnterpriseLibrary;
+//using Arc.Infrastructure.Validation.EnterpriseLibrary;
 using Ninject.Core;
 
 namespace Arc.Infrastructure.Configuration.Dependencies
@@ -44,7 +44,7 @@ namespace Arc.Infrastructure.Configuration.Dependencies
         /// </summary>
         public override void Load()
         {
-            Bind<IValidationService>().To<ValidationService>();            
+            //Bind<IValidationService>().To<ValidationService>();            
         }
     }
 }

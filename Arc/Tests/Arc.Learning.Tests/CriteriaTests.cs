@@ -34,7 +34,7 @@ namespace Arc.Learning.Tests
         public void Should_create_citeria()
         {
             Bootstrapper.Configure();
-            ServiceLocator.Load(typeof(DataTestConfiguration).FullName + ", Arc.Learning.Tests");
+            ServiceLocator.Configuration.Load(typeof(DataTestConfiguration).FullName + ", Arc.Learning.Tests");
 
             var repository = ServiceLocator.Resolve<IRepository<Dummy>>();
 

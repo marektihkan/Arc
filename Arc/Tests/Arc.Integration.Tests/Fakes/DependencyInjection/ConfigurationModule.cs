@@ -1,3 +1,4 @@
+using Arc.Integration.Tests.Fakes.Model.Services;
 using Arc.Integration.Tests.Fakes.Presentation.Mvp;
 using Ninject.Core;
 

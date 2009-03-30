@@ -81,6 +81,7 @@
     <Compile Include="Domain\Identity\GuidIdentityEntityTests.cs" />
     <Compile Include="Domain\Identity\IntegerIdentityEntityTests.cs" />
     <Compile Include="Domain\Specifications\SpecificationTests.cs" />
+    <Compile Include="Fakes\Entities\ServiceImpl.cs" />
     <Compile Include="Fakes\Specifications\TestSpecification.cs" />
     <Compile Include="Domain\Time\ClockTests.cs" />
     <Compile Include="Domain\Units\CurrencyTests.cs" />
@@ -119,6 +120,8 @@
     <Compile Include="Infrastructure\Dependencies\StaticServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Logging\LoggerTests.cs" />
     <Compile Include="Infrastructure\Registry\LocalRegistryTests.cs" />
+    <Compile Include="Infrastructure\Utilities\FindTests.cs" />
+    <Compile Include="Infrastructure\Utilities\ResolveProviderTests.cs" />
     <Compile Include="Infrastructure\Validation\EmptyValidationResultsTests.cs" />
     <Compile Include="Infrastructure\Validation\ValidationExceptionTests.cs" />
     <Compile Include="Fakes\TestingStyles\ArrangeActAssertTester.cs" />
@@ -133,6 +136,14 @@
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
+      <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>
+      <Name>Arc.Infrastructure.Dependencies.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
+      <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
+      <Name>Arc.Infrastructure.Logging.Log4Net</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>

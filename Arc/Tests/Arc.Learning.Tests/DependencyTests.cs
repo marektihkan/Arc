@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Arc.Domain.Specifications;
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Data.NHibernate;
 using Arc.Infrastructure.Dependencies;
@@ -17,23 +18,25 @@ namespace Arc.Learning.Tests
         [Test]
         public void TEST_NAME()
         {
-            ServiceLocator.Register<IService, Service>(ServiceLocator.Scopes.Singleton);
-            ServiceLocator.Register<IService, Service>();
+            Configure.ServiceLocator.ProviderTo("Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator, Arc.Infrastructure.Dependencies.CastleWindsor");
 
-            ServiceLocator.Register(typeof(IRepository<>), typeof(Repository<>));
-            ServiceLocator.Register<IRepository<DomainEntity>, DomainEntityRepository>();
-            ServiceLocator.Register<IDomainRepository, DomainRepository>();
-            ServiceLocator.Register<IDomain2Repository, Domain2Repository>();
+            //ServiceLocator.Configuration.Register<IService, Service>(ServiceLocator.Scopes.Singleton);
+            ServiceLocator.Configuration.Register<IService, Service>();
+
+            ServiceLocator.Configuration.Register(typeof(IRepository<>), typeof(Repository<>));
+            ServiceLocator.Configuration.Register<IRepository<DomainEntity>, DomainEntityRepository>();
+            ServiceLocator.Configuration.Register<IDomainRepository, DomainRepository>();
+            ServiceLocator.Configuration.Register<IDomain2Repository, Domain2Repository>();
 
             var actuals = ServiceLocator.Resolve<IService>();
-//            var actual = ServiceLocator.Resolve<IDomainRepository>();
-//
-//            Assert.That(actual, Is.Not.Null);
-//            Assert.That(actual.Repository, Is.Not.Null);
-//            Assert.That(actual.Repository, Is.InstanceOfType(typeof(DomainEntityRepository)));
+            var actual = ServiceLocator.Resolve<IDomainRepository>();
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.Repository, Is.Not.Null);
+            Assert.That(actual.Repository, Is.InstanceOfType(typeof(DomainEntityRepository)));
 
 //            var actual2 = ServiceLocator.Resolve<IDomain2Repository>();
-//
+//            
 //            Assert.That(actual2, Is.Not.Null);
 //            Assert.That(actual2.Repository, Is.Not.Null);
 //            Assert.That(actual2.Repository, Is.InstanceOfType(typeof(IRepository<Domain2Entity>)));
@@ -49,12 +52,12 @@ namespace Arc.Learning.Tests
         }
     }
 
-    internal interface IDomainRepository
+    public interface IDomainRepository
     {
         IRepository<DomainEntity> Repository { get; set; }
     }
 
-    internal class DomainRepository : IDomainRepository
+    public class DomainRepository : IDomainRepository
     {
         public DomainRepository(IRepository<DomainEntity> repository)
         {
@@ -65,12 +68,12 @@ namespace Arc.Learning.Tests
 
     }
 
-    internal interface IDomain2Repository
+    public interface IDomain2Repository
     {
         IRepository<Domain2Entity> Repository { get; set; }
     }
 
-    internal class Domain2Repository : IDomain2Repository
+    public class Domain2Repository : IDomain2Repository
     {
         public Domain2Repository(IRepository<Domain2Entity> repository)
         {
@@ -81,15 +84,15 @@ namespace Arc.Learning.Tests
 
     }
 
-    internal class Domain2Entity
+    public class Domain2Entity
     {
     }
 
-    internal class DomainEntity
+    public class DomainEntity
     {
     }
 
-    internal class DomainEntityRepository : IRepository<DomainEntity>
+    public class DomainEntityRepository : IRepository<DomainEntity>
     {
         public DomainEntity GetEntityById(object identity)
         {

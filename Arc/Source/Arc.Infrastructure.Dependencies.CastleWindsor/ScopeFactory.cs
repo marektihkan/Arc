@@ -28,17 +28,49 @@
 
 #endregion
 
-namespace Arc.Infrastructure.Dependencies
+using Castle.Core;
+
+namespace Arc.Infrastructure.Dependencies.CastleWindsor
 {
     /// <summary>
-    /// Configuration module for dependencies.
+    /// Scope factory for Ninject.
     /// </summary>
-    public interface IDependencyConfiguration
+    public class ScopeFactory : IScopeFactory
     {
         /// <summary>
-        /// Configures the specified locator.
+        /// Gets the transient scope.
         /// </summary>
-        /// <param name="locator">The service locator.</param>
-        void Configure(IServiceLocator locator);
+        /// <value>The transient scope.</value>
+        public IScope Transient
+        {
+            get { return new Scope(LifestyleType.Transient); }
+        }
+
+        /// <summary>
+        /// Gets the one per request scope.
+        /// </summary>
+        /// <value>The one per request scope.</value>
+        public IScope OnePerRequest
+        {
+            get { return new Scope(LifestyleType.PerWebRequest); }
+        }
+
+        /// <summary>
+        /// Gets the one per thread scope.
+        /// </summary>
+        /// <value>The one per thread scope.</value>
+        public IScope OnePerThread
+        {
+            get { return new Scope(LifestyleType.Thread); }
+        }
+
+        /// <summary>
+        /// Gets the singleton scope.
+        /// </summary>
+        /// <value>The singleton scope.</value>
+        public IScope Singleton
+        {
+            get { return new Scope(LifestyleType.Singleton); }
+        }
     }
 }

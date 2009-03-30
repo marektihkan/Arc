@@ -1,6 +1,6 @@
-namespace Arc.Integration.Tests.Fakes.DependencyInjection
+namespace Arc.Integration.Tests.Fakes.Model.Services
 {
-    internal class ServiceImpl : IService
+    public class ServiceImpl : IService
     {
         private readonly IParameterlessService _dependency;
 

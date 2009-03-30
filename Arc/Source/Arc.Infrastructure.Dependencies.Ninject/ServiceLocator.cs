@@ -29,18 +29,17 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Utilities;
 using Ninject.Core;
 using Ninject.Core.Behavior;
-using Ninject.Core.Parameters;
 
 namespace Arc.Infrastructure.Dependencies.Ninject
 {
     /// <summary>
     /// Ninject adapter for service locator.
     /// </summary>
-    public class ServiceLocator : IServiceLocator
+    public class ServiceLocator : IServiceLocator, IServiceLocatorConfiguration
     {
-        private readonly IKernel _kernel;
         private readonly IScopeFactory _scopeFactory = new ScopeFactory();
 
 
@@ -57,14 +56,11 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// <param name="kernel">The kernel.</param>
         public ServiceLocator(IKernel kernel)
         {
-            _kernel = kernel;
+            Kernel = kernel;
         }
 
 
-        private IKernel Kernel
-        {
-            get { return _kernel; }
-        }
+        private IKernel Kernel { get; set; }
 
         /// <summary>
         /// Gets the scope factory.
@@ -75,29 +71,34 @@ namespace Arc.Infrastructure.Dependencies.Ninject
             get { return _scopeFactory; }
         }
 
+        /// <summary>
+        /// Gets the service locator's configuration.
+        /// </summary>
+        /// <value>The configuration.</value>
+        public IServiceLocatorConfiguration Configuration
+        {
+            get { return this; }
+        }
+
 
         /// <summary>
         /// Loads the specified module by name.
+        /// Module should implement Ninject.IModule interface.
         /// </summary>
         /// <param name="moduleName">Name of the module.</param>
         /// <exception cref="ArgumentException">moduleName</exception>
         public void Load(string moduleName)
         {
-            var moduleType = Type.GetType(moduleName);
-            if (moduleType == null)
-                throw new ArgumentException("Named type (" + moduleName + ") is not found.", "moduleName");
-
-            if (moduleType.GetInterface(typeof(IModule).FullName) != null)
-            {
-                var configuration = (IModule)Activator.CreateInstance(moduleType);
+            var moduleType = Find.TypeWithInterface<IModule>(moduleName);
+            var configuration = ResolveProvider<IModule>.WithRealType(moduleType);
                 
-                if (!Kernel.Components.ModuleManager.IsLoaded(configuration))
-                    Kernel.Load(configuration);
-            }
+            if (!Kernel.Components.ModuleManager.IsLoaded(configuration))
+                Kernel.Load(configuration);
         }
 
         /// <summary>
         /// Loads the specified modules by name.
+        /// Module should implement Ninject.IModule interface.
         /// </summary>
         /// <param name="moduleNames">The module names.</param>
         public void Load(params string[] moduleNames)
@@ -112,7 +113,7 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// Loads the specified configuration.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
-        public void Load(IDependencyConfiguration configuration)
+        public void Load(IServiceLocatorModule<IServiceLocator> configuration)
         {
             configuration.Configure(this);
         }
@@ -191,27 +192,25 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         }
 
         /// <summary>
-        /// Resolves the service with specified dependency.
+        /// Resolves the specified parameters.
         /// </summary>
         /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <param name="name">The dependency name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>Requested service.</returns>
-        public TService ResolveWith<TService>(string name, object value)
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public TService Resolve<TService>(IParameters parameters)
         {
-            return (TService)ResolveWith(typeof(TService), name, value);
+            return (TService) Resolve(typeof(TService), parameters);
         }
 
         /// <summary>
-        /// Resolves the service with specified dependency.
+        /// Resolves service with specified parameters.
         /// </summary>
-        /// <param name="type">The type of the service.</param>
-        /// <param name="name">The dependency name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>Requested service.</returns>
-        public object ResolveWith(Type type, string name, object value)
+        /// <param name="service">The service.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public object Resolve(Type service, IParameters parameters)
         {
-            return Kernel.Get(type, With.Parameters.ConstructorArgument(name, value));
+            return Kernel.Get(service, global::Ninject.Core.Parameters.With.Parameters.ConstructorArguments(parameters.GetArguments()));
         }
 
         /// <summary>
@@ -238,7 +237,7 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
         protected virtual void Dispose(bool disposeAll)
         {
-            _kernel.Dispose();   
+            Kernel.Dispose();   
         }
     }
 }

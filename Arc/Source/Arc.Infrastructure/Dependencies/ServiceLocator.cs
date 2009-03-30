@@ -34,11 +34,10 @@ namespace Arc.Infrastructure.Dependencies
 {
     /// <summary>
     /// Locates services by type. 
-    /// This class is wrapper class for Ninject dependency inversion container.
     /// </summary>
     public static class ServiceLocator
     {
-        private static IServiceLocator _locator = new Ninject.ServiceLocator();
+        private static IServiceLocator _locator;
 
         /// <summary>
         /// Gets or sets the inner service locator.
@@ -59,74 +58,13 @@ namespace Arc.Infrastructure.Dependencies
             get { return InnerServiceLocator.Scopes; }
         }
 
-
         /// <summary>
-        /// Loads the specified module by name.
+        /// Gets the service locator's configuration.
         /// </summary>
-        /// <param name="moduleName">Name of the module.</param>
-        public static void Load(string moduleName)
+        /// <value>The configuration.</value>
+        public static IServiceLocatorConfiguration Configuration
         {
-            InnerServiceLocator.Load(moduleName);
-        }
-
-        /// <summary>
-        /// Loads the specified modules by name.
-        /// </summary>
-        /// <param name="moduleNames">The module names.</param>
-        public static void Load(params string[] moduleNames)
-        {
-            InnerServiceLocator.Load(moduleNames);
-        }
-
-        /// <summary>
-        /// Loads the specified configuration.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        public static void Load(IDependencyConfiguration configuration)
-        {
-            InnerServiceLocator.Load(configuration);
-        }
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        public static void Register<TService, TImplementation>() where TImplementation : TService
-        {
-            InnerServiceLocator.Register<TService, TImplementation>();
-        }
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        /// <param name="scope">The scope.</param>
-        public static void Register<TService, TImplementation>(IScope scope) where TImplementation : TService
-        {
-            InnerServiceLocator.Register<TService, TImplementation>(scope);
-        }
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        public static void Register(Type service, Type implementation)
-        {
-            InnerServiceLocator.Register(service, implementation);
-        }
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        /// <param name="scope">The scope.</param>
-        public static void Register(Type service, Type implementation, IScope scope)
-        {
-            InnerServiceLocator.Register(service, implementation, scope);
+            get { return InnerServiceLocator.Configuration; }
         }
 
         /// <summary>
@@ -150,36 +88,37 @@ namespace Arc.Infrastructure.Dependencies
         }
 
         /// <summary>
-        /// Resolves the service with specified dependency.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <param name="name">The dependency name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>Requested service.</returns>
-        public static TService ResolveWith<TService>(string name, object value)
-        {
-            return InnerServiceLocator.ResolveWith<TService>(name, value);
-        }
-
-        /// <summary>
-        /// Resolves the service with specified dependency.
-        /// </summary>
-        /// <param name="type">The type of the service.</param>
-        /// <param name="name">The dependency name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>Requested service.</returns>
-        public static object ResolveWith(Type type, string name, object value)
-        {
-            return InnerServiceLocator.ResolveWith(type, name, value);
-        }
-
-        /// <summary>
         /// Releases the specified object.
         /// </summary>
         /// <param name="releasable">The releasable object.</param>
         public static void Release(object releasable)
         {
             InnerServiceLocator.Release(releasable);
+        }
+
+        /// <summary>
+        /// Resolves service with the specified parameters.
+        /// <code>
+        /// serviceLocator.Resolve<IService>(With.Parameters.ConstructorArgument("name", value));
+        /// </code>
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public static TService Resolve<TService>(IParameters parameters)
+        {
+            return InnerServiceLocator.Resolve<TService>(parameters);   
+        }
+
+        /// <summary>
+        /// Resolves service with specified parameters.
+        /// </summary>
+        /// <param name="service">The service.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        public static object Resolve(Type service, IParameters parameters)
+        {
+            return InnerServiceLocator.Resolve(service, parameters);   
         }
     }
 }

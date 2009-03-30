@@ -52,7 +52,7 @@ namespace Arc.Infrastructure.Configuration
         /// </summary>
         public static void ConfigureData()
         {
-            ServiceLocator.Load("Arc.Infrastructure.Configuration.Dependencies.DataConfiguration, Arc.Infrastructure");
+            ServiceLocator.Configuration.Load("Arc.Infrastructure.Configuration.Dependencies.DataConfiguration, Arc.Infrastructure");
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Arc.Infrastructure.Configuration
         /// </summary>
         public static void ConfigureLogging()
         {
-            ServiceLocator.Load("Arc.Infrastructure.Configuration.Dependencies.LoggingConfiguration, Arc.Infrastructure");
+            ServiceLocator.Configuration.Load("Arc.Infrastructure.Configuration.Dependencies.LoggingConfiguration, Arc.Infrastructure");
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Arc.Infrastructure.Configuration
         /// </summary>
         public static void ConfigureValidation()
         {
-            ServiceLocator.Load("Arc.Infrastructure.Configuration.Dependencies.ValidationConfiguration, Arc.Infrastructure");
+            ServiceLocator.Configuration.Load("Arc.Infrastructure.Configuration.Dependencies.ValidationConfiguration, Arc.Infrastructure");
         }
     }
 }

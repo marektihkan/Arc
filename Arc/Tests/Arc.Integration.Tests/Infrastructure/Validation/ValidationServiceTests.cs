@@ -13,7 +13,9 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            Bootstrapper.ConfigureValidation();
+            Configure.ServiceLocator.ProviderTo(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
+                .And.Logging.IsNotUsed()
+                .And.Validation.ProviderTo<Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService>();
         }
 
         private IValidationService CreateSUT()

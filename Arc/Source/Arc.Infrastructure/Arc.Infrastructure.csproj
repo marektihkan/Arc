@@ -46,18 +46,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\NHibernate\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\External Libraries\NHibernate\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\External Libraries\Enterprise Library\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\External Libraries\Enterprise Library\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\NHibernate\NHibernate.dll</HintPath>
@@ -79,6 +67,24 @@
     </Compile>
     <Compile Include="Configuration\ArcApplication.cs" />
     <Compile Include="Configuration\Bootstrapper.cs" />
+    <Compile Include="Configuration\Configure.cs" />
+    <Compile Include="Configuration\Dependencies\IConvention.cs" />
+    <Compile Include="Dependencies\Conventions\BaseConvention.cs" />
+    <Compile Include="Utilities\Find.cs" />
+    <Compile Include="Configuration\Syntax\IConfigureLoggingSyntax.cs" />
+    <Compile Include="Configuration\Syntax\IConfigureValidationSyntax.cs" />
+    <Compile Include="Utilities\ResolveProvider.cs" />
+    <Compile Include="Configuration\Syntax\ILoggingProviderConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\ILoggingConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\IServiceLocatorConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\IServiceLocatorConfigurationAware.cs" />
+    <Compile Include="Configuration\Syntax\IServiceLocatorProviderConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\IToLoggingConfigurationSyntax.cs" />
+    <Compile Include="Configuration\Syntax\IToValidationConfigurationSyntax.cs" />
+    <Compile Include="Configuration\Syntax\IValidationProviderConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\LoggingProviderConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\ServiceLocatorProviderConfiguration.cs" />
+    <Compile Include="Configuration\Syntax\ValidationProviderConfiguration.cs" />
     <Compile Include="Data\FluentCriteria\Alias.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\FluentCriteria\AliasImpl.cs" />
@@ -120,6 +126,7 @@
     <Compile Include="Dependencies\Bindings\BaseRegisterTypeStrategy.cs" />
     <Compile Include="Dependencies\Bindings\IBindingSyntax.cs" />
     <Compile Include="Dependencies\Bindings\IPickingSyntax.cs" />
+    <Compile Include="Dependencies\IParameters.cs" />
     <Compile Include="Dependencies\IScope.cs" />
     <Compile Include="Dependencies\IScopeFactory.cs" />
     <Compile Include="Dependencies\IServiceLocator.cs" />
@@ -127,16 +134,16 @@
     <Compile Include="Configuration\Dependencies\DataConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\LoggingConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\ValidationConfiguration.cs" />
-    <Compile Include="Dependencies\IDependencyConfiguration.cs" />
+    <Compile Include="Dependencies\IServiceLocatorModule.cs" />
     <Compile Include="Dependencies\Bindings\ITypeRegistrationStrategy.cs" />
-    <Compile Include="Dependencies\Ninject\Scope.cs" />
-    <Compile Include="Dependencies\Ninject\ServiceLocator.cs" />
-    <Compile Include="Dependencies\Ninject\ScopeFactory.cs" />
     <Compile Include="Dependencies\Bindings\RegisterTypeToFirstMatchStrategy.cs" />
     <Compile Include="Dependencies\Bindings\RegisterTypeToSelfStrategy.cs" />
+    <Compile Include="Dependencies\IServiceLocatorConfiguration.cs" />
+    <Compile Include="Dependencies\Parameters.cs" />
     <Compile Include="Dependencies\ServiceLocator.cs" />
+    <Compile Include="Dependencies\With.cs" />
     <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\Log4Net\Logger.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Presentation\Mvp\MasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -153,13 +160,12 @@
     <Compile Include="Registry\WebRequestRegistry.cs" />
     <Compile Include="Registry\WebSessionRegistry.cs" />
     <Compile Include="Validation\EmptyValidationResults.cs" />
-    <Compile Include="Validation\EnterpriseLibrary\ValdiationService.cs" />
-    <Compile Include="Validation\EnterpriseLibrary\ValidationResultsAdapter.cs" />
     <Compile Include="Validation\IValidationResults.cs" />
     <Compile Include="Validation\IValidationService.cs" />
     <Compile Include="Validation\NHibernate\BaseValidationListener.cs" />
     <Compile Include="Validation\NHibernate\PreInsertEventListener.cs" />
     <Compile Include="Validation\NHibernate\PreUpdateEventListener.cs" />
+    <Compile Include="Validation\NullValidationService.cs" />
     <Compile Include="Validation\ValidationException.cs" />
   </ItemGroup>
   <ItemGroup>

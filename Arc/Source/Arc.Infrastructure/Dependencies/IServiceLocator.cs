@@ -38,52 +38,16 @@ namespace Arc.Infrastructure.Dependencies
     public interface IServiceLocator : IDisposable
     {
         /// <summary>
-        /// Loads the specified module by name.
+        /// Gets the scope factory.
         /// </summary>
-        /// <param name="moduleName">Name of the module.</param>
-        void Load(string moduleName);
+        /// <value>The scope factory.</value>
+        IScopeFactory Scopes { get; }
 
         /// <summary>
-        /// Loads the specified modules by name.
+        /// Gets the service locator's configuration.
         /// </summary>
-        /// <param name="moduleNames">The module names.</param>
-        void Load(params string[] moduleNames);
-
-        /// <summary>
-        /// Loads the specified configuration.
-        /// </summary>
-        /// <param name="configuration">The configuration.</param>
-        void Load(IDependencyConfiguration configuration);
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        void Register<TService, TImplementation>(); //where TImplementation : TService; NOTE: It can't be mocked because of System.Reflection.Emit bug
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        /// <param name="scope">The scope.</param>
-        void Register<TService, TImplementation>(IScope scope); //where TImplementation : TService; NOTE: It can't be mocked because of System.Reflection.Emit bug
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        void Register(Type service, Type implementation);
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        /// <param name="scope">The scope.</param>
-        void Register(Type service, Type implementation, IScope scope);
+        /// <value>The configuration.</value>
+        IServiceLocatorConfiguration Configuration { get; }
 
         /// <summary>
         /// Resolves requested service.
@@ -100,28 +64,23 @@ namespace Arc.Infrastructure.Dependencies
         object Resolve(Type type);
 
         /// <summary>
-        /// Resolves the service with specified dependency.
+        /// Resolves service with the specified parameters.
+        /// <code>
+        /// serviceLocator.Resolve<IService>(With.Parameters.ConstructorArgument("name", value));
+        /// </code>
         /// </summary>
         /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <param name="name">The dependency name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>Requested service.</returns>
-        TService ResolveWith<TService>(string name, object value);
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        TService Resolve<TService>(IParameters parameters);
 
         /// <summary>
-        /// Resolves the service with specified dependency.
+        /// Resolves service with specified parameters.
         /// </summary>
-        /// <param name="type">The type of the service.</param>
-        /// <param name="name">The dependency name.</param>
-        /// <param name="value">The value.</param>
-        /// <returns>Requested service.</returns>
-        object ResolveWith(Type type, string name, object value);
-
-        /// <summary>
-        /// Gets the scope factory.
-        /// </summary>
-        /// <value>The scope factory.</value>
-        IScopeFactory Scopes { get; }
+        /// <param name="service">The service.</param>
+        /// <param name="parameters">The parameters.</param>
+        /// <returns></returns>
+        object Resolve(Type service, IParameters parameters);
 
         /// <summary>
         /// Releases the specified object.

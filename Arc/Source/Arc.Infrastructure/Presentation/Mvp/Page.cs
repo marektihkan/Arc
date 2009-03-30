@@ -56,7 +56,7 @@ namespace Arc.Infrastructure.Presentation.Mvp
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            Presenter = ServiceLocator.ResolveWith<TPresenter>("view", this);
+            Presenter = ServiceLocator.Resolve<TPresenter>(With.Parameters.ConstructorArgument("view", this));
             HookupEventHandlers();
         }
 

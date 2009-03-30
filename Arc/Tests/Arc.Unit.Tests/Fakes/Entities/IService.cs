@@ -4,11 +4,4 @@ namespace Arc.Unit.Tests.Fakes.Entities
     {
         void DoSomething();
     }
-
-    class ServiceImpl : IService
-    {
-        public void DoSomething()
-        {
-        }
-    }
 }

@@ -29,8 +29,7 @@
 #endregion
 
 using Arc.Infrastructure.Logging;
-using Arc.Infrastructure.Logging.Log4Net;
-using log4net;
+//pusing log4net;
 using Ninject.Core;
 using Ninject.Core.Behavior;
 
@@ -46,11 +45,11 @@ namespace Arc.Infrastructure.Configuration.Dependencies
         /// </summary>
         public override void Load()
         {
-            Bind<ILog>()
+            /*Bind<ILog>()
                 .ToMethod(x => LogManager.GetLogger("Default"))
-                .Using<SingletonBehavior>();
+                .Using<SingletonBehavior>();*/
 
-            Bind<ILogger>().To<Logger>();            
+            //Bind<ILogger>().To<Logger>();            
         }
     }
 }

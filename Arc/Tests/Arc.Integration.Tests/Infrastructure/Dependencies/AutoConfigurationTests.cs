@@ -1,5 +1,5 @@
 using Arc.Infrastructure.Dependencies;
-using Arc.Integration.Tests.Fakes.DependencyInjection;
+using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using ServiceLocator=Arc.Infrastructure.Dependencies.Ninject.ServiceLocator;
@@ -55,10 +55,10 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             Assert.That(_serviceLocator.Resolve<ParameterlessServiceImpl>(), Is.Not.Null);
         }
 
-        private void SetupConfiguration(IDependencyConfiguration configuration)
+        private void SetupConfiguration(IServiceLocatorModule<IServiceLocator> configuration)
         {
             _serviceLocator = new ServiceLocator();
-            _serviceLocator.Load(configuration);
+            _serviceLocator.Configuration.Load(configuration);
         }
     }
 }

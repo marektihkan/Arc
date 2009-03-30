@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Castle Windsor\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Castle Windsor\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\NHibernate\NHibernate.dll</HintPath>
@@ -49,6 +61,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\RhinoMocks\Rhino.Mocks.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=2.5.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\StructureMap\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -64,15 +80,37 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BDDStyles.cs" />
+    <Compile Include="Fakes\Model\CreatedObjectImpl.cs" />
     <Compile Include="CriteriaTests.cs" />
     <Compile Include="DependencyTests.cs" />
+    <Compile Include="Fakes\Model\ICreatedObject.cs" />
+    <Compile Include="Fakes\Model\IObjectFactory.cs" />
     <Compile Include="IsNullExtensionsTests.cs" />
     <Compile Include="NinjectTests.cs" />
+    <Compile Include="Fakes\Model\ObjectFactoryImpl.cs" />
+    <Compile Include="StructureMapRegistration.cs" />
+    <Compile Include="WindsorRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj">
+      <Project>{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}</Project>
+      <Name>Arc.Infrastructure.Dependencies.CastleWindsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
+      <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>
+      <Name>Arc.Infrastructure.Dependencies.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.StructureMap\Arc.Infrastructure.Dependencies.StructureMap.csproj">
+      <Project>{DE37A51C-1BD2-4AE6-9CCA-EC3C5B93F5EE}</Project>
+      <Name>Arc.Infrastructure.Dependencies.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
+      <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
+      <Name>Arc.Infrastructure.Logging.Log4Net</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>

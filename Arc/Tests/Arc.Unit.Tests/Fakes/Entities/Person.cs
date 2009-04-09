@@ -5,6 +5,14 @@ namespace Arc.Unit.Tests.Fakes.Entities
 {
     public class Person : IntegerIdentityEntity
     {
+        public Person()
+        {
+        }
+
+        public Person(int identity) : base(identity)
+        {
+        }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }

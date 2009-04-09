@@ -37,6 +37,7 @@ namespace Arc.Domain.Identity
     {
         private int _id;
         private int _version;
+        private int _transientHashCode;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegerIdentityEntity"/> class.
@@ -84,6 +85,57 @@ namespace Arc.Domain.Identity
         {
             get { return _version; }
             protected set { _version = value; }
+        }
+
+        /// <summary>
+        /// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+        /// </summary>
+        /// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+        /// <returns>
+        /// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+        /// </returns>
+        /// <exception cref="T:System.NullReferenceException">
+        /// The <paramref name="obj"/> parameter is null.
+        /// </exception>
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as IntegerIdentityEntity);
+        }
+
+        /// <summary>
+        /// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+        /// </summary>
+        /// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+        /// <returns>
+        /// true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+        /// </returns>
+        /// <exception cref="T:System.NullReferenceException">
+        /// The <paramref name="obj"/> parameter is null.
+        /// </exception>
+        public virtual bool Equals(IntegerIdentityEntity obj)
+        {
+            if (obj == null) return false;
+
+            if (IsTransient) return ReferenceEquals(this, obj);
+
+            return obj.Id == Id && obj.GetType() == GetType();
+        }
+
+        /// <summary>
+        /// Serves as a hash function for a particular type.
+        /// </summary>
+        /// <returns>
+        /// A hash code for the current <see cref="T:System.Object"/>.
+        /// </returns>
+        public override int GetHashCode()
+        {
+            if (!IsTransient) return Id;
+            
+            if (_transientHashCode == 0)
+            {
+                _transientHashCode = base.GetHashCode();
+            }
+            return _transientHashCode;
         }
     }
 }

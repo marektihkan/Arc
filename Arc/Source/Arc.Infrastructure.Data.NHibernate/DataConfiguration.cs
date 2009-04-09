@@ -7,8 +7,15 @@ using NHibernate.Event;
 
 namespace Arc.Infrastructure.Data.NHibernate
 {
+    /// <summary>
+    /// Configuration for data access with NHibernate.
+    /// </summary>
     public class DataConfiguration : IServiceLocatorModule<IServiceLocator>
     {
+        /// <summary>
+        /// Configures the specified service locator.
+        /// </summary>
+        /// <param name="serviceLocator">The service locator.</param>
         public void Configure(IServiceLocator serviceLocator)
         {
             serviceLocator.Register(

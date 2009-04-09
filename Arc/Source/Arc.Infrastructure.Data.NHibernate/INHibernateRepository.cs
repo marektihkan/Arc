@@ -4,6 +4,9 @@ using NHibernate.Criterion;
 
 namespace Arc.Infrastructure.Data.NHibernate
 {
+    /// <summary>
+    /// Repository with NHibernate spesifics.
+    /// </summary>
     public interface INHibernateRepository : IRepository
     {
         /// <summary>
@@ -66,6 +69,10 @@ namespace Arc.Infrastructure.Data.NHibernate
         long Count(ICriteria criteria);
     }
 
+    /// <summary>
+    /// Repository with NHibernate specifics.
+    /// </summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public interface INHibernateRepository<TEntity> : INHibernateRepository, IRepository<TEntity> where TEntity : class
     {
         /// <summary>

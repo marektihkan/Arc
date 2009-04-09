@@ -4,57 +4,95 @@ using Castle.MicroKernel.Registration;
 
 namespace Arc.Infrastructure.Dependencies.CastleWindsor.Extensions
 {
+    /// <summary>
+    /// Extensions for Castle Windsor factory method.
+    /// </summary>
     public static class ComponentRegistrationExtensions
     {
+        /// <summary>
+        /// Gets or sets the kernel.
+        /// </summary>
+        /// <value>The kernel.</value>
         public static IKernel Kernel { private get; set; }
 
-        public static ComponentRegistration<T> FactoryMethod<T, S>(this ComponentRegistration<T> reg, Func<S> factory) where S : T
+        /// <summary>
+        /// Registers to factory method.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="registration">The regegistration.</param>
+        /// <param name="factory">The factory method.</param>
+        /// <returns></returns>
+        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<TResult> factory) where TResult : TService
         {
-            var factoryName = typeof(GenericFactory<>).FullName + "[" + reg.ServiceType.FullName + "]";
-            Kernel.Register(Component.For<GenericFactory<S>>().Named(factoryName).Instance(new GenericFactory<S>(factory)));
-            reg.Configuration(Attrib.ForName("factoryId").Eq(factoryName), Attrib.ForName("factoryCreate").Eq("Create"));
-            return reg;
+            var factoryName = typeof(GenericFactory<>).FullName + "[" + registration.ServiceType.FullName + "]";
+            
+            Kernel.Register(
+                Component.For<GenericFactory<TResult>>()
+                    .Named(factoryName)
+                    .Instance(new GenericFactory<TResult>(factory)));
+            
+            registration.Configuration(
+                Attrib.ForName("factoryId").Eq(factoryName), 
+                Attrib.ForName("factoryCreate").Eq("Create"));
+
+            return registration;
         }
 
-        public static ComponentRegistration<T> FactoryMethod<T, S>(this ComponentRegistration<T> reg, Func<IKernel, S> factory) where S : T
+        /// <summary>
+        /// Registers to factory method.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TResult">The type of the result.</typeparam>
+        /// <param name="registration">The registration.</param>
+        /// <param name="factory">The factory.</param>
+        /// <returns></returns>
+        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<IKernel, TResult> factory) where TResult : TService
         {
-            var factoryName = typeof(GenericFactoryWithKernel<>).FullName + "[" + reg.ServiceType.FullName + "]";
-            Kernel.Register(Component.For<GenericFactoryWithKernel<S>>().Named(factoryName).Instance(new GenericFactoryWithKernel<S>(factory, Kernel)));
-            reg.Configuration(Attrib.ForName("factoryId").Eq(factoryName), Attrib.ForName("factoryCreate").Eq("Create"));
-            return reg;
+            var factoryName = typeof(GenericFactoryWithKernel<>).FullName + "[" + registration.ServiceType.FullName + "]";
+
+            Kernel.Register(
+                Component.For<GenericFactoryWithKernel<TResult>>()
+                    .Named(factoryName)
+                    .Instance(new GenericFactoryWithKernel<TResult>(factory, Kernel)));
+            
+            registration.Configuration(
+                Attrib.ForName("factoryId").Eq(factoryName), 
+                Attrib.ForName("factoryCreate").Eq("Create"));
+
+            return registration;
         }
 
-        private class GenericFactoryWithKernel<T>
+        private class GenericFactoryWithKernel<TService>
         {
-            private readonly Func<IKernel, T> factoryMethod;
+            private readonly Func<IKernel, TService> factoryMethod;
             private readonly IKernel kernel;
 
-            public GenericFactoryWithKernel(Func<IKernel, T> factoryMethod, IKernel kernel)
+            public GenericFactoryWithKernel(Func<IKernel, TService> factoryMethod, IKernel kernel)
             {
                 this.factoryMethod = factoryMethod;
                 this.kernel = kernel;
             }
 
-            public T Create()
+            public TService Create()
             {
                 return factoryMethod(kernel);
             }
         }
 
-        private class GenericFactory<T>
+        private class GenericFactory<TService>
         {
-            private readonly Func<T> factoryMethod;
+            private readonly Func<TService> factoryMethod;
 
-            public GenericFactory(Func<T> factoryMethod)
+            public GenericFactory(Func<TService> factoryMethod)
             {
                 this.factoryMethod = factoryMethod;
             }
 
-            public T Create()
+            public TService Create()
             {
                 return factoryMethod();
             }
-
         }
     }
 }

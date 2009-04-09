@@ -65,11 +65,11 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
             Container = container;
         }
 
-        public IWindsorContainer Container { get; set; }
+        internal IWindsorContainer Container { get; set; }
 
         /// <summary>
         /// Loads the specified module by name.
-        /// Module should implement Arc.Dependencies.IServiceLocatorModule<Castle.Windsor.IWindsorContainer>
+        /// Module should implement <c>Arc.Dependencies.IServiceLocatorModule<Castle.Windsor.IWindsorContainer></c>
         /// </summary>
         /// <param name="moduleName">Name of the module.</param>
         /// <exception cref="ArgumentException">moduleName</exception>
@@ -82,7 +82,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
 
         /// <summary>
         /// Loads the specified modules by name.
-        /// Module should implement Arc.Dependencies.IServiceLocatorModule<Castle.Windsor.IWindsorContainer>
+        /// Module should implement <c>Arc.Dependencies.IServiceLocatorModule<Castle.Windsor.IWindsorContainer></c>
         /// </summary>
         /// <param name="moduleNames">The module names.</param>
         public void Load(params string[] moduleNames)
@@ -153,6 +153,10 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
             Container.Release(releasable);
         }
 
+        /// <summary>
+        /// Registers the specified bindings.
+        /// </summary>
+        /// <param name="registrations">The registrations.</param>
         public void Register(params IRegistration[] registrations)
         {
             foreach (var registration in registrations)

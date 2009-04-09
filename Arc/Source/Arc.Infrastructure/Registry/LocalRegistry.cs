@@ -34,7 +34,7 @@ using System.Collections.Specialized;
 namespace Arc.Infrastructure.Registry
 {
     /// <summary>
-    /// Local registry
+    /// Local registry.
     /// </summary>
     public class LocalRegistry : BaseRegistry, ILocalRegistry
     {

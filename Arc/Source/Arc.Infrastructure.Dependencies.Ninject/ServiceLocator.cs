@@ -150,6 +150,10 @@ namespace Arc.Infrastructure.Dependencies.Ninject
             Kernel.Release(releasable);
         }
 
+        /// <summary>
+        /// Registers the specified bindings.
+        /// </summary>
+        /// <param name="registrations">The registrations.</param>
         public void Register(params IRegistration[] registrations)
         {
             //TODO: Registration

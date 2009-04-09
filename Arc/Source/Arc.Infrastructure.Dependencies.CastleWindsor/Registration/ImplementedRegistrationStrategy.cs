@@ -1,22 +1,17 @@
+using System;
 using Castle.MicroKernel.Registration;
 using IRegistration=Arc.Infrastructure.Dependencies.Registration.IRegistration;
 
 namespace Arc.Infrastructure.Dependencies.CastleWindsor.Registration
 {
-    internal class ImplementedRegistrationStrategy : IRegistrationStrategy
+    internal class ImplementedRegistrationStrategy : BaseRegistrationStrategy, IRegistrationStrategy
     {
-        private ServiceLocator ServiceLocator { get; set; }
-        private IRegistration Registration { get; set; }
-
-        public ImplementedRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator)
+        public ImplementedRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator) 
+            : base(registration, serviceLocator)
         {
-            ServiceLocator = serviceLocator;
-            Registration = registration;
         }
 
-
-
-        public void Register()
+        public override void Register()
         {
             ServiceLocator.Container.Register(
                 Component.For(Registration.ServiceType)

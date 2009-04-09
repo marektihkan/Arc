@@ -2,18 +2,14 @@ using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
 {
-    internal class ImplementedRegistrationStrategy : IRegistrationStrategy
+    internal class ImplementedRegistrationStrategy : BaseRegistrationStrategy
     {
-        private IRegistration Registration { get; set; }
-        private ServiceLocator ServiceLocator { get; set; }
-
-        public ImplementedRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator)
+        public ImplementedRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator) 
+            : base(registration, serviceLocator)
         {
-            ServiceLocator = serviceLocator;
-            Registration = registration;
         }
 
-        public void Register()
+        public override void Register()
         {
             ServiceLocator.Container.Configure(x =>
                 x.ForRequestedType(Registration.ServiceType)

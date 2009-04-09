@@ -3,18 +3,14 @@ using IRegistration=Arc.Infrastructure.Dependencies.Registration.IRegistration;
 
 namespace Arc.Infrastructure.Dependencies.Ninject.Registration
 {
-    public class FactoryRegistrationStrategy : IRegistrationStrategy
+    internal class FactoryRegistrationStrategy : BaseRegistrationStrategy
     {
-        private ServiceLocator ServiceLocator { get; set; }
-        private IRegistration Registration { get; set; }
-
-        public FactoryRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator)
+        public FactoryRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator) 
+            : base(registration, serviceLocator)
         {
-            ServiceLocator = serviceLocator;
-            Registration = registration;
         }
 
-        public void Register()
+        public override void Register()
         {
             //NOTE: Workaround for ninject inline module loeading bug.
             var kernel = ServiceLocator.Kernel;

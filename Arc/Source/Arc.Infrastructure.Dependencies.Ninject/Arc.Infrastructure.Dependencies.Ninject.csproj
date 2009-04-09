@@ -49,6 +49,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Extensions\FactoryProvider.cs" />
+    <Compile Include="Registration\BaseRegistrationStrategy.cs" />
     <Compile Include="Registration\FactoryRegistrationStrategy.cs" />
     <Compile Include="Registration\ImplementedRegistrationStrategy.cs" />
     <Compile Include="Registration\IRegistrationStrategy.cs" />

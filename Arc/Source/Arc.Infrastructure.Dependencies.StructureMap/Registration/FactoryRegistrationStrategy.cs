@@ -3,18 +3,14 @@ using StructureMap.Pipeline;
 
 namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
 {
-    internal class FactoryRegistrationStrategy : IRegistrationStrategy
+    internal class FactoryRegistrationStrategy : BaseRegistrationStrategy
     {
-        private IRegistration Registration { get; set; }
-        private ServiceLocator ServiceLocator { get; set; }
-
-        public FactoryRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator)
+        public FactoryRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator) 
+            : base(registration, serviceLocator)
         {
-            ServiceLocator = serviceLocator;
-            Registration = registration;
         }
 
-        public void Register()
+        public override void Register()
         {
             ServiceLocator.Container.Configure(x =>
                 x.ForRequestedType(Registration.ServiceType)

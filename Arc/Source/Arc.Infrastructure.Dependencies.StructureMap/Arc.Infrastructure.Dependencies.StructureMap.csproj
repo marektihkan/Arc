@@ -47,6 +47,7 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Registration\BaseRegistrationStrategy.cs" />
     <Compile Include="Registration\FactoryRegistrationStrategy.cs" />
     <Compile Include="Registration\ImplementedRegistrationStrategy.cs" />
     <Compile Include="Registration\IRegistrationStrategy.cs" />

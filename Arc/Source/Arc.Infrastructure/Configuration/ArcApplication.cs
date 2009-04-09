@@ -39,7 +39,6 @@ namespace Arc.Infrastructure.Configuration
     /// </summary>
     public class ArcApplication : HttpApplication
     {
-        private static readonly OnePerRequestModule _onePerRequestModule = new OnePerRequestModule();
         private static readonly UnitOfWorkWebModule _unitOfWorkWebModule = new UnitOfWorkWebModule();
 
 
@@ -52,8 +51,6 @@ namespace Arc.Infrastructure.Configuration
             base.Init();
 
             RegisterUnitOfWorkWebModule();
-            RegisterNinjectWebBehaviorModule();
-            ConfigureApplication();
         }
 
         /// <summary>
@@ -62,24 +59,6 @@ namespace Arc.Infrastructure.Configuration
         private void RegisterUnitOfWorkWebModule()
         {
             _unitOfWorkWebModule.Init(this);
-        }
-
-        /// <summary>
-        /// Registers the Ninject web behavior module.
-        /// </summary>
-        private void RegisterNinjectWebBehaviorModule()
-        {
-            //NOTE: This is temporary fix for Ninject OnePerRequestBehavior.
-            // It should be fixed in official version 1.5  
-            _onePerRequestModule.Init(this);
-        }
-
-        /// <summary>
-        /// Configures the application.
-        /// </summary>
-        protected virtual void ConfigureApplication()
-        {
-            Bootstrapper.Configure();
         }
     }
 }

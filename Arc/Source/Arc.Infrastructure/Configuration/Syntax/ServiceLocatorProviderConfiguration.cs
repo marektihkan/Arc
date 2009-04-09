@@ -80,6 +80,18 @@ namespace Arc.Infrastructure.Configuration.Syntax
         }
 
         /// <summary>
+        /// Imports module to service locator.
+        /// </summary>
+        /// <typeparam name="TConfiguration">The type of the configuration.</typeparam>
+        /// <returns></returns>
+        public IServiceLocatorConfiguration With<TConfiguration>() where TConfiguration : IServiceLocatorModule<IServiceLocator>
+        {
+            var configuration = ResolveProvider<IServiceLocatorModule<IServiceLocator>>.WithRealType(typeof(TConfiguration));
+            configuration.Configure(ServiceLocator);
+            return this;
+        }
+
+        /// <summary>
         /// Imports convention to service locator.
         /// </summary>
         /// <param name="convention">The convention.</param>
@@ -88,13 +100,6 @@ namespace Arc.Infrastructure.Configuration.Syntax
         {
             if (convention != null)
                 convention.Apply(_locator);
-            return this;
-        }
-
-        public IServiceLocatorConfiguration With<TConfiguration>() where TConfiguration : IServiceLocatorModule<IServiceLocator>
-        {
-            var configuration = ResolveProvider<IServiceLocatorModule<IServiceLocator>>.WithRealType(typeof(TConfiguration));
-            configuration.Configure(ServiceLocator);
             return this;
         }
 

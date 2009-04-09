@@ -30,8 +30,16 @@
 
 namespace Arc.Infrastructure.Data
 {
+    /// <summary>
+    /// Base class for generic repositories.
+    /// </summary>
+    /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public abstract class BaseRepository<TEntity> : BaseGenericRepository<TEntity, IRepository<TEntity>> where TEntity : class
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseRepository&lt;TEntity&gt;"/> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
         protected BaseRepository(IRepository<TEntity> repository) : base(repository)
         {
         }

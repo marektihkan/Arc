@@ -23,12 +23,17 @@ namespace Arc.Infrastructure.Configuration.Syntax
         IServiceLocatorConfiguration With(IServiceLocatorModule<IServiceLocator> module);
 
         /// <summary>
+        /// Imports module to service locator.
+        /// </summary>
+        /// <typeparam name="TConfiguration">The type of the configuration.</typeparam>
+        /// <returns></returns>
+        IServiceLocatorConfiguration With<TConfiguration>() where TConfiguration : IServiceLocatorModule<IServiceLocator>;
+
+        /// <summary>
         /// Imports convention to service locator.
         /// </summary>
         /// <param name="convention">The convention.</param>
         /// <returns></returns>
         IServiceLocatorConfiguration With(IConvention<IServiceLocator> convention);
-
-        IServiceLocatorConfiguration With<TConfiguration>() where TConfiguration : IServiceLocatorModule<IServiceLocator>;
     }
 }

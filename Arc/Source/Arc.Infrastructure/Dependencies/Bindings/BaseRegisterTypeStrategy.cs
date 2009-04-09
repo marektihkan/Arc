@@ -38,6 +38,9 @@ namespace Arc.Infrastructure.Dependencies.Bindings
     /// </summary>
     public abstract class BaseRegisterTypeStrategy
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseRegisterTypeStrategy"/> class.
+        /// </summary>
         protected BaseRegisterTypeStrategy()
         {
             Scope = ServiceLifeStyle.Transient;

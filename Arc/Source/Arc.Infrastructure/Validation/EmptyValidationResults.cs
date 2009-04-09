@@ -78,6 +78,10 @@ namespace Arc.Infrastructure.Validation
             get { return string.Empty; }
         }
 
+        /// <summary>
+        /// Gets all errors.
+        /// </summary>
+        /// <value>All errors.</value>
         public KeyValuePair<string, string>[] AllErrors
         {
             get { return null; }

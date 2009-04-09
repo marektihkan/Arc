@@ -17,7 +17,7 @@ namespace Arc.Infrastructure.Dependencies
         IParameters ConstructorArgument(string name, object value);
 
         /// <summary>
-        /// Gets the arguments as IDictionary<string, object>.
+        /// Gets the arguments as <c>IDictionary<string, object></c>.
         /// </summary>
         /// <value>The arguments.</value>
         IDictionary<string, object> Arguments { get; }

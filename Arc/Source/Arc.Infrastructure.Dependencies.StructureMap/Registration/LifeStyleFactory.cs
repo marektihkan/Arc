@@ -5,7 +5,7 @@ namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
 {
     public static class LifeStyleFactory
     {
-        public static InstanceScope Create(ServiceLifeStyle lifeStyle)
+        internal static InstanceScope Create(ServiceLifeStyle lifeStyle)
         {
             switch (lifeStyle)
             {

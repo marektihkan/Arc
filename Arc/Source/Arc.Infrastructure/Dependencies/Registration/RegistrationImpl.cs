@@ -2,6 +2,9 @@ using System;
 
 namespace Arc.Infrastructure.Dependencies.Registration
 {
+    /// <summary>
+    /// Registration options for service locator.
+    /// </summary>
     public class RegistrationImpl : IRegistration, IServiceBindingSyntax, IServiceLifeStyleSyntax
     {
         /// <summary>

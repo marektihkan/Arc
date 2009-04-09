@@ -37,17 +37,25 @@ namespace Arc.Infrastructure.Dependencies.Bindings
     /// </summary>
     public class RegisterTypeToFirstMatchStrategy : BaseRegisterTypeStrategy, ITypeRegistrationStrategy
     {
-        private readonly Func<Type, bool> _binding;
+        private readonly Func<Type, Type, bool> _binding;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RegisterTypeToFirstMatchStrategy"/> class.
         /// </summary>
         /// <param name="binding">The binding.</param>
-        public RegisterTypeToFirstMatchStrategy(Func<Type, bool> binding)
+        public RegisterTypeToFirstMatchStrategy(Func<Type, Type, bool> binding)
         {
             _binding = binding;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegisterTypeToFirstMatchStrategy"/> class.
+        /// </summary>
+        /// <param name="binding">The binding.</param>
+        public RegisterTypeToFirstMatchStrategy(Func<Type, bool> binding) 
+            : this((foundInterface, type) => binding.Invoke(foundInterface))
+        {
+        }
 
         /// <summary>
         /// Registers the specified type.
@@ -56,7 +64,7 @@ namespace Arc.Infrastructure.Dependencies.Bindings
         /// <param name="locator">The locator.</param>
         public void Register(Type type, IServiceLocator locator)
         {
-            var interfaces = type.FindInterfaces((t, obj) => _binding.Invoke(t), null);
+            var interfaces = type.FindInterfaces((t, obj) => _binding.Invoke(t, type), null);
             if (interfaces.Length > 0)
                 Register(interfaces[0], type, locator);
         }

@@ -38,22 +38,29 @@ namespace Arc.Infrastructure.Dependencies.Bindings
     public interface IBindingSyntax
     {
         /// <summary>
-        /// Binds to the specified criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>ServiceLocator.</returns>
-        AutoConfiguration BindToInterface(Func<Type, bool> criteria);
-        
-        /// <summary>
         /// Binds to self.
         /// </summary>
         /// <returns>ServiceLocator.</returns>
         AutoConfiguration BindToSelf();
-        
+
         /// <summary>
         /// Binds to first interface.
         /// </summary>
         /// <returns>ServiceLocator.</returns>
         AutoConfiguration BindToFirstInterface();
+
+        /// <summary>
+        /// Binds to the specified criteria.
+        /// </summary>
+        /// <param name="criteria">The criteria. (interface)</param>
+        /// <returns>ServiceLocator.</returns>
+        AutoConfiguration BindToInterface(Func<Type, bool> criteria);
+
+        /// <summary>
+        /// Binds to the specified criteria.
+        /// </summary>
+        /// <param name="criteria">The criteria. (interface, realType)</param>
+        /// <returns></returns>
+        AutoConfiguration BindToInterface(Func<Type, Type, bool> criteria);
     }
 }

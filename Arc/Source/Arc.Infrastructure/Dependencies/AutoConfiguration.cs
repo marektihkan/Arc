@@ -100,11 +100,22 @@ namespace Arc.Infrastructure.Dependencies
 
 
         /// <summary>
-        /// Binds the specified criteria.
+        /// Binds to the specified criteria.
         /// </summary>
-        /// <param name="criteria">The binding.</param>
-        /// <returns></returns>
+        /// <param name="criteria">The criteria. (interface)</param>
+        /// <returns>ServiceLocator.</returns>
         public AutoConfiguration BindToInterface(Func<Type, bool> criteria)
+        {
+            _strategy = new RegisterTypeToFirstMatchStrategy(criteria);
+            return this;
+        }
+
+        /// <summary>
+        /// Binds to the specified criteria.
+        /// </summary>
+        /// <param name="criteria">The criteria. (interface, realType)</param>
+        /// <returns></returns>
+        public AutoConfiguration BindToInterface(Func<Type, Type, bool> criteria)
         {
             _strategy = new RegisterTypeToFirstMatchStrategy(criteria);
             return this;

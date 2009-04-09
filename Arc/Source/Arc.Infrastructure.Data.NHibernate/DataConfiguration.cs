@@ -36,6 +36,9 @@ namespace Arc.Infrastructure.Data.NHibernate
                 Requested.Service<IUnitOfWork>()
                     .IsConstructedBy(x => x.Resolve<IUnitOfWorkFactory>().Create()),
 
+                Requested.Service(typeof(IRepository<>))
+                    .IsImplementedBy(typeof(Repository<>)),
+
                 Requested.Service(typeof(INHibernateRepository<>))
                     .IsImplementedBy(typeof(Repository<>))
             );

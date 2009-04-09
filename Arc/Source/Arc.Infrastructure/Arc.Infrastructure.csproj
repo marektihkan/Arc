@@ -58,6 +58,7 @@
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\ValidationIsNotUsedConfiguration.cs" />
     <Compile Include="Data\BaseGenericRepository.cs" />
+    <Compile Include="Data\Find.cs" />
     <Compile Include="Dependencies\Conventions\BaseConvention.cs" />
     <Compile Include="Dependencies\Registration\IRegistration.cs" />
     <Compile Include="Dependencies\Registration\IServiceBindingSyntax.cs" />

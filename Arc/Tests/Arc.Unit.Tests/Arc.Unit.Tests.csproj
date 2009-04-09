@@ -105,6 +105,7 @@
     <Compile Include="Fakes\Identity\GuidIdentityEntityTester.cs" />
     <Compile Include="Fakes\Identity\IntegerIdentityEntityTester.cs" />
     <Compile Include="Fakes\Units\RangeTester.cs" />
+    <Compile Include="Infrastructure\Data\FindTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\AliasTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\AssertCriteria.cs" />
     <Compile Include="Infrastructure\Data\BaseRepositoryTests.cs" />

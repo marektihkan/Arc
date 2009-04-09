@@ -10,7 +10,7 @@ namespace Arc.Learning.Tests
         [Test]
         public void Should_get_generic_type_full_name()
         {
-            const string expected = "Arc.Learning.Tests.IGenericService`1";
+            const string expected = "Arc.Learning.Tests.Fakes.Model.IGenericService`1";
 
             Assert.That(typeof(IGenericService<>).FullName, Is.EqualTo(expected));
         }

@@ -1,4 +1,3 @@
-using System;
 using Castle.MicroKernel.Registration;
 using IRegistration=Arc.Infrastructure.Dependencies.Registration.IRegistration;
 
@@ -15,6 +14,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Registration
         {
             ServiceLocator.Container.Register(
                 Component.For(Registration.ServiceType)
+                    .Named(Registration.ServiceType.FullName + "_" + Registration.ImplementationType.FullName)
                     .ImplementedBy(Registration.ImplementationType)
                     .LifeStyle.Is(LifeStyleFactory.Create(Registration.Scope))
                 );        

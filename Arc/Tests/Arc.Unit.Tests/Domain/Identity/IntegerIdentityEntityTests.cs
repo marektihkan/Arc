@@ -136,5 +136,12 @@ namespace Arc.Unit.Tests.Domain.Identity
             Assert.That(first, Is.Not.EqualTo(second));
         }
 
+        [Test]
+        public void Integer_based_entity_should_not_be_equal_to_null_entity()
+        {
+            var entity = new Person(1);
+
+            Assert.That(entity, Is.Not.EqualTo(null));
+        }
     }
 }

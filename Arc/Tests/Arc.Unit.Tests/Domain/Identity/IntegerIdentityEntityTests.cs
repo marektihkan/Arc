@@ -141,7 +141,7 @@ namespace Arc.Unit.Tests.Domain.Identity
         {
             var entity = new Person(1);
 
-            Assert.That(entity, Is.Not.EqualTo(null));
+            Assert.That(entity, Is.Not.EqualTo((IEntity<int>) null));
         }
     }
 }

@@ -112,7 +112,7 @@ namespace Arc.Domain.Identity
         /// <exception cref="T:System.NullReferenceException">
         /// The <paramref name="obj"/> parameter is null.
         /// </exception>
-        public virtual bool Equals(IntegerIdentityEntity obj)
+        public virtual bool Equals(IEntity<int> obj)
         {
             if (obj == null) return false;
 

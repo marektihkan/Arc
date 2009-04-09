@@ -30,41 +30,10 @@
 
 namespace Arc.Infrastructure.Data
 {
-    /// <summary>
-    /// Base repository.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public abstract class BaseRepository<TEntity> where TEntity : class 
+    public abstract class BaseRepository<TEntity> : BaseGenericRepository<TEntity, IRepository<TEntity>> where TEntity : class
     {
-        private readonly IRepository<TEntity> _repository;
-
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BaseRepository&lt;TEntity&gt;"/> class.
-        /// </summary>
-        /// <param name="repository">The repository.</param>
-        protected BaseRepository(IRepository<TEntity> repository)
+        protected BaseRepository(IRepository<TEntity> repository) : base(repository)
         {
-            _repository = repository;
-        }
-
-
-        /// <summary>
-        /// Gets the inner repository.
-        /// </summary>
-        /// <value>The inner repository.</value>
-        protected IRepository<TEntity> InnerRepository
-        {
-            get { return _repository; }
-        }
-
-        /// <summary>
-        /// Gets the unit of work.
-        /// </summary>
-        /// <value>The unit of work.</value>
-        protected IUnitOfWork UnitOfWork
-        {
-            get { return InnerRepository.UnitOfWork; }
         }
     }
 }

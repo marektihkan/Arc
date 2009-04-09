@@ -41,19 +41,19 @@ namespace Arc.Infrastructure.Dependencies.Bindings
         /// Binds to the specified criteria.
         /// </summary>
         /// <param name="criteria">The criteria.</param>
-        /// <returns>Configuration.</returns>
+        /// <returns>ServiceLocator.</returns>
         AutoConfiguration BindToInterface(Func<Type, bool> criteria);
         
         /// <summary>
         /// Binds to self.
         /// </summary>
-        /// <returns>Configuration.</returns>
+        /// <returns>ServiceLocator.</returns>
         AutoConfiguration BindToSelf();
         
         /// <summary>
         /// Binds to first interface.
         /// </summary>
-        /// <returns>Configuration.</returns>
+        /// <returns>ServiceLocator.</returns>
         AutoConfiguration BindToFirstInterface();
     }
 }

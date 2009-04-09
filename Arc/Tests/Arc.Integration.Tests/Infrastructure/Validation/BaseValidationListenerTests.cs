@@ -1,7 +1,7 @@
 using System;
 using Arc.Infrastructure.Configuration;
+using Arc.Infrastructure.Data.NHibernate.Listeners;
 using Arc.Infrastructure.Validation;
-using Arc.Infrastructure.Validation.NHibernate;
 using Arc.Integration.Tests.Fakes.Validation;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -17,8 +17,7 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
         public void TestFixtureSetUp()
         {
             Configure.ServiceLocator.ProviderTo(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
-                .And.Logging.IsNotUsed()
-                .And.Validation.ProviderTo<Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService>();
+                .With<Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration>();
         }
 
         [SetUp]

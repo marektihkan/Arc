@@ -31,7 +31,7 @@
 namespace Arc.Infrastructure.Dependencies
 {
     /// <summary>
-    /// Configuration module for service locator.
+    /// ServiceLocator module for service locator.
     /// </summary>
     /// <typeparam name="TServiceLocator">The type of the service locator.</typeparam>
     public interface IServiceLocatorModule<TServiceLocator>

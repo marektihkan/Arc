@@ -1,4 +1,5 @@
 using Arc.Infrastructure.Dependencies;
+using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
@@ -17,7 +18,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(new DependencyConfiguration());
+            target.Load(new DependencyConfiguration());
 
             var actual = target.Resolve<IGenericServiceHost>();
 
@@ -26,11 +27,11 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         }
 
         [Test]
-        public void Should_register_service()
+        public void Should_register_service_with_generics()
         {
             var target = CreateSUT();
 
-            target.Configuration.Register<IParameterlessService, ParameterlessServiceImpl>();
+            target.Register(Requested.Service<IParameterlessService>().IsImplementedBy<ParameterlessServiceImpl>());
 
             var actual = target.Resolve<IParameterlessService>();
 
@@ -39,11 +40,122 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         }
 
         [Test]
+        public void Should_register_service_without_generics()
+        {
+            var target = CreateSUT();
+
+            target.Register(Requested.Service(typeof(IParameterlessService)).IsImplementedBy(typeof(ParameterlessServiceImpl)));
+
+            var actual = target.Resolve<IParameterlessService>();
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual, Is.InstanceOfType(typeof(ParameterlessServiceImpl)));
+        }
+
+        [Test]
+        public void Should_register_service_with_singleton_lifestyle()
+        {
+            var target = CreateSUT();
+
+            target.Register(
+                Requested.Service<IParameterlessService>()
+                    .IsImplementedBy<ParameterlessServiceImpl>()
+                    .LifeStyle.IsSingelton()
+                );
+
+            var first = target.Resolve<IParameterlessService>();
+            var second = target.Resolve<IParameterlessService>();
+
+            Assert.That(first, Is.Not.Null);
+            Assert.That(first, Is.SameAs(second));
+        }
+
+        [Test]
+        public void Should_register_service_with_transient_lifestyle()
+        {
+            var target = CreateSUT();
+
+            target.Register(
+                Requested.Service<IParameterlessService>()
+                    .IsImplementedBy<ParameterlessServiceImpl>()
+                    .LifeStyle.IsTransient()
+                );
+
+            var first = target.Resolve<IParameterlessService>();
+            var second = target.Resolve<IParameterlessService>();
+
+            Assert.That(first, Is.Not.Null);
+            Assert.That(first, Is.Not.SameAs(second));
+        }
+
+        [Test]
+        public void Should_register_service_to_factory_method()
+        {
+            var target = CreateSUT();
+
+            target.Register(
+                Requested.Service<IServiceFactory>()
+                    .IsImplementedBy<ServiceFactoryImpl>(),
+
+                Requested.Service<IParameterlessService>()
+                    .IsConstructedBy(x => x.Resolve<IServiceFactory>().Create())
+                );
+
+            var actual = target.Resolve<IParameterlessService>();
+            
+            Assert.That(actual, Is.Not.Null);
+        }
+
+        [Test]
+        public void Should_resolve_service_with_dependency_from_factory_method()
+        {
+            var target = CreateSUT();
+
+            target.Register(
+                Requested.Service<IServiceFactory>()
+                    .IsImplementedBy<ServiceFactoryImpl>(),
+
+                Requested.Service<IParameterlessService>()
+                    .IsConstructedBy(x => x.Resolve<IServiceFactory>().Create()),
+
+                Requested.Service<IService>()
+                    .IsImplementedBy<ServiceImpl>()
+                );
+
+            var actual = target.Resolve<IService>();
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.Dependency, Is.Not.Null);
+        }
+
+        [Test]
+        public void Should_register_to_factory_method_with_singleton_scope()
+        {
+            var target = CreateSUT();
+
+            target.Register(
+                Requested.Service<IServiceFactory>()
+                    .IsImplementedBy<ServiceFactoryImpl>(),
+
+                Requested.Service<IParameterlessService>()
+                    .IsConstructedBy(x => x.Resolve<IServiceFactory>().Create())
+                    .LifeStyle.IsSingelton()
+                );
+
+            var first = target.Resolve<IParameterlessService>();
+            var second = target.Resolve<IParameterlessService>();
+
+            Assert.That(first, Is.Not.Null);
+            Assert.That(second, Is.Not.Null);
+            Assert.That(first, Is.SameAs(second));
+        }
+
+        [Test]
         public void Should_be_configured_via_dependency_configuration()
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(new DependencyConfiguration());
+            target.Load(new DependencyConfiguration());
 
             var actual = target.Resolve<IParameterlessService>();
 
@@ -51,23 +163,11 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         }
 
         [Test]
-        public void Should_register_service_with_scope()
-        {
-            var target = CreateSUT();
-
-            target.Configuration.Register<IParameterlessService, ParameterlessServiceImpl>(target.Scopes.Singleton);
-
-            var actual = target.Resolve<IParameterlessService>();
-
-            Assert.That(actual, Is.SameAs(target.Resolve<IParameterlessService>()));
-        }
-
-        [Test]
         public void Should_resolve_service()
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(new DependencyConfiguration());
+            target.Load(new DependencyConfiguration());
 
             Assert.That(target.Resolve<IService>(), Is.TypeOf(typeof(ServiceImpl)));
         }
@@ -77,7 +177,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(new DependencyConfiguration());
+            target.Load(new DependencyConfiguration());
             var dependency = MockRepository.GenerateMock<IParameterlessService>();
 
             var actual = target.Resolve<IService>(With.Parameters.ConstructorArgument("dependency", dependency));

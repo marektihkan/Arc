@@ -29,9 +29,10 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Dependencies.Registration;
+using Arc.Infrastructure.Dependencies.StructureMap.Registration;
 using Arc.Infrastructure.Utilities;
 using StructureMap;
-using StructureMap.Attributes;
 using StructureMap.Pipeline;
 
 namespace Arc.Infrastructure.Dependencies.StructureMap
@@ -39,39 +40,25 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
     /// <summary>
     /// Ninject adapter for service locator.
     /// </summary>
-    public class ServiceLocator : IServiceLocator, IServiceLocatorConfiguration
+    public class ServiceLocator : IServiceLocator
     {
-        private readonly IScopeFactory _scopeFactory = new ScopeFactory();
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceLocator"/> class.
+        /// </summary>
         public ServiceLocator() : this(new Container())
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ServiceLocator"/> class.
+        /// </summary>
+        /// <param name="container">The container.</param>
         public ServiceLocator(IContainer container)
         {
             Container = container;
         }
 
-        private IContainer Container { get; set; }
-
-        /// <summary>
-        /// Gets the scope factory.
-        /// </summary>
-        /// <value>The scope factory.</value>
-        public IScopeFactory Scopes
-        {
-            get { return _scopeFactory; }
-        }
-
-        /// <summary>
-        /// Gets the service locator's configuration.
-        /// </summary>
-        /// <value>The configuration.</value>
-        public IServiceLocatorConfiguration Configuration
-        {
-            get { return this; }
-        }
-
+        internal IContainer Container { get; set; }
 
         /// <summary>
         /// Loads the specified module by name.
@@ -106,50 +93,6 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
         public void Load(IServiceLocatorModule<IServiceLocator> configuration)
         {
             configuration.Configure(this);
-        }
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        public void Register<TService, TImplementation>() //where TImplementation : TService
-        {
-            Register(typeof(TService), typeof(TImplementation));
-        }
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        /// <param name="scope">The scope.</param>
-        public void Register<TService, TImplementation>(IScope scope) //where TImplementation : TService
-        {
-            Register(typeof(TService), typeof(TImplementation), scope);
-        }
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        public void Register(Type service, Type implementation)
-        {
-            Register(service, implementation, Scopes.Transient);
-        }
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        /// <param name="scope">The scope.</param>
-        public void Register(Type service, Type implementation, IScope scope)
-        {
-            var scopeBehavior = (InstanceScope) scope.Implementation;
-
-            Container.Configure(x => x.ForRequestedType(service).AddConcreteType(implementation).CacheBy(scopeBehavior));
         }
 
         /// <summary>
@@ -200,6 +143,14 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
         /// <param name="releasable">The releasable object.</param>
         public void Release(object releasable)
         {
+        }
+
+        public void Register(params IRegistration[] registrations)
+        {
+            foreach (var registration in registrations)
+            {
+                RegistrationStrategyFactory.Create(registration, this).Register();
+            }
         }
 
         /// <summary>

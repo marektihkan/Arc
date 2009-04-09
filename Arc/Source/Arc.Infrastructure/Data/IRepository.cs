@@ -30,8 +30,6 @@
 
 using System.Collections.Generic;
 using Arc.Domain.Specifications;
-using NHibernate;
-using NHibernate.Criterion;
 
 namespace Arc.Infrastructure.Data
 {
@@ -40,12 +38,6 @@ namespace Arc.Infrastructure.Data
     /// </summary>
     public interface IRepository
     {
-        /// <summary>
-        /// Gets the NHibernate session.
-        /// </summary>
-        /// <value>The session.</value>
-        ISession Session { get; }
-
         /// <summary>
         /// Gets the unit of work.
         /// </summary>
@@ -61,14 +53,6 @@ namespace Arc.Infrastructure.Data
         T GetEntityById<T>(object identity) where T : class;
 
         /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entity which matches to specified criteria.</returns>
-        T GetEntityBy<T>(ICriteria criteria) where T : class;
-
-        /// <summary>
         /// Gets the entity by specification.
         /// </summary>
         /// <typeparam name="T">Type of entity.</typeparam>
@@ -77,27 +61,11 @@ namespace Arc.Infrastructure.Data
         T GetEntityBy<T>(ISpecification<T> specification) where T : class;
 
         /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entity which match to criteria.</returns>
-        T GetEntityBy<T>(DetachedCriteria criteria) where T : class;
-
-        /// <summary>
         /// Gets all entities.
         /// </summary>
         /// <typeparam name="T">Type of entity.</typeparam>
         /// <returns>List of all entities of specified type.</returns>
         IList<T> GetAllEntities<T>() where T : class;
-
-        /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>List of entities which matches to specified criteria.</returns>
-        IList<T> GetEntitiesBy<T>(ICriteria criteria) where T : class;
 
         /// <summary>
         /// Gets the entities by specification.
@@ -108,41 +76,12 @@ namespace Arc.Infrastructure.Data
         IList<T> GetEntitiesBy<T>(ISpecification<T> specification) where T : class;
 
         /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entities which match to criteria.</returns>
-        IList<T> GetEntitiesBy<T>(DetachedCriteria criteria) where T : class;
-
-        /// <summary>
-        /// Creates the criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <returns>Criteria for specified entity type.</returns>
-        ICriteria CreateCriteria<T>() where T : class;
-
-        /// <summary>
-        /// Counts results of the specified criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Count of results.</returns>
-        long Count(DetachedCriteria criteria);
-
-        /// <summary>
         /// Counts results of the specified specification.
         /// </summary>
         /// <typeparam name="T">Type of entity.</typeparam>
         /// <param name="specification">The specification.</param>
         /// <returns>Count of results.</returns>
         long Count<T>(ISpecification<T> specification) where T : class;
-
-        /// <summary>
-        /// Counts results of the specified criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Count of results.</returns>
-        long Count(ICriteria criteria);
 
         /// <summary>
         /// Saves the specified entity.
@@ -171,6 +110,7 @@ namespace Arc.Infrastructure.Data
         void Evict(object evitable);
     }
 
+    
     /// <summary>
     /// Repository for concrete type of entity.
     /// </summary>
@@ -185,24 +125,10 @@ namespace Arc.Infrastructure.Data
         TEntity GetEntityById(object identity);
 
         /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entity which matches to specified criteria.</returns>
-        TEntity GetEntityBy(ICriteria criteria);
-
-        /// <summary>
         /// Gets all entities.
         /// </summary>
         /// <returns>List of all entities.</returns>
         IList<TEntity> GetAllEntities();
-
-        /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>List of entities which matches to specified criteria.</returns>
-        IList<TEntity> GetEntitiesBy(ICriteria criteria);
 
         /// <summary>
         /// Saves the specified entity.
@@ -216,11 +142,5 @@ namespace Arc.Infrastructure.Data
         /// </summary>
         /// <param name="deletable">The deletable entity.</param>
         void Delete(TEntity deletable);
-
-        /// <summary>
-        /// Creates the criteria.
-        /// </summary>
-        /// <returns>Criteria for specified entity type.</returns>
-        ICriteria CreateCriteria();
     }
 }

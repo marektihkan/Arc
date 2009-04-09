@@ -6,7 +6,7 @@ namespace Arc.Infrastructure.Configuration.Syntax
     /// <summary>
     /// Service locator configuration.
     /// </summary>
-    public interface IServiceLocatorConfiguration : IToLoggingConfigurationSyntax
+    public interface IServiceLocatorConfiguration
     {
         /// <summary>
         /// Imports module to service locator.
@@ -28,5 +28,7 @@ namespace Arc.Infrastructure.Configuration.Syntax
         /// <param name="convention">The convention.</param>
         /// <returns></returns>
         IServiceLocatorConfiguration With(IConvention<IServiceLocator> convention);
+
+        IServiceLocatorConfiguration With<TConfiguration>() where TConfiguration : IServiceLocatorModule<IServiceLocator>;
     }
 }

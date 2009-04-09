@@ -29,6 +29,8 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Dependencies.Ninject.Registration;
+using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Utilities;
 using Ninject.Core;
 using Ninject.Core.Behavior;
@@ -38,11 +40,8 @@ namespace Arc.Infrastructure.Dependencies.Ninject
     /// <summary>
     /// Ninject adapter for service locator.
     /// </summary>
-    public class ServiceLocator : IServiceLocator, IServiceLocatorConfiguration
+    public class ServiceLocator : IServiceLocator
     {
-        private readonly IScopeFactory _scopeFactory = new ScopeFactory();
-
-
         /// <summary>
         /// Initializes a new instance of the <see cref="ServiceLocator"/> class.
         /// </summary>
@@ -60,25 +59,7 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         }
 
 
-        private IKernel Kernel { get; set; }
-
-        /// <summary>
-        /// Gets the scope factory.
-        /// </summary>
-        /// <value>The scope factory.</value>
-        public IScopeFactory Scopes
-        {
-            get { return _scopeFactory; }
-        }
-
-        /// <summary>
-        /// Gets the service locator's configuration.
-        /// </summary>
-        /// <value>The configuration.</value>
-        public IServiceLocatorConfiguration Configuration
-        {
-            get { return this; }
-        }
+        internal IKernel Kernel { get; set; }
 
 
         /// <summary>
@@ -116,59 +97,6 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         public void Load(IServiceLocatorModule<IServiceLocator> configuration)
         {
             configuration.Configure(this);
-        }
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        public void Register<TService, TImplementation>() //where TImplementation : TService
-        {
-            Register(typeof(TService), typeof(TImplementation));
-        }
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
-        /// <param name="scope">The scope.</param>
-        public void Register<TService, TImplementation>(IScope scope) //where TImplementation : TService
-        {
-            Register(typeof(TService), typeof(TImplementation), scope);
-        }
-
-        /// <summary>
-        /// Registers service to implementation.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        public void Register(Type service, Type implementation)
-        {
-            Register(service, implementation, Scopes.Transient);
-        }
-
-        /// <summary>
-        /// Registers service to implementation in specified scope.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        /// <param name="scope">The scope.</param>
-        public void Register(Type service, Type implementation, IScope scope)
-        {
-            var scopeBehavior = scope.Implementation as IBehavior;
-            
-            //NOTE: Workaround for ninject inline module loeading bug.
-            var binding = Kernel.Components.BindingFactory.Create(service);
-            binding.Behavior = scopeBehavior;
-            binding.Provider = Kernel.Components.ProviderFactory.Create(implementation);
-
-            Kernel.AddBinding(binding);
-
-            //var configuration = new InlineModule(x => x.Bind(service).To(implementation).Using(scopeBehavior));
-            //NOTE: It could override configuration, not throw exception.
-            //Should.Do(() => Kernel.Load(configuration)).On<InvalidOperationException>(delegate { });
         }
 
         /// <summary>
@@ -220,6 +148,16 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         public void Release(object releasable)
         {
             Kernel.Release(releasable);
+        }
+
+        public void Register(params IRegistration[] registrations)
+        {
+            //TODO: Registration
+
+            foreach (var registration in registrations)
+            {
+                RegistrationStrategyFactory.Create(registration, this).Register();
+            }
         }
 
         /// <summary>

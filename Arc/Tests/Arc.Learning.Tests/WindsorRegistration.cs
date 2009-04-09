@@ -49,6 +49,16 @@ namespace Arc.Learning.Tests
                 AllTypes.Pick().FromAssembly(Assembly.GetExecutingAssembly())
                 .If(t => t.FullName == "").WithService.FirstInterface());
         }
+
+        [Test]
+        public void Should_register_service_for_conrete_type()
+        {
+            var container = new WindsorContainer();
+
+            container.Register(
+                Component.For<ICreatedObject>().ImplementedBy<CreatedObjectImpl>());
+        }
+
     }
 
 

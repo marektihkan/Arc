@@ -32,6 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Arc.Infrastructure.Dependencies.Bindings;
+using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies
 {
@@ -52,7 +53,7 @@ namespace Arc.Infrastructure.Dependencies
 
 
         /// <summary>
-        /// Configuration for the specified assemblies.
+        /// ServiceLocator for the specified assemblies.
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>
         /// <returns></returns>
@@ -62,7 +63,7 @@ namespace Arc.Infrastructure.Dependencies
         }
 
         /// <summary>
-        /// Configuration for the specified assembly names.
+        /// ServiceLocator for the specified assembly names.
         /// </summary>
         /// <param name="assemblyNames">The assembly names.</param>
         /// <returns></returns>
@@ -112,7 +113,7 @@ namespace Arc.Infrastructure.Dependencies
         /// <summary>
         /// Binds to self.
         /// </summary>
-        /// <returns>Configuration.</returns>
+        /// <returns>ServiceLocator.</returns>
         public AutoConfiguration BindToSelf()
         {
             _strategy = new RegisterTypeToSelfStrategy();
@@ -122,20 +123,20 @@ namespace Arc.Infrastructure.Dependencies
         /// <summary>
         /// Binds to first interface.
         /// </summary>
-        /// <returns>Configuration.</returns>
+        /// <returns>ServiceLocator.</returns>
         public AutoConfiguration BindToFirstInterface()
         {
             return BindToInterface(x => x.IsInterface);
         }
 
         /// <summary>
-        /// Register service in the specified scope.
+        /// Registers with the specified life style.
         /// </summary>
-        /// <param name="scope">The scope.</param>
+        /// <param name="lifeStyle">The life style.</param>
         /// <returns></returns>
-        public AutoConfiguration Using(IScope scope)
+        public AutoConfiguration Using(ServiceLifeStyle lifeStyle)
         {
-            _strategy.Scope = scope;
+            _strategy.Scope = lifeStyle;
             return this;
         }
 

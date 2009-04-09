@@ -4,7 +4,7 @@ using Arc.Infrastructure.Dependencies;
 namespace Arc.Infrastructure.Configuration.Syntax
 {
     /// <summary>
-    /// Configuration for service locator provider.
+    /// ServiceLocator for service locator provider.
     /// </summary>
     public interface IServiceLocatorProviderConfiguration
     {

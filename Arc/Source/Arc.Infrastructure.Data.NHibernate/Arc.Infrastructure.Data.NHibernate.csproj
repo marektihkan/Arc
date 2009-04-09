@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{820F4A44-E9EF-41C9-830A-26F6B290431F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arc.Infrastructure.Data.NHibernate</RootNamespace>
+    <AssemblyName>Arc.Infrastructure.Data.NHibernate</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Configuration\Arc.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Arc.Infrastructure.Data.NHibernate.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2, Version=2.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="DataConfiguration.cs" />
+    <Compile Include="FluentCriteria\Alias.cs" />
+    <Compile Include="FluentCriteria\AliasImpl.cs" />
+    <Compile Include="FluentCriteria\AliasSyntax.cs" />
+    <Compile Include="FluentCriteria\Criteria.cs" />
+    <Compile Include="FluentCriteria\CriteriaExtensions.cs" />
+    <Compile Include="FluentCriteria\CriteriaJoinExtensions.cs" />
+    <Compile Include="FluentCriteria\CriteriaOrderingExtensions.cs" />
+    <Compile Include="FluentCriteria\IAlias.cs" />
+    <Compile Include="FluentCriteria\Ordering.cs" />
+    <Compile Include="INHibernateConfiguration.cs" />
+    <Compile Include="INHibernateRepository.cs" />
+    <Compile Include="Listeners\BaseValidationListener.cs" />
+    <Compile Include="Listeners\PreInsertEventListener.cs" />
+    <Compile Include="Listeners\PreUpdateEventListener.cs" />
+    <Compile Include="NHibernateConfiguration.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Specifications\ActionProcessor.cs" />
+    <Compile Include="Specifications\AliasFinder.cs" />
+    <Compile Include="Specifications\BinaryActionProcessor.cs" />
+    <Compile Include="Specifications\CriterionConverter.cs" />
+    <Compile Include="Specifications\ExpressionProcessor.cs" />
+    <Compile Include="Specifications\FieldAliasProcessor.cs" />
+    <Compile Include="Specifications\IActionProcessor.cs" />
+    <Compile Include="Specifications\IAliasProcessor.cs" />
+    <Compile Include="Specifications\MemberFinder.cs" />
+    <Compile Include="Specifications\MethodActionProcessor.cs" />
+    <Compile Include="Specifications\NullActionProcessor.cs" />
+    <Compile Include="Specifications\NullAliasProcessor.cs" />
+    <Compile Include="Specifications\Pair.cs" />
+    <Compile Include="Specifications\ProcessorFactory.cs" />
+    <Compile Include="Specifications\PropertyRestrictionsFactory.cs" />
+    <Compile Include="Specifications\RestrictionsFactory.cs" />
+    <Compile Include="Specifications\UnaryActionProcessor.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="UnitOfWorkFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Configuration\Arc.snk">
+      <Link>Properties\Arc.snk</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Arc.Domain\Arc.Domain.csproj">
+      <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
+      <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Arc.Infrastructure\Arc.Infrastructure.csproj">
+      <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
+      <Name>Arc.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

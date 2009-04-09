@@ -84,8 +84,11 @@
     <Compile Include="..\..\Source\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\ConfigurationTests.cs" />
+    <Compile Include="Configuration\CastleWindsorConfigurationTests.cs" />
+    <Compile Include="Configuration\BaseConfigurationTests.cs" />
     <Compile Include="Configuration\DataTestConfiguration.cs" />
+    <Compile Include="Configuration\NinjectConfigurationTests.cs" />
+    <Compile Include="Configuration\StructureMapConfigurationTests.cs" />
     <Compile Include="Fakes\DependencyInjection\ConfigurationModule.cs" />
     <Compile Include="Fakes\DependencyInjection\DependencyConfiguration.cs" />
     <Compile Include="Fakes\DependencyInjection\RegisterServicesConvention.cs" />
@@ -95,7 +98,9 @@
     <Compile Include="Fakes\Model\Services\IGenericServiceHost.cs" />
     <Compile Include="Fakes\Model\Services\IParameterlessService.cs" />
     <Compile Include="Fakes\Model\Services\IService.cs" />
+    <Compile Include="Fakes\Model\Services\IServiceFactory.cs" />
     <Compile Include="Fakes\Model\Services\ParameterlessServiceImpl.cs" />
+    <Compile Include="Fakes\Model\Services\ServiceFactoryImpl.cs" />
     <Compile Include="Fakes\Model\Services\ServiceImpl.cs" />
     <Compile Include="Fakes\Validation\DomainEntity.cs" />
     <Compile Include="Fakes\Presentation\Mvp\ITestPresenter.cs" />
@@ -114,7 +119,6 @@
     <Compile Include="Infrastructure\Dependencies\AutoConfigurationTests.cs" />
     <Compile Include="Infrastructure\Dependencies\BaseServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\CastleWindsorServiceLocatorTests.cs" />
-    <Compile Include="Infrastructure\Dependencies\ScopeFactoryTests.cs" />
     <Compile Include="Infrastructure\Dependencies\NinjectServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\StructureMapServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\MasterPageTests.cs" />
@@ -127,6 +131,10 @@
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
+      <Project>{820F4A44-E9EF-41C9-830A-26F6B290431F}</Project>
+      <Name>Arc.Infrastructure.Data.NHibernate</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj">
       <Project>{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}</Project>

@@ -16,17 +16,18 @@ namespace Arc.Learning.Tests
     public class DependencyTests
     {
         [Test]
+        [Ignore("Not needed")]
         public void TEST_NAME()
         {
             Configure.ServiceLocator.ProviderTo("Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator, Arc.Infrastructure.Dependencies.CastleWindsor");
 
-            //ServiceLocator.Configuration.Register<IService, Service>(ServiceLocator.Scopes.Singleton);
-            ServiceLocator.Configuration.Register<IService, Service>();
-
-            ServiceLocator.Configuration.Register(typeof(IRepository<>), typeof(Repository<>));
-            ServiceLocator.Configuration.Register<IRepository<DomainEntity>, DomainEntityRepository>();
-            ServiceLocator.Configuration.Register<IDomainRepository, DomainRepository>();
-            ServiceLocator.Configuration.Register<IDomain2Repository, Domain2Repository>();
+            //ServiceLocator.ServiceLocator.Register<IService, ServiceImpl>(ServiceLocator.Scopes.Singleton);
+//            ServiceLocator.ServiceLocator.Register<IService, ServiceImpl>();
+//
+//            ServiceLocator.ServiceLocator.Register(typeof(IRepository<>), typeof(Repository<>));
+//            ServiceLocator.ServiceLocator.Register<IRepository<DomainEntity>, DomainEntityRepository>();
+//            ServiceLocator.ServiceLocator.Register<IDomainRepository, DomainRepository>();
+//            ServiceLocator.ServiceLocator.Register<IDomain2Repository, Domain2Repository>();
 
             var actuals = ServiceLocator.Resolve<IService>();
             var actual = ServiceLocator.Resolve<IDomainRepository>();

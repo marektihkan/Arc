@@ -1,4 +1,5 @@
 using Arc.Infrastructure.Dependencies;
+using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
@@ -55,10 +56,26 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             Assert.That(_serviceLocator.Resolve<ParameterlessServiceImpl>(), Is.Not.Null);
         }
 
+        [Test]
+        public void Should_bind_all_types_with_singleton_scope()
+        {
+            var configuration = AutoConfiguration.For("Arc.Integration.Tests")
+                .AllConcreteTypes
+                .BindToFirstInterface()
+                .Using(ServiceLifeStyle.Singleton);
+
+            SetupConfiguration(configuration);
+            var first = _serviceLocator.Resolve<IService>();
+            var second = _serviceLocator.Resolve<IService>();
+            
+            Assert.That(first, Is.Not.Null);
+            Assert.That(first, Is.SameAs(second));
+        }
+
         private void SetupConfiguration(IServiceLocatorModule<IServiceLocator> configuration)
         {
             _serviceLocator = new ServiceLocator();
-            _serviceLocator.Configuration.Load(configuration);
+            _serviceLocator.Load(configuration);
         }
     }
 }

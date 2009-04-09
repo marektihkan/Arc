@@ -36,7 +36,7 @@ namespace Arc.Infrastructure.Registry
     /// <summary>
     /// Local registry
     /// </summary>
-    public class LocalRegistry : BaseRegistry
+    public class LocalRegistry : BaseRegistry, ILocalRegistry
     {
         private readonly IDictionary _map = new HybridDictionary();
 

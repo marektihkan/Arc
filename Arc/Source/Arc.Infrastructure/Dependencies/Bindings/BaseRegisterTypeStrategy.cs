@@ -29,6 +29,7 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies.Bindings
 {
@@ -37,11 +38,16 @@ namespace Arc.Infrastructure.Dependencies.Bindings
     /// </summary>
     public abstract class BaseRegisterTypeStrategy
     {
+        protected BaseRegisterTypeStrategy()
+        {
+            Scope = ServiceLifeStyle.Transient;
+        }
+
         /// <summary>
         /// Gets or sets the scope.
         /// </summary>
         /// <value>The scope.</value>
-        public IScope Scope { get; set; }
+        public ServiceLifeStyle Scope { get; set; }
 
         /// <summary>
         /// Registers the specified service.
@@ -51,14 +57,10 @@ namespace Arc.Infrastructure.Dependencies.Bindings
         /// <param name="locator">The locator.</param>
         protected void Register(Type service, Type implementation, IServiceLocator locator)
         {
-            if (Scope != null)
-            {
-                locator.Configuration.Register(service, implementation, Scope);
-            }
-            else
-            {
-                locator.Configuration.Register(service, implementation);
-            }
+            locator.Register(
+                Requested.Service(service)
+                    .IsImplementedBy(implementation)
+                    .LifeStyle.Is(Scope));
         }
     }
 }

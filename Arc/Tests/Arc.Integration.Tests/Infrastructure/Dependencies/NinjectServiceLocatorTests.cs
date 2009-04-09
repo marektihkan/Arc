@@ -29,7 +29,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(ConfigurationModule.ValidModuleName);
+            target.Load(ConfigurationModule.ValidModuleName);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(ConfigurationModule.ValidModuleName, ConfigurationModule.ValidModuleName);
+            target.Load(ConfigurationModule.ValidModuleName, ConfigurationModule.ValidModuleName);
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         {
             var target = CreateSUT();
 
-            target.Configuration.Load(ConfigurationModule.InvalidModuleName);
+            target.Load(ConfigurationModule.InvalidModuleName);
         }
 
         [Test]

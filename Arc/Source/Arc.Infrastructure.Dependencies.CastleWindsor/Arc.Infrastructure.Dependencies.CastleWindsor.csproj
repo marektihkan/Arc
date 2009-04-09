@@ -50,15 +50,19 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DataConfiguration.cs" />
-    <Compile Include="ComponentRegistrationExtensions.cs" />
-    <Compile Include="Scope.cs" />
-    <Compile Include="ScopeFactory.cs" />
+    <Compile Include="Extensions\ComponentRegistrationExtensions.cs" />
+    <Compile Include="Registration\FactoryRegistrationStrategy.cs" />
+    <Compile Include="Registration\ImplementedRegistrationStrategy.cs" />
+    <Compile Include="Registration\IRegistrationStrategy.cs" />
+    <Compile Include="Registration\LifeStyleFactory.cs" />
+    <Compile Include="Registration\RegistrationStrategyFactory.cs" />
     <Compile Include="ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>

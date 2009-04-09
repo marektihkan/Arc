@@ -105,18 +105,18 @@
     <Compile Include="Fakes\Identity\GuidIdentityEntityTester.cs" />
     <Compile Include="Fakes\Identity\IntegerIdentityEntityTester.cs" />
     <Compile Include="Fakes\Units\RangeTester.cs" />
-    <Compile Include="Infrastructure\Data\AliasTests.cs" />
-    <Compile Include="Infrastructure\Data\AssertCriteria.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\AliasTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\AssertCriteria.cs" />
     <Compile Include="Infrastructure\Data\BaseRepositoryTests.cs" />
-    <Compile Include="Infrastructure\Data\CriteriaExamples.cs" />
-    <Compile Include="Infrastructure\Data\CriteriaTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\CriteriaExamples.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\CriteriaTests.cs" />
     <Compile Include="Infrastructure\Data\ObjectMapperExtensionsTests.cs" />
-    <Compile Include="Infrastructure\Data\RepositoryTests.cs" />
-    <Compile Include="Infrastructure\Data\SpecificationConverterTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\RepositoryTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\SpecificationConverterTests.cs" />
     <Compile Include="Fakes\Data\SpecificationConverterTestValues.cs" />
-    <Compile Include="Infrastructure\Data\TransactionTests.cs" />
-    <Compile Include="Infrastructure\Data\UnitOfWorkFactoryTests.cs" />
-    <Compile Include="Infrastructure\Data\UnitOfWorkTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\TransactionTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\UnitOfWorkFactoryTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\UnitOfWorkTests.cs" />
     <Compile Include="Infrastructure\Dependencies\StaticServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Logging\LoggerTests.cs" />
     <Compile Include="Infrastructure\Registry\LocalRegistryTests.cs" />
@@ -136,6 +136,10 @@
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
+      <Project>{820F4A44-E9EF-41C9-830A-26F6B290431F}</Project>
+      <Name>Arc.Infrastructure.Data.NHibernate</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
       <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>

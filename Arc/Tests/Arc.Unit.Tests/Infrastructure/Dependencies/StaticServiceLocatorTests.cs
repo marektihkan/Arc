@@ -12,16 +12,12 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
     public class StaticServiceLocatorTests
     {
         private IServiceLocator _locator;
-        private IServiceLocatorConfiguration _configuration;
 
         [SetUp]
         public void SetUp()
         {
             _locator = MockRepository.GenerateMock<IServiceLocator>();
-            _configuration = MockRepository.GenerateMock<IServiceLocatorConfiguration>();
-
-            _locator.Stub(x => x.Configuration).Return(_configuration).Repeat.Any();
-
+            
             ServiceLocator.InnerServiceLocator = _locator;
         }
 
@@ -30,9 +26,9 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
         {
             var configuration = MockRepository.GenerateStub<IServiceLocatorModule<IServiceLocator>>();
 
-            ServiceLocator.Configuration.Load(configuration);
+            ServiceLocator.Load(configuration);
 
-            _configuration.AssertWasCalled(x => x.Load(configuration));
+            _locator.AssertWasCalled(x => x.Load(configuration));
         }
 
         [Test]
@@ -40,9 +36,9 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
         {
             var moduleName = string.Empty;
 
-            ServiceLocator.Configuration.Load(moduleName);
+            ServiceLocator.Load(moduleName);
 
-            _configuration.AssertWasCalled(x => x.Load(moduleName));
+            _locator.AssertWasCalled(x => x.Load(moduleName));
         }
 
         [Test]
@@ -50,43 +46,9 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
         {
             var moduleNames = new [] { string.Empty, string.Empty };
 
-            ServiceLocator.Configuration.Load(moduleNames);
+            ServiceLocator.Load(moduleNames);
 
-            _configuration.AssertWasCalled(x => x.Load(moduleNames));
-        }
-
-        [Test]
-        public void Should_delegate_register_with_generics()
-        {
-            ServiceLocator.Configuration.Register<IRepository<IEntity>, Repository<IEntity>>();
-
-            _configuration.AssertWasCalled(x => x.Register<IRepository<IEntity>, Repository<IEntity>>());
-        }
-
-        [Test]
-        public void Should_delegate_register_with_generics_and_scope()
-        {
-            var scope = MockRepository.GenerateStub<IScope>();
-            ServiceLocator.Configuration.Register<IRepository<IEntity>, Repository<IEntity>>(scope);
-
-            _configuration.AssertWasCalled(x => x.Register<IRepository<IEntity>, Repository<IEntity>>(scope));
-        }
-
-        [Test]
-        public void Should_delegate_register()
-        {
-            ServiceLocator.Configuration.Register(typeof(IRepository<IEntity>), typeof(Repository<IEntity>));
-
-            _configuration.AssertWasCalled(x => x.Register(typeof(IRepository<IEntity>), typeof(Repository<IEntity>)));
-        }
-
-        [Test]
-        public void Should_delegate_register_with_scope()
-        {
-            var scope = MockRepository.GenerateStub<IScope>();
-            ServiceLocator.Configuration.Register(typeof(IRepository<IEntity>), typeof(Repository<IEntity>), scope);
-
-            _configuration.AssertWasCalled(x => x.Register(typeof(IRepository<IEntity>), typeof(Repository<IEntity>), scope));
+            _locator.AssertWasCalled(x => x.Load(moduleNames));
         }
 
         [Test]
@@ -113,18 +75,6 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
             ServiceLocator.Release(releasable);
 
             _locator.AssertWasCalled(x => x.Release(releasable));
-        }
-
-        [Test]
-        public void Should_delegate_scope_factory()
-        {
-            var scopeFactory = MockRepository.GenerateStub<IScopeFactory>();
-            
-            _locator.Stub(x => x.Scopes).Return(scopeFactory);
-
-            var actual = ServiceLocator.Scopes;
-
-            Assert.That(actual, Is.SameAs(scopeFactory));
         }
     }
 }

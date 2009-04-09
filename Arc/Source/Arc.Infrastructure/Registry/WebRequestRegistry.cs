@@ -37,7 +37,7 @@ namespace Arc.Infrastructure.Registry
     /// <summary>
     /// Web request registry.
     /// </summary>
-    public class WebRequestRegistry : BaseRegistry
+    public class WebRequestRegistry : BaseRegistry, IWebRequestRegistry
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WebRequestRegistry"/> class.

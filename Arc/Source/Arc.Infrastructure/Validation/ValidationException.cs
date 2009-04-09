@@ -102,5 +102,14 @@ namespace Arc.Infrastructure.Validation
         {
             get { return (_results != null) ? _results.Summary : base.Message; }
         }
+
+        /// <summary>
+        /// Gets the validation results.
+        /// </summary>
+        /// <value>The validation results.</value>
+        public IValidationResults Results
+        {
+            get { return _results; }
+        }
     }
 }

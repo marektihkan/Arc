@@ -48,6 +48,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Logger.cs" />
+    <Compile Include="LoggingConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Configuration\Arc.snk">

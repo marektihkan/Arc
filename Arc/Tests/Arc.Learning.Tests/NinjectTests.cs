@@ -1,5 +1,3 @@
-using Arc.Infrastructure.Data;
-using Arc.Infrastructure.Data.NHibernate;
 using Ninject.Core;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
@@ -14,7 +12,7 @@ namespace Arc.Learning.Tests
         {
             IKernel kernel = new StandardKernel();
 
-            kernel.Load(new InlineModule(x => x.Bind<IService>().To<Service>()));
+            kernel.Load(new InlineModule(x => x.Bind<IService>().To<ServiceImpl>()));
 
             Assert.That(kernel.Get<IService>(), Is.Not.Null);
         }
@@ -25,35 +23,30 @@ namespace Arc.Learning.Tests
         {
             IKernel kernel = new StandardKernel();
             
-            kernel.Load(new InlineModule(x => x.Bind<IService>().To<Service>()));
-            kernel.Load(new InlineModule(x => x.Bind<IService2>().To<Service2>()));
+            kernel.Load(new InlineModule(x => x.Bind<IService>().To<ServiceImpl>()));
+            kernel.Load(new InlineModule(x => x.Bind<IService2>().To<Service2Impl>()));
         }
 
         [Test]
-        [Ignore("Ninject doesn't support generic registration.")]
         public void Should_register_generics()
         {
             IKernel kernel = new StandardKernel();
 
-            kernel.Load(new InlineModule(x => x.Bind(typeof(IRepository<>)).To(typeof(Repository<>))));
+            kernel.Load(new InlineModule(x => x.Bind(typeof(IGenericService<>)).To(typeof(GenericServiceImpl<>))));
 
-            Assert.That(kernel.Get<IRepository<DomainEntity>>(), Is.Not.Null);
+            Assert.That(kernel.Get<IGenericService<DomainEntity>>(), Is.Not.Null);
         }
     }
 
-    public interface IService
-    {
-    }
+    public interface IGenericService<T> {}
 
-    public class Service : IService
-    {
-    }
+    public class GenericServiceImpl<T> : IGenericService<T> { }
 
-    public interface IService2
-    {
-    }
+    public interface IService {}
 
-    public class Service2 : IService2
-    {
-    }
+    public class ServiceImpl : IService {}
+
+    public interface IService2 {}
+
+    public class Service2Impl : IService2 {}
 }

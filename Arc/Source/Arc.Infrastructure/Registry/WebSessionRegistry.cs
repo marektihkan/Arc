@@ -35,7 +35,7 @@ namespace Arc.Infrastructure.Registry
     /// <summary>
     /// Web session registry.
     /// </summary>
-    public class WebSessionRegistry : BaseRegistry
+    public class WebSessionRegistry : BaseRegistry, IWebSessionRegistry
     {
         /// <summary>
         /// Gets the map where items are stored.

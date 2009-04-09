@@ -6,9 +6,9 @@ using Arc.Infrastructure.Utilities;
 namespace Arc.Infrastructure.Configuration.Syntax
 {
     /// <summary>
-    /// Configuration for service locator provider.
+    /// ServiceLocator for service locator provider.
     /// </summary>
-    public class ServiceLocatorProviderConfiguration : IServiceLocatorProviderConfiguration, IServiceLocatorConfigurationAware, IServiceLocatorConfiguration
+    public class ServiceLocatorProviderConfiguration : IServiceLocatorProviderConfiguration, IServiceLocatorConfiguration
     {
         private IServiceLocator _locator;
 
@@ -31,7 +31,7 @@ namespace Arc.Infrastructure.Configuration.Syntax
         public IServiceLocatorConfiguration ProviderTo(IServiceLocator provider)
         {
             _locator = provider;
-            ServiceLocator.InnerServiceLocator = _locator;
+            Infrastructure.Dependencies.ServiceLocator.InnerServiceLocator = _locator;
             return this;
         }
 
@@ -63,7 +63,7 @@ namespace Arc.Infrastructure.Configuration.Syntax
         public IServiceLocatorConfiguration With(string moduleName)
         {
             if (!string.IsNullOrEmpty(moduleName))
-                ServiceLocator.Configuration.Load(moduleName);
+                Infrastructure.Dependencies.ServiceLocator.Load(moduleName);
             return this;
         }
 
@@ -75,7 +75,7 @@ namespace Arc.Infrastructure.Configuration.Syntax
         public IServiceLocatorConfiguration With(IServiceLocatorModule<IServiceLocator> module)
         {
             if (module != null)
-                ServiceLocator.Configuration.Load(module);
+                Infrastructure.Dependencies.ServiceLocator.Load(module);
             return this;
         }
 
@@ -91,22 +91,20 @@ namespace Arc.Infrastructure.Configuration.Syntax
             return this;
         }
 
-        /// <summary>
-        /// Unites to configurations.
-        /// </summary>
-        /// <value>Next configuration.</value>
-        public IConfigureLoggingSyntax And
+        public IServiceLocatorConfiguration With<TConfiguration>() where TConfiguration : IServiceLocatorModule<IServiceLocator>
         {
-            get { return new Configure(); }
+            var configuration = ResolveProvider<IServiceLocatorModule<IServiceLocator>>.WithRealType(typeof(TConfiguration));
+            configuration.Configure(ServiceLocator);
+            return this;
         }
 
         /// <summary>
-        /// Gets the service locator configuration.
+        /// Gets the service locator.
         /// </summary>
-        /// <value>The configuration.</value>
-        public Infrastructure.Dependencies.IServiceLocatorConfiguration Configuration
+        /// <value>The service locator.</value>
+        public IServiceLocator ServiceLocator
         {
-            get { return _locator.Configuration; }
+            get { return _locator; }
         }
     }
 }

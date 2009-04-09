@@ -88,6 +88,7 @@
     <Compile Include="IsNullExtensionsTests.cs" />
     <Compile Include="NinjectTests.cs" />
     <Compile Include="Fakes\Model\ObjectFactoryImpl.cs" />
+    <Compile Include="ReflectionTests.cs" />
     <Compile Include="StructureMapRegistration.cs" />
     <Compile Include="WindsorRegistration.cs" />
   </ItemGroup>
@@ -95,6 +96,10 @@
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
+      <Project>{820F4A44-E9EF-41C9-830A-26F6B290431F}</Project>
+      <Name>Arc.Infrastructure.Data.NHibernate</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj">
       <Project>{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}</Project>

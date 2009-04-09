@@ -41,7 +41,5 @@ namespace Arc.Unit.Tests.Infrastructure.Data
 
             Assert.That(actual, Is.Not.Null);
         }
-
-
     }
 }

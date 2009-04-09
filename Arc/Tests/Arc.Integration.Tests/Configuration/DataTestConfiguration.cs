@@ -1,10 +1,10 @@
-using Arc.Infrastructure.Data.NHibernate;
+using Arc.Infrastructure.Dependencies;
+using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Registry;
-using Ninject.Core;
 
 namespace Arc.Integration.Tests.Configuration
 {
-    public class DataTestConfiguration : StandardModule
+    public class DataTestConfiguration : IServiceLocatorModule<IServiceLocator>
     {
         public static string FullName
         {
@@ -15,9 +15,11 @@ namespace Arc.Integration.Tests.Configuration
             }
         }
 
-        public override void Load()
+        public void Configure(IServiceLocator serviceLocator)
         {
-            Bind<IRegistry>().To<LocalRegistry>().ForMembersOf<UnitOfWorkFactory>();
+            serviceLocator.Register(
+                Requested.Service<IRegistry>().IsImplementedBy<LocalRegistry>()
+            );
         }
     }
 }

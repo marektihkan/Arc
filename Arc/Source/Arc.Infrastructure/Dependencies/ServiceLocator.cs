@@ -50,22 +50,33 @@ namespace Arc.Infrastructure.Dependencies
         }
 
         /// <summary>
-        /// Gets the scope factory.
+        /// Loads the specified module by name.
         /// </summary>
-        /// <value>The scope factory.</value>
-        public static IScopeFactory Scopes
+        /// <param name="moduleName">Name of the module.</param>
+        /// <exception cref="ArgumentException">moduleName</exception>
+        public static void Load(string moduleName)
         {
-            get { return InnerServiceLocator.Scopes; }
+            InnerServiceLocator.Load(moduleName);
         }
 
         /// <summary>
-        /// Gets the service locator's configuration.
+        /// Loads the specified modules by name.
         /// </summary>
-        /// <value>The configuration.</value>
-        public static IServiceLocatorConfiguration Configuration
+        /// <param name="moduleNames">The module names.</param>
+        public static void Load(params string[] moduleNames)
         {
-            get { return InnerServiceLocator.Configuration; }
+            InnerServiceLocator.Load(moduleNames);
         }
+
+        /// <summary>
+        /// Loads the specified configuration.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        public static void Load(IServiceLocatorModule<IServiceLocator> configuration)
+        {
+            InnerServiceLocator.Load(configuration);
+        }
+
 
         /// <summary>
         /// Resolves requested service.

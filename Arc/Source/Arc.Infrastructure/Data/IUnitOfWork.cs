@@ -29,7 +29,6 @@
 #endregion
 
 using System;
-using NHibernate;
 
 namespace Arc.Infrastructure.Data
 {
@@ -42,7 +41,7 @@ namespace Arc.Infrastructure.Data
         /// Gets the NHibernate session.
         /// </summary>
         /// <value>The NHibernate session.</value>
-        ISession Session { get; }
+        object Session { get; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is in transaction.

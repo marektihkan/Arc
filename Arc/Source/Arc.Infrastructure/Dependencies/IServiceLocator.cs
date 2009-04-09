@@ -29,6 +29,7 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies
 {
@@ -37,18 +38,6 @@ namespace Arc.Infrastructure.Dependencies
     /// </summary>
     public interface IServiceLocator : IDisposable
     {
-        /// <summary>
-        /// Gets the scope factory.
-        /// </summary>
-        /// <value>The scope factory.</value>
-        IScopeFactory Scopes { get; }
-
-        /// <summary>
-        /// Gets the service locator's configuration.
-        /// </summary>
-        /// <value>The configuration.</value>
-        IServiceLocatorConfiguration Configuration { get; }
-
         /// <summary>
         /// Resolves requested service.
         /// </summary>
@@ -87,5 +76,31 @@ namespace Arc.Infrastructure.Dependencies
         /// </summary>
         /// <param name="releasable">The releasable object.</param>
         void Release(object releasable);
+
+        /// <summary>
+        /// Loads the specified module by name.
+        /// It should load module for concrete implementation of service locator.
+        /// </summary>
+        /// <param name="moduleName">Name of the module.</param>
+        void Load(string moduleName);
+
+        /// <summary>
+        /// Loads the specified service locator modules by name.
+        /// It should load module for concrete implementation of service locator.
+        /// </summary>
+        /// <param name="moduleNames">The module names.</param>
+        void Load(params string[] moduleNames);
+
+        /// <summary>
+        /// Loads the specified configuration.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        void Load(IServiceLocatorModule<IServiceLocator> configuration);
+
+        /// <summary>
+        /// Registers the specified bindings.
+        /// </summary>
+        /// <param name="registrations">The registrations.</param>
+        void Register(params IRegistration[] registrations);
     }
 }

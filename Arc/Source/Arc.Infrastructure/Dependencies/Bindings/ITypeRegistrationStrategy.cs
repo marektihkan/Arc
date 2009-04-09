@@ -29,6 +29,7 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies.Bindings
 {
@@ -48,6 +49,6 @@ namespace Arc.Infrastructure.Dependencies.Bindings
         /// Gets or sets the scope.
         /// </summary>
         /// <value>The scope.</value>
-        IScope Scope { get; set; }
+        ServiceLifeStyle Scope { get; set; }
     }
 }

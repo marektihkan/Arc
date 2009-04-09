@@ -3,7 +3,7 @@ using StructureMap.Attributes;
 
 namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
 {
-    public static class LifeStyleFactory
+    internal static class LifeStyleFactory
     {
         internal static InstanceScope Create(ServiceLifeStyle lifeStyle)
         {

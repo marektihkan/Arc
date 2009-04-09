@@ -17,7 +17,7 @@ namespace Arc.Infrastructure.Dependencies
         }
 
         /// <summary>
-        /// Gets the arguments as IDictionary<string, object>.
+        /// Gets the arguments as <c>IDictionary&lt;string, object&gt;</c>.
         /// </summary>
         /// <value>The arguments.</value>
         public IDictionary<string, object> Arguments { get; private set; }

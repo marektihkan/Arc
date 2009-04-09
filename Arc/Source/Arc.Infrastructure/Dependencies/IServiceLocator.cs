@@ -55,7 +55,7 @@ namespace Arc.Infrastructure.Dependencies
         /// <summary>
         /// Resolves service with the specified parameters.
         /// <code>
-        /// serviceLocator.Resolve<IService>(With.Parameters.ConstructorArgument("name", value));
+        /// serviceLocator.Resolve&lt;IService&gt;(With.Parameters.ConstructorArgument("name", value));
         /// </code>
         /// </summary>
         /// <typeparam name="TService">The type of the service.</typeparam>

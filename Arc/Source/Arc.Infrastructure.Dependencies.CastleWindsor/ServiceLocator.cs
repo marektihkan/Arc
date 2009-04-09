@@ -69,7 +69,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
 
         /// <summary>
         /// Loads the specified module by name.
-        /// Module should implement <c>Arc.Dependencies.IServiceLocatorModule<Castle.Windsor.IWindsorContainer></c>
+        /// Module should implement <c>Arc.Dependencies.IServiceLocatorModule&lt;Castle.Windsor.IWindsorContainer&gt;</c>
         /// </summary>
         /// <param name="moduleName">Name of the module.</param>
         /// <exception cref="ArgumentException">moduleName</exception>
@@ -82,7 +82,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
 
         /// <summary>
         /// Loads the specified modules by name.
-        /// Module should implement <c>Arc.Dependencies.IServiceLocatorModule<Castle.Windsor.IWindsorContainer></c>
+        /// Module should implement <c>Arc.Dependencies.IServiceLocatorModule&lt;Castle.Windsor.IWindsorContainer&gt;</c>
         /// </summary>
         /// <param name="moduleNames">The module names.</param>
         public void Load(params string[] moduleNames)

@@ -99,7 +99,7 @@ namespace Arc.Domain.Identity
         /// </exception>
         public override bool Equals(object obj)
         {
-            return Equals(obj as IntegerIdentityEntity);
+            return Equals(obj as IEntity<int>);
         }
 
         /// <summary>

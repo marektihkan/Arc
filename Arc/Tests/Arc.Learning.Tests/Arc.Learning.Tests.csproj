@@ -80,15 +80,24 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BDDStyles.cs" />
+    <Compile Include="Fakes\Model\DomainEntity.cs" />
+    <Compile Include="Fakes\Model\CreatedObject2Impl.cs" />
     <Compile Include="Fakes\Model\CreatedObjectImpl.cs" />
-    <Compile Include="CriteriaTests.cs" />
-    <Compile Include="DependencyTests.cs" />
     <Compile Include="Fakes\Model\ICreatedObject.cs" />
     <Compile Include="Fakes\Model\IObjectFactory.cs" />
-    <Compile Include="IsNullExtensionsTests.cs" />
+    <Compile Include="Fakes\Model\HostObject2Impl.cs" />
+    <Compile Include="Fakes\Model\HostObjectImpl.cs" />
+    <Compile Include="Fakes\Model\IHostObject.cs" />
+    <Compile Include="Fakes\Model\IHostObject2.cs" />
+    <Compile Include="Fakes\Model\GenericServiceImpl.cs" />
+    <Compile Include="Fakes\Model\IGenericService.cs" />
+    <Compile Include="Fakes\Model\IService.cs" />
+    <Compile Include="Fakes\Model\IService2.cs" />
     <Compile Include="NinjectTests.cs" />
     <Compile Include="Fakes\Model\ObjectFactoryImpl.cs" />
     <Compile Include="ReflectionTests.cs" />
+    <Compile Include="Fakes\Model\Service2Impl.cs" />
+    <Compile Include="Fakes\Model\ServiceImpl.cs" />
     <Compile Include="StructureMapRegistration.cs" />
     <Compile Include="WindsorRegistration.cs" />
   </ItemGroup>

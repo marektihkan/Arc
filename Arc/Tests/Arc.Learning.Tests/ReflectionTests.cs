@@ -1,3 +1,4 @@
+using Arc.Learning.Tests.Fakes.Model;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 

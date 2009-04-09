@@ -1,3 +1,4 @@
+using Arc.Learning.Tests.Fakes.Model;
 using Ninject.Core;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
@@ -37,16 +38,4 @@ namespace Arc.Learning.Tests
             Assert.That(kernel.Get<IGenericService<DomainEntity>>(), Is.Not.Null);
         }
     }
-
-    public interface IGenericService<T> {}
-
-    public class GenericServiceImpl<T> : IGenericService<T> { }
-
-    public interface IService {}
-
-    public class ServiceImpl : IService {}
-
-    public interface IService2 {}
-
-    public class Service2Impl : IService2 {}
 }

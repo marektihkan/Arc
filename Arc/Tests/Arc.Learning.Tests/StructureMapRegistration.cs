@@ -1,4 +1,3 @@
-using System;
 using Arc.Learning.Tests.Fakes.Model;
 using NHibernate;
 using NHibernate.Cfg;
@@ -6,7 +5,6 @@ using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using StructureMap;
 using StructureMap.Attributes;
-using StructureMap.Configuration.DSL;
 using StructureMap.Pipeline;
 
 namespace Arc.Learning.Tests
@@ -14,7 +12,6 @@ namespace Arc.Learning.Tests
     [TestFixture]
     public class StructureMapRegistration
     {
-
         [Test]
         public void Should_register_to_factory_method()
         {
@@ -127,50 +124,5 @@ namespace Arc.Learning.Tests
                     .AddConcreteType<HostObjectImpl>());
 
         }
-
-        
-
-    }
-
-    public class CreatedObject2Impl : ICreatedObject
-    {
-    }
-
-    public class HostObjectImpl : IHostObject
-    {
-        public HostObjectImpl(ICreatedObject createdObject)
-        {
-            CreatedObject = createdObject;
-        }
-
-        public ICreatedObject CreatedObject
-        {
-            get;
-            set;
-        }
-    }
-
-    public interface IHostObject
-    {
-        ICreatedObject CreatedObject { get; }
-    }
-
-    public class HostObject2Impl : IHostObject2
-    {
-        public HostObject2Impl(ICreatedObject createdObject)
-        {
-            CreatedObject = createdObject;
-        }
-
-        public ICreatedObject CreatedObject
-        {
-            get;
-            set;
-        }
-    }
-
-    public interface IHostObject2
-    {
-        ICreatedObject CreatedObject { get; }
     }
 }

@@ -13,7 +13,6 @@ namespace Arc.Learning.Tests
     [TestFixture]
     public class WindsorRegistration
     {
-
         [Test]
         public void Should_register_to_factory_method()
         {
@@ -38,7 +37,6 @@ namespace Arc.Learning.Tests
             Assert.That(firstCreatedObject, Is.Not.SameAs(secondCreatedObject));
 
         }
-
 
         [Test]
         public void Auto_regitration_example()

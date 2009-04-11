@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Specialized;
 using System.Web;
@@ -9,15 +10,8 @@ namespace Arc.Infrastructure.Registry
     /// </summary>
     public class HybridRegistry : BaseRegistry, IHybridRegistry
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="HybridRegistry"/> class.
-        /// </summary>
-        public HybridRegistry()
-        {
-            RealMap = (HttpContext.Current != null) ? HttpContext.Current.Items : new HybridDictionary();
-        }
-
-        private IDictionary RealMap { get; set; }
+        [ThreadStatic]
+        private IDictionary _map;
 
         /// <summary>
         /// Gets the map where items are stored.
@@ -25,7 +19,16 @@ namespace Arc.Infrastructure.Registry
         /// <value>The map.</value>
         protected override IDictionary Map
         {
-            get { return RealMap; }
+            get
+            {
+                if (HttpContext.Current != null) return HttpContext.Current.Items;
+
+                if (_map == null)
+                {
+                    _map = new Hashtable();
+                }
+                return _map;
+            }
         }
     }
 }

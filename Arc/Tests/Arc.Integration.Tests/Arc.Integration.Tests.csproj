@@ -116,7 +116,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Fakes\Validation\EntityFactory.cs" />
-    <Compile Include="Infrastructure\Dependencies\AutoConfigurationTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\AutoRegistrationTests.cs" />
     <Compile Include="Infrastructure\Dependencies\BaseServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\CastleWindsorServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\NinjectServiceLocatorTests.cs" />

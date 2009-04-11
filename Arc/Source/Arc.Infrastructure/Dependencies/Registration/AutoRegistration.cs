@@ -31,22 +31,21 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Arc.Infrastructure.Dependencies.Bindings;
-using Arc.Infrastructure.Dependencies.Registration;
+using Arc.Infrastructure.Dependencies.Registration.Auto;
 
-namespace Arc.Infrastructure.Dependencies
+namespace Arc.Infrastructure.Dependencies.Registration
 {
     /// <summary>
     /// Auto registration.
     /// </summary>
-    public class AutoConfiguration : IServiceLocatorModule<IServiceLocator>, IBindingSyntax, IPickingSyntax
+    public class AutoRegistration : IServiceLocatorModule<IServiceLocator>, IBindingSyntax, IPickingSyntax
     {
         private ITypeRegistrationStrategy _strategy;
         private readonly Assembly[] _assemblies;
         private Func<Type, bool> _criteria;
 
 
-        private AutoConfiguration(Assembly[] assemblies)
+        private AutoRegistration(Assembly[] assemblies)
         {
             _assemblies = assemblies;
         }
@@ -59,7 +58,7 @@ namespace Arc.Infrastructure.Dependencies
         /// <returns></returns>
         public static IPickingSyntax For(params Assembly[] assemblies)
         {
-            return new AutoConfiguration(assemblies);
+            return new AutoRegistration(assemblies);
         }
 
         /// <summary>
@@ -74,7 +73,7 @@ namespace Arc.Infrastructure.Dependencies
             {
                 assemblies.Add(Assembly.Load(name));
             }
-            return new AutoConfiguration(assemblies.ToArray());
+            return new AutoRegistration(assemblies.ToArray());
         }
 
 
@@ -104,7 +103,7 @@ namespace Arc.Infrastructure.Dependencies
         /// </summary>
         /// <param name="criteria">The criteria. (interface)</param>
         /// <returns>ServiceLocator.</returns>
-        public AutoConfiguration BindToInterface(Func<Type, bool> criteria)
+        public AutoRegistration BindToInterface(Func<Type, bool> criteria)
         {
             _strategy = new RegisterTypeToFirstMatchStrategy(criteria);
             return this;
@@ -115,7 +114,7 @@ namespace Arc.Infrastructure.Dependencies
         /// </summary>
         /// <param name="criteria">The criteria. (interface, realType)</param>
         /// <returns></returns>
-        public AutoConfiguration BindToInterface(Func<Type, Type, bool> criteria)
+        public AutoRegistration BindToInterface(Func<Type, Type, bool> criteria)
         {
             _strategy = new RegisterTypeToFirstMatchStrategy(criteria);
             return this;
@@ -125,7 +124,7 @@ namespace Arc.Infrastructure.Dependencies
         /// Binds to self.
         /// </summary>
         /// <returns>ServiceLocator.</returns>
-        public AutoConfiguration BindToSelf()
+        public AutoRegistration BindToSelf()
         {
             _strategy = new RegisterTypeToSelfStrategy();
             return this;
@@ -135,7 +134,7 @@ namespace Arc.Infrastructure.Dependencies
         /// Binds to first interface.
         /// </summary>
         /// <returns>ServiceLocator.</returns>
-        public AutoConfiguration BindToFirstInterface()
+        public AutoRegistration BindToFirstInterface()
         {
             return BindToInterface(x => x.IsInterface);
         }
@@ -145,7 +144,7 @@ namespace Arc.Infrastructure.Dependencies
         /// </summary>
         /// <param name="lifeStyle">The life style.</param>
         /// <returns></returns>
-        public AutoConfiguration Using(ServiceLifeStyle lifeStyle)
+        public AutoRegistration Using(ServiceLifeStyle lifeStyle)
         {
             _strategy.Scope = lifeStyle;
             return this;

@@ -29,9 +29,8 @@
 #endregion
 
 using System;
-using Arc.Infrastructure.Dependencies.Registration;
 
-namespace Arc.Infrastructure.Dependencies.Bindings
+namespace Arc.Infrastructure.Dependencies.Registration.Auto
 {
     /// <summary>
     /// Strategy for type registration.

@@ -30,21 +30,39 @@
 
 using System;
 
-namespace Arc.Infrastructure.Dependencies.Bindings
+namespace Arc.Infrastructure.Dependencies.Registration.Auto
 {
     /// <summary>
-    /// Registers to self strategy.
+    /// Register type strategy base.
     /// </summary>
-    class RegisterTypeToSelfStrategy : BaseRegisterTypeStrategy, ITypeRegistrationStrategy
+    public abstract class BaseRegisterTypeStrategy
     {
         /// <summary>
-        /// Registers the specified type.
+        /// Initializes a new instance of the <see cref="BaseRegisterTypeStrategy"/> class.
         /// </summary>
-        /// <param name="type">The type.</param>
-        /// <param name="locator">The locator.</param>
-        public void Register(Type type, IServiceLocator locator)
+        protected BaseRegisterTypeStrategy()
         {
-            Register(type, type, locator);
+            Scope = ServiceLifeStyle.Transient;
+        }
+
+        /// <summary>
+        /// Gets or sets the scope.
+        /// </summary>
+        /// <value>The scope.</value>
+        public ServiceLifeStyle Scope { get; set; }
+
+        /// <summary>
+        /// Registers the specified service.
+        /// </summary>
+        /// <param name="service">The service.</param>
+        /// <param name="implementation">The implementation.</param>
+        /// <param name="locator">The locator.</param>
+        protected void Register(Type service, Type implementation, IServiceLocator locator)
+        {
+            locator.Register(
+                Requested.Service(service)
+                    .IsImplementedBy(implementation)
+                    .LifeStyle.Is(Scope));
         }
     }
 }

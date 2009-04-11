@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Arc.Infrastructure.Configuration.Dependencies;
-using Arc.Infrastructure.Dependencies.Bindings;
 using Arc.Domain.Dsl;
+using Arc.Infrastructure.Dependencies.Registration;
+using Arc.Infrastructure.Dependencies.Registration.Auto;
 
 namespace Arc.Infrastructure.Dependencies.Conventions
 {
@@ -11,14 +12,14 @@ namespace Arc.Infrastructure.Dependencies.Conventions
     /// </summary>
     public abstract class BaseConvention : IConvention<IServiceLocator>
     {
-        private IList<AutoConfiguration> Configurations { get; set; }
+        private IList<AutoRegistration> Configurations { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseConvention"/> class.
         /// </summary>
         public BaseConvention()
         {
-            Configurations = new List<AutoConfiguration>();
+            Configurations = new List<AutoRegistration>();
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace Arc.Infrastructure.Dependencies.Conventions
         /// <returns></returns>
         public IPickingSyntax For(params Assembly[] assemblies)
         {
-            var configuration = (AutoConfiguration)AutoConfiguration.For(assemblies);
+            var configuration = (AutoRegistration)AutoRegistration.For(assemblies);
             Configurations.Add(configuration);
             return configuration;
         }
@@ -40,7 +41,7 @@ namespace Arc.Infrastructure.Dependencies.Conventions
         /// <returns></returns>
         public IPickingSyntax For(params string[] assemblyNames)
         {
-            var configuration = (AutoConfiguration) AutoConfiguration.For(assemblyNames);
+            var configuration = (AutoRegistration) AutoRegistration.For(assemblyNames);
             Configurations.Add(configuration);
             return configuration;
         }

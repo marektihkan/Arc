@@ -8,14 +8,14 @@ using ServiceLocator=Arc.Infrastructure.Dependencies.Ninject.ServiceLocator;
 namespace Arc.Integration.Tests.Infrastructure.Dependencies
 {
     [TestFixture]
-    public class AutoConfigurationTests
+    public class AutoRegistrationTests
     {
         private IServiceLocator _serviceLocator;
 
         [Test]
         public void Picking_example()
         {
-            var configuration = AutoConfiguration.For("Arc.Integration.Tests")
+            var configuration = AutoRegistration.For("Arc.Integration.Tests")
                 .Pick(x => x.Namespace.Contains("Arc.Integration.Tests.Fakes"))
                 .BindToFirstInterface();
 
@@ -26,7 +26,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         [Test]
         public void For_all_types_example()
         {
-            var configuration = AutoConfiguration.For("Arc.Integration.Tests")
+            var configuration = AutoRegistration.For("Arc.Integration.Tests")
                 .AllConcreteTypes
                 .BindToFirstInterface();
 
@@ -37,7 +37,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         [Test]
         public void Picking_binding_interface_example()
         {
-            var configuration = AutoConfiguration.For("Arc.Integration.Tests")
+            var configuration = AutoRegistration.For("Arc.Integration.Tests")
                 .AllConcreteTypes
                 .BindToInterface(x => x.Name.Contains("Service"));
 
@@ -48,7 +48,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         [Test]
         public void Binding_to_self_example()
         {
-            var configuration = AutoConfiguration.For("Arc.Integration.Tests")
+            var configuration = AutoRegistration.For("Arc.Integration.Tests")
                 .AllConcreteTypes
                 .BindToSelf();
 
@@ -59,7 +59,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         [Test]
         public void Should_bind_all_types_with_singleton_scope()
         {
-            var configuration = AutoConfiguration.For("Arc.Integration.Tests")
+            var configuration = AutoRegistration.For("Arc.Integration.Tests")
                 .AllConcreteTypes
                 .BindToFirstInterface()
                 .Using(ServiceLifeStyle.Singleton);

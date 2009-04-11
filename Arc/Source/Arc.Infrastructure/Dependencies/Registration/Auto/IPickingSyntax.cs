@@ -29,41 +29,25 @@
 #endregion
 
 using System;
-using Arc.Infrastructure.Dependencies.Registration;
 
-namespace Arc.Infrastructure.Dependencies.Bindings
+namespace Arc.Infrastructure.Dependencies.Registration.Auto
 {
     /// <summary>
-    /// Register type strategy base.
+    /// Picking syntax.
     /// </summary>
-    public abstract class BaseRegisterTypeStrategy
+    public interface IPickingSyntax
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BaseRegisterTypeStrategy"/> class.
+        /// Picks types by the specified criteria.
         /// </summary>
-        protected BaseRegisterTypeStrategy()
-        {
-            Scope = ServiceLifeStyle.Transient;
-        }
+        /// <param name="criteria">The criteria.</param>
+        /// <returns>Binding syntax.</returns>
+        IBindingSyntax Pick(Func<Type, bool> criteria);
 
         /// <summary>
-        /// Gets or sets the scope.
+        /// Picks all concrete types.
         /// </summary>
-        /// <value>The scope.</value>
-        public ServiceLifeStyle Scope { get; set; }
-
-        /// <summary>
-        /// Registers the specified service.
-        /// </summary>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        /// <param name="locator">The locator.</param>
-        protected void Register(Type service, Type implementation, IServiceLocator locator)
-        {
-            locator.Register(
-                Requested.Service(service)
-                    .IsImplementedBy(implementation)
-                    .LifeStyle.Is(Scope));
-        }
+        /// <value>Binding syntax.</value>
+        IBindingSyntax AllConcreteTypes { get; }
     }
 }

@@ -30,24 +30,43 @@
 
 using System;
 
-namespace Arc.Infrastructure.Dependencies.Bindings
+namespace Arc.Infrastructure.Dependencies.Registration.Auto
 {
     /// <summary>
-    /// Picking syntax.
+    /// Registers to first criteria match (interface).
     /// </summary>
-    public interface IPickingSyntax
+    public class RegisterTypeToFirstMatchStrategy : BaseRegisterTypeStrategy, ITypeRegistrationStrategy
     {
-        /// <summary>
-        /// Picks types by the specified criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Binding syntax.</returns>
-        IBindingSyntax Pick(Func<Type, bool> criteria);
+        private readonly Func<Type, Type, bool> _binding;
 
         /// <summary>
-        /// Picks all concrete types.
+        /// Initializes a new instance of the <see cref="RegisterTypeToFirstMatchStrategy"/> class.
         /// </summary>
-        /// <value>Binding syntax.</value>
-        IBindingSyntax AllConcreteTypes { get; }
+        /// <param name="binding">The binding.</param>
+        public RegisterTypeToFirstMatchStrategy(Func<Type, Type, bool> binding)
+        {
+            _binding = binding;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegisterTypeToFirstMatchStrategy"/> class.
+        /// </summary>
+        /// <param name="binding">The binding.</param>
+        public RegisterTypeToFirstMatchStrategy(Func<Type, bool> binding) 
+            : this((foundInterface, type) => binding.Invoke(foundInterface))
+        {
+        }
+
+        /// <summary>
+        /// Registers the specified type.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <param name="locator">The locator.</param>
+        public void Register(Type type, IServiceLocator locator)
+        {
+            var interfaces = type.FindInterfaces((t, obj) => _binding.Invoke(t, type), null);
+            if (interfaces.Length > 0)
+                Register(interfaces[0], type, locator);
+        }
     }
 }

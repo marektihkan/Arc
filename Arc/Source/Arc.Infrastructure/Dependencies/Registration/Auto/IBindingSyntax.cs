@@ -30,7 +30,7 @@
 
 using System;
 
-namespace Arc.Infrastructure.Dependencies.Bindings
+namespace Arc.Infrastructure.Dependencies.Registration.Auto
 {
     /// <summary>
     /// Binding syntax.
@@ -41,26 +41,26 @@ namespace Arc.Infrastructure.Dependencies.Bindings
         /// Binds to self.
         /// </summary>
         /// <returns>ServiceLocator.</returns>
-        AutoConfiguration BindToSelf();
+        AutoRegistration BindToSelf();
 
         /// <summary>
         /// Binds to first interface.
         /// </summary>
         /// <returns>ServiceLocator.</returns>
-        AutoConfiguration BindToFirstInterface();
+        AutoRegistration BindToFirstInterface();
 
         /// <summary>
         /// Binds to the specified criteria.
         /// </summary>
         /// <param name="criteria">The criteria. (interface)</param>
         /// <returns>ServiceLocator.</returns>
-        AutoConfiguration BindToInterface(Func<Type, bool> criteria);
+        AutoRegistration BindToInterface(Func<Type, bool> criteria);
 
         /// <summary>
         /// Binds to the specified criteria.
         /// </summary>
         /// <param name="criteria">The criteria. (interface, realType)</param>
         /// <returns></returns>
-        AutoConfiguration BindToInterface(Func<Type, Type, bool> criteria);
+        AutoRegistration BindToInterface(Func<Type, Type, bool> criteria);
     }
 }

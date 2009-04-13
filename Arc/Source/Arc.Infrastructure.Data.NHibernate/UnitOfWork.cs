@@ -62,7 +62,10 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// Gets the NHibernate session.
         /// </summary>
         /// <value>The NHibernate session.</value>
-        public object Session { get; private set; }
+        public object Session
+        {
+            get { return RealSession; }
+        }
 
 
         /// <summary>

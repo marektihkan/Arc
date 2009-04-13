@@ -4,6 +4,7 @@ using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Data.NHibernate;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Logging;
+using Arc.Infrastructure.Registry;
 using Arc.Infrastructure.Validation;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
@@ -71,6 +72,17 @@ namespace Arc.Integration.Tests.Configuration
             Assert.That(ServiceLocator.Resolve<IUnitOfWork>(), Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<INHibernateRepository<DomainEntity>>(), Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<IRepository<DomainEntity>>(), Is.Not.Null);
+        }
+
+        [Test]
+        public void Should_configure_registries()
+        {
+            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
+                .With<RegistryConfiguration>();
+
+            Assert.That(ServiceLocator.Resolve<IHybridRegistry>(), Is.Not.Null);
+            Assert.That(ServiceLocator.Resolve<IThreadRegistry>(), Is.Not.Null);
+            Assert.That(ServiceLocator.Resolve<ILocalRegistry>(), Is.Not.Null);
         }
     }
 }

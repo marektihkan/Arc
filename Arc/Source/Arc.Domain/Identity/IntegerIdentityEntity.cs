@@ -28,6 +28,8 @@
 
 #endregion
 
+using System;
+
 namespace Arc.Domain.Identity
 {
     /// <summary>
@@ -118,7 +120,10 @@ namespace Arc.Domain.Identity
 
             if (IsTransient) return ReferenceEquals(this, obj);
 
-            return obj.Id == Id && obj.GetType() == GetType();
+            var objType = obj.GetType();
+            var type = GetType();
+
+            return obj.Id == Id && objType == type;
         }
 
         /// <summary>

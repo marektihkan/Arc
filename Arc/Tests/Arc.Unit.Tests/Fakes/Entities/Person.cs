@@ -7,10 +7,12 @@ namespace Arc.Unit.Tests.Fakes.Entities
     {
         public Person()
         {
+            Contacts = new List<Person>();
         }
 
         public Person(int identity) : base(identity)
         {
+            Contacts = new List<Person>();
         }
 
         public string FirstName { get; set; }

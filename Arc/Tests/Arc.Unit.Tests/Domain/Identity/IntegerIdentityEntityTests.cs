@@ -1,8 +1,11 @@
+using System.Collections;
 using Arc.Domain.Identity;
 using Arc.Unit.Tests.Fakes.Entities;
 using Arc.Unit.Tests.Fakes.Identity;
+using Castle.DynamicProxy;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
+using Arc.Testing.Utilities;
 
 namespace Arc.Unit.Tests.Domain.Identity
 {
@@ -142,6 +145,34 @@ namespace Arc.Unit.Tests.Domain.Identity
             var entity = new Person(1);
 
             Assert.That(entity, Is.Not.EqualTo(null));
+        }
+
+        [Test]
+        public void Different_types_of_integer_based_entities_should_not_have_same_hashcode()
+        {
+            var person = new Person(1);
+            var organization = new Organization(1);
+
+            var hashtable = new Hashtable();
+
+            hashtable.Add(person, "Person");
+            hashtable.Add(organization, "Organization");
+
+            Assert.That(hashtable[person], Is.EqualTo("Person"));
+            Assert.That(hashtable[organization], Is.EqualTo("Organization"));
+        }
+
+        [Test]
+        public void Two_integer_based_proxies_should_be_equal()
+        {
+            var generator = new ProxyGenerator();
+            var first = (Person)generator.CreateClassProxy(typeof(Person), new ProxyGenerationOptions());
+            first.SetValueTo("Id", 1);
+
+            var second = (Person) generator.CreateClassProxy(typeof(Person), new ProxyGenerationOptions());
+            second.SetValueTo("Id", 1);
+
+            Assert.That(first, Is.EqualTo(second));
         }
     }
 }

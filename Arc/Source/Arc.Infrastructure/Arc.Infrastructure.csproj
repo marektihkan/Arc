@@ -52,7 +52,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\ArcApplication.cs" />
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="Configuration\Dependencies\IConvention.cs" />
     <Compile Include="Configuration\Dependencies\RegistryConfiguration.cs" />

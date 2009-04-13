@@ -53,7 +53,7 @@ namespace Arc.Infrastructure.Dependencies.Conventions
         public void Apply(IServiceLocator handler)
         {
             DefineRules();
-            Configurations.ForEach(configuration => handler.Load(configuration)); 
+            Configurations.Each(configuration => handler.Load(configuration)); 
         }
 
         /// <summary>

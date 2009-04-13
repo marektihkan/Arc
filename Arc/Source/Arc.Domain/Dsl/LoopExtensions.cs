@@ -44,7 +44,7 @@ namespace Arc.Domain.Dsl
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
         /// <param name="action">The action.</param>
-        public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
+        public static void Each<T>(this IEnumerable<T> source, Action<T> action)
         {
             foreach (var element in source)
                 action(element);

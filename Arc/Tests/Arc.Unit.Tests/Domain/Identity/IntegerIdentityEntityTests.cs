@@ -148,7 +148,7 @@ namespace Arc.Unit.Tests.Domain.Identity
         }
 
         [Test]
-        public void Different_types_of_integer_based_entities_should_not_have_same_hashcode()
+        public void Different_types_of_integer_based_entities_should_not_have_same_hashcode_in_hashtable()
         {
             var person = new Person(1);
             var organization = new Organization(1);

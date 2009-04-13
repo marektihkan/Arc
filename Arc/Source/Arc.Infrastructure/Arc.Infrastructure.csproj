@@ -55,6 +55,7 @@
     <Compile Include="Configuration\ArcApplication.cs" />
     <Compile Include="Configuration\Configure.cs" />
     <Compile Include="Configuration\Dependencies\IConvention.cs" />
+    <Compile Include="Configuration\Dependencies\RegistryConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\ValidationIsNotUsedConfiguration.cs" />
     <Compile Include="Data\BaseGenericRepository.cs" />

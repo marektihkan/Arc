@@ -1,3 +1,4 @@
+using System;
 using Arc.Unit.Tests.Fakes.Entities;
 using Arc.Unit.Tests.Fakes.TestingStyles;
 using NUnit.Framework;
@@ -74,5 +75,15 @@ namespace Arc.Unit.Tests.Testing.Styles
             Assert.That(target.InvokedActions[1], Is.EqualTo("When"));
         }
 
+        [Test]
+        public void All_styles_should_catch_exceptions_on_acting()
+        {
+            var target = new BaseStyleTester();
+
+            target.Actions["ContextSetUp"] = () => { throw new Exception(); };
+            target.MainSetup();
+
+            Assert.That(target.ThrownException, Is.Not.Null);
+        }
     }
 }

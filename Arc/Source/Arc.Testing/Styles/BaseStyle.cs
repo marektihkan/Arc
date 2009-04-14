@@ -28,6 +28,7 @@
 
 #endregion
 
+using System;
 using Arc.Testing.Utilities;
 using NUnit.Framework;
 
@@ -46,6 +47,12 @@ namespace Arc.Testing.Styles
         public TSystemUnderTest SUT { get; set; }
 
         /// <summary>
+        /// Gets or sets a thrown exception.
+        /// </summary>
+        /// <value>The thrown exception.</value>
+        public Exception ThrownException { get; set; }
+
+        /// <summary>
         /// Gets or sets the auto mocker.
         /// </summary>
         /// <value>The mockery.</value>
@@ -58,7 +65,15 @@ namespace Arc.Testing.Styles
         public void MainSetup()
         {
             Mockery = new AutoMocker();
-            ContextSetUp();
+
+            try
+            {
+                ContextSetUp();
+            }
+            catch (Exception exception)
+            {
+                ThrownException = exception;
+            }
         }
 
         /// <summary>

@@ -29,6 +29,7 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies
 {
@@ -77,6 +78,15 @@ namespace Arc.Infrastructure.Dependencies
             InnerServiceLocator.Load(configuration);
         }
 
+        /// <summary>
+        /// Registers the specified bindings.
+        /// </summary>
+        /// <param name="registrations">The registrations.</param>
+        public static void Register(params IRegistration[] registrations)
+        {
+            InnerServiceLocator.Register(registrations);
+        }
+
 
         /// <summary>
         /// Resolves requested service.
@@ -96,15 +106,6 @@ namespace Arc.Infrastructure.Dependencies
         public static object Resolve(Type type)
         {
             return InnerServiceLocator.Resolve(type);
-        }
-
-        /// <summary>
-        /// Releases the specified object.
-        /// </summary>
-        /// <param name="releasable">The releasable object.</param>
-        public static void Release(object releasable)
-        {
-            InnerServiceLocator.Release(releasable);
         }
 
         /// <summary>
@@ -130,6 +131,15 @@ namespace Arc.Infrastructure.Dependencies
         public static object Resolve(Type service, IParameters parameters)
         {
             return InnerServiceLocator.Resolve(service, parameters);   
+        }
+
+        /// <summary>
+        /// Releases the specified object.
+        /// </summary>
+        /// <param name="releasable">The releasable object.</param>
+        public static void Release(object releasable)
+        {
+            InnerServiceLocator.Release(releasable);
         }
     }
 }

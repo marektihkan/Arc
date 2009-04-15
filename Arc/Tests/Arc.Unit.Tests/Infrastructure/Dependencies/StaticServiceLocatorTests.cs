@@ -1,10 +1,12 @@
 using Arc.Domain.Identity;
 using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Dependencies;
+using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Unit.Tests.Fakes.Data;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
+using With=Arc.Infrastructure.Dependencies.With;
 
 namespace Arc.Unit.Tests.Infrastructure.Dependencies
 {
@@ -52,6 +54,15 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
         }
 
         [Test]
+        public void Should_delegate_register()
+        {
+            var registrations = Requested.Service<IRepository<IEntity>>().IsImplementedBy<Repository<IEntity>>();
+            ServiceLocator.Register(registrations);
+
+            _locator.AssertWasCalled(x => x.Register(registrations));
+        }
+
+        [Test]
         public void Should_delegate_resolve_with_generics()
         {
             ServiceLocator.Resolve<IRepository<IEntity>>();
@@ -65,6 +76,24 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
             ServiceLocator.Resolve(typeof(IRepository<IEntity>));
 
             _locator.AssertWasCalled(x => x.Resolve(typeof(IRepository<IEntity>)));
+        }
+
+        [Test]
+        public void Should_delegate_resolve_with_generics_and_parameters()
+        {
+            var parameters = With.Parameters.ConstructorArgument(string.Empty, null);
+            ServiceLocator.Resolve<IRepository<IEntity>>(parameters);
+
+            _locator.AssertWasCalled(x => x.Resolve<IRepository<IEntity>>(parameters));
+        }
+
+        [Test]
+        public void Should_delegate_resolve_with_parameters()
+        {
+            var parameters = With.Parameters.ConstructorArgument(string.Empty, null);
+            ServiceLocator.Resolve(typeof(IRepository<IEntity>), parameters);
+
+            _locator.AssertWasCalled(x => x.Resolve(typeof(IRepository<IEntity>), parameters));
         }
 
         [Test]

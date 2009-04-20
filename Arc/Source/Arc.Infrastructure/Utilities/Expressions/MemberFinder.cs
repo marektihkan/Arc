@@ -125,7 +125,8 @@ namespace Arc.Infrastructure.Utilities.Expressions
                 return false;
 
             var memberExpression = expression as MemberExpression;
-            return memberExpression.Expression is ParameterExpression && memberExpression.Member is PropertyInfo;
+            return (memberExpression.Expression is ParameterExpression && memberExpression.Member is PropertyInfo)
+                || (IsProperty(memberExpression.Expression));
         }
     }
 }

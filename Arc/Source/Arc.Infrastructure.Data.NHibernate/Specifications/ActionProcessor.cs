@@ -42,13 +42,20 @@ namespace Arc.Infrastructure.Data.NHibernate.Specifications
             if (!IsActionExpression(expression))
                 return null;
 
-            return ProcessorFactory.Create(expression).Process();
+            var criterion = ProcessorFactory.Create(expression).Process();
+            return criterion;
         }
 
 
         public static bool IsActionExpression(Expression expression)
         {
-            return IsBinaryAction(expression) || IsUnaryAction(expression) || IsMethodCallAction(expression);
+            return IsBinaryAction(expression) || IsUnaryAction(expression) 
+                || IsMethodCallAction(expression) || IsInvocationAction(expression);
+        }
+
+        private static bool IsInvocationAction(Expression expression)
+        {
+            return expression is InvocationExpression;
         }
 
         private static bool IsBinaryAction(Expression expression)

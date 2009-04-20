@@ -15,7 +15,7 @@ namespace Arc.Unit.Tests.Domain.Specifications
         [Test]
         public void Should_add_and_operator_to_specification()
         {
-            var target = new Specification<string>(s => s.Contains("a")).And(new Specification<string>(s => s.Length > 3));
+            var target = new Specification<string>(x => x.Contains("a")).And(new Specification<string>(y => y.Length > 3));
             var items = new[] { "a", "aa", "aaa", "aaaa" };
 
             var result = (from item in items

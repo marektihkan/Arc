@@ -4,6 +4,7 @@ using Arc.Infrastructure.Data.NHibernate.Specifications;
 using Arc.Unit.Tests.Fakes;
 using Arc.Unit.Tests.Fakes.Data;
 using Arc.Unit.Tests.Fakes.Entities;
+using NHibernate.Criterion;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
@@ -319,8 +320,50 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             Assert.That(actual.ToString(), Is.EqualTo("not IsActiveMember = True"));
         }
 
-        //TODO: Conversion tests
-        // Test x => x.Name == StaticClass.StaticProperty
-        // Test x => x.Name == Class._staticField 
+        [Test]
+        public void Should_translate_value_objects_to_property_chain()
+        {
+            var specification = new Specification<Person>(x => x.ContactCard.Email.Address == "a");
+
+            var actual = CriterionConverter.Convert(specification);
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.ToString(), Is.EqualTo("ContactCard.Email.Address = a"));
+        }
+
+        [Test]
+        public void Should_convert_combined_specifications_with_and_operator_to_criteria()
+        {
+            var specification = new Specification<Person>(x => x.FirstName == "a")
+                .And(new Specification<Person>(y => y.LastName == "a"));
+
+            var actual = CriterionConverter.Convert(specification);
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.ToString(), Is.EqualTo("(FirstName = a and LastName = a)"));
+        }
+
+        [Test]
+        public void Should_convert_combined_specifications_with_or_operator_to_criteria()
+        {
+            var specification = new Specification<Person>(x => x.FirstName == "a")
+                .Or(new Specification<Person>(y => y.LastName == "a"));
+
+            var actual = CriterionConverter.Convert(specification);
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.ToString(), Is.EqualTo("(FirstName = a or LastName = a)"));
+        }
+
+        [Test]
+        public void Should_convert_combined_specifications_with_not_operator_to_criteria()
+        {
+            var specification = new Specification<Person>(x => x.FirstName == "a").Not();
+
+            var actual = CriterionConverter.Convert(specification);
+
+            Assert.That(actual, Is.Not.Null);
+            Assert.That(actual.ToString(), Is.EqualTo("not FirstName = a"));
+        }
     }
 }

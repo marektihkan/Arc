@@ -89,6 +89,8 @@
     <Compile Include="Domain\Identity\GuidIdentityEntityTests.cs" />
     <Compile Include="Domain\Identity\IntegerIdentityEntityTests.cs" />
     <Compile Include="Domain\Specifications\SpecificationTests.cs" />
+    <Compile Include="Fakes\Entities\ContactCard.cs" />
+    <Compile Include="Fakes\Entities\Email.cs" />
     <Compile Include="Fakes\Entities\Organization.cs" />
     <Compile Include="Fakes\Entities\ServiceImpl.cs" />
     <Compile Include="Fakes\Specifications\TestSpecification.cs" />

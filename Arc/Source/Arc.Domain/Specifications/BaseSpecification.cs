@@ -82,7 +82,7 @@ namespace Arc.Domain.Specifications
                 var parameters = left.Predicate.Parameters;
                 var leftExpression = Expression.Invoke(left.Predicate, parameters.Cast<Expression>());
                 var rightExpression = Expression.Invoke(right.Predicate, parameters.Cast<Expression>());
-                var andExpression = Expression.And(leftExpression, rightExpression);
+                var andExpression = Expression.AndAlso(leftExpression, rightExpression);
                 Predicate = Expression.Lambda<Func<TSub, bool>>(andExpression, parameters);
             }
         }
@@ -103,7 +103,7 @@ namespace Arc.Domain.Specifications
                 var parameters = left.Predicate.Parameters;
                 var leftExpression = Expression.Invoke(left.Predicate, parameters.Cast<Expression>());
                 var rightExpression = Expression.Invoke(right.Predicate, parameters.Cast<Expression>());
-                var orExpression = Expression.Or(leftExpression, rightExpression);
+                var orExpression = Expression.OrElse(leftExpression, rightExpression);
                 Predicate = Expression.Lambda<Func<TSub, bool>>(orExpression, parameters);
             }
         }

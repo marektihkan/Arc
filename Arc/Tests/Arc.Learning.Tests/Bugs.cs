@@ -1,7 +1,9 @@
 using System;
+using Arc.Domain.Specifications;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Configuration.Dependencies;
 using Arc.Infrastructure.Data.NHibernate;
+using Arc.Infrastructure.Data.NHibernate.Specifications;
 using Arc.Infrastructure.Dependencies;
 using Arc.Learning.Tests.Fakes.Model;
 using NUnit.Framework;

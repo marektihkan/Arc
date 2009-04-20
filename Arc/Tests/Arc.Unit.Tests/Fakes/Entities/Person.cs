@@ -21,6 +21,8 @@ namespace Arc.Unit.Tests.Fakes.Entities
         public BehaviorType Behavior { get; set; }
         public bool IsActiveMember { get; set; }
         public IList<Person> Contacts { get; set; }
+        public ContactCard ContactCard { get; set; }
+
 
         public string GetFullName()
         {

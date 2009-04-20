@@ -28,7 +28,9 @@
 
 #endregion
 
+using System;
 using System.Linq.Expressions;
+using NHibernate.Criterion;
 using Expression=System.Linq.Expressions.Expression;
 
 namespace Arc.Infrastructure.Data.NHibernate.Specifications
@@ -46,7 +48,31 @@ namespace Arc.Infrastructure.Data.NHibernate.Specifications
             if (expression is MethodCallExpression)
                 return new MethodActionProcessor(expression as MethodCallExpression);
 
+            if (expression is InvocationExpression)
+                return new InvocationActionProcessor(expression as InvocationExpression);
+
             return new NullActionProcessor();
+        }
+    }
+
+    internal class InvocationActionProcessor : IActionProcessor
+    {
+        private readonly InvocationExpression _expression;
+
+        public InvocationActionProcessor(InvocationExpression expression)
+        {
+            _expression = expression;
+        }
+
+        public ICriterion Process()
+        {
+            var expression = _expression.Expression;
+            if (expression is LambdaExpression)
+            {
+                var lambdaExpression = expression as LambdaExpression;
+                return ProcessorFactory.Create(lambdaExpression.Body).Process();
+            }
+            return ProcessorFactory.Create(expression).Process();
         }
     }
 }

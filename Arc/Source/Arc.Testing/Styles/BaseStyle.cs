@@ -46,23 +46,6 @@ namespace Arc.Testing.Styles
         /// <value>The System Under Test.</value>
         public TSystemUnderTest SUT { get; set; }
 
-        private Exception _thrownException;
-        private bool _wasExceptionUsed;
-
-        /// <summary>
-        /// Gets or sets a thrown exception.
-        /// </summary>
-        /// <value>The thrown exception.</value>
-        public Exception ThrownException
-        {
-            get
-            {
-                _wasExceptionUsed = true;
-                return _thrownException;
-            }
-            set { _thrownException = value; }
-        }
-
         /// <summary>
         /// Gets or sets the auto mocker.
         /// </summary>
@@ -75,18 +58,9 @@ namespace Arc.Testing.Styles
         [SetUp]
         public void MainSetup()
         {
-            ThrownException = null;
-            _wasExceptionUsed = false;
             Mockery = new AutoMocker();
 
-            try
-            {
-                ContextSetUp();
-            }
-            catch (Exception exception)
-            {
-                ThrownException = exception;
-            }
+            ContextSetUp();
         }
 
         /// <summary>
@@ -95,9 +69,6 @@ namespace Arc.Testing.Styles
         [TearDown]
         public void MainTearDown()
         {
-            if (!_wasExceptionUsed && ThrownException != null)
-                throw new Exception("Exception was thrown during testing.", ThrownException);
-
             CleanUp();
         }
 

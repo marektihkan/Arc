@@ -74,27 +74,5 @@ namespace Arc.Unit.Tests.Testing.Styles
             Assert.That(target.InvokedActions[0], Is.EqualTo("Given"));
             Assert.That(target.InvokedActions[1], Is.EqualTo("When"));
         }
-
-        [Test]
-        public void All_styles_should_catch_exceptions_on_acting()
-        {
-            var target = new BaseStyleTester();
-
-            target.Actions["ContextSetUp"] = () => { throw new Exception(); };
-            target.MainSetup();
-
-            Assert.That(target.ThrownException, Is.Not.Null);
-        }
-
-        [Test]
-        [ExpectedException(typeof (Exception))]
-        public void All_styles_should_throw_catched_exception_when_it_was_not_accessed()
-        {
-            var target = new BaseStyleTester();
-
-            target.Actions["ContextSetUp"] = () => { throw new Exception(); };
-            target.MainSetup();
-            target.MainTearDown();
-        }
     }
 }

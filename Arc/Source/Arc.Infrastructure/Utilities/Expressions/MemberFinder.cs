@@ -31,7 +31,6 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
-//using Arc.Infrastructure.Data.NHibernate.Specifications;
 
 namespace Arc.Infrastructure.Utilities.Expressions
 {

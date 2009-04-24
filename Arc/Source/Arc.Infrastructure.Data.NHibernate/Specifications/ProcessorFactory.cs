@@ -28,7 +28,6 @@
 
 #endregion
 
-using System;
 using System.Linq.Expressions;
 using NHibernate.Criterion;
 using Expression=System.Linq.Expressions.Expression;

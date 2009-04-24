@@ -28,7 +28,6 @@
 
 #endregion
 
-using System;
 using Arc.Testing.Utilities;
 using NUnit.Framework;
 

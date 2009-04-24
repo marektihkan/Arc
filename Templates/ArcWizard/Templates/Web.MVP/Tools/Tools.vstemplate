@@ -385,48 +385,6 @@
         </Folder>
         <ProjectItem>NCoverFAQ.html</ProjectItem>
       </Folder>
-      <Folder Name="NDepend" TargetFolderName="NDepend">
-        <Folder Name="CruiseControl.NET" TargetFolderName="CruiseControl.NET">
-          <ProjectItem>ndependreport-ccnet.v2.xsl</ProjectItem>
-        </Folder>
-        <ProjectItem>EULA_NDepend.txt</ProjectItem>
-        <Folder Name="Lib" TargetFolderName="Lib">
-          <ProjectItem>DevExpress.Data.v8.2.dll</ProjectItem>
-          <ProjectItem>DevExpress.OfficeSkins.v8.2.dll</ProjectItem>
-          <ProjectItem>DevExpress.Utils.v8.2.dll</ProjectItem>
-          <ProjectItem>DevExpress.XtraBars.v8.2.dll</ProjectItem>
-          <ProjectItem>DevExpress.XtraEditors.v8.2.dll</ProjectItem>
-          <ProjectItem>DevExpress.XtraNavBar.v8.2.dll</ProjectItem>
-          <ProjectItem>EnvDTE.dll</ProjectItem>
-          <ProjectItem>Microsoft.Msagl.dll</ProjectItem>
-          <ProjectItem>Microsoft.Msagl.Drawing.dll</ProjectItem>
-          <ProjectItem>Microsoft.Msagl.GraphViewerGdi.dll</ProjectItem>
-          <ProjectItem>Microsoft.Msagl.GraphViewerGdi.dll.config</ProjectItem>
-          <ProjectItem>Mono.Cecil.dll</ProjectItem>
-          <ProjectItem>Mono.Cecil.Pdb.dll</ProjectItem>
-          <ProjectItem>msvcp71.dll</ProjectItem>
-          <ProjectItem>msvcr71.dll</ProjectItem>
-          <ProjectItem>NDepend.AddIn.dll</ProjectItem>
-          <ProjectItem>NDepend.Analysis.dll</ProjectItem>
-          <ProjectItem>NDepend.CQL.dll</ProjectItem>
-          <ProjectItem>NDepend.Framework.dll</ProjectItem>
-          <ProjectItem>NDepend.Platform.DotNet.dll</ProjectItem>
-          <ProjectItem>NDepend.Skins.dll</ProjectItem>
-          <ProjectItem>NDepend.UI.dll</ProjectItem>
-        </Folder>
-        <Folder Name="MSBuild" TargetFolderName="MSBuild">
-          <ProjectItem>NDepend.Build.MSBuild.dll</ProjectItem>
-          <ProjectItem>ReadMe.txt</ProjectItem>
-        </Folder>
-        <Folder Name="NAnt" TargetFolderName="NAnt">
-          <ProjectItem>NDepend.Build.NAntTasks.dll</ProjectItem>
-          <ProjectItem>ReadMe.txt</ProjectItem>
-        </Folder>
-        <ProjectItem>NDepend.Console.exe</ProjectItem>
-        <ProjectItem>NDepend.Console.exe.config</ProjectItem>
-        <ProjectItem>QuickStartTutorial_NDepend.txt</ProjectItem>
-        <ProjectItem>VisualNDepend.exe</ProjectItem>
-      </Folder>
       <Folder Name="NUnit" TargetFolderName="NUnit">
         <Folder Name="bin" TargetFolderName="bin">
           <Folder Name="addins" TargetFolderName="addins">
@@ -481,76 +439,6 @@
           <ProjectItem>timing-tests.dll</ProjectItem>
         </Folder>
         <ProjectItem>Logo.ico</ProjectItem>
-      </Folder>
-      <Folder Name="Simian" TargetFolderName="Simian">
-        <Folder Name="bin" TargetFolderName="bin">
-          <ProjectItem>IKVM.GNU.Classpath.dll</ProjectItem>
-          <ProjectItem>IKVM.Runtime.dll</ProjectItem>
-          <ProjectItem>simian-2.2.24.exe</ProjectItem>
-          <ProjectItem>simian-2.2.24.jar</ProjectItem>
-        </Folder>
-        <ProjectItem>changes.html</ProjectItem>
-        <ProjectItem>customers.html</ProjectItem>
-        <ProjectItem>features.html</ProjectItem>
-        <ProjectItem>future_plans.html</ProjectItem>
-        <ProjectItem>get_dotnet.png</ProjectItem>
-        <ProjectItem>get_it_now.html</ProjectItem>
-        <ProjectItem>get_java_blue-button.gif</ProjectItem>
-        <ProjectItem>index.html</ProjectItem>
-        <ProjectItem>installation.html</ProjectItem>
-        <Folder Name="javadoc" TargetFolderName="javadoc">
-          <ProjectItem>allclasses-frame.html</ProjectItem>
-          <ProjectItem>allclasses-noframe.html</ProjectItem>
-          <Folder Name="au" TargetFolderName="au">
-            <Folder Name="com" TargetFolderName="com">
-              <Folder Name="redhillconsulting" TargetFolderName="redhillconsulting">
-                <Folder Name="simian" TargetFolderName="simian">
-                  <ProjectItem>AuditListener.html</ProjectItem>
-                  <ProjectItem>Block.html</ProjectItem>
-                  <ProjectItem>BlockMarkers.html</ProjectItem>
-                  <ProjectItem>BlockMarkerState.html</ProjectItem>
-                  <ProjectItem>Checker.html</ProjectItem>
-                  <ProjectItem>CheckSummary.html</ProjectItem>
-                  <ProjectItem>CompositeAuditListener.html</ProjectItem>
-                  <ProjectItem>DecoratorAuditListener.html</ProjectItem>
-                  <ProjectItem>FileLoader.html</ProjectItem>
-                  <ProjectItem>Language.html</ProjectItem>
-                  <ProjectItem>Option.html</ProjectItem>
-                  <ProjectItem>Options.html</ProjectItem>
-                  <ProjectItem>package-frame.html</ProjectItem>
-                  <ProjectItem>package-summary.html</ProjectItem>
-                  <ProjectItem>package-tree.html</ProjectItem>
-                  <ProjectItem>SimianCheck.html</ProjectItem>
-                  <ProjectItem>SimianMain.html</ProjectItem>
-                  <ProjectItem>SimianTask.Formatter.html</ProjectItem>
-                  <ProjectItem>SimianTask.html</ProjectItem>
-                  <ProjectItem>SourceFile.html</ProjectItem>
-                  <ProjectItem>StreamLoader.html</ProjectItem>
-                  <ProjectItem>Version.html</ProjectItem>
-                </Folder>
-              </Folder>
-            </Folder>
-          </Folder>
-          <ProjectItem>constant-values.html</ProjectItem>
-          <ProjectItem>deprecated-list.html</ProjectItem>
-          <ProjectItem>help-doc.html</ProjectItem>
-          <ProjectItem>index-all.html</ProjectItem>
-          <ProjectItem>index.html</ProjectItem>
-          <ProjectItem>overview-summary.html</ProjectItem>
-          <ProjectItem>overview-tree.html</ProjectItem>
-          <ProjectItem>package-list</ProjectItem>
-          <Folder Name="resources" TargetFolderName="resources">
-            <ProjectItem>inherit.gif</ProjectItem>
-          </Folder>
-          <ProjectItem>stylesheet.css</ProjectItem>
-        </Folder>
-        <ProjectItem>jdk-1.5.0_13.log.tar.gz</ProjectItem>
-        <ProjectItem>LICENSE.txt</ProjectItem>
-        <ProjectItem>menu.html</ProjectItem>
-        <ProjectItem>overview.html</ProjectItem>
-        <ProjectItem>simian.dtd</ProjectItem>
-        <ProjectItem>simian.jpg</ProjectItem>
-        <ProjectItem>simian.xsl</ProjectItem>
       </Folder>
     </Project>
   </TemplateContent>

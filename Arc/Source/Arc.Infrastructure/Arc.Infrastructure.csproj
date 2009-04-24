@@ -108,7 +108,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Registry\BaseRegistry.cs" />
-    <Compile Include="Registry\HttpSessionStateAdapter.cs" />
     <Compile Include="Registry\IRegistry.cs" />
     <Compile Include="Registry\LocalRegistry.cs" />
     <Compile Include="Registry\WebRequestRegistry.cs" />

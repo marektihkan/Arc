@@ -12,6 +12,8 @@ namespace Arc.Infrastructure.Registry
         [ThreadStatic]
         private IDictionary _map;
 
+        private const string Key = "Arc.Infrastructure.Registry.HybridRegistry";
+
         /// <summary>
         /// Gets the map where items are stored.
         /// </summary>
@@ -20,14 +22,33 @@ namespace Arc.Infrastructure.Registry
         {
             get
             {
-                if (HttpContext.Current != null) return HttpContext.Current.Items;
-
-                if (_map == null)
-                {
-                    _map = new Hashtable();
-                }
-                return _map;
+                return IsHttpContextAvailable() ? GetHttpContextRegistry() : GetThreadRegistry();
             }
+        }
+
+        private bool IsHttpContextAvailable()
+        {
+            return HttpContext.Current != null;
+        }
+
+        private IDictionary GetThreadRegistry()
+        {
+            if (_map == null)
+            {
+                _map = new Hashtable();
+            }
+            return _map;
+        }
+
+        private IDictionary GetHttpContextRegistry()
+        {           
+            var registry = HttpContext.Current.Items[Key] as IDictionary;
+            if (registry == null)
+            {
+                registry = new Hashtable();
+                HttpContext.Current.Items[Key] = registry;
+            }
+            return registry;
         }
     }
 }

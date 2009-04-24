@@ -28,7 +28,9 @@
 
 #endregion
 
+using System;
 using System.Collections;
+using System.Web;
 
 namespace Arc.Infrastructure.Registry
 {
@@ -37,13 +39,33 @@ namespace Arc.Infrastructure.Registry
     /// </summary>
     public class WebSessionRegistry : BaseRegistry, IWebSessionRegistry
     {
+        private const string Key = "Arc.Infrastructure.Registry.WebSessionRegistry";
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebSessionRegistry"/> class.
+        /// </summary>
+        public WebSessionRegistry()
+        {
+            if (HttpContext.Current == null)
+                throw new InvalidOperationException("HttpContext is not currently available.");
+        }
+
         /// <summary>
         /// Gets the map where items are stored.
         /// </summary>
         /// <value>The map.</value>
         protected override IDictionary Map
         {
-            get { return new HttpSessionStateAdapter(); }
+            get
+            {
+                var registry = HttpContext.Current.Session[Key] as IDictionary;
+                if (registry == null)
+                {
+                    registry = new Hashtable();
+                    HttpContext.Current.Session[Key] = registry;
+                }
+                return registry;
+            }
         }
     }
 }

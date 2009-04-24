@@ -39,23 +39,16 @@ namespace Arc.Infrastructure.Registry
     /// </summary>
     public class WebRequestRegistry : BaseRegistry, IWebRequestRegistry
     {
+        private const string Key = "Arc.Infrastructure.Registry.WebRequestRegistry";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="WebRequestRegistry"/> class.
         /// </summary>
         /// <exception cref="InvalidOperationException"><see cref="HttpContext"/> is not currently available.</exception>
         public WebRequestRegistry()
         {
-            if (Context == null)
+            if (HttpContext.Current == null)
                 throw new InvalidOperationException("HttpContext is not currently available.");
-        }
-
-        /// <summary>
-        /// Gets the context.
-        /// </summary>
-        /// <value>The context.</value>
-        private HttpContext Context
-        {
-            get { return HttpContext.Current; }
         }
 
         /// <summary>
@@ -64,7 +57,16 @@ namespace Arc.Infrastructure.Registry
         /// <value>The map.</value>
         protected override IDictionary Map
         {
-            get { return Context.Items; }
+            get
+            {
+                var registry = HttpContext.Current.Items[Key] as IDictionary;
+                if (registry == null)
+                {
+                    registry = new Hashtable();
+                    HttpContext.Current.Items[Key] = registry;
+                }
+                return registry;
+            }
         }
     }
 }

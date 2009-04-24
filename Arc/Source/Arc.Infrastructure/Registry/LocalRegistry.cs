@@ -29,7 +29,6 @@
 #endregion
 
 using System.Collections;
-using System.Collections.Specialized;
 
 namespace Arc.Infrastructure.Registry
 {
@@ -38,7 +37,7 @@ namespace Arc.Infrastructure.Registry
     /// </summary>
     public class LocalRegistry : BaseRegistry, ILocalRegistry
     {
-        private readonly IDictionary _map = new HybridDictionary();
+        private readonly IDictionary _map = new Hashtable();
 
         /// <summary>
         /// Gets the map where items are stored.

@@ -3,7 +3,7 @@
 
 	<!-- Project settings -->
 	<property name="project.name" value="Arc" />
-	<property name="project.version" value="1.0.0" />  
+	<property name="project.version" value="0.8.0" />  
 
 	<!-- Project directories -->
 	<property name="project.config.dir" value="Configuration" />

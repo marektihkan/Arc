@@ -1,0 +1,129 @@
+include FileTest
+require "Configuration/Build/Rake/Copy.rb"
+require "Configuration/Build/Rake/Run.rb"
+require "Configuration/Build/Rake/Create.rb"
+require "Configuration/Build/Rake/Delete.rb"
+
+SOLUTION_NAME = "Arc"
+SOLUTION_OWNER = "Marek Tihkan"
+SOLUTION_VERSION = "0.8.0"
+SOLUTION_CONFIGURATION = "release"
+
+DIR_SOLUTION_SOURCE = "Source"
+DIR_SOLUTION_TESTS = "Tests"
+DIR_SOLUTION_LIBRARIES = "External Libraries"
+
+DIR_BUILD = "build"
+DIR_BUILD_BINARY = "bin"
+DIR_BUILD_TESTS = "tests"
+DIR_BUILD_PUBLISH = "publish"
+DIR_BUILD_DOCUMENTATION = "doc"
+DIR_BUILD_RESULTS = "results"
+
+PATH_BUILD_BINARY = "#{DIR_BUILD}/#{DIR_BUILD_BINARY}"
+PATH_BUILD_TESTS = "#{DIR_BUILD}/#{DIR_BUILD_TESTS}"
+PATH_BUILD_RESULTS = "#{DIR_BUILD}/#{DIR_BUILD_RESULTS}"
+PATH_BUILD_PUBLISH = "#{DIR_BUILD}/#{DIR_BUILD_PUBLISH}"
+
+PATH_PUBLISH_IOC = "#{PATH_BUILD_PUBLISH}/ServiceLocators"
+PATH_PUBLISH_DATA = "#{PATH_BUILD_PUBLISH}/Data"
+PATH_PUBLISH_LOGGING = "#{PATH_BUILD_PUBLISH}/Logging"
+PATH_PUBLISH_VALIDATION = "#{PATH_BUILD_PUBLISH}/Validation"
+
+COMMON_ASSEMBLY_INFO_FILE_PATH = "#{DIR_SOLUTION_SOURCE}/CommonAssemblyInfo.cs"
+
+desc "Compiles, unit tests, generates the database"
+task :all => [:default]
+
+desc "**Default**, compiles and runs tests"
+task :default => [:test]
+
+desc "Cleans the working directory"
+task :clean do
+  puts "Cleaning solution from previous build."
+  Delete.directory DIR_BUILD
+end
+
+desc "Prepares the working directory for a new build"
+task :prepare do
+  puts "Creating build directories."
+  Create.directory DIR_BUILD
+  Create.directory PATH_BUILD_BINARY
+  Create.directory PATH_BUILD_TESTS
+  Create.directory PATH_BUILD_RESULTS
+end
+
+desc "Update the version information for the build"
+task :version do
+  puts "Creating versioning file."
+  Create.versioning_file.
+          for_product_named(SOLUTION_NAME).
+          versioned(SOLUTION_VERSION).
+          reserve_all_rights_to(SOLUTION_OWNER).
+          to(COMMON_ASSEMBLY_INFO_FILE_PATH)
+end
+
+desc "Compiles the solution"
+task :compile => [:clean, :prepare, :version] do
+  puts "Compiling solution."
+  Run.MSBuild.solution(SOLUTION_NAME).configuration(SOLUTION_CONFIGURATION).rebuild
+
+  Copy.assemblies.from("#{DIR_SOLUTION_SOURCE}/*/bin/#{SOLUTION_CONFIGURATION}").to(PATH_BUILD_BINARY)
+  Copy.config.from("#{DIR_SOLUTION_SOURCE}/*/bin/#{SOLUTION_CONFIGURATION}").to(PATH_BUILD_BINARY)
+  Copy.binaries.from("#{DIR_SOLUTION_TESTS}/*/bin/#{SOLUTION_CONFIGURATION}").to(PATH_BUILD_TESTS)
+  Copy.config.from("#{DIR_SOLUTION_TESTS}/*/bin/#{SOLUTION_CONFIGURATION}").to(PATH_BUILD_TESTS)
+end
+
+desc "Runs tests"
+task :test => [:unit_test, :integration_test]
+
+desc "Runs unit tests"
+task :unit_test => :compile do
+  puts 'Running unit tests.'
+  Run.xUnitTests.located_at(PATH_BUILD_TESTS).outputs_to(PATH_BUILD_RESULTS).from_assembly('Arc.Unit.Tests')
+end
+
+desc "Runs integration tests"
+task :integration_test => :compile do
+  puts 'Running integration tests.'
+  Run.xUnitTests.located_at(PATH_BUILD_TESTS).outputs_to(PATH_BUILD_RESULTS).from_assembly('Arc.Integration.Tests')
+end
+
+desc "Publishes framework"
+task :publish => :compile do
+  puts 'Publishing framework.'
+  Create.directory PATH_BUILD_PUBLISH
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Arc.Domain').to(PATH_BUILD_PUBLISH)
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Arc.Infrastructure').to(PATH_BUILD_PUBLISH)
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Arc.Testing').to(PATH_BUILD_PUBLISH)
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('AutoMapper').to(PATH_BUILD_PUBLISH)
+
+  Create.directory PATH_PUBLISH_IOC
+  Create.directory "#{PATH_PUBLISH_IOC}/StructureMap"
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('*StructureMap*').to("#{PATH_PUBLISH_IOC}/StructureMap")
+  Create.directory "#{PATH_PUBLISH_IOC}/CastleWindsor"
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('*CastleWindsor*').to("#{PATH_PUBLISH_IOC}/CastleWindsor")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Castle.Windsor').to("#{PATH_PUBLISH_IOC}/CastleWindsor")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Castle.Core').to("#{PATH_PUBLISH_IOC}/CastleWindsor")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Castle.MicroKernel').to("#{PATH_PUBLISH_IOC}/CastleWindsor")
+  Create.directory "#{PATH_PUBLISH_IOC}/Ninject"
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('*Ninject*').to("#{PATH_PUBLISH_IOC}/Ninject")
+
+  Create.directory PATH_PUBLISH_DATA
+  Create.directory "#{PATH_PUBLISH_DATA}/NHibernate"
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('*NHibernate*').to("#{PATH_PUBLISH_DATA}/NHibernate")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Castle.Core').to("#{PATH_PUBLISH_DATA}/NHibernate")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Castle.DynamicProxy2').to("#{PATH_PUBLISH_DATA}/NHibernate")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Iesi.Collections').to("#{PATH_PUBLISH_DATA}/NHibernate")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('log4net').to("#{PATH_PUBLISH_DATA}/NHibernate")
+
+  Create.directory PATH_PUBLISH_LOGGING
+  Create.directory "#{PATH_PUBLISH_LOGGING}/Log4Net"
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('*log4net*').to("#{PATH_PUBLISH_LOGGING}/Log4Net")
+
+  Create.directory PATH_PUBLISH_VALIDATION
+  Create.directory "#{PATH_PUBLISH_VALIDATION}/EnterpriseLibrary"
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('*EnterpriseLibrary*').to("#{PATH_PUBLISH_VALIDATION}/EnterpriseLibrary")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Microsoft.Practices.ObjectBuilder2').to("#{PATH_PUBLISH_VALIDATION}/EnterpriseLibrary")
+  Copy.assemblies.from(PATH_BUILD_BINARY).matching('Microsoft.Practices.Unity').to("#{PATH_PUBLISH_VALIDATION}/EnterpriseLibrary")
+end

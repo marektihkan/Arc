@@ -14,20 +14,10 @@
 
     <property name="verbosity" value="quiet" />
     <property name="verbosity" value="normal" if="${verbose}" />
-    <property name="schema.database.data.path.exists" value="${string::get-length(property::get-value('schema.database.data.path')) > 0}" />
-    <property name="schema.database.connection_string.exists" value="${string::get-length(property::get-value('schema.database.connection_string')) > 0}" />
-    <property name="schema.database.name.exists" value="${string::get-length(property::get-value('schema.database.name')) > 0}" />
-
+    
     <exec program="${path.msbuild.console}">
       <arg value="${project.root.path}/${project.name}.sln" />
       <arg value="/property:Configuration=${project.config}" />
-      <arg value="/property:TargetDatabase=${schema.database.name}"
-           if="${schema.database.name.exists}" />
-      <arg value='/property:TargetConnectionString="${schema.database.connection_string}"'
-           if="${schema.database.connection_string.exists}" />
-      <arg value='/property:DefaultDataPath="${schema.database.data.path}"'
-           if="${schema.database.data.path.exists}" />
-      <arg value="/property:AlwaysCreateNewDatabase=${schema.database.recreate}" />
       <arg value="/target:Rebuild" />
       <arg value="/verbosity:${verbosity}" />
       <arg value="/nologo" />

@@ -1,5 +1,6 @@
-class Copy
+require "ftools"
 
+class Copy
   def self.binaries
      CopyCommand.new "dll"
   end
@@ -8,21 +9,23 @@ class Copy
      CopyCommand.new "dll,pdb,xml"
   end
 
-  def self.config
+  def self.configuration
     CopyCommand.new "config,cfg.xml"
   end
 
+  def self.files(extensions)
+
+  end
 end
 
 class CopyCommand
-
   def initialize(extensions)
     @extensions = extensions
     @pattern = '*'
   end
 
   def from(path)
-    @fromPath = path
+    @from_path = path.to_s
     self
   end
 
@@ -32,8 +35,8 @@ class CopyCommand
   end
 
   def to(path)
-    Dir.glob(File.join(@fromPath, "#{@pattern}.{#{@extensions}}")) { |file|
-      copy(file, path) if File.file?(file)
-    }
+    Dir.glob(File.join(@from_path, "{#{@pattern}}.{#{@extensions}}")) do |file|
+      File.copy(file, path.to_s) if File.file?(file)
+    end
   end
 end

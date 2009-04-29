@@ -1,11 +1,40 @@
 class Run
-
   def self.MSBuild
     RunMSBuildCommand.new
   end
 
   def self.xUnitTests
     NUnitCommand.new
+  end
+
+  def self.CodeCoverageAnalysis
+    NCoverCommand.new
+  end
+end
+
+class NCoverCommand
+  NCOVER_PATH = Path.to.tools.ncover.root
+  NUNIT_PATH = Path.to.tools.nunit.bin
+
+  def logs_to(path)
+    @log = path.to_s
+    self
+  end
+
+  def outputs_to(path)
+    @output = path.to_s.gsub('/','\\')
+    self
+  end
+
+  def for(assembly_names)
+    @assemblies = ''
+    assembly_names.each do |assembly|
+      @assemblies += "#{assembly}.dll "
+    end
+
+    xunit_executable = "#{NUNIT_PATH}/nunit.console.exe".gsub('/','\\')
+    executable = "#{NCOVER_PATH}/NCover.Console.exe".gsub('/','\\')
+    sh "#{executable} \"#{xunit_executable}\" #{@assemblies} //x \"#{@output}\""
   end
 end
 
@@ -19,7 +48,7 @@ class NUnitCommand
   end
 
   def located_at(path)
-    @path = path
+    @path = path.to_s
     self
   end
 
@@ -29,8 +58,8 @@ class NUnitCommand
     self
   end
 
-  def outputs_to(path)
-    @output = path
+  def save_results_to(path)
+    @output = path.to_s
     self
   end
 
@@ -45,11 +74,9 @@ class NUnitCommand
 	sh "#{@nunit_console_path} /xml:\"#{outputFile}\" #{file}"
     self
   end
-
 end
 
 class RunMSBuildCommand
-
     def initialize
       @version = 'v3.5'
       @configuration = 'debug'
@@ -60,12 +87,12 @@ class RunMSBuildCommand
       self
     end
 
-    def configuration(configuration)
+    def with_configuration(configuration)
       @configuration = configuration
       self
     end
 
-    def solution(solution)
+    def for_solution(solution)
       @solution = "#{solution}.sln"
       self
     end

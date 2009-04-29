@@ -1,9 +1,8 @@
 require 'erb'
 
 class Create
-
   def self.directory(name)
-    Dir.mkdir name unless exists?(name)  
+    Dir.mkdir name.to_s unless exists?(name.to_s)  
   end
 
   def self.versioning_file
@@ -13,7 +12,6 @@ end
 
 
 class VersionFileBuilder
-
     def initialize
       @properties = {'Product' => 'Unknown', 'Version' => '0.0.0.0', 'InformationalVersion' => '0.0.0.0'}
     end
@@ -33,7 +31,7 @@ class VersionFileBuilder
       self
     end
 
-	def to(file)
+	def to(file_path)
 		template = %q{
 using System;
 using System.Reflection;
@@ -46,7 +44,7 @@ using System.Runtime.InteropServices;
 
 	  erb = ERB.new(template, 0, "%<>")
 
-	  File.open(file, 'w') do |file|
+	  File.open(file_path.to_s, 'w') do |file|
 		  file.puts erb.result(binding)
 	  end
 	end

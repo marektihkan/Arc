@@ -56,7 +56,6 @@ namespace Arc.Learning.Tests
             container.Register(
                 Component.For<ICreatedObject>().ImplementedBy<CreatedObjectImpl>());
         }
-
     }
 
 

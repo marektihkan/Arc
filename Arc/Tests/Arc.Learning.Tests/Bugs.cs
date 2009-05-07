@@ -1,11 +1,10 @@
-using System;
-using Arc.Domain.Specifications;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Configuration.Dependencies;
 using Arc.Infrastructure.Data.NHibernate;
-using Arc.Infrastructure.Data.NHibernate.Specifications;
 using Arc.Infrastructure.Dependencies;
 using Arc.Learning.Tests.Fakes.Model;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
@@ -18,7 +17,7 @@ namespace Arc.Learning.Tests
         public void Should_configure_data_access_and_session_should_be_in_repository()
         {
             Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With<DataConfiguration>()
+                .With(DataConfiguration.Default(BuildNHibernateConfiguration()))
                 .With<LoggingIsNotUsedConfiguration>()
                 .With<ValidationIsNotUsedConfiguration>();
 
@@ -31,6 +30,15 @@ namespace Arc.Learning.Tests
         private IServiceLocator CreateServiceLocator()
         {
             return new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator();
+        }
+
+        private FluentConfiguration BuildNHibernateConfiguration()
+        {
+            return Fluently.Configure()
+            .Database(
+                    MsSqlConfiguration.MsSql2005.ConnectionString(c =>
+                        c.Server("local").Database("").TrustedConnection())
+                );
         }
     }
 }

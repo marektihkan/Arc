@@ -89,7 +89,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
         }
 
         [Test]
-        public void Should_register_service_to_factory_method()
+        public void Should_register_service_dependency_to_factory_method()
         {
             var target = CreateSUT();
 
@@ -104,6 +104,21 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             var actual = target.Resolve<IParameterlessService>();
             
             Assert.That(actual, Is.Not.Null);
+        }
+
+        [Test]
+        public void Should_register_service_to_factory_method()
+        {
+            var target = CreateSUT();
+
+            target.Register(
+                Requested.Service<IServiceFactory>()
+                    .IsConstructedBy(x => new ServiceFactoryImpl { Name = "Constructed" })
+                );
+
+            var actual = target.Resolve<IServiceFactory>();
+
+            Assert.That(actual.Name, Is.EqualTo("Constructed"));
         }
 
         [Test]

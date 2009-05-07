@@ -16,6 +16,8 @@
 //
 #endregion
 
+using System;
+using FluentNHibernate.Cfg;
 using NHibernate;
 
 namespace Arc.Infrastructure.Data.NHibernate
@@ -29,7 +31,20 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// Gets or sets the configuration.
         /// </summary>
         /// <value>The configiuration.</value>
-        global::NHibernate.Cfg.Configuration Config { get; set; }
+        FluentConfiguration Configuration { get; set; }
+
+        /// <summary>
+        /// Resets configuration to default.
+        /// </summary>
+        /// <returns></returns>
+        INHibernateConfiguration Default();
+
+        /// <summary>
+        /// Configures the specified configuration.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        /// <returns></returns>
+        INHibernateConfiguration Configure(Action<FluentConfiguration> configuration);
 
         /// <summary>
         /// Builds the session factory.

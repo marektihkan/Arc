@@ -16,9 +16,9 @@
 //
 #endregion
 
-using Arc.Infrastructure.Data.NHibernate.Listeners;
+using System;
+using FluentNHibernate.Cfg;
 using NHibernate;
-using NHibernate.Event;
 
 namespace Arc.Infrastructure.Data.NHibernate
 {
@@ -32,25 +32,52 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// </summary>
         public NHibernateConfiguration()
         {
-            var configuration = new global::NHibernate.Cfg.Configuration();
-            configuration.SetListener(ListenerType.PreInsert, new PreInsertEventListener());
-            configuration.SetListener(ListenerType.PreUpdate, new PreUpdateEventListener());
-            Config = configuration.Configure();
+            Default();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NHibernateConfiguration"/> class.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        public NHibernateConfiguration(FluentConfiguration configuration)
+        {
+            Configuration = configuration;
         }
 
         /// <summary>
         /// Gets or sets the configuration.
         /// </summary>
         /// <value>The configiuration.</value>
-        public global::NHibernate.Cfg.Configuration Config { get; set; }
+        public FluentConfiguration Configuration { get; set; }
+
+        /// <summary>
+        /// Resets configuration to default.
+        /// </summary>
+        /// <returns></returns>
+        public INHibernateConfiguration Default()
+        {
+            Configuration = Fluently.Configure();
+            return this;
+        }
+
+        /// <summary>
+        /// Configures the specified configuration.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        /// <returns></returns>
+        public INHibernateConfiguration Configure(Action<FluentConfiguration> configuration)
+        {
+            configuration.Invoke(Configuration);
+            return this;
+        }
 
         /// <summary>
         /// Builds the session factory.
         /// </summary>
         /// <returns></returns>
-        public ISessionFactory BuildSessionFactory( )
+        public ISessionFactory BuildSessionFactory()
         {
-            return Config.BuildSessionFactory();
+            return Configuration.BuildSessionFactory();
         }
     }
 }

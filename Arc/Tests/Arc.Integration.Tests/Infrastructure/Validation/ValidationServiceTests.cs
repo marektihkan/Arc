@@ -7,21 +7,27 @@ using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Integration.Tests.Infrastructure.Validation
 {
-    [TestFixture]
-    public class ValidationServiceTests
+    public abstract class ValidationServiceTests
     {
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
             Configure.ServiceLocator.ProviderTo(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
-                .With<Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration>();
+                .With(GetConfiguration());
+            ValidationConfiguration();
         }
 
-        private IValidationService CreateSUT()
+        public virtual void ValidationConfiguration()
+        {
+            
+        }
+
+        protected IValidationService CreateSUT()
         {
             return ServiceLocator.Resolve<IValidationService>();
         }
 
+        protected abstract IServiceLocatorModule<IServiceLocator> GetConfiguration();
 
         [Test]
         public void Should_get_empty_validation_results_when_domain_object_is_valid()

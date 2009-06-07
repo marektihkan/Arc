@@ -49,6 +49,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\FluentNHibernate\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\FluentValidation.NET\FluentValidation\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\NHibernate\log4net.dll</HintPath>
@@ -60,6 +64,10 @@
     <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\NHibernateValidator\NHibernate.Validator.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Core, Version=1.0.0.82, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -78,6 +86,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Configuration\Arc.snk">
@@ -129,6 +138,9 @@
     <Compile Include="Infrastructure\Presentation\Mvp\PageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\UserControlTests.cs" />
     <Compile Include="Infrastructure\Validation\BaseValidationListenerTests.cs" />
+    <Compile Include="Infrastructure\Validation\EnterpriseLibraryTests.cs" />
+    <Compile Include="Infrastructure\Validation\FluentValidationTests.cs" />
+    <Compile Include="Infrastructure\Validation\NHibernateValidatorTests.cs" />
     <Compile Include="Infrastructure\Validation\ValidationServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +171,14 @@
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Validation.EnterpriseLibrary\Arc.Infrastructure.Validation.EnterpriseLibrary.csproj">
       <Project>{4CE43D2B-4EF9-4097-8690-B8AFDD0F9170}</Project>
       <Name>Arc.Infrastructure.Validation.EnterpriseLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Validation.FluentValidation\Arc.Infrastructure.Validation.FluentValidation.csproj">
+      <Project>{F90247AA-0927-4AD9-8FA5-85A21B211AF7}</Project>
+      <Name>Arc.Infrastructure.Validation.FluentValidation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Validation.NHibernateValidator\Arc.Infrastructure.Validation.NHibernateValidator.csproj">
+      <Project>{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}</Project>
+      <Name>Arc.Infrastructure.Validation.NHibernateValidator</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>

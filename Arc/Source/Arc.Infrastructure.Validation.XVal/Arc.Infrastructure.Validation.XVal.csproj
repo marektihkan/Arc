@@ -5,15 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}</ProjectGuid>
+    <ProjectGuid>{C39C17DB-8710-42D4-B728-C15B24700D9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Arc.Infrastructure.Validation.NHibernateValidator</RootNamespace>
-    <AssemblyName>Arc.Infrastructure.Validation.NHibernateValidator</AssemblyName>
+    <RootNamespace>Arc.Infrastructure.Validation.XVal</RootNamespace>
+    <AssemblyName>Arc.Infrastructure.Validation.XVal</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\Configuration\Arc.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,31 +29,20 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Arc.Infrastructure.Validation.NHibernateValidator.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NHibernate.Validator, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\External Libraries\NHibernateValidator\NHibernate.Validator.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.XML" />
+    <Reference Include="xVal, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\XVal\xVal.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="ValidationConfiguration.cs" />
-    <Compile Include="ValidationResultsAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
-      <Link>Properties\Arc.snk</Link>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Arc.Infrastructure\Arc.Infrastructure.csproj">

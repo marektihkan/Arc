@@ -124,5 +124,24 @@ namespace Arc.Learning.Tests
                     .AddConcreteType<HostObjectImpl>());
 
         }
+
+        [Test]
+        public void Should_register_generic_type_to_concrete_type()
+        {
+            var container = new Container();
+
+            container.Configure(x=>
+                x.ForRequestedType<IGenericService<DomainEntity>>()
+                .AddConcreteType<DomainEntityGenericService>());
+
+            var service = container.GetInstance<IGenericService<DomainEntity>>();
+
+            Assert.That(service, Is.Not.Null);
+        }
+    }
+
+    public class DomainEntityGenericService : IGenericService<DomainEntity>
+    {
+
     }
 }

@@ -115,6 +115,7 @@
     <Compile Include="Validation\EmptyValidationResults.cs" />
     <Compile Include="Validation\IValidationResults.cs" />
     <Compile Include="Validation\IValidationService.cs" />
+    <Compile Include="Validation\IValidator.cs" />
     <Compile Include="Validation\NullValidationService.cs" />
     <Compile Include="Validation\ValidationException.cs" />
   </ItemGroup>

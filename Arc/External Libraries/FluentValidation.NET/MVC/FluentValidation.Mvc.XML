@@ -4,6 +4,12 @@
         <name>FluentValidation.Mvc</name>
     </assembly>
     <members>
+        <member name="T:FluentValidation.Mvc.FluentValidationModelBinder">
+            <summary>
+            FluentValidationModelBinder can override the default Model Binder to automatically validate the model
+            when passed to the controller. All errors will be populated into the ModelState.
+            </summary>
+        </member>
         <member name="M:FluentValidation.ValidationResultExtension.AddToModelState(FluentValidation.Results.ValidationResult,System.Web.Mvc.ModelStateDictionary,System.String)">
             <summary>
             Stores the errors in a ValidationResult object to the specified modelstate dictionary.

@@ -10,6 +10,12 @@
             </summary>
             <typeparam name="T">The type of the object being validated</typeparam>
         </member>
+        <member name="M:FluentValidation.IValidator.CreateDescriptor">
+            <summary>
+            Creates a hook to access varies meta data properties
+            </summary>
+            <returns>A IValidatorDescriptor object which contains methods to access metadata</returns>
+        </member>
         <member name="M:FluentValidation.IValidatorOfProperties`1.Validate(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
             <summary>
             Validates certain properties of the specified instance.
@@ -33,6 +39,14 @@
             <param name="propertyExpressions">Expressions to specify the properties to validate</param>
             <returns>A ValidationResult object containing any validation failures</returns>
         </member>
+        <member name="M:FluentValidation.AbstractValidator`1.Validate(`0,System.String[])">
+            <summary>
+            Validates certain properties of the specified instance.
+            </summary>
+            <param name="instance">The object to validate</param>
+            <param name="properties">The names of the properties to validate.</param>
+            <returns>A ValidationResult object containing any validation failures.</returns>
+        </member>
         <member name="M:FluentValidation.AbstractValidator`1.RuleFor``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
             Defines a validation rule for a specify property.
@@ -51,6 +65,17 @@
             If the validation rule succeeds, it should return null.
             </summary>
             <param name="customValidator">A lambda that executes custom validation rules.</param>
+        </member>
+        <member name="T:FluentValidation.Attributes.AttributedValidatorFactory">
+            <summary>
+            Implementation of IValidatorFactory that looks for [Validator] attributes on the specified type in order to provide the validator instance.
+            Note that the validators are created by calling Activator.CreateInstance and the created validators are not cached, so there are potential performance implications using this approach.
+            </summary>
+        </member>
+        <member name="T:FluentValidation.Attributes.ValidatorAttribute">
+            <summary>
+            Validator attribute to define the class that will describe the Validation rules
+            </summary>
         </member>
         <member name="T:FluentValidation.DefaultValidatorExtensions">
             <summary>
@@ -116,7 +141,7 @@
             <param name="toCompare">The value to compare</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.DefaultValidatorExtensions.NotEqual``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1})">
+        <member name="M:FluentValidation.DefaultValidatorExtensions.NotEqual``2(FluentValidation.IRuleBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Defines a 'not equal' validator on the current rule builder using a lambda to specify the value.
             Validation will fail if the value returned by the lambda is equal to the value of the property.
@@ -138,7 +163,7 @@
             <param name="toCompare">The value to compare</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.DefaultValidatorExtensions.Equal``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1})">
+        <member name="M:FluentValidation.DefaultValidatorExtensions.Equal``2(FluentValidation.IRuleBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Defines an 'equals' validator on the current rule builder using a lambda to specify the comparison value.
             Validation will fail if the value returned by the lambda is not equal to the value of the property.
@@ -200,7 +225,7 @@
         </member>
         <member name="M:FluentValidation.DefaultValidatorExtensions.GreaterThan``2(FluentValidation.IRuleBuilder{``0,``1},``1)">
             <summary>
-            Defines a 'less than' validator on the current rule builder. 
+            Defines a 'greater than' validator on the current rule builder. 
             The validation will succeed if the property value is greater than the specified value.
             The validation will fail if the property value is less than or equal to the specified value.
             </summary>
@@ -212,7 +237,7 @@
         </member>
         <member name="M:FluentValidation.DefaultValidatorExtensions.GreaterThanOrEqualTo``2(FluentValidation.IRuleBuilder{``0,``1},``1)">
             <summary>
-            Defines a 'less than' validator on the current rule builder. 
+            Defines a 'greater than or equal' validator on the current rule builder. 
             The validation will succeed if the property value is greater than or equal the specified value.
             The validation will fail if the property value is less than the specified value.
             </summary>
@@ -222,7 +247,7 @@
             <param name="valueToCompare">The value being compared</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.DefaultValidatorExtensions.LessThan``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1})">
+        <member name="M:FluentValidation.DefaultValidatorExtensions.LessThan``2(FluentValidation.IRuleBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Defines a 'less than' validator on the current rule builder using a lambda expression. 
             The validation will succeed if the property value is less than the specified value.
@@ -234,7 +259,7 @@
             <param name="valueToCompare">A lambda that should return the value being compared</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.DefaultValidatorExtensions.LessThanOrEqualTo``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1})">
+        <member name="M:FluentValidation.DefaultValidatorExtensions.LessThanOrEqualTo``2(FluentValidation.IRuleBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Defines a 'less than or equal' validator on the current rule builder using a lambda expression. 
             The validation will succeed if the property value is less than or equal to the specified value.
@@ -246,7 +271,7 @@
             <param name="valueToCompare">The value being compared</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.DefaultValidatorExtensions.GreaterThan``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1})">
+        <member name="M:FluentValidation.DefaultValidatorExtensions.GreaterThan``2(FluentValidation.IRuleBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Defines a 'less than' validator on the current rule builder using a lambda expression. 
             The validation will succeed if the property value is greater than the specified value.
@@ -258,7 +283,7 @@
             <param name="valueToCompare">The value being compared</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.DefaultValidatorExtensions.GreaterThanOrEqualTo``2(FluentValidation.IRuleBuilder{``0,``1},System.Func{``0,``1})">
+        <member name="M:FluentValidation.DefaultValidatorExtensions.GreaterThanOrEqualTo``2(FluentValidation.IRuleBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
             Defines a 'less than' validator on the current rule builder using a lambda expression. 
             The validation will succeed if the property value is greater than or equal the specified value.
@@ -270,18 +295,45 @@
             <param name="valueToCompare">The value being compared</param>
             <returns></returns>
         </member>
+        <member name="M:FluentValidation.DefaultValidatorExtensions.GetConstantExpresionFromConstant``2(``1)">
+            <summary>
+            Helper method to construct a constant expression from a constant.
+            </summary>
+            <typeparam name="T">Type of object being validated</typeparam>
+            <typeparam name="TProperty">Type of property being validated</typeparam>
+            <param name="valueToCompare">The value being compared</param>
+            <returns></returns>
+        </member>
         <member name="T:FluentValidation.IRuleBuilder`1">
             <summary>
             Rule builder
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:FluentValidation.IRuleBuilder`1.Validate(`0)">
+        <member name="M:FluentValidation.IRuleBuilder`1.Validate(FluentValidation.Internal.ValidationContext{`0})">
             <summary>
             Executes all the validators associated with a rule builder.
             </summary>
             <param name="instance">The instance to validate</param>
+            <param name="context">Validation Context</param>
             <returns>A collection of validation failures</returns>
+        </member>
+        <member name="T:FluentValidation.Internal.PropertyChain">
+            <summary>
+            Represents a chain of properties
+            </summary>
+        </member>
+        <member name="M:FluentValidation.Internal.PropertyChain.Add(System.Reflection.MemberInfo)">
+            <summary>
+            Adds a MemberInfo instance to the chain
+            </summary>
+            <param name="member">Member to add</param>
+        </member>
+        <member name="M:FluentValidation.Internal.PropertyChain.Add(System.String)">
+            <summary>
+            Adds a property name to the chain
+            </summary>
+            <param name="propertyName">Name of the property to add</param>
         </member>
         <member name="T:FluentValidation.Internal.PropertyRule`2">
             <summary>
@@ -290,21 +342,21 @@
             <typeparam name="T"></typeparam>
             <typeparam name="TProperty"></typeparam>
         </member>
-        <member name="T:FluentValidation.IRuleBuilderOptions`2">
+        <member name="T:FluentValidation.IValidatorOptions`2">
             <summary>
-            Rule builder
+            Defines options for a property validator
             </summary>
             <typeparam name="T"></typeparam>
             <typeparam name="TProperty"></typeparam>
         </member>
-        <member name="M:FluentValidation.IRuleBuilderOptions`2.WithMessage(System.String)">
+        <member name="M:FluentValidation.IValidatorOptions`2.WithMessage(System.String)">
             <summary>
             Specifies a custom error message to use if validation fails.
             </summary>
             <param name="errorMessage">The error message to use</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.IRuleBuilderOptions`2.WithMessage(System.String,System.Object[])">
+        <member name="M:FluentValidation.IValidatorOptions`2.WithMessage(System.String,System.Object[])">
             <summary>
             Specifies a custom error message to use if validation fails.
             </summary>
@@ -312,14 +364,14 @@
             <param name="formatArgs">Additional arguments to be specified when formatting the custom error message.</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.IRuleBuilderOptions`2.WithName(System.String)">
+        <member name="M:FluentValidation.IValidatorOptions`2.WithName(System.String)">
             <summary>
             Specifies a custom property name to use with the default error message.
             </summary>
             <param name="overridePropertyName">The property name to use</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.IRuleBuilderOptions`2.When(System.Func{`0,System.Boolean})">
+        <member name="M:FluentValidation.IValidatorOptions`2.When(System.Func{`0,System.Boolean})">
             <summary>
             Specifies a condition limiting when the validator should run. 
             The validator will only be executed if the result of the lambda returns true.
@@ -327,18 +379,12 @@
             <param name="predicate">A lambda expression that specifies a condition for when the validator should run</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.IRuleBuilderOptions`2.Unless(System.Func{`0,System.Boolean})">
+        <member name="M:FluentValidation.IValidatorOptions`2.Unless(System.Func{`0,System.Boolean})">
             <summary>
             Specifies a condition limiting when the validator should not run. 
             The validator will only be executed if the result of the lambda returns false.
             </summary>
             <param name="predicate">A lambda expression that specifies a condition for when the validator should not run</param>
-            <returns></returns>
-        </member>
-        <member name="P:FluentValidation.IRuleBuilderOptions`2.And">
-            <summary>
-            Specifies additional validators for this property
-            </summary>
             <returns></returns>
         </member>
         <member name="M:FluentValidation.Internal.PropertyRule`2.WithMessage(System.String)">
@@ -371,7 +417,7 @@
             <param name="predicate">A lambda expression that specifies a condition for when the validator should not run</param>
             <returns></returns>
         </member>
-        <member name="M:FluentValidation.Internal.PropertyRule`2.Validate(`0)">
+        <member name="M:FluentValidation.Internal.PropertyRule`2.Validate(FluentValidation.Internal.ValidationContext{`0})">
             <summary>
             Executes the validator associated with this rule.
             </summary>
@@ -384,12 +430,6 @@
             </summary>
             <typeparam name="T"></typeparam>
             <typeparam name="TProperty"></typeparam>
-        </member>
-        <member name="P:FluentValidation.Internal.PropertyRule`2.And">
-            <summary>
-            Specifies additional validators for this property.
-            </summary>
-            <returns></returns>
         </member>
         <member name="T:FluentValidation.IRuleBuilder`2">
             <summary>
@@ -405,6 +445,25 @@
             <param name="validator">The validator to set</param>
             <returns></returns>
         </member>
+        <member name="M:FluentValidation.IRuleBuilder`2.SetValidator(FluentValidation.IValidator{`1})">
+            <summary>
+            Associates an instance of IValidator with the current property rule.
+            </summary>
+            <param name="validator">The validator to use</param>
+        </member>
+        <member name="T:FluentValidation.IRuleBuilderOptions`2">
+            <summary>
+            Rule builder
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+        </member>
+        <member name="P:FluentValidation.IRuleBuilderOptions`2.And">
+            <summary>
+            Specifies additional validators for this property
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:FluentValidation.Internal.RuleBuilder`2">
             <summary>
             Builds a validation rule and constructs a validator.
@@ -418,11 +477,10 @@
             </summary>
             <param name="expression">Property expression used to initialise the rule builder.</param>
         </member>
-        <member name="M:FluentValidation.Internal.RuleBuilder`2.Validate(`0)">
+        <member name="M:FluentValidation.Internal.RuleBuilder`2.Validate(FluentValidation.Internal.ValidationContext{`0})">
             <summary>
             Executes the validator associated with this rule.
             </summary>
-            <param name="instance">The object to validate</param>
             <returns>Will return a <see cref="T:FluentValidation.Results.ValidationFailure">ValidationFailure</see> if validation fails, otherwise null.</returns>
         </member>
         <member name="M:FluentValidation.Internal.RuleBuilder`2.SetValidator(FluentValidation.Validators.IPropertyValidator{`0,`1})">
@@ -431,6 +489,12 @@
             </summary>
             <param name="validator">The validator to set</param>
             <returns></returns>
+        </member>
+        <member name="M:FluentValidation.Internal.RuleBuilder`2.SetValidator(FluentValidation.IValidator{`1})">
+            <summary>
+            Sets the validator associated with the rule. Use with complex properties where an IValidator instance is already declared for the property type.
+            </summary>
+            <param name="validator">The validator to set</param>
         </member>
         <member name="M:FluentValidation.Internal.RuleBuilder`2.FluentValidation#Internal#IFluentInterface#GetType">
             <summary>

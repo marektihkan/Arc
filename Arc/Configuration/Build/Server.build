@@ -21,6 +21,6 @@
   <!-- Targets -->
   <target name="RunAll" 
           description="Compiles and tests solution"
-          depends="Prepare,Compile,FullTest,Documentation,Analyze" />
+          depends="Prepare,Compile,FullTest,Analyze" />
   
 </project>

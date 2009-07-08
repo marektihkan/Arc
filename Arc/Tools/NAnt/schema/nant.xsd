@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:nant="http://nant.sf.net/release/0.86-beta1/nant.xsd" elementFormDefault="qualified" targetNamespace="http://nant.sf.net/release/0.86-beta1/nant.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:nant="http://nant.sf.net/nightly/2009-05-05-0.86/nant.xsd" elementFormDefault="qualified" targetNamespace="http://nant.sf.net/nightly/2009-05-05-0.86/nant.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
-    <xs:documentation>NAnt schema generated at 12/08/2007 13:32:12</xs:documentation>
+    <xs:documentation>NAnt schema generated at 05/05/2009 22:06:13</xs:documentation>
   </xs:annotation>
   <xs:complexType name="NAnt.Core.TaskContainer">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
@@ -21,6 +21,7 @@
         <xs:element name="vjc" type="nant:NAnt.DotNet.Tasks.VjcTask" />
         <xs:element name="gunzip" type="nant:NAnt.Compression.Tasks.GUnzip" />
         <xs:element name="tar" type="nant:NAnt.Compression.Tasks.TarTask" />
+        <xs:element name="untar" type="nant:NAnt.Compression.Tasks.UnTarTask" />
         <xs:element name="unzip" type="nant:NAnt.Compression.Tasks.UnZipTask" />
         <xs:element name="zip" type="nant:NAnt.Compression.Tasks.ZipTask" />
         <xs:element name="nunit" type="nant:NAnt.NUnit1.Tasks.NUnitTask" />
@@ -537,6 +538,7 @@
     <xs:attribute name="target" use="required" />
     <xs:attribute name="define" use="optional" />
     <xs:attribute name="win32icon" use="optional" />
+    <xs:attribute name="win32res" use="optional" />
     <xs:attribute name="warnaserror" use="optional" />
     <xs:attribute name="nowarn" use="optional" />
     <xs:attribute name="rebuild" use="optional" />
@@ -617,6 +619,7 @@
     <xs:attribute name="target" use="required" />
     <xs:attribute name="define" use="optional" />
     <xs:attribute name="win32icon" use="optional" />
+    <xs:attribute name="win32res" use="optional" />
     <xs:attribute name="warnaserror" use="optional" />
     <xs:attribute name="rebuild" use="optional" />
     <xs:attribute name="main" use="optional" />
@@ -752,6 +755,7 @@
     <xs:attribute name="target" use="required" />
     <xs:attribute name="define" use="optional" />
     <xs:attribute name="win32icon" use="optional" />
+    <xs:attribute name="win32res" use="optional" />
     <xs:attribute name="warnaserror" use="optional" />
     <xs:attribute name="nowarn" use="optional" />
     <xs:attribute name="rebuild" use="optional" />
@@ -792,6 +796,7 @@
     <xs:attribute name="target" use="required" />
     <xs:attribute name="define" use="optional" />
     <xs:attribute name="win32icon" use="optional" />
+    <xs:attribute name="win32res" use="optional" />
     <xs:attribute name="warnaserror" use="optional" />
     <xs:attribute name="nowarn" use="optional" />
     <xs:attribute name="rebuild" use="optional" />
@@ -828,10 +833,22 @@
     <xs:attribute name="unless" use="optional" />
     <xs:anyAttribute namespace="##other" processContents="skip" />
   </xs:complexType>
+  <xs:complexType name="NAnt.Compression.Tasks.UnTarTask">
+    <xs:attribute name="src" use="required" />
+    <xs:attribute name="dest" use="optional" />
+    <xs:attribute name="compression" use="optional" />
+    <xs:attribute name="overwrite" use="optional" />
+    <xs:attribute name="failonerror" use="optional" />
+    <xs:attribute name="verbose" use="optional" />
+    <xs:attribute name="if" use="optional" />
+    <xs:attribute name="unless" use="optional" />
+    <xs:anyAttribute namespace="##other" processContents="skip" />
+  </xs:complexType>
   <xs:complexType name="NAnt.Compression.Tasks.UnZipTask">
     <xs:attribute name="zipfile" use="required" />
     <xs:attribute name="todir" use="optional" />
     <xs:attribute name="encoding" use="optional" />
+    <xs:attribute name="overwrite" use="optional" />
     <xs:attribute name="failonerror" use="optional" />
     <xs:attribute name="verbose" use="optional" />
     <xs:attribute name="if" use="optional" />
@@ -890,6 +907,7 @@
   <xs:complexType name="NAnt.NUnit2.Types.NUnit2Test">
     <xs:sequence minOccurs="0" maxOccurs="unbounded">
       <xs:element minOccurs="0" maxOccurs="1" name="assemblies" type="nant:NAnt.DotNet.Types.AssemblyFileSet" />
+      <xs:element minOccurs="0" maxOccurs="1" name="references" type="nant:NAnt.DotNet.Types.AssemblyFileSet" />
       <xs:element minOccurs="0" maxOccurs="1" name="categories" type="nant:NAnt.NUnit2.Types.Categories" />
     </xs:sequence>
     <xs:attribute name="assemblyname" use="optional" />
@@ -1339,6 +1357,7 @@
     <xs:attribute name="options" use="optional" />
     <xs:attribute name="output" use="required" />
     <xs:attribute name="pdbfile" use="optional" />
+    <xs:attribute name="moduledefinition" use="optional" />
     <xs:attribute name="timeout" use="optional" />
     <xs:attribute name="failonerror" use="optional" />
     <xs:attribute name="verbose" use="optional" />
@@ -1455,6 +1474,7 @@
     </xs:sequence>
     <xs:attribute name="solutionfile" use="optional" />
     <xs:attribute name="configuration" use="required" />
+    <xs:attribute name="platform" use="optional" />
     <xs:attribute name="outputdir" use="optional" />
     <xs:attribute name="includevsfolders" use="optional" />
     <xs:attribute name="enablewebdav" use="optional" />
@@ -1668,6 +1688,7 @@
         <xs:element name="vjc" type="nant:NAnt.DotNet.Tasks.VjcTask" />
         <xs:element name="gunzip" type="nant:NAnt.Compression.Tasks.GUnzip" />
         <xs:element name="tar" type="nant:NAnt.Compression.Tasks.TarTask" />
+        <xs:element name="untar" type="nant:NAnt.Compression.Tasks.UnTarTask" />
         <xs:element name="unzip" type="nant:NAnt.Compression.Tasks.UnZipTask" />
         <xs:element name="zip" type="nant:NAnt.Compression.Tasks.ZipTask" />
         <xs:element name="nunit" type="nant:NAnt.NUnit1.Tasks.NUnitTask" />
@@ -1764,6 +1785,7 @@
         <xs:element name="vjc" type="nant:NAnt.DotNet.Tasks.VjcTask" />
         <xs:element name="gunzip" type="nant:NAnt.Compression.Tasks.GUnzip" />
         <xs:element name="tar" type="nant:NAnt.Compression.Tasks.TarTask" />
+        <xs:element name="untar" type="nant:NAnt.Compression.Tasks.UnTarTask" />
         <xs:element name="unzip" type="nant:NAnt.Compression.Tasks.UnZipTask" />
         <xs:element name="zip" type="nant:NAnt.Compression.Tasks.ZipTask" />
         <xs:element name="nunit" type="nant:NAnt.NUnit1.Tasks.NUnitTask" />
@@ -1899,6 +1921,7 @@
         <xs:element name="vjc" type="nant:NAnt.DotNet.Tasks.VjcTask" />
         <xs:element name="gunzip" type="nant:NAnt.Compression.Tasks.GUnzip" />
         <xs:element name="tar" type="nant:NAnt.Compression.Tasks.TarTask" />
+        <xs:element name="untar" type="nant:NAnt.Compression.Tasks.UnTarTask" />
         <xs:element name="unzip" type="nant:NAnt.Compression.Tasks.UnZipTask" />
         <xs:element name="zip" type="nant:NAnt.Compression.Tasks.ZipTask" />
         <xs:element name="nunit" type="nant:NAnt.NUnit1.Tasks.NUnitTask" />
@@ -2300,6 +2323,7 @@
       <xs:element name="vjc" type="nant:NAnt.DotNet.Tasks.VjcTask" />
       <xs:element name="gunzip" type="nant:NAnt.Compression.Tasks.GUnzip" />
       <xs:element name="tar" type="nant:NAnt.Compression.Tasks.TarTask" />
+      <xs:element name="untar" type="nant:NAnt.Compression.Tasks.UnTarTask" />
       <xs:element name="unzip" type="nant:NAnt.Compression.Tasks.UnZipTask" />
       <xs:element name="zip" type="nant:NAnt.Compression.Tasks.ZipTask" />
       <xs:element name="nunit" type="nant:NAnt.NUnit1.Tasks.NUnitTask" />
@@ -2403,6 +2427,7 @@
         <xs:element name="vjc" type="nant:NAnt.DotNet.Tasks.VjcTask" />
         <xs:element name="gunzip" type="nant:NAnt.Compression.Tasks.GUnzip" />
         <xs:element name="tar" type="nant:NAnt.Compression.Tasks.TarTask" />
+        <xs:element name="untar" type="nant:NAnt.Compression.Tasks.UnTarTask" />
         <xs:element name="unzip" type="nant:NAnt.Compression.Tasks.UnZipTask" />
         <xs:element name="zip" type="nant:NAnt.Compression.Tasks.ZipTask" />
         <xs:element name="nunit" type="nant:NAnt.NUnit1.Tasks.NUnitTask" />

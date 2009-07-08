@@ -21,7 +21,7 @@
   <!-- Main target -->
   <target name="Analyze" 
           description="Analyzes project" 
-          depends="AnalyzeCodeCoverage,AnalyzeCodeQuality,AnalyzeCodeDuplication,AnalyzeCodeMetrics" />
+          depends="AnalyzeCodeCoverage,AnalyzeCodeQuality,AnalyzeCodeDuplication" />
 
   <!-- Targets -->
   <target name="AnalyzeCodeCoverage" description="Code coverage for solution">

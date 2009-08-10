@@ -21,7 +21,7 @@
 
     <exec program="${path.msbuild.console}">
       <arg value="${project.root.path}/${project.name}.sln" />
-      <arg value="/property:$safeprojectname$=${project.config}" />
+      <arg value="/property:Configuration=${project.config}" />
       <arg value="/property:TargetDatabase=${schema.database.name}"
            if="${schema.database.name.exists}" />
       <arg value='/property:TargetConnectionString="${schema.database.connection_string}"'

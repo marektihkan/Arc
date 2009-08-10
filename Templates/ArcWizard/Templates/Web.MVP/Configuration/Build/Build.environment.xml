@@ -69,15 +69,6 @@
 	<property name="path.simian" 
             value="${path.project.tools}\Simian" 
             overwrite="false" />
-  <!--<property name="path.sandcastle"
-            value="${path.tools}\Sandcastle" 
-            overwrite="false" />
-  <property name="path.sandcastle.tools"
-            value="${path.sandcastle}\ProductionTools" 
-            overwrite="false" />
-  <property name="path.sandcastle.transforms"
-            value="${path.sandcastle}\ProductionTransforms" 
-            overwrite="false" />-->
   <property name="path.sandcastle.helpbuilder"
             value="${path.tools}\Sandcastle Help File Builder" 
             overwrite="false" />
@@ -102,27 +93,9 @@
 	<property name="path.simian.console" 
             value="${path.simian}\bin\simian-2.2.24.exe" 
             overwrite="false" />
-  <!--<property name="path.sandcastle.mrefbuilder.console"
-            value="${path.sandcastle.tools}\mrefbuilder.exe" 
-            overwrite="false" />
-  <property name="path.sandcastle.buildassembler.console"
-            value="${path.sandcastle.tools}\buildassembler.exe" 
-            overwrite="false" />
-  <property name="path.sandcastle.xsltransform.console"
-            value="${path.sandcastle.tools}\xsltransform.exe" 
-            overwrite="false" />
-  <property name="path.sandcastle.chmbuilder.console"
-            value="${path.sandcastle.tools}\ChmBuilder.exe" 
-            overwrite="false" />
-  <property name="path.sandcastle.dbcsfix.console"
-            value="${path.sandcastle.tools}\DBCSFix.exe" 
-            overwrite="false" />-->
   <property name="path.sandcastle.helpbuilder.console" 
             value="${path.sandcastle.helpbuilder}\SandcastleBuilderConsole.exe" 
             overwrite="false" />
-  <!--<property name="path.helpcompiler.console" 
-            value="C:\Program Files\HTML Help Workshop\hhc.exe" 
-            overwrite="false" />-->
 
   <!-- External NAnt tasks -->
 	<property name="path.nant.tasks" 

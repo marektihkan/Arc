@@ -72,6 +72,7 @@
       
       <targets>
         <include name="${build.binary.path}\${project.name}*.dll" />
+        <exclude name="${build.binary.path}\${project.name}*NHibernateValidator.dll" />
       </targets>
       
     </fxcop>

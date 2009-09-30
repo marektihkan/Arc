@@ -4,9 +4,7 @@ using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using Ninject.Core;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
-using With=Arc.Infrastructure.Dependencies.With;
 
 namespace Arc.Integration.Tests.Infrastructure.Dependencies
 {

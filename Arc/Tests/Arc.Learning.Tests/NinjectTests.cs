@@ -1,7 +1,6 @@
 using Arc.Learning.Tests.Fakes.Model;
 using Ninject.Core;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Learning.Tests
 {

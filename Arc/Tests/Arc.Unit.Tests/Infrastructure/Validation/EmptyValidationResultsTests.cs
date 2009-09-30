@@ -1,6 +1,5 @@
 using Arc.Infrastructure.Validation;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Infrastructure.Validation
 {

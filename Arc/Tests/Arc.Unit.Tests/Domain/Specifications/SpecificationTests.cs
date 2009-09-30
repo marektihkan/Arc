@@ -1,10 +1,7 @@
-using System;
 using System.Linq;
-using System.Linq.Expressions;
 using Arc.Domain.Specifications;
 using Arc.Unit.Tests.Fakes.Specifications;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Domain.Specifications
 {

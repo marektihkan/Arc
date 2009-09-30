@@ -1,7 +1,6 @@
 using System;
 using Arc.Infrastructure.Validation;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 
 namespace Arc.Unit.Tests.Infrastructure.Validation

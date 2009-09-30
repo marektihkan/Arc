@@ -6,7 +6,6 @@ using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Learning.Tests
 {

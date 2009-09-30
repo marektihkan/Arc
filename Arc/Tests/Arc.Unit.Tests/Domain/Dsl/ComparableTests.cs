@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using Arc.Domain.Dsl;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Domain.Dsl
 {

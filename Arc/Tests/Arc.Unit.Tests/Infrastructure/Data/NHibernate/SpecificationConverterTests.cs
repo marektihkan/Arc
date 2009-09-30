@@ -4,9 +4,7 @@ using Arc.Infrastructure.Data.NHibernate.Specifications;
 using Arc.Unit.Tests.Fakes;
 using Arc.Unit.Tests.Fakes.Data;
 using Arc.Unit.Tests.Fakes.Entities;
-using NHibernate.Criterion;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
 {
@@ -42,7 +40,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             var actual = CriterionConverter.Convert(specification);
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.ToString(), Is.EqualTo("not Name = Tiit"));
+            Assert.That(actual.ToString(), Is.EqualTo("not (Name = Tiit)"));
         }
 
         [Test]
@@ -253,7 +251,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             var actual = CriterionConverter.Convert(specification);
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.ToString(), Is.EqualTo("not (Id = 1 and Name = Tiit)"));
+            Assert.That(actual.ToString(), Is.EqualTo("not ((Id = 1 and Name = Tiit))"));
         }
 
         [Test]
@@ -317,7 +315,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             var actual = CriterionConverter.Convert(specification);
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.ToString(), Is.EqualTo("not IsActiveMember = True"));
+            Assert.That(actual.ToString(), Is.EqualTo("not (IsActiveMember = True)"));
         }
 
         [Test]
@@ -363,7 +361,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             var actual = CriterionConverter.Convert(specification);
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.ToString(), Is.EqualTo("not FirstName = a"));
+            Assert.That(actual.ToString(), Is.EqualTo("not (FirstName = a)"));
         }
     }
 }

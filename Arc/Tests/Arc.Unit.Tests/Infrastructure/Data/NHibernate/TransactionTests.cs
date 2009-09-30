@@ -1,6 +1,5 @@
 using Arc.Infrastructure.Data.NHibernate;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 using ITransaction=Arc.Infrastructure.Data.ITransaction;
 

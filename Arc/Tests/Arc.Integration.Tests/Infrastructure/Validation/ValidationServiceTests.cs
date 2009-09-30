@@ -3,7 +3,6 @@ using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Validation;
 using Arc.Integration.Tests.Fakes.Validation;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Integration.Tests.Infrastructure.Validation
 {

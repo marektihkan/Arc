@@ -1,6 +1,5 @@
 using Arc.Infrastructure.Registry;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Infrastructure.Registry
 {

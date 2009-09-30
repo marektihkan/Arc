@@ -3,7 +3,6 @@ using Arc.Domain.Identity;
 using Arc.Unit.Tests.Fakes.Factories;
 using Arc.Unit.Tests.Fakes.Identity;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Domain.Identity
 {

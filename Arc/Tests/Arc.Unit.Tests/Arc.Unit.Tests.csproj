@@ -136,13 +136,6 @@
     <Compile Include="Infrastructure\Utilities\ResolveProviderTests.cs" />
     <Compile Include="Infrastructure\Validation\EmptyValidationResultsTests.cs" />
     <Compile Include="Infrastructure\Validation\ValidationExceptionTests.cs" />
-    <Compile Include="Fakes\TestingStyles\ArrangeActAssertTester.cs" />
-    <Compile Include="Fakes\TestingStyles\BaseStyleTester.cs" />
-    <Compile Include="Fakes\TestingStyles\ContextSpecificationTester.cs" />
-    <Compile Include="Fakes\TestingStyles\GivenWhenThenTester.cs" />
-    <Compile Include="Testing\Styles\StyleTests.cs" />
-    <Compile Include="Testing\Utilities\AutoMockerTests.cs" />
-    <Compile Include="Testing\Utilities\ReflectionExtensionsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
@@ -164,10 +157,6 @@
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Testing\Arc.Testing.csproj">
-      <Project>{AE5D89CB-216B-443E-A858-5EBD3FC09024}</Project>
-      <Name>Arc.Testing</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

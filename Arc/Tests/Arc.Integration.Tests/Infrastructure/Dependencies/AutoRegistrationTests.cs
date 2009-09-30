@@ -2,7 +2,6 @@ using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using ServiceLocator=Arc.Infrastructure.Dependencies.Ninject.ServiceLocator;
 
 namespace Arc.Integration.Tests.Infrastructure.Dependencies

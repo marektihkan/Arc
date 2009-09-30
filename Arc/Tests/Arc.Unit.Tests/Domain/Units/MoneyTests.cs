@@ -2,7 +2,6 @@ using System;
 using Arc.Domain.Units;
 using Arc.Unit.Tests.Fakes.Factories;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Domain.Units
 {

@@ -3,7 +3,6 @@ using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 using With=Arc.Infrastructure.Dependencies.With;
 

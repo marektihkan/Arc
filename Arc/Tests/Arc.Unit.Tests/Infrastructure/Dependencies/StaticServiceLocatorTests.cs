@@ -4,7 +4,6 @@ using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Unit.Tests.Fakes.Data;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 using With=Arc.Infrastructure.Dependencies.With;
 

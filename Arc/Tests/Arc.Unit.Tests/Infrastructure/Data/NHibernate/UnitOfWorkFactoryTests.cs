@@ -3,7 +3,6 @@ using Arc.Infrastructure.Data.NHibernate;
 using Arc.Infrastructure.Registry;
 using NHibernate;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 
 namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate

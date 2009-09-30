@@ -2,7 +2,6 @@ using Arc.Domain.Identity;
 using Arc.Infrastructure.Data;
 using Arc.Unit.Tests.Fakes.Data;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 
 namespace Arc.Unit.Tests.Infrastructure.Data

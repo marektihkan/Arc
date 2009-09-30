@@ -4,7 +4,6 @@ using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Dependencies;
 using Arc.Unit.Tests.Fakes.Entities;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 
 namespace Arc.Unit.Tests.Infrastructure.Data

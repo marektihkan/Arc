@@ -2,7 +2,6 @@ using System;
 using Arc.Infrastructure.Utilities;
 using Arc.Unit.Tests.Fakes.Entities;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Infrastructure.Utilities
 {

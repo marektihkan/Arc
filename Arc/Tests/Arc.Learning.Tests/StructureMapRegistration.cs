@@ -2,7 +2,6 @@ using Arc.Learning.Tests.Fakes.Model;
 using NHibernate;
 using NHibernate.Cfg;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using StructureMap;
 using StructureMap.Attributes;
 using StructureMap.Pipeline;

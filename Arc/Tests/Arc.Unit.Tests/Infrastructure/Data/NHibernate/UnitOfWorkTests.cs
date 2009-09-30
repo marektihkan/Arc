@@ -3,7 +3,6 @@ using Arc.Infrastructure.Data.NHibernate;
 using Arc.Unit.Tests.Fakes;
 using NHibernate;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 using ITransaction=NHibernate.ITransaction;
 

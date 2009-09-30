@@ -1,6 +1,5 @@
 using Arc.Unit.Tests.Fakes.Units;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Domain.Units
 {

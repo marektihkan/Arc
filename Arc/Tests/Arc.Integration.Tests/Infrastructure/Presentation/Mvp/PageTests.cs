@@ -2,7 +2,6 @@ using Arc.Infrastructure.Configuration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Presentation.Mvp;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 
 namespace Arc.Integration.Tests.Infrastructure.Presentation.Mvp

@@ -1,7 +1,6 @@
 using Arc.Infrastructure.Data.NHibernate.FluentCriteria;
 using Arc.Unit.Tests.Fakes.Entities;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
 {

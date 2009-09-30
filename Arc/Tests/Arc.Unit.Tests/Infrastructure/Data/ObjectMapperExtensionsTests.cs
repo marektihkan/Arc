@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Arc.Unit.Tests.Fakes;
 using AutoMapper;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Arc.Infrastructure.Data;
 
 namespace Arc.Unit.Tests.Infrastructure.Data

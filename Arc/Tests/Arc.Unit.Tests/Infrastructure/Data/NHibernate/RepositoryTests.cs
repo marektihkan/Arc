@@ -5,7 +5,6 @@ using Arc.Infrastructure.Data.NHibernate;
 using NHibernate;
 using NHibernate.Criterion;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using Rhino.Mocks;
 
 namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
@@ -109,8 +108,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
 
             Assert.That(actual, Is.EqualTo(1));
 
-            var rowCountType = Projections.RowCount().GetType();
-            criteria.AssertWasCalled(x => x.SetProjection(Arg<IProjection>.Matches(y => y.GetType() == rowCountType)));
+            criteria.AssertWasCalled(x => x.SetProjection(Arg<CountProjection>.Is.NotNull));
         }
 
         [Test]

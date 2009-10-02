@@ -43,6 +43,9 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Routing">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
@@ -54,6 +57,11 @@
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\SimilarityConvention.cs" />
     <Compile Include="Configuration\Dependencies\ValidationIsNotUsedConfiguration.cs" />
+    <Compile Include="Configuration\Routing\BaseRouteConfiguration.cs" />
+    <Compile Include="Configuration\Routing\INamedRouteBuilder.cs" />
+    <Compile Include="Configuration\Routing\IRouteBuilder.cs" />
+    <Compile Include="Configuration\Routing\IRoutesConfiguration.cs" />
+    <Compile Include="Configuration\Routing\Route.cs" />
     <Compile Include="Data\ActiveRecordExtensions.cs" />
     <Compile Include="Data\BaseGenericRepository.cs" />
     <Compile Include="Data\Find.cs" />

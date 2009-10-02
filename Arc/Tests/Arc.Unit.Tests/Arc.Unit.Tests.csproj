@@ -154,6 +154,14 @@
       <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
       <Name>Arc.Infrastructure.Logging.Log4Net</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj">
+      <Project>{9173994F-C413-4B4B-9831-978A1319A030}</Project>
+      <Name>Arc.Infrastructure.Presentation.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj">
+      <Project>{9C458400-AACB-482E-81DE-7ED7B41FA52A}</Project>
+      <Name>Arc.Infrastructure.Presentation.Mvp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>

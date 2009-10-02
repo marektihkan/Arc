@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Validati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Validation.NHibernateValidator", "Source\Arc.Infrastructure.Validation.NHibernateValidator\Arc.Infrastructure.Validation.NHibernateValidator.csproj", "{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvc", "Source\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj", "{9173994F-C413-4B4B-9831-978A1319A030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvp", "Source\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj", "{9C458400-AACB-482E-81DE-7ED7B41FA52A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +117,14 @@ Global
 		{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9173994F-C413-4B4B-9831-978A1319A030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9173994F-C413-4B4B-9831-978A1319A030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9173994F-C413-4B4B-9831-978A1319A030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9173994F-C413-4B4B-9831-978A1319A030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +145,7 @@ Global
 		{820F4A44-E9EF-41C9-830A-26F6B290431F} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
 		{F90247AA-0927-4AD9-8FA5-85A21B211AF7} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
 		{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
+		{9173994F-C413-4B4B-9831-978A1319A030} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
+		{9C458400-AACB-482E-81DE-7ED7B41FA52A} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
 	EndGlobalSection
 EndGlobal

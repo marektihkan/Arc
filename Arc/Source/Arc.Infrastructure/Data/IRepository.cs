@@ -77,14 +77,14 @@ namespace Arc.Infrastructure.Data
         /// <typeparam name="T">Type of entity.</typeparam>
         /// <param name="savable">The savable entity.</param>
         /// <returns>Saved entity.</returns>
-        T Save<T>(T savable) where T : class;
+        T Save<T>(T savable);
 
         /// <summary>
         /// Deletes the specified entity.
         /// </summary>
         /// <typeparam name="T">Type of entity.</typeparam>
         /// <param name="deletable">The deletable entity.</param>
-        void Delete<T>(T deletable) where T : class;
+        void Delete<T>(T deletable);
 
         /// <summary>
         /// Clears unit of work.

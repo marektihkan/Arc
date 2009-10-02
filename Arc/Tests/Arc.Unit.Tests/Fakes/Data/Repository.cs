@@ -96,12 +96,12 @@ namespace Arc.Unit.Tests.Fakes.Data
             throw new System.NotImplementedException();
         }
 
-        public T Save<T>(T saveable) where T : class
+        public T Save<T>(T saveable) 
         {
             throw new System.NotImplementedException();
         }
 
-        public void Delete<T>(T deleteable) where T : class
+        public void Delete<T>(T deleteable)
         {
             throw new System.NotImplementedException();
         }

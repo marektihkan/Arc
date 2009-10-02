@@ -52,7 +52,9 @@
     <Compile Include="Configuration\Dependencies\IConvention.cs" />
     <Compile Include="Configuration\Dependencies\RegistryConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
+    <Compile Include="Configuration\Dependencies\SimilarityConvention.cs" />
     <Compile Include="Configuration\Dependencies\ValidationIsNotUsedConfiguration.cs" />
+    <Compile Include="Data\ActiveRecordExtensions.cs" />
     <Compile Include="Data\BaseGenericRepository.cs" />
     <Compile Include="Data\Find.cs" />
     <Compile Include="Dependencies\Conventions\BaseConvention.cs" />
@@ -98,15 +100,6 @@
     <Compile Include="Dependencies\With.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\NullLogger.cs" />
-    <Compile Include="Presentation\Mvp\MasterPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Presentation\Mvp\Page.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Presentation\Mvp\UserControl.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Registry\BaseRegistry.cs" />
     <Compile Include="Registry\IRegistry.cs" />
     <Compile Include="Registry\LocalRegistry.cs" />
@@ -129,9 +122,6 @@
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presentation\Mvc\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

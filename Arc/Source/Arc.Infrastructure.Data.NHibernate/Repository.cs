@@ -276,10 +276,10 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <typeparam name="T">Type of entity.</typeparam>
         /// <param name="savable">The savable entity.</param>
         /// <returns>Saved entity.</returns>
-        public T Save<T>(T savable) where T : class 
+        public T Save<T>(T savable) 
         {
             if (savable == null)
-                return null;
+                return default(T);
 
             var session = Session;
 
@@ -303,7 +303,7 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// </summary>
         /// <typeparam name="T">Type of entity.</typeparam>
         /// <param name="deletable">The deletable entity.</param>
-        public void Delete<T>(T deletable) where T : class 
+        public void Delete<T>(T deletable)  
         {
             if (deletable == null)
                 return;

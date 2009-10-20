@@ -14,6 +14,7 @@ end
 class VersionFileBuilder
     def initialize
       @properties = {'Product' => 'Unknown', 'Version' => '0.0.0.0', 'InformationalVersion' => '0.0.0.0'}
+      @build_number = 0
     end
 
     def for_product_named(name)
@@ -22,7 +23,12 @@ class VersionFileBuilder
     end
 
     def versioned(version)
-      @properties['Version'] = @properties['InformationalVersion'] = version + '.' + (ENV["CCNetLabel"].nil? ? '0' : ENV["CCNetLabel"].to_s)
+      @properties['Version'] = @properties['InformationalVersion'] = version + '.' + (ENV["CCNetLabel"].nil? ? @build_number.to_s : ENV["CCNetLabel"].to_s)
+      self
+    end
+
+    def build(build_number)
+      @build_number = build_number
       self
     end
 

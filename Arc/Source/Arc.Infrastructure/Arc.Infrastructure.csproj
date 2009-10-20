@@ -51,21 +51,20 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Configuration\Configure.cs" />
-    <Compile Include="Configuration\Dependencies\IConvention.cs" />
+    <Compile Include="Configuration\Application.cs" />
+    <Compile Include="Configuration\IConvention.cs" />
     <Compile Include="Configuration\Dependencies\RegistryConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
-    <Compile Include="Configuration\Dependencies\SimilarityConvention.cs" />
     <Compile Include="Configuration\Dependencies\ValidationIsNotUsedConfiguration.cs" />
+    <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Configuration\Routing\BaseRouteConfiguration.cs" />
     <Compile Include="Configuration\Routing\INamedRouteBuilder.cs" />
     <Compile Include="Configuration\Routing\IRouteBuilder.cs" />
-    <Compile Include="Configuration\Routing\IRoutesConfiguration.cs" />
     <Compile Include="Configuration\Routing\Route.cs" />
     <Compile Include="Data\ActiveRecordExtensions.cs" />
     <Compile Include="Data\BaseGenericRepository.cs" />
     <Compile Include="Data\Find.cs" />
-    <Compile Include="Dependencies\Conventions\BaseConvention.cs" />
+    <Compile Include="Configuration\Conventions\ServiceLocatorConvention.cs" />
     <Compile Include="Dependencies\Registration\IRegistration.cs" />
     <Compile Include="Dependencies\Registration\IServiceBindingSyntax.cs" />
     <Compile Include="Dependencies\Registration\IServiceLifeStyleSyntax.cs" />
@@ -81,9 +80,6 @@
     <Compile Include="Registry\ThreadRegistry.cs" />
     <Compile Include="Utilities\Find.cs" />
     <Compile Include="Utilities\ResolveProvider.cs" />
-    <Compile Include="Configuration\Syntax\IServiceLocatorConfiguration.cs" />
-    <Compile Include="Configuration\Syntax\IServiceLocatorProviderConfiguration.cs" />
-    <Compile Include="Configuration\Syntax\ServiceLocatorProviderConfiguration.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\ITransaction.cs" />
@@ -98,8 +94,7 @@
     <Compile Include="Dependencies\Registration\Auto\IPickingSyntax.cs" />
     <Compile Include="Dependencies\IParameters.cs" />
     <Compile Include="Dependencies\IServiceLocator.cs" />
-    <Compile Include="Dependencies\Registration\AutoRegistration.cs" />
-    <Compile Include="Dependencies\IServiceLocatorModule.cs" />
+    <Compile Include="Dependencies\Registration\Auto\AutoRegistration.cs" />
     <Compile Include="Dependencies\Registration\Auto\ITypeRegistrationStrategy.cs" />
     <Compile Include="Dependencies\Registration\Auto\RegisterTypeToFirstMatchStrategy.cs" />
     <Compile Include="Dependencies\Registration\Auto\RegisterTypeToSelfStrategy.cs" />

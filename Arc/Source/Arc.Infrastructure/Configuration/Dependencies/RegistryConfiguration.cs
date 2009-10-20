@@ -25,15 +25,24 @@ namespace Arc.Infrastructure.Configuration.Dependencies
     /// <summary>
     /// Registers registries to service locator.
     /// </summary>
-    public class RegistryConfiguration : IServiceLocatorModule<IServiceLocator>
+    public class RegistryConfiguration : IConfiguration<IServiceLocator>
     {
         /// <summary>
-        /// Configures the specified service locator.
+        /// Creates default configuration.
         /// </summary>
-        /// <param name="serviceLocator">The service locator.</param>
-        public void Configure(IServiceLocator serviceLocator)
+        /// <returns>Default configuration.</returns>
+        public static RegistryConfiguration Default()
         {
-            serviceLocator.Register(
+            return new RegistryConfiguration();
+        }
+
+        /// <summary>
+        /// Loads the registry configuration to service locator.
+        /// </summary>
+        /// <param name="handler">The service locator.</param>
+        public void Load(IServiceLocator handler)
+        {
+            handler.Register(
                 Requested.Service<IWebSessionRegistry>().IsImplementedBy<WebSessionRegistry>(),
             
                 Requested.Service<IWebRequestRegistry>().IsImplementedBy<WebRequestRegistry>(),

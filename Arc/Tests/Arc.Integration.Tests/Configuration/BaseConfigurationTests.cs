@@ -6,6 +6,7 @@ using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Logging;
 using Arc.Infrastructure.Registry;
 using Arc.Infrastructure.Validation;
+using Arc.Integration.Tests.Fakes.Configuration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using Arc.Integration.Tests.Fakes.Validation;
@@ -26,7 +27,7 @@ namespace Arc.Integration.Tests.Configuration
         [Test]
         public void Should_configure_service_locator_provider()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator());
+            Application.ServiceLocatorIs(CreateServiceLocator());
 
             Assert.That(ServiceLocator.InnerServiceLocator, Is.Not.Null);
         }
@@ -34,8 +35,8 @@ namespace Arc.Integration.Tests.Configuration
         [Test]
         public void Should_configure_logging_provider()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With<Arc.Infrastructure.Logging.Log4Net.LoggingConfiguration>();
+            Application.ServiceLocatorIs(CreateServiceLocator())
+                .Load(Arc.Infrastructure.Logging.Log4Net.LoggingConfiguration.Default());
 
             Assert.That(ServiceLocator.InnerServiceLocator, Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<ILogger>(), Is.Not.Null);
@@ -44,8 +45,8 @@ namespace Arc.Integration.Tests.Configuration
         [Test]
         public void Should_configure_validation_provider()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With<ValidationConfiguration>();
+            Application.ServiceLocatorIs(CreateServiceLocator())
+                .Load(ValidationConfiguration.Default());
 
             Assert.That(ServiceLocator.InnerServiceLocator, Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<IValidationService>(), Is.Not.Null);
@@ -54,20 +55,22 @@ namespace Arc.Integration.Tests.Configuration
         [Test]
         public void Should_load_convention_to_service_provider()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With(new RegisterServicesConvention());
+            Application.ServiceLocatorIs(CreateServiceLocator())
+                .Apply(new RegisterServicesConvention());
 
             Assert.That(ServiceLocator.Resolve<IService>(), Is.Not.Null);
         }
 
         [Test]
-        [Ignore("Cannot create connection to database without mappings")]
+        //[Ignore("Cannot create connection to database without mappings")]
         public void Should_configure_data_access()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With(DataConfiguration.Default(BuildNHibernateConfiguration()))
-                .With<LoggingIsNotUsedConfiguration>()
-                .With<ValidationIsNotUsedConfiguration>();
+            Application.ServiceLocatorIs(CreateServiceLocator())
+                .Load(
+                    DataConfiguration.Default(BuildNHibernateConfiguration()),
+                    LoggingIsNotUsedConfiguration.Default(),
+                    ValidationIsNotUsedConfiguration.Default()
+                );
 
             Assert.That(ServiceLocator.Resolve<INHibernateConfiguration>(), Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<IUnitOfWorkFactory>(), Is.Not.Null);
@@ -82,15 +85,18 @@ namespace Arc.Integration.Tests.Configuration
             return Fluently.Configure()
                 .Database(
                     MsSqlConfiguration.MsSql2005.ConnectionString(c => 
-                        c.Server("local").Database("").TrustedConnection())
+                        c.Server("(local)").Database("").TrustedConnection())
+                )
+                .Mappings(
+                    x => x.FluentMappings.Add<EntityMapping>()
                 );
         }
 
         [Test]
         public void Should_configure_registries()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With<RegistryConfiguration>();
+            Application.ServiceLocatorIs(CreateServiceLocator())
+                .Load(RegistryConfiguration.Default());
 
             Assert.That(ServiceLocator.Resolve<IHybridRegistry>(), Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<IThreadRegistry>(), Is.Not.Null);

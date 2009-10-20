@@ -1,10 +1,11 @@
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Registry;
 
 namespace Arc.Integration.Tests.Configuration
 {
-    public class DataTestConfiguration : IServiceLocatorModule<IServiceLocator>
+    public class DataTestConfiguration : IConfiguration<IServiceLocator>
     {
         public static string FullName
         {
@@ -15,7 +16,7 @@ namespace Arc.Integration.Tests.Configuration
             }
         }
 
-        public void Configure(IServiceLocator serviceLocator)
+        public void Load(IServiceLocator serviceLocator)
         {
             serviceLocator.Register(
                 Requested.Service<IRegistry>().IsImplementedBy<LocalRegistry>()

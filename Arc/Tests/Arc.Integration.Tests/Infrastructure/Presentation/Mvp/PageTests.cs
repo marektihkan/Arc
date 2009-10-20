@@ -20,8 +20,8 @@ namespace Arc.Integration.Tests.Infrastructure.Presentation.Mvp
         {
             var serviceLocator = new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator();
 
-            Configure.ServiceLocator.ProviderTo(serviceLocator)
-                .With(new DependencyConfiguration());
+            Application.ServiceLocatorIs(serviceLocator)
+                .Load(new DependencyConfiguration());
             
             var target = CreateSUT();
 

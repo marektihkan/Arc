@@ -1,5 +1,7 @@
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
+using Arc.Infrastructure.Dependencies.Registration.Auto;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
 using ServiceLocator=Arc.Infrastructure.Dependencies.Ninject.ServiceLocator;
@@ -71,7 +73,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             Assert.That(first, Is.SameAs(second));
         }
 
-        private void SetupConfiguration(IServiceLocatorModule<IServiceLocator> configuration)
+        private void SetupConfiguration(IConfiguration<IServiceLocator> configuration)
         {
             _serviceLocator = new ServiceLocator();
             _serviceLocator.Load(configuration);

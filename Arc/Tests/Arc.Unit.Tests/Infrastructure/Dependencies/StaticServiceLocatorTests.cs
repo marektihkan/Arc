@@ -1,4 +1,5 @@
 using Arc.Domain.Identity;
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
@@ -25,7 +26,7 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
         [Test]
         public void Should_delegate_load_with_dependency_configuration()
         {
-            var configuration = MockRepository.GenerateStub<IServiceLocatorModule<IServiceLocator>>();
+            var configuration = MockRepository.GenerateStub<IConfiguration<IServiceLocator>>();
 
             ServiceLocator.Load(configuration);
 

@@ -16,6 +16,7 @@
 //
 #endregion
 
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 
@@ -24,15 +25,24 @@ namespace Arc.Infrastructure.Validation.EnterpriseLibrary
     /// <summary>
     /// Configuration for validation with Enterprise Library Validation Application Block.
     /// </summary>
-    public class ValidationConfiguration : IServiceLocatorModule<IServiceLocator>
+    public class ValidationConfiguration : IConfiguration<IServiceLocator>
     {
         /// <summary>
-        /// Configures the specified service locator.
+        /// Creates default configuration.
         /// </summary>
-        /// <param name="serviceLocator">The service locator.</param>
-        public void Configure(IServiceLocator serviceLocator)
+        /// <returns>Default configuration.</returns>
+        public static ValidationConfiguration Default()
         {
-            serviceLocator.Register(
+            return new ValidationConfiguration();
+        }
+
+        /// <summary>
+        /// Loads validation configuration to service locator.
+        /// </summary>
+        /// <param name="handler">The service locator.</param>
+        public void Load(IServiceLocator handler)
+        {
+            handler.Register(
                 Requested.Service<IValidationService>().IsImplementedBy<ValidationService>()
             );
         }

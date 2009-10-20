@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Dependencies.StructureMap.Registration;
 using Arc.Infrastructure.Utilities;
@@ -56,9 +57,9 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
         /// <exception cref="ArgumentException">moduleName</exception>
         public void Load(string moduleName)
         {
-            var moduleType = Find.TypeWithInterface<IServiceLocatorModule<IContainer>>(moduleName);   
-            var configuration = ResolveProvider<IServiceLocatorModule<IContainer>>.WithRealType(moduleType);
-            configuration.Configure(Container);
+            var moduleType = Find.TypeWithInterface<IConfiguration<IContainer>>(moduleName);   
+            var configuration = ResolveProvider<IConfiguration<IContainer>>.WithRealType(moduleType);
+            configuration.Load(Container);
         }
 
         /// <summary>
@@ -78,9 +79,9 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
         /// Loads the specified configuration.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
-        public void Load(IServiceLocatorModule<IServiceLocator> configuration)
+        public void Load(IConfiguration<IServiceLocator> configuration)
         {
-            configuration.Configure(this);
+            configuration.Load(this);
         }
 
         /// <summary>

@@ -1,3 +1,4 @@
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Validation.FluentValidation;
@@ -10,7 +11,7 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
     [TestFixture]
     public class FluentValidationTests : ValidationServiceTests
     {
-        protected override IServiceLocatorModule<IServiceLocator> GetConfiguration()
+        protected override IConfiguration<IServiceLocator> GetConfiguration()
         {
             return new ValidationConfiguration();
         }

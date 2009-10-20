@@ -16,8 +16,8 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            Configure.ServiceLocator.ProviderTo(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
-                .With<Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration>();
+            Application.ServiceLocatorIs(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
+                .Load(Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration.Default());
         }
 
         [SetUp]

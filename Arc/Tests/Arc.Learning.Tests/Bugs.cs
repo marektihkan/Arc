@@ -16,10 +16,11 @@ namespace Arc.Learning.Tests
         [Ignore("Cannot create connection to database without mappings")]
         public void Should_configure_data_access_and_session_should_be_in_repository()
         {
-            Configure.ServiceLocator.ProviderTo(CreateServiceLocator())
-                .With(DataConfiguration.Default(BuildNHibernateConfiguration()))
-                .With<LoggingIsNotUsedConfiguration>()
-                .With<ValidationIsNotUsedConfiguration>();
+            Application.ServiceLocatorIs(CreateServiceLocator())
+                .Load(
+                    DataConfiguration.Default(BuildNHibernateConfiguration()),
+                    LoggingIsNotUsedConfiguration.Default(),
+                    ValidationIsNotUsedConfiguration.Default());
 
             var actual = ServiceLocator.Resolve<INHibernateRepository<DomainEntity>>();
 

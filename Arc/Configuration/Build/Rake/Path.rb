@@ -96,4 +96,8 @@ class PublishPathBuilder < PathBuilder
   def data
     directory 'Data'
   end
+
+  def presentation
+    directory 'Presentation'
+  end
 end

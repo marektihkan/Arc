@@ -16,6 +16,7 @@
 //
 #endregion
 
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 using log4net;
@@ -25,15 +26,24 @@ namespace Arc.Infrastructure.Logging.Log4Net
     /// <summary>
     /// Configuration for logging services with Log4Net.
     /// </summary>
-    public class LoggingConfiguration : IServiceLocatorModule<IServiceLocator>
+    public class LoggingConfiguration : IConfiguration<IServiceLocator>
     {
         /// <summary>
-        /// Configures the specified service locator.
+        /// Creates default configuration.
         /// </summary>
-        /// <param name="serviceLocator">The service locator.</param>
-        public void Configure(IServiceLocator serviceLocator)
+        /// <returns>Default configuration.</returns>
+        public static LoggingConfiguration Default()
         {
-            serviceLocator.Register(
+            return new LoggingConfiguration();
+        }
+
+        /// <summary>
+        /// Loads logging configuration to service locator.
+        /// </summary>
+        /// <param name="handler">The service locator.</param>
+        public void Load(IServiceLocator handler)
+        {
+            handler.Register(
                 Requested.Service<ILog>().IsConstructedBy(x => LogManager.GetLogger("Default")),
                 Requested.Service<ILogger>().IsImplementedBy<Logger>()
             );

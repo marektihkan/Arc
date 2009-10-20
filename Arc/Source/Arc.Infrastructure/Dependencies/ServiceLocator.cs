@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Registration;
 
 namespace Arc.Infrastructure.Dependencies
@@ -61,7 +62,7 @@ namespace Arc.Infrastructure.Dependencies
         /// Loads the specified configuration.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
-        public static void Load(IServiceLocatorModule<IServiceLocator> configuration)
+        public static void Load(IConfiguration<IServiceLocator> configuration)
         {
             InnerServiceLocator.Load(configuration);
         }

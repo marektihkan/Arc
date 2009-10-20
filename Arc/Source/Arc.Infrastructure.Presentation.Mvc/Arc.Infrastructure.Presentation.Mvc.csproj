@@ -49,6 +49,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="ControllerFactory.cs" />
+    <Compile Include="PresentationConfiguration.cs" />
     <Compile Include="RoutesConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>

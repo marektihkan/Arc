@@ -17,11 +17,11 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Ninject.Registration;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Utilities;
 using Ninject.Core;
-using Ninject.Core.Behavior;
 
 namespace Arc.Infrastructure.Dependencies.Ninject
 {
@@ -82,9 +82,9 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// Loads the specified configuration.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
-        public void Load(IServiceLocatorModule<IServiceLocator> configuration)
+        public void Load(IConfiguration<IServiceLocator> configuration)
         {
-            configuration.Configure(this);
+            configuration.Load(this);
         }
 
         /// <summary>

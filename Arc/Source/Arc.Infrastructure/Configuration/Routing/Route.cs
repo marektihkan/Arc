@@ -1,5 +1,20 @@
-using System;
-using System.Web.Routing;
+#region License
+//
+//   Copyright 2009 Marek Tihkan
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License
+//
+#endregion
 
 namespace Arc.Infrastructure.Configuration.Routing
 {
@@ -8,11 +23,7 @@ namespace Arc.Infrastructure.Configuration.Routing
     /// </summary>
     public class Route : IRouteBuilder, INamedRouteBuilder
     {
-        private readonly string _name;
-        private string _url;
-        private object _constraint;
-        private object _default;
-        private string[] _namespaces;
+        private readonly RouteDataContract _data = new RouteDataContract();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Route"/> class.
@@ -20,7 +31,16 @@ namespace Arc.Infrastructure.Configuration.Routing
         /// <param name="name">The name.</param>
         public Route(string name)
         {
-            _name = name;
+            _data.Name = name;
+        }
+
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <value>The data.</value>
+        public RouteDataContract Data
+        {
+            get { return _data;}
         }
 
         /// <summary>
@@ -40,7 +60,7 @@ namespace Arc.Infrastructure.Configuration.Routing
         /// <returns></returns>
         public IRouteBuilder Url(string url)
         {
-            _url = url;
+            _data.Url = url;
             return this;
         }
 
@@ -51,7 +71,7 @@ namespace Arc.Infrastructure.Configuration.Routing
         /// <returns></returns>
         public IRouteBuilder DefaultsAre(object defaults)
         {
-            _default = defaults;
+            _data.Defaults = defaults;
             return this;
         }
 
@@ -62,37 +82,44 @@ namespace Arc.Infrastructure.Configuration.Routing
         /// <returns></returns>
         public IRouteBuilder ConstrainedBy(object constraint)
         {
-            _constraint = constraint;
+            _data.Constraint = constraint;
             return this;
         }
 
         /// <summary>
-        /// Registers the specified route to routes.
+        /// Route data.
         /// </summary>
-        /// <param name="routes">The routes.</param>
-        /// <param name="handler">The handler.</param>
-        public void Register(RouteCollection routes, IRouteHandler handler)
+        public class RouteDataContract
         {
-            if (routes == null) throw new ArgumentNullException("routes");
-            if (handler == null) throw new ArgumentNullException("handler");
+            /// <summary>
+            /// Gets or sets the name.
+            /// </summary>
+            /// <value>The name.</value>
+            public string Name { get; set; }
 
-            routes.Add(_name, BuildRoute(handler));
-        }
+            /// <summary>
+            /// Gets or sets the URL.
+            /// </summary>
+            /// <value>The URL.</value>
+            public string Url { get; set; }
 
-        private System.Web.Routing.Route BuildRoute(IRouteHandler handler)
-        {
-            var route = new System.Web.Routing.Route(_url, handler)
-                            {
-                                Defaults = new RouteValueDictionary(_default),
-                                Constraints = new RouteValueDictionary(_constraint)
-                            };
+            /// <summary>
+            /// Gets or sets the defaults.
+            /// </summary>
+            /// <value>The defaults.</value>
+            public object Defaults { get; set; }
 
-            if (_namespaces != null && _namespaces.Length > 0)
-            {
-                route.DataTokens = new RouteValueDictionary();
-                route.DataTokens["Namespaces"] = _namespaces;
-            }
-            return route;
+            /// <summary>
+            /// Gets or sets the constraint.
+            /// </summary>
+            /// <value>The constraint.</value>
+            public object Constraint { get; set; }
+
+            /// <summary>
+            /// Gets or sets the namespaces.
+            /// </summary>
+            /// <value>The namespaces.</value>
+            public string[] Namespaces { get; set; }
         }
     }
 }

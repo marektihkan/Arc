@@ -20,7 +20,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data
             _serviceLocator = MockRepository.GenerateMock<IServiceLocator>();
             _repository = MockRepository.GenerateMock<IRepository<Person>>();
 
-            Configure.ServiceLocator.ProviderTo(_serviceLocator);
+            Application.ServiceLocatorIs(_serviceLocator);
 
             _serviceLocator.Stub(x => x.Resolve<IRepository<Person>>()).Return(_repository);
         }

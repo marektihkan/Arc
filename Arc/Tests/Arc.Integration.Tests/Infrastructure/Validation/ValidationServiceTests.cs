@@ -11,8 +11,8 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            Configure.ServiceLocator.ProviderTo(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
-                .With(GetConfiguration());
+            Application.ServiceLocatorIs(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
+                .Load(GetConfiguration());
             ValidationConfiguration();
         }
 
@@ -26,7 +26,7 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
             return ServiceLocator.Resolve<IValidationService>();
         }
 
-        protected abstract IServiceLocatorModule<IServiceLocator> GetConfiguration();
+        protected abstract IConfiguration<IServiceLocator> GetConfiguration();
 
         [Test]
         public void Should_get_empty_validation_results_when_domain_object_is_valid()

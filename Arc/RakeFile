@@ -39,6 +39,7 @@ task :version do
   Create.versioning_file.
           for_product_named(SOLUTION_NAME).
           versioned(SOLUTION_VERSION).
+          build(123).
           reserve_all_rights_to(SOLUTION_OWNER).
           to(Path.to.source.file('CommonAssemblyInfo.cs'))
 end
@@ -98,6 +99,7 @@ task :publish => :compile do
           matching('Arc.Domain,Arc.Infrastructure,Arc.Testing,AutoMapper').
           to(Path.to.build.publish)
 
+
   Create.directory Path.to.build.publish.ioc
 
   Create.directory Path.to.build.publish.ioc.StructureMap
@@ -111,17 +113,20 @@ task :publish => :compile do
   Create.directory Path.to.build.publish.ioc.Ninject
   Copy.assemblies.from(Path.to.build.binary).matching('*Ninject*').to(Path.to.build.publish.ioc.Ninject)
 
+
   Create.directory Path.to.build.publish.data
 
   Create.directory Path.to.build.publish.data.NHibernate
   Copy.assemblies.from(Path.to.build.binary).
-          matching('*NHibernate*,Castle.Core,Castle.DynamicProxy2,Iesi.Collections,log4net').
+          matching('*NHibernate,Castle.Core,Castle.DynamicProxy2,Iesi.Collections,log4net,Antlr3*,*ByteCode.Castle').
           to(Path.to.build.publish.data.NHibernate)
+
 
   Create.directory Path.to.build.publish.logging
 
   Create.directory Path.to.build.publish.logging.Log4Net
   Copy.assemblies.from(Path.to.build.binary).matching('*log4net*').to(Path.to.build.publish.logging.Log4Net)
+
 
   Create.directory Path.to.build.publish.validation
 
@@ -129,4 +134,23 @@ task :publish => :compile do
   Copy.assemblies.from(Path.to.build.binary).
           matching('*EnterpriseLibrary*,Microsoft.Practices.ObjectBuilder2,Microsoft.Practices.Unity').
           to(Path.to.build.publish.validation.EnterpriseLibrary) 
+
+  Create.directory Path.to.build.publish.validation.FluentValidation
+  Copy.assemblies.from(Path.to.build.binary).
+          matching('*FluentValidation*').
+          to(Path.to.build.publish.validation.FluentValidation)
+
+  Create.directory Path.to.build.publish.validation.NHibernateValidator
+  Copy.assemblies.from(Path.to.build.binary).
+          matching('*NHibernateValidator*,NHibernate,Castle.DynamicProxy2,Iesi.Collections,log4net,Antlr3*,*ByteCode.Castle').
+          to(Path.to.build.publish.validation.NHibernateValidator)
+
+
+  Create.directory Path.to.build.publish.presentation
+
+  Create.directory Path.to.build.publish.presentation.Mvc
+  Copy.assemblies.from(Path.to.build.binary).matching('*Mvc*').to(Path.to.build.publish.presentation.Mvc)
+
+  Create.directory Path.to.build.publish.presentation.Mvp
+  Copy.assemblies.from(Path.to.build.binary).matching('*Mvp*').to(Path.to.build.publish.presentation.Mvp)
 end

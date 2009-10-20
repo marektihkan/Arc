@@ -25,15 +25,24 @@ namespace Arc.Infrastructure.Configuration.Dependencies
     /// <summary>
     /// Configuration for logging when its not used.
     /// </summary>
-    public class LoggingIsNotUsedConfiguration : IServiceLocatorModule<IServiceLocator>
+    public class LoggingIsNotUsedConfiguration : IConfiguration<IServiceLocator>
     {
         /// <summary>
-        /// Configures the specified service locator.
+        /// Creates default configuration.
         /// </summary>
-        /// <param name="serviceLocator">The service locator.</param>
-        public void Configure(IServiceLocator serviceLocator)
+        /// <returns>Default configuration.</returns>
+        public static LoggingIsNotUsedConfiguration Default()
         {
-            serviceLocator.Register(
+            return new LoggingIsNotUsedConfiguration();
+        }
+
+        /// <summary>
+        /// Loads the logging configuration to service locator.
+        /// </summary>
+        /// <param name="handler">The service locator.</param>
+        public void Load(IServiceLocator handler)
+        {
+            handler.Register(
                 Requested.Service<ILogger>().IsImplementedBy<NullLogger>()
             );
         }

@@ -17,15 +17,13 @@
 #endregion
 
 using System;
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.CastleWindsor.Extensions;
 using Arc.Infrastructure.Dependencies.CastleWindsor.Registration;
 using Arc.Infrastructure.Utilities;
-using Castle.Core;
 using Castle.Facilities.FactorySupport;
-using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using IRegistration=Arc.Infrastructure.Dependencies.Registration.IRegistration;
-using Arc.Infrastructure.Dependencies.CastleWindsor;
 
 namespace Arc.Infrastructure.Dependencies.CastleWindsor
 {
@@ -63,9 +61,9 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
         /// <exception cref="ArgumentException">moduleName</exception>
         public void Load(string moduleName)
         {
-            var moduleType = Find.TypeWithInterface<IServiceLocatorModule<IWindsorContainer>>(moduleName);
-            var configuration = ResolveProvider<IServiceLocatorModule<IWindsorContainer>>.WithRealType(moduleType);
-            configuration.Configure(Container);
+            var moduleType = Find.TypeWithInterface<IConfiguration<IWindsorContainer>>(moduleName);
+            var configuration = ResolveProvider<IConfiguration<IWindsorContainer>>.WithRealType(moduleType);
+            configuration.Load(Container);
         }
 
         /// <summary>
@@ -85,9 +83,9 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
         /// Loads the specified configuration.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
-        public void Load(IServiceLocatorModule<IServiceLocator> configuration)
+        public void Load(IConfiguration<IServiceLocator> configuration)
         {
-            configuration.Configure(this);
+            configuration.Load(this);
         }
 
         /// <summary>

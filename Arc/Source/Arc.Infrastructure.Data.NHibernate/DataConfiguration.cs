@@ -16,6 +16,7 @@
 //
 #endregion
 
+using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Data.NHibernate.Listeners;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
@@ -29,7 +30,7 @@ namespace Arc.Infrastructure.Data.NHibernate
     /// <summary>
     /// Configuration for data access with NHibernate.
     /// </summary>
-    public class DataConfiguration : IServiceLocatorModule<IServiceLocator>
+    public class DataConfiguration : IConfiguration<IServiceLocator>
     {
         private DataConfiguration()
         {
@@ -74,14 +75,14 @@ namespace Arc.Infrastructure.Data.NHibernate
         public FluentConfiguration NHConfiguration { get; private set; }
 
         /// <summary>
-        /// Configures the specified service locator.
+        /// Loads data configuration to service locator.
         /// </summary>
-        /// <param name="serviceLocator">The service locator.</param>
-        public void Configure(IServiceLocator serviceLocator)
+        /// <param name="handler">The service locator.</param>
+        public void Load(IServiceLocator handler)
         {
-            ConfigureNHibernate(serviceLocator);
+            ConfigureNHibernate(handler);
 
-            serviceLocator.Register(
+            handler.Register(
                 Requested.Service<IRegistry>().IsImplementedBy<HybridRegistry>(),
                      
                 Requested.Service<ISessionFactory>()

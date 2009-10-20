@@ -1,9 +1,9 @@
 using System.Reflection;
-using Arc.Infrastructure.Dependencies.Conventions;
+using Arc.Infrastructure.Configuration.Conventions;
 
 namespace Arc.Integration.Tests.Fakes.DependencyInjection
 {
-    public class RegisterServicesConvention : BaseConvention
+    public class RegisterServicesConvention : ServiceLocatorConvention
     {
         protected override void DefineRules()
         {

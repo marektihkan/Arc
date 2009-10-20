@@ -106,6 +106,7 @@
     <Compile Include="Configuration\DataTestConfiguration.cs" />
     <Compile Include="Configuration\NinjectConfigurationTests.cs" />
     <Compile Include="Configuration\StructureMapConfigurationTests.cs" />
+    <Compile Include="Fakes\Configuration\EntityMapping.cs" />
     <Compile Include="Fakes\DependencyInjection\ConfigurationModule.cs" />
     <Compile Include="Fakes\DependencyInjection\DependencyConfiguration.cs" />
     <Compile Include="Fakes\DependencyInjection\RegisterServicesConvention.cs" />
@@ -123,11 +124,14 @@
     <Compile Include="Fakes\Presentation\Mvp\ITestPresenter.cs" />
     <Compile Include="Fakes\Presentation\Mvp\ITestView.cs" />
     <Compile Include="Fakes\Presentation\Mvp\MasterPageTester.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Fakes\Presentation\Mvp\PageTester.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Fakes\Presentation\Mvp\TestPresenter.cs" />
     <Compile Include="Fakes\Presentation\Mvp\UserControlTester.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Fakes\Validation\EntityFactory.cs" />
     <Compile Include="Infrastructure\Dependencies\AutoRegistrationTests.cs" />

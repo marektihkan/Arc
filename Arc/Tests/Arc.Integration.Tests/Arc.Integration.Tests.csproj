@@ -110,6 +110,7 @@
     <Compile Include="Fakes\DependencyInjection\ConfigurationModule.cs" />
     <Compile Include="Fakes\DependencyInjection\DependencyConfiguration.cs" />
     <Compile Include="Fakes\DependencyInjection\RegisterServicesConvention.cs" />
+    <Compile Include="Fakes\Model\FakeEntity.cs" />
     <Compile Include="Fakes\Model\Services\GenericServiceHostImpl.cs" />
     <Compile Include="Fakes\Model\Services\GenericServiceImpl.cs" />
     <Compile Include="Fakes\Model\Services\IGenericService.cs" />
@@ -196,6 +197,10 @@
     <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Arc.Unit.Tests\Arc.Unit.Tests.csproj">
+      <Project>{A765671D-1D0A-4CFE-8993-2693DEB854E8}</Project>
+      <Name>Arc.Unit.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

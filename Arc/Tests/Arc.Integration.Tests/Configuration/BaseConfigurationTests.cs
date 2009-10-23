@@ -6,15 +6,16 @@ using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Logging;
 using Arc.Infrastructure.Registry;
 using Arc.Infrastructure.Validation;
-using Arc.Integration.Tests.Fakes.Configuration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
-using Arc.Integration.Tests.Fakes.Model.Services;
+using Arc.Integration.Tests.Fakes.Model;
 using Arc.Integration.Tests.Fakes.Validation;
+using Arc.Unit.Tests.Fakes.Entities;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NUnit.Framework;
+using IService=Arc.Integration.Tests.Fakes.Model.Services.IService;
 using ValidationConfiguration=Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration;
 
 namespace Arc.Integration.Tests.Configuration
@@ -88,7 +89,7 @@ namespace Arc.Integration.Tests.Configuration
                         c.Server("(local)").Database("").TrustedConnection())
                 )
                 .Mappings(
-                    x => x.FluentMappings.Add<EntityMapping>()
+                    x => x.AutoMappings.Add(AutoMap.AssemblyOf<FakeEntity>().Where(y => y.Name == ""))
                 );
         }
 

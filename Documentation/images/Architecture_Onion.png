@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+  
+
+  <head>
+    <title>
+      Attachment –
+      Saiku Arc – Trac
+    </title>
+        <link rel="search" href="/arc/search" />
+        <link rel="help" href="/arc/wiki/TracGuide" />
+        <link rel="alternate" href="/arc/raw-attachment/wiki/ApplicationArchitecture/Architecture_Onion.png" type="image/png; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="/arc/wiki/ApplicationArchitecture" title="ApplicationArchitecture" />
+        <link rel="start" href="/arc/wiki" />
+        <link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/chrome/common/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="/arc/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="/arc/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/arc/search/opensearch" title="Search Saiku Arc" />
+    <script type="text/javascript" src="/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/chrome/common/js/trac.js"></script><script type="text/javascript" src="/chrome/common/js/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="banner">
+      <div id="header">
+        <h1><a href="">Saiku Arc</a></h1>
+      </div>
+      <form id="search" action="/arc/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/arc/login">Login</a></li><li><a href="/arc/prefs">Preferences</a></li><li><a href="/arc/wiki/TracGuide">Help/Guide</a></li><li><a href="/arc/about">About Trac</a></li><li class="last"><a href="/arc/register">Register</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first active"><a href="/arc/wiki">Wiki</a></li><li><a href="/arc/timeline">Timeline</a></li><li><a href="/arc/roadmap">Roadmap</a></li><li><a href="/arc/browser">Browse Source</a></li><li><a href="/arc/report">View Tickets</a></li><li><a href="/arc/search">Search</a></li><li class="last"><a href="/arc/Billing">Management</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+          <ul>
+            <li class="first last"><a href="/arc/wiki/ApplicationArchitecture">Back to ApplicationArchitecture</a></li>
+          </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="/arc/wiki/ApplicationArchitecture">ApplicationArchitecture</a>: Architecture_Onion.png</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">
+                File Architecture_Onion.png, <span title="38501 bytes">37.6 kB</span>
+                (added by marek,  <a class="timeline" href="/arc/timeline?from=2009-03-18T06%3A25%3A39Z-0700&amp;precision=second" title="2009-03-18T06:25:39Z-0700 in Timeline">7 months</a> ago)
+              </th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+    <div class="image-file"><img src="/arc/raw-attachment/wiki/ApplicationArchitecture/Architecture_Onion.png" alt="Architecture_Onion.png" /></div>
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/arc/raw-attachment/wiki/ApplicationArchitecture/Architecture_Onion.png">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en"><hr />
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+      <p class="left">
+        Powered by <a href="/arc/about"><strong>Trac 0.11.1</strong></a><br />
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+      </p>
+      <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  </body>
+</html>

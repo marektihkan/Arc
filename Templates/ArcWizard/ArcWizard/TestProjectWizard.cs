@@ -18,11 +18,6 @@ namespace ArcWizard
             if (project == null) return;
 
             var movedProject = _moveProjectTask.MoveTo(project, "\\Tests\\", "Tests");
-
-            if (Solution.ShouldNHibernateConfiguration(movedProject.Name))
-            {
-                new AddNHibernateConfigurationTask().AddConfigurationLinkTo(movedProject, Configuration.RootPath);
-            }
         }
     }
 }

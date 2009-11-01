@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Schema" default="BuildSchema">
+
+  <!-- Variables -->
+  
+  <!-- Main target -->
+  <target name="BuildSchema" description="Builds project schema">
+	  <property name="verbosity" value="quiet" />
+    <property name="verbosity" value="normal" if="${verbose}" />
+	
+    <exec program="${path.msbuild.console}">
+      <arg value="/target:Deploy" />
+      <arg value='/property:TargetDatabase="${schema.database.name}";TargetConnectionString="${schema.database.connectionstring}"' />
+      <arg value="/verbosity:${verbosity}" />
+      <arg value="${schema.project.path}" />
+      <arg value="/nologo" />
+    </exec>
+
+    <echo>[OK] Building and deploying schema.</echo>
+  </target>
+  
+</project>

@@ -1,0 +1,449 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Tools</Name>
+    <Description>Arc application tools.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Tools</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Tools.csproj" File="Tools.csproj">
+	  <Folder Name="Temp" TargetFolderName="Temp">
+	    <ProjectItem>sn.exe</ProjectItem>
+	    <ProjectItem>sn.exe.config</ProjectItem>
+	  </Folder>
+	  <Folder Name="Build" TargetFolderName="Build">
+		<ProjectItem>Build - Default.bat</ProjectItem>
+		<ProjectItem>Build - Server.bat</ProjectItem>
+		<ProjectItem>Build - Default - Fast.bat</ProjectItem>
+		<ProjectItem>Build - CleanUp.bat</ProjectItem>
+	  </Folder>
+      <Folder Name="NAnt" TargetFolderName="NAnt">
+        <Folder Name="bin" TargetFolderName="bin">
+          <Folder Name="extensions" TargetFolderName="extensions">
+            <Folder Name="common" TargetFolderName="common">
+              <Folder Name="2.0" TargetFolderName="2.0">
+                <ProjectItem>NAnt.MSBuild.dll</ProjectItem>
+                <ProjectItem>NAnt.MSBuild.xml</ProjectItem>
+              </Folder>
+            </Folder>
+          </Folder>
+          <Folder Name="lib" TargetFolderName="lib">
+            <Folder Name="common" TargetFolderName="common">
+              <Folder Name="neutral" TargetFolderName="neutral">
+                <ProjectItem>ICSharpCode.SharpCvsLib.Console.dll</ProjectItem>
+                <ProjectItem>ICSharpCode.SharpCvsLib.dll</ProjectItem>
+                <ProjectItem>ICSharpCode.SharpZipLib.dll</ProjectItem>
+                <ProjectItem>NUnitCore.dll</ProjectItem>
+              </Folder>
+            </Folder>
+            <Folder Name="mono" TargetFolderName="mono">
+              <Folder Name="1.0" TargetFolderName="1.0">
+                <ProjectItem>NDoc.Core.dll</ProjectItem>
+                <ProjectItem>NDoc.Documenter.Msdn.dll</ProjectItem>
+                <ProjectItem>NDoc.ExtendedUI.dll</ProjectItem>
+                <ProjectItem>nunit.core.dll</ProjectItem>
+                <ProjectItem>nunit.framework.dll</ProjectItem>
+                <ProjectItem>nunit.util.dll</ProjectItem>
+              </Folder>
+              <Folder Name="2.0" TargetFolderName="2.0">
+                <ProjectItem>NDoc.Core.dll</ProjectItem>
+                <ProjectItem>NDoc.Documenter.Msdn.dll</ProjectItem>
+                <ProjectItem>NDoc.ExtendedUI.dll</ProjectItem>
+                <ProjectItem>nunit.core.dll</ProjectItem>
+                <ProjectItem>nunit.framework.dll</ProjectItem>
+                <ProjectItem>nunit.util.dll</ProjectItem>
+              </Folder>
+            </Folder>
+            <Folder Name="net" TargetFolderName="net">
+              <Folder Name="1.0" TargetFolderName="1.0">
+                <ProjectItem>NDoc.Core.dll</ProjectItem>
+                <ProjectItem>NDoc.Documenter.Msdn.dll</ProjectItem>
+                <ProjectItem>NDoc.ExtendedUI.dll</ProjectItem>
+                <ProjectItem>nunit.core.dll</ProjectItem>
+                <ProjectItem>nunit.framework.dll</ProjectItem>
+                <ProjectItem>nunit.util.dll</ProjectItem>
+              </Folder>
+              <Folder Name="1.1" TargetFolderName="1.1">
+                <ProjectItem>NDoc.Core.dll</ProjectItem>
+                <ProjectItem>NDoc.Documenter.Msdn.dll</ProjectItem>
+                <ProjectItem>NDoc.ExtendedUI.dll</ProjectItem>
+                <ProjectItem>nunit.core.dll</ProjectItem>
+                <ProjectItem>nunit.framework.dll</ProjectItem>
+                <ProjectItem>nunit.util.dll</ProjectItem>
+              </Folder>
+              <Folder Name="2.0" TargetFolderName="2.0">
+                <ProjectItem>NDoc.Core.dll</ProjectItem>
+                <ProjectItem>NDoc.Documenter.Msdn.dll</ProjectItem>
+                <ProjectItem>NDoc.ExtendedUI.dll</ProjectItem>
+                <ProjectItem>nunit.core.dll</ProjectItem>
+                <ProjectItem>nunit.framework.dll</ProjectItem>
+                <ProjectItem>nunit.util.dll</ProjectItem>
+              </Folder>
+            </Folder>
+          </Folder>
+          <ProjectItem>log4net.dll</ProjectItem>
+          <ProjectItem>NAnt.CompressionTasks.dll</ProjectItem>
+          <ProjectItem>NAnt.CompressionTasks.xml</ProjectItem>
+          <ProjectItem>NAnt.Core.dll</ProjectItem>
+          <ProjectItem>NAnt.Core.xml</ProjectItem>
+          <ProjectItem>NAnt.DotNetTasks.dll</ProjectItem>
+          <ProjectItem>NAnt.DotNetTasks.xml</ProjectItem>
+          <ProjectItem>NAnt.exe</ProjectItem>
+          <ProjectItem>NAnt.exe.config</ProjectItem>
+          <ProjectItem>NAnt.MSNetTasks.dll</ProjectItem>
+          <ProjectItem>NAnt.MSNetTasks.xml</ProjectItem>
+          <ProjectItem>NAnt.NUnit.dll</ProjectItem>
+          <ProjectItem>NAnt.NUnit.xml</ProjectItem>
+          <ProjectItem>NAnt.NUnit1Tasks.dll</ProjectItem>
+          <ProjectItem>NAnt.NUnit1Tasks.xml</ProjectItem>
+          <ProjectItem>NAnt.NUnit2Tasks.dll</ProjectItem>
+          <ProjectItem>NAnt.NUnit2Tasks.xml</ProjectItem>
+          <ProjectItem>NAnt.SourceControlTasks.dll</ProjectItem>
+          <ProjectItem>NAnt.SourceControlTasks.xml</ProjectItem>
+          <ProjectItem>NAnt.Win32Tasks.dll</ProjectItem>
+          <ProjectItem>NAnt.Win32Tasks.xml</ProjectItem>
+          <ProjectItem>NAnt.VisualCppTasks.dll</ProjectItem>
+          <ProjectItem>NAnt.VisualCppTasks.xml</ProjectItem>
+          <ProjectItem>NAnt.VSNetTasks.dll</ProjectItem>
+          <ProjectItem>NAnt.VSNetTasks.xml</ProjectItem>
+          <ProjectItem>NAnt.xml</ProjectItem>
+          <ProjectItem>NDoc.Documenter.NAnt.dll</ProjectItem>
+          <ProjectItem>scvs.exe</ProjectItem>
+        </Folder>
+        <Folder Name="schema" TargetFolderName="schema">
+          <ProjectItem>nant.xsd</ProjectItem>
+        </Folder>
+        <Folder Name="Tasks" TargetFolderName="Tasks">
+          <Folder Name="Contrib" TargetFolderName="Contrib">
+            <ProjectItem>CollectionGen.dll</ProjectItem>
+            <ProjectItem>Interop.MsmMergeTypeLib.dll</ProjectItem>
+            <ProjectItem>Interop.StarTeam.dll</ProjectItem>
+            <ProjectItem>Interop.WindowsInstaller.dll</ProjectItem>
+            <ProjectItem>MSITaskErrors.mst</ProjectItem>
+            <ProjectItem>MSITaskTemplate.msi</ProjectItem>
+            <ProjectItem>MSMTaskErrors.mst</ProjectItem>
+            <ProjectItem>MSMTaskTemplate.msm</ProjectItem>
+            <ProjectItem>NAnt.Contrib.Tasks.dll</ProjectItem>
+            <ProjectItem>NAnt.Contrib.Tasks.xml</ProjectItem>
+            <ProjectItem>SLiNgshoT.Core.dll</ProjectItem>
+            <ProjectItem>SLiNgshoT.exe</ProjectItem>
+            <ProjectItem>SourceSafe.Interop.dll</ProjectItem>
+          </Folder>
+          <Folder Name="FTPTask" TargetFolderName="FTPTask">
+            <ProjectItem>ConsolePasswordInput.dll</ProjectItem>
+            <ProjectItem>edtftpnet-1.1.3.dll</ProjectItem>
+            <ProjectItem>ftptask.dll</ProjectItem>
+            <ProjectItem>ftptask.xml</ProjectItem>
+          </Folder>
+          <Folder Name="NCoverExplorer" TargetFolderName="NCoverExplorer">
+            <ProjectItem>NCoverExplorer.MSBuildTasks.dll</ProjectItem>
+            <ProjectItem>NCoverExplorer.MSBuildTasks.xml</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.dll</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.xml</ProjectItem>
+          </Folder>
+          <Folder Name="NDepend" TargetFolderName="NDepend">
+            <ProjectItem>NDepend.Build.NAntTasks.dll</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
+      <Folder Name="NCover" TargetFolderName="NCover">
+        <ProjectItem>Coverage.Log</ProjectItem>
+        <ProjectItem>Coverage.old.Log</ProjectItem>
+        <ProjectItem>Coverage.old.Xml</ProjectItem>
+        <ProjectItem>Coverage.Xml</ProjectItem>
+        <ProjectItem>Coverage.xsl</ProjectItem>
+        <ProjectItem>CoverLib.dll</ProjectItem>
+        <ProjectItem>Microsoft.VC80.CRT.manifest</ProjectItem>
+        <ProjectItem>MSVCP80.dll</ProjectItem>
+        <ProjectItem>MSVCR80.dll</ProjectItem>
+        <ProjectItem>NCover.Console.exe</ProjectItem>
+        <ProjectItem>NCover.Console.exe.config</ProjectItem>
+        <ProjectItem>NCover.Framework.dll</ProjectItem>
+        <Folder Name="NCoverExplorer" TargetFolderName="NCoverExplorer">
+          <ProjectItem>ActiproEULA.html</ProjectItem>
+          <ProjectItem>ActiproSoftware.Shared.Net11.dll</ProjectItem>
+          <ProjectItem>ActiproSoftware.SyntaxEditor.Net11.dll</ProjectItem>
+          <ProjectItem>ActiproSoftware.WinUICore.Net11.dll</ProjectItem>
+          <ProjectItem>CommandBars.dll</ProjectItem>
+          <ProjectItem>ConsoleConfig.xsd</ProjectItem>
+          <ProjectItem>ConsoleExample.config</ProjectItem>
+          <ProjectItem>CoverageReport.xsl</ProjectItem>
+          <ProjectItem>LicencePersonal.rtf</ProjectItem>
+          <ProjectItem>NCoverExplorer.Console.exe</ProjectItem>
+          <ProjectItem>NCoverExplorer.Core.dll</ProjectItem>
+          <ProjectItem>NCoverExplorer.exe</ProjectItem>
+          <ProjectItem>NCoverExplorer.exe.config</ProjectItem>
+          <ProjectItem>NCoverExplorer.NCoverRunner.dll</ProjectItem>
+          <ProjectItem>NCoverExplorer.WinForms.dll</ProjectItem>
+          <ProjectItem>NCoverExplorerFAQ.html</ProjectItem>
+          <ProjectItem>NCoverExplorerReleaseNotes.html</ProjectItem>
+        </Folder>
+        <Folder Name="NCoverExplorer.Extras" TargetFolderName="NCoverExplorer.Extras">
+          <Folder Name="bin" TargetFolderName="bin">
+            <ProjectItem>NCoverExplorer.MSBuildTasks.dll</ProjectItem>
+            <ProjectItem>NCoverExplorer.MSBuildTasks.xml</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.dll</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.xml</ProjectItem>
+          </Folder>
+          <Folder Name="Common" TargetFolderName="Common">
+            <ProjectItem>Enumerations.cs</ProjectItem>
+            <ProjectItem>NCoverUtilities.cs</ProjectItem>
+            <ProjectItem>PathSearch.cs</ProjectItem>
+          </Folder>
+          <Folder Name="CruiseControl.Net" TargetFolderName="CruiseControl.Net">
+            <ProjectItem>dashboard.config</ProjectItem>
+            <ProjectItem>NCoverExplorer.xsl</ProjectItem>
+            <ProjectItem>NCoverExplorerSummary.xsl</ProjectItem>
+            <ProjectItem>readme.txt</ProjectItem>
+          </Folder>
+          <Folder Name="doc" TargetFolderName="doc">
+            <Folder Name="NAntTemplate" TargetFolderName="NAntTemplate">
+              <Folder Name="images" TargetFolderName="images">
+                <ProjectItem>arrow.gif</ProjectItem>
+                <ProjectItem>bullet.gif</ProjectItem>
+                <ProjectItem>logo.gif</ProjectItem>
+              </Folder>
+              <ProjectItem>index.html</ProjectItem>
+              <ProjectItem>style.css</ProjectItem>
+            </Folder>
+            <Folder Name="NCoverExplorer.MSBuildTasks" TargetFolderName="NCoverExplorer.MSBuildTasks">
+              <ProjectItem>contents.html</ProjectItem>
+              <ProjectItem>index.html</ProjectItem>
+              <ProjectItem>intevent.gif</ProjectItem>
+              <ProjectItem>intfield.gif</ProjectItem>
+              <ProjectItem>intmethod.gif</ProjectItem>
+              <ProjectItem>intoperator.gif</ProjectItem>
+              <ProjectItem>intproperty.gif</ProjectItem>
+              <ProjectItem>MSDN.css</ProjectItem>
+              <ProjectItem>NCoverExplorer.Common.CoverageReportType.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.Common.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.Common.NCoverLogLevel.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.Common.NCoverXmlFormat.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.Common.TreeFilterStyle.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.Common.TreeSortStyle.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.CommonHierarchy.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.Assemblies.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.AssemblyList.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.CommandLineArgs.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.CommandLineExe.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.CoverageFile.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.ExcludeAttributes.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.Execute.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.LogFile.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.LogLevel.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.ProfiledProcessModule.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.ProfileIIS.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.ProfileService.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.RegisterProfiler.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.WorkingDirectory.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCover.XmlFormat.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverConstructor.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.ConfigName.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.CoverageFiles.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.Exclusions.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.Execute.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.FailCombinedMinimum.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.FailMinimum.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.Filter.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.HtmlReportName.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.MergeFileName.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.MinimumCoverage.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.ModuleThresholds.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.OutputDir.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.ProjectName.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.ReportType.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.SatisfactoryCoverage.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.ShowExcluded.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.Sort.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorer.XmlReportName.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorerConstructor.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorerMembers.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorerMethods.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverExplorerProperties.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverMembers.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverMethods.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NCoverProperties.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProject.AppBase.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProject.AppConfig.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProject.Assemblies.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProject.Execute.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProject.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProject.Project.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProjectConstructor.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProjectMembers.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProjectMethods.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasks.NUnitProjectProperties.html</ProjectItem>
+              <ProjectItem>NCoverExplorer.MSBuildTasksHierarchy.html</ProjectItem>
+              <ProjectItem>privevent.gif</ProjectItem>
+              <ProjectItem>privfield.gif</ProjectItem>
+              <ProjectItem>privmethod.gif</ProjectItem>
+              <ProjectItem>privoperator.gif</ProjectItem>
+              <ProjectItem>privproperty.gif</ProjectItem>
+              <ProjectItem>protevent.gif</ProjectItem>
+              <ProjectItem>protfield.gif</ProjectItem>
+              <ProjectItem>protmethod.gif</ProjectItem>
+              <ProjectItem>protoperator.gif</ProjectItem>
+              <ProjectItem>protproperty.gif</ProjectItem>
+              <ProjectItem>pubevent.gif</ProjectItem>
+              <ProjectItem>pubfield.gif</ProjectItem>
+              <ProjectItem>pubmethod.gif</ProjectItem>
+              <ProjectItem>puboperator.gif</ProjectItem>
+              <ProjectItem>pubproperty.gif</ProjectItem>
+              <ProjectItem>static.gif</ProjectItem>
+              <ProjectItem>tree.css</ProjectItem>
+              <ProjectItem>tree.js</ProjectItem>
+              <ProjectItem>treenodedot.gif</ProjectItem>
+              <ProjectItem>treenodeminus.gif</ProjectItem>
+              <ProjectItem>treenodeplus.gif</ProjectItem>
+            </Folder>
+            <Folder Name="NCoverExplorer.NAntTasks" TargetFolderName="NCoverExplorer.NAntTasks">
+              <Folder Name="elements" TargetFolderName="elements">
+                <ProjectItem>NCoverExplorer.NAntTasks.Types.CoverageExclusion.html</ProjectItem>
+                <ProjectItem>NCoverExplorer.NAntTasks.Types.ModuleThreshold.html</ProjectItem>
+              </Folder>
+              <Folder Name="enums" TargetFolderName="enums">
+                <ProjectItem>NCoverExplorer.Common.NCoverLogLevel.html</ProjectItem>
+                <ProjectItem>NCoverExplorer.Common.NCoverXmlFormat.html</ProjectItem>
+              </Folder>
+              <Folder Name="filters" TargetFolderName="filters">
+                <ProjectItem>index.html</ProjectItem>
+              </Folder>
+              <Folder Name="functions" TargetFolderName="functions">
+                <ProjectItem>index.html</ProjectItem>
+              </Folder>
+              <Folder Name="images" TargetFolderName="images">
+                <ProjectItem>arrow.gif</ProjectItem>
+                <ProjectItem>bullet.gif</ProjectItem>
+                <ProjectItem>logo.gif</ProjectItem>
+              </Folder>
+              <ProjectItem>index.html</ProjectItem>
+              <ProjectItem>style.css</ProjectItem>
+              <Folder Name="tasks" TargetFolderName="tasks">
+                <ProjectItem>index.html</ProjectItem>
+                <ProjectItem>ncover.html</ProjectItem>
+                <ProjectItem>ncoverexplorer.html</ProjectItem>
+                <ProjectItem>nunitproject.html</ProjectItem>
+              </Folder>
+              <Folder Name="types" TargetFolderName="types">
+                <ProjectItem>index.html</ProjectItem>
+              </Folder>
+            </Folder>
+          </Folder>
+          <Folder Name="examples" TargetFolderName="examples">
+            <ProjectItem>example.build</ProjectItem>
+            <ProjectItem>example.proj</ProjectItem>
+          </Folder>
+          <Folder Name="NCoverExplorer.MSBuildTasks" TargetFolderName="NCoverExplorer.MSBuildTasks">
+            <ProjectItem>AssemblyInfo.cs</ProjectItem>
+            <ProjectItem>NCover.cs</ProjectItem>
+            <ProjectItem>NCoverExplorer.cs</ProjectItem>
+            <ProjectItem>NCoverExplorer.MSBuildTasks.csproj</ProjectItem>
+            <ProjectItem>NCoverExplorer.MSBuildTasks.ndoc</ProjectItem>
+            <ProjectItem>NCoverExplorer.MSBuildTasks.sln</ProjectItem>
+            <ProjectItem>NUnitProject.cs</ProjectItem>
+            <Folder Name="Properties" TargetFolderName="Properties">
+              <ProjectItem>Resources.Designer.cs</ProjectItem>
+              <ProjectItem>Resources.resx</ProjectItem>
+            </Folder>
+          </Folder>
+          <Folder Name="NCoverExplorer.NAntTasks" TargetFolderName="NCoverExplorer.NAntTasks">
+            <ProjectItem>AssemblyInfo.cs</ProjectItem>
+            <Folder Name="lib" TargetFolderName="lib">
+              <ProjectItem>log4net.dll</ProjectItem>
+              <ProjectItem>NAnt.Core.dll</ProjectItem>
+              <ProjectItem>NAnt.Core.xml</ProjectItem>
+            </Folder>
+            <ProjectItem>NCoverExplorer.NAntTasks.csproj</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.resharperoptions</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.sln</ProjectItem>
+            <ProjectItem>NCoverExplorer.NAntTasks.xml</ProjectItem>
+            <ProjectItem>NCoverExplorerTask.cs</ProjectItem>
+            <ProjectItem>NCoverTask.cs</ProjectItem>
+            <ProjectItem>NDoc2Task.cs</ProjectItem>
+            <ProjectItem>NUnitProjectTask.cs</ProjectItem>
+            <Folder Name="Types" TargetFolderName="Types">
+              <ProjectItem>CoverageExclusion.cs</ProjectItem>
+              <ProjectItem>CoverageExclusionCollection.cs</ProjectItem>
+              <ProjectItem>ModuleThreshold.cs</ProjectItem>
+              <ProjectItem>ModuleThresholdCollection.cs</ProjectItem>
+            </Folder>
+          </Folder>
+          <ProjectItem>NCoverExplorer.Tasks.build</ProjectItem>
+          <ProjectItem>release.cmd</ProjectItem>
+          <ProjectItem>TaskReleaseNotes.html</ProjectItem>
+        </Folder>
+        <ProjectItem>NCoverFAQ.html</ProjectItem>
+      </Folder>
+      <Folder Name="NUnit" TargetFolderName="NUnit">
+        <Folder Name="bin" TargetFolderName="bin">
+          <Folder Name="addins" TargetFolderName="addins">
+            <ProjectItem>NUnitExtension.RowTest.AddIn.dll</ProjectItem>
+            <ProjectItem>NUnitExtension.RowTest.dll</ProjectItem>
+          </Folder>
+          <ProjectItem>clr.bat</ProjectItem>
+          <ProjectItem>Failure.jpg</ProjectItem>
+          <ProjectItem>fit.dll</ProjectItem>
+          <ProjectItem>Ignored.jpg</ProjectItem>
+          <ProjectItem>loadtest-assembly.dll</ProjectItem>
+          <ProjectItem>mock-assembly.dll</ProjectItem>
+          <ProjectItem>nonamespace-assembly.dll</ProjectItem>
+          <ProjectItem>notestfixtures-assembly.dll</ProjectItem>
+          <ProjectItem>nunit-console-runner.dll</ProjectItem>
+          <ProjectItem>nunit-console-x86.exe</ProjectItem>
+          <ProjectItem>nunit-console-x86.exe.config</ProjectItem>
+          <ProjectItem>nunit-console.exe</ProjectItem>
+          <ProjectItem>nunit-console.exe.config</ProjectItem>
+          <ProjectItem>nunit-console.tests.dll</ProjectItem>
+          <ProjectItem>nunit-gui-runner.dll</ProjectItem>
+          <ProjectItem>nunit-gui.tests.dll</ProjectItem>
+          <ProjectItem>nunit-x86.exe</ProjectItem>
+          <ProjectItem>nunit-x86.exe.config</ProjectItem>
+          <ProjectItem>nunit.core.dll</ProjectItem>
+          <ProjectItem>nunit.core.extensions.dll</ProjectItem>
+          <ProjectItem>nunit.core.interfaces.dll</ProjectItem>
+          <ProjectItem>nunit.core.tests.dll</ProjectItem>
+          <ProjectItem>nunit.exe</ProjectItem>
+          <ProjectItem>nunit.exe.config</ProjectItem>
+          <ProjectItem>nunit.extensions.tests.dll</ProjectItem>
+          <ProjectItem>nunit.fixtures.dll</ProjectItem>
+          <ProjectItem>nunit.fixtures.tests.dll</ProjectItem>
+          <ProjectItem>nunit.framework.dll</ProjectItem>
+          <ProjectItem>nunit.framework.extensions.dll</ProjectItem>
+          <ProjectItem>nunit.framework.tests.dll</ProjectItem>
+          <ProjectItem>nunit.framework.xml</ProjectItem>
+          <ProjectItem>nunit.mocks.dll</ProjectItem>
+          <ProjectItem>nunit.mocks.tests.dll</ProjectItem>
+          <ProjectItem>nunit.uikit.dll</ProjectItem>
+          <ProjectItem>nunit.uikit.tests.dll</ProjectItem>
+          <ProjectItem>nunit.util.dll</ProjectItem>
+          <ProjectItem>nunit.util.tests.dll</ProjectItem>
+          <ProjectItem>NUnitFitTests.html</ProjectItem>
+          <ProjectItem>NUnitTests.config</ProjectItem>
+          <ProjectItem>NUnitTests.nunit</ProjectItem>
+          <ProjectItem>runFile.exe</ProjectItem>
+          <ProjectItem>runFile.exe.config</ProjectItem>
+          <ProjectItem>Success.jpg</ProjectItem>
+          <ProjectItem>test-assembly.dll</ProjectItem>
+          <ProjectItem>test-utilities.dll</ProjectItem>
+          <ProjectItem>timing-tests.dll</ProjectItem>
+        </Folder>
+        <ProjectItem>Logo.ico</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.ToolsWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

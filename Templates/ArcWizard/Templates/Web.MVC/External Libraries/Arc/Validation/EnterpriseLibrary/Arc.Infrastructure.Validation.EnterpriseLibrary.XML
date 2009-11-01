@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Validation.EnterpriseLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService">
+            <summary>
+            Validation service.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService.Validate(System.Object)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <param name="validatable">The validatable.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService.Validate``1(System.Object)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <typeparam name="T">Validation type.</typeparam>
+            <param name="validatable">The validatable.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationService.Validate(System.Object,System.Type)">
+            <summary>
+            Validates the specified validatable.
+            </summary>
+            <param name="validatable">The validatable.</param>
+            <param name="validationType">Type of the validation.</param>
+            <returns>Validation results.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration">
+            <summary>
+            Configuration for validation with Enterprise Library Validation Application Block.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration.Default">
+            <summary>
+            Creates default configuration.
+            </summary>
+            <returns>Default configuration.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration.Load(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Loads validation configuration to service locator.
+            </summary>
+            <param name="handler">The service locator.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter">
+            <summary>
+            Validation results adapter for Enterprise Library Validation Block.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.#ctor(Microsoft.Practices.EnterpriseLibrary.Validation.ValidationResults)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter"/> class.
+            </summary>
+            <param name="errors">The validation errors.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.GetFirstMessageFor(System.String)">
+            <summary>
+            Gets the first message for given tag.
+            </summary>
+            <param name="tag">The key.</param>
+            <returns>
+            First message for given tag or empty string.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.GetMessagesFor(System.String)">
+            <summary>
+            Gets the messages for given tag.
+            </summary>
+            <param name="tag">The key.</param>
+            <returns>
+            All messages for given tag or empty array.
+            </returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.IsValid">
+            <summary>
+            Gets a value indicating whether this instance is valid.
+            </summary>
+            <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.AllErrors">
+            <summary>
+            Gets all errors.
+            </summary>
+            <value>All errors.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationResultsAdapter.Summary">
+            <summary>
+            Gets the summary.
+            </summary>
+            <value>The summary.</value>
+        </member>
+    </members>
+</doc>

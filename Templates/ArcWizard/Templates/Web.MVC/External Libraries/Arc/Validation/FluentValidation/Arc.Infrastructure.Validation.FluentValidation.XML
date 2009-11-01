@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Validation.FluentValidation</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Validation.FluentValidation.ValidationConfiguration">
+            <summary>
+            Configuration for validation with Fluent Validation.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.FluentValidation.ValidationConfiguration.Default">
+            <summary>
+            Creates default configuration.
+            </summary>
+            <returns>Default configuration.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.FluentValidation.ValidationConfiguration.Load(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Loads the validation configuration to service locator.
+            </summary>
+            <param name="handler">The service loccator.</param>
+        </member>
+    </members>
+</doc>

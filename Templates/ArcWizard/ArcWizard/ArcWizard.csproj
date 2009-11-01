@@ -76,7 +76,6 @@
     <Compile Include="Infrastructure\ILogger.cs" />
     <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Infrastructure\MessageBoxLogger.cs" />
-    <Compile Include="Tasks\Projects\AddNHibernateConfigurationTask.cs" />
     <Compile Include="Tasks\Projects\MoveProjectTask.cs" />
     <Compile Include="Core\ProjectPathBuilder.cs" />
     <Compile Include="Tasks\Projects\AddProjectTask.cs" />

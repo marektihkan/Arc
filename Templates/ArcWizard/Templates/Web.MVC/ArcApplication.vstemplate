@@ -1,0 +1,65 @@
+<VSTemplate Version="2.0.0" Type="ProjectGroup"
+    xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+    <TemplateData>
+        <Name>Arc Application - MVC</Name>
+        <Description>Template for the creation of a Arc MVC application project.</Description>
+        <Icon>__TemplateIcon.ico</Icon>
+        <CreateNewFolder>false</CreateNewFolder>
+        <ProjectType>CSharp</ProjectType>
+    </TemplateData>
+    <TemplateContent>
+      <ProjectCollection>
+
+        <SolutionFolder Name="Schema"></SolutionFolder>
+		
+		<ProjectTemplateLink ProjectName="CreateSolutionStructure">
+          Dummies\CreateSolutionStructure.vstemplate
+        </ProjectTemplateLink>
+    		
+		<ProjectTemplateLink ProjectName="Configuration">
+          Configuration\Configuration.vstemplate
+		</ProjectTemplateLink>
+		<ProjectTemplateLink ProjectName="ExternalLibraries">
+          External Libraries\ExternalLibraries.vstemplate
+        </ProjectTemplateLink>
+		<ProjectTemplateLink ProjectName="Tools">
+          Tools\Tools.vstemplate
+        </ProjectTemplateLink>
+		
+		<ProjectTemplateLink ProjectName="GenerateKey">
+          Dummies\GenerateKey.vstemplate
+        </ProjectTemplateLink>
+		<ProjectTemplateLink ProjectName="GenerateCommonAssemblyInfo">
+          Dummies\GenerateCommonAssemblyInfo.vstemplate
+        </ProjectTemplateLink>
+		
+		<ProjectTemplateLink ProjectName="$safeprojectname$.Unit.Tests">
+          Tests\ArcApplication.Unit.Tests\ArcApplication.Unit.Tests.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Integration.Tests">
+          Tests\ArcApplication.Integration.Tests\ArcApplication.Integration.Tests.vstemplate
+        </ProjectTemplateLink>
+		
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Core">
+          Source\ArcApplication.Core\ArcApplication.Core.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Presentation">
+          Source\ArcApplication.Presentation\ArcApplication.Presentation.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Configuration">
+          Source\ArcApplication.Configuration\ArcApplication.Configuration.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Services">
+          Source\ArcApplication.Services\ArcApplication.Services.vstemplate
+        </ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$safeprojectname$.Web">
+          Source\ArcApplication.Web\ArcApplication.Web.vstemplate
+        </ProjectTemplateLink>
+        
+      </ProjectCollection>
+    </TemplateContent>
+	<WizardExtension>
+    <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+    <FullClassName>ArcWizard.SolutionWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

@@ -1,0 +1,43 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Configuration</Name>
+    <Description>Arc application configuration.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Configuration</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Configuration.csproj" File="Configuration.csproj" ReplaceParameters="true">
+      <Folder Name="Build" TargetFolderName="Build">
+        <ProjectItem>Build.analyze.xml</ProjectItem>
+        <ProjectItem>Build.archive.xml</ProjectItem>
+        <ProjectItem>Build.compile.xml</ProjectItem>
+        <ProjectItem>Build.deploy.xml</ProjectItem>
+        <ProjectItem>Build.documentation.xml</ProjectItem>
+        <ProjectItem>Build.environment.xml</ProjectItem>
+        <ProjectItem>Build.local.xml.template</ProjectItem>
+        <ProjectItem>Build.prepare.xml</ProjectItem>
+        <ProjectItem>Build.publish.xml</ProjectItem>
+        <ProjectItem>Build.schema.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Build.settings.xml">Build.settings.xml</ProjectItem>
+        <ProjectItem>Build.test.xml</ProjectItem>
+        <ProjectItem>Default.build</ProjectItem>
+        <ProjectItem>Server.build</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Solution.Documentation.shfb">Solution.Documentation.shfb</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Solution.FxCop">Solution.FxCop</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Solution.NDepend.xml">Solution.NDepend.xml</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.ConfigurationWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

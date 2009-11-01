@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F3324EF-419A-4683-8AC1-5AD5E73EABCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Configuration\$solutionname$.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\$solutionname$.Configuration.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+
+    <Reference Include="Arc.Domain, Version=0.8.0.0, Culture=neutral, PublicKeyToken=ad1c1ea6f95937ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Arc.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Arc.Infrastructure, Version=0.8.0.0, Culture=neutral, PublicKeyToken=ad1c1ea6f95937ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Arc.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Arc.Infrastructure.Data.NHibernate, Version=0.8.0.0, Culture=neutral, PublicKeyToken=ad1c1ea6f95937ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Data\NHibernate\Arc.Infrastructure.Data.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Arc.Infrastructure.Dependencies.StructureMap, Version=0.8.0.0, Culture=neutral, PublicKeyToken=ad1c1ea6f95937ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\ServiceLocators\StructureMap\Arc.Infrastructure.Dependencies.StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Arc.Infrastructure.Presentation.Mvc, Version=0.8.0.0, Culture=neutral, PublicKeyToken=ad1c1ea6f95937ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Presentation\Mvc\Arc.Infrastructure.Presentation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Arc.Infrastructure.Validation.FluentValidation, Version=0.8.0.0, Culture=neutral, PublicKeyToken=ad1c1ea6f95937ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Validation\FluentValidation\Arc.Infrastructure.Validation.FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=0.4.0.126, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=1.0.0.593, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Data\NHibernate\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.0.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Data\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\External Libraries\Arc\Data\NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+	<Compile Include="ArcApplication.cs" />
+    <Compile Include="Routing\Routes.cs" />
+    <Compile Include="Dependencies\ControllersConvention.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\$solutionname$.Core\$solutionname$.Core.csproj">
+      <Project>{9AE860B6-DFF7-4746-8D6E-A14BEB4ED4FF}</Project>
+      <Name>$solutionname$.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\$solutionname$.Presentation\$solutionname$.Presentation.csproj">
+      <Project>{396DD089-7868-413B-9ABE-722849C9E0C5}</Project>
+      <Name>$solutionname$.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\$solutionname$.Services\$solutionname$.Services.csproj">
+      <Project>{0231D2D3-C4BA-4A10-A83D-E73029980557}</Project>
+      <Name>$solutionname$.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

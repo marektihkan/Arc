@@ -1,0 +1,1502 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Domain.Dsl.ActionExtensions">
+            <summary>
+            Extensions for actions.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ActionExtensions.When(System.Action,System.Boolean)">
+            <summary>
+            Executes specified action when condition is true.
+            </summary>
+            <param name="action">The action.</param>
+            <param name="condition">if set to <c>true</c> action is executed.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ActionExtensions.Unless(System.Action,System.Boolean)">
+            <summary>
+            Executes specified action when condition is false.
+            </summary>
+            <param name="action">The action.</param>
+            <param name="condition">if set to <c>false</c> action is executed.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ActionExtensions.On``1(System.Action,System.Action{``0})">
+            <summary>
+            On specified Exception it executes recovery action.
+            </summary>
+            <typeparam name="TException">The type of the exception.</typeparam>
+            <param name="action">The action.</param>
+            <param name="recovery">The recovery action.</param>
+        </member>
+        <member name="T:Arc.Domain.Dsl.ComparableExtensions">
+            <summary>
+            Extensions for <see cref="T:System.IComparable"/>.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ComparableExtensions.LessThan``1(System.IComparable{``0},``0)">
+            <summary>
+            Checks if source is less than item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ComparableExtensions.LessThanOrEqual``1(System.IComparable{``0},``0)">
+            <summary>
+            Checks if source is less than or equal to item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ComparableExtensions.GreaterThan``1(System.IComparable{``0},``0)">
+            <summary>
+            Checks if source is greater than item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.ComparableExtensions.GreaterThanOrEqual``1(System.IComparable{``0},``0)">
+            <summary>
+            Checks if source is greater than or equal to item.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Domain.Dsl.LoopExtensions">
+            <summary>
+            Extensions for loops.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.LoopExtensions.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Enumerates all items in list.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.LoopExtensions.Times(System.UInt32,System.Action{System.Int32})">
+            <summary>
+            Repeats action for specified count.
+            </summary>
+            <param name="count">The count.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.LoopExtensions.Times(System.Int32,System.Action{System.Int32})">
+            <summary>
+            Repeats action for specified count.
+            </summary>
+            <param name="count">The count.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="T:Arc.Domain.Dsl.NullExtensions">
+            <summary>
+            Extensions for checking nullability.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.NullExtensions.IsNull(System.Object)">
+            <summary>
+            Determines whether the specified @object is null.
+            </summary>
+            <param name="object">The @object.</param>
+            <returns>
+            	<c>true</c> if the specified @object is null; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.NullExtensions.IsNull(System.String)">
+            <summary>
+            Determines whether the specified @object is null.
+            </summary>
+            <param name="object">The @object.</param>
+            <returns>
+            	<c>true</c> if the specified @object is null; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.NullExtensions.IsNull``1(System.Nullable{``0})">
+            <summary>
+            Determines whether the specified @object is null.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="object">The @object.</param>
+            <returns>
+            	<c>true</c> if the specified @object is null; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Arc.Domain.Dsl.Parsing.EmptyParsingResult`1">
+            <summary>
+            Implements empty parsing result. Used when parsing failed.
+            </summary>
+            <typeparam name="T">Parse target type.</typeparam>
+        </member>
+        <member name="T:Arc.Domain.Dsl.Parsing.IParsingResult`1">
+            <summary>
+            Interface for parsing result.
+            </summary>
+            <typeparam name="T">Parse target type.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parsing.IParsingResult`1.Default(`0)">
+            <summary>
+            Sets default value for unsuccessful parsing.
+            </summary>
+            <param name="value">The default value.</param>
+            <returns>Parsing results.</returns>
+        </member>
+        <member name="P:Arc.Domain.Dsl.Parsing.IParsingResult`1.Value">
+            <summary>
+            Gets the parsed value.
+            </summary>
+            <value>The parsed value.</value>
+        </member>
+        <member name="P:Arc.Domain.Dsl.Parsing.IParsingResult`1.WasSuccessful">
+            <summary>
+            Gets a value indicating whether parsing was successful.
+            </summary>
+            <value><c>true</c> if parsing was successful otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parsing.EmptyParsingResult`1.Default(`0)">
+            <summary>
+            Sets default value for unsuccessful parsing.
+            </summary>
+            <param name="value">The default value.</param>
+            <returns>Parsing results.</returns>
+        </member>
+        <member name="P:Arc.Domain.Dsl.Parsing.EmptyParsingResult`1.Value">
+            <summary>
+            Gets the parsed value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:Arc.Domain.Dsl.Parsing.EmptyParsingResult`1.WasSuccessful">
+            <summary>
+            Gets a value indicating whether parsing was successful.
+            </summary>
+            <value><c>true</c> if parsing was successful otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Arc.Domain.Dsl.Parse">
+            <summary>
+            DSL for parsing values.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parse.Integer(System.String)">
+            <summary>
+            Parses integer from string.
+            </summary>
+            <param name="number">The number.</param>
+            <returns>Parsing result.</returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parse.Decimal(System.String)">
+            <summary>
+            Parses decimal from string.
+            </summary>
+            <param name="number">The number.</param>
+            <returns>Parsing result.</returns>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parse.DateTime(System.String)">
+            <summary>
+            Parses date and time from string.
+            </summary>
+            <param name="time">The time.</param>
+            <returns>Parsing result.</returns>
+        </member>
+        <member name="T:Arc.Domain.Dsl.Parsing.ParsingResult`1">
+            <summary>
+            Implements parsing result for specified type.
+            </summary>
+            <typeparam name="T">Parsed target type.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parsing.ParsingResult`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Dsl.Parsing.ParsingResult`1"/> class.
+            </summary>
+            <param name="value">The parsed value.</param>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Parsing.ParsingResult`1.Default(`0)">
+            <summary>
+            Sets default value for unsuccessful parsing.
+            </summary>
+            <param name="value">The default value.</param>
+            <returns>Parsing results.</returns>
+        </member>
+        <member name="P:Arc.Domain.Dsl.Parsing.ParsingResult`1.Value">
+            <summary>
+            Gets the parsed value.
+            </summary>
+            <value>The parsed value.</value>
+        </member>
+        <member name="P:Arc.Domain.Dsl.Parsing.ParsingResult`1.WasSuccessful">
+            <summary>
+            Gets a value indicating whether parsing was successful.
+            </summary>
+            <value><c>true</c> if parsing was successful otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Arc.Domain.Dsl.Should">
+            <summary>
+            API for actions.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Dsl.Should.Do(System.Action)">
+            <summary>
+            Does the specified action.
+            </summary>
+            <param name="action">The action.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Domain.Identity.GuidIdentityEntity">
+            <summary>
+            GUID identity base for entities.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Identity.IEntity`1">
+            <summary>
+            Marker interface for entities.
+            </summary>
+            <typeparam name="TIdentity">The type of the identity.</typeparam>
+        </member>
+        <member name="T:Arc.Domain.Identity.IEntity">
+            <summary>
+            Marker interface for entities.
+            </summary>
+        </member>
+        <member name="P:Arc.Domain.Identity.IEntity`1.Id">
+            <summary>
+            Gets the entity's identity.
+            </summary>
+            <value>The identity.</value>
+        </member>
+        <member name="P:Arc.Domain.Identity.IEntity`1.IsTransient">
+            <summary>
+            Gets a value indicating whether this instance is transient.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is transient; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Domain.Identity.IVersioned">
+            <summary>
+            Entity versioning.
+            </summary>
+        </member>
+        <member name="P:Arc.Domain.Identity.IVersioned.Version">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.GuidIdentityEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.#ctor(System.Guid)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.GuidIdentityEntity"/> class.
+            </summary>
+            <param name="identity">The identity.</param>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Identity.GuidIdentityEntity.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Identity.GuidIdentityEntity.Id">
+            <summary>
+            Gets the entity's identity.
+            </summary>
+            <value>The identity.</value>
+        </member>
+        <member name="P:Arc.Domain.Identity.GuidIdentityEntity.IsTransient">
+            <summary>
+            Gets a value indicating whether this instance is transient.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is transient; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Identity.GuidIdentityEntity.Version">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="T:Arc.Domain.Identity.IDeletable">
+            <summary>
+            Marker interface for deletable entities.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Identity.IDomainObject">
+            <summary>
+            Marker interface for domain object.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Identity.IntegerIdentityEntity">
+            <summary>
+            Integer identity base for entities.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.IntegerIdentityEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Identity.IntegerIdentityEntity"/> class.
+            </summary>
+            <param name="identity">The identity.</param>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <exception cref="T:System.NullReferenceException">
+            The <paramref name="obj"/> parameter is null.
+            </exception>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.Equals(Arc.Domain.Identity.IEntity{System.Int32})">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <exception cref="T:System.NullReferenceException">
+            The <paramref name="obj"/> parameter is null.
+            </exception>
+        </member>
+        <member name="M:Arc.Domain.Identity.IntegerIdentityEntity.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Identity.IntegerIdentityEntity.Id">
+            <summary>
+            Gets the entity's identity.
+            </summary>
+            <value>The identity.</value>
+        </member>
+        <member name="P:Arc.Domain.Identity.IntegerIdentityEntity.IsTransient">
+            <summary>
+            Gets a value indicating whether this instance is transient.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is transient; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Identity.IntegerIdentityEntity.Version">
+            <summary>
+            Gets the version number.
+            </summary>
+            <value>The version number.</value>
+        </member>
+        <member name="T:Arc.Domain.Identity.ISaveable">
+            <summary>
+            Marker interface for saveable entities.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Identity.IValueObject">
+            <summary>
+            Marker interface for value objects.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Security.IPasswordGenerator">
+            <summary>
+            Service for password generation and computing hashes.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Security.IPasswordGenerator.Create(System.Int32)">
+            <summary>
+            Creates the password.
+            </summary>
+            <param name="length">The password length.</param>
+            <returns>Generated password.</returns>
+        </member>
+        <member name="M:Arc.Domain.Security.IPasswordGenerator.ComputeHash(System.String)">
+            <summary>
+            Computes the password hash.
+            </summary>
+            <param name="password">The password.</param>
+            <returns>Password hash.</returns>
+        </member>
+        <member name="T:Arc.Domain.Security.PasswordGenerator">
+            <summary>
+            Service for password generation and computing hashes.
+            <remarks>
+            Service uses MD5 for hashing and generates password from safe letters.
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.Create(System.Int32)">
+            <summary>
+            Creates the password.
+            </summary>
+            <remarks>
+            It generates password from safe letters.
+            </remarks>
+            <param name="length">The length.</param>
+            <returns>Generated password.</returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.ComputeHash(System.String)">
+            <summary>
+            Computes the password hash.
+            </summary>
+            <remarks>
+            It uses MD5 for hashing. 
+            </remarks>
+            <param name="password">The password.</param>
+            <returns>Password hash.</returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.CreateCharacterList(System.Int32)">
+            <summary>
+            Creates random character list.
+            </summary>
+            <param name="length">The length of list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.ShuffleList(System.Collections.Generic.IList{System.Char})">
+            <summary>
+            Shuffles the list.
+            </summary>
+            <param name="list">The list.</param>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.GetRandomCharacters(System.Int32,System.Char[])">
+            <summary>
+            Gets the list of random characters.
+            </summary>
+            <param name="count">The list count.</param>
+            <param name="characters">The characters list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.GetRandomNumber(System.Int32,System.Int32)">
+            <summary>
+            Creates the random.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Security.PasswordGenerator.GetSeed">
+            <summary>
+            Gets the seed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Domain.Specifications.BaseSpecification`1">
+            <summary>
+            Base class for specifications.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+        </member>
+        <member name="T:Arc.Domain.Specifications.ISpecification`1">
+            <summary>
+            Domain specification
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Specifications.ISpecification`1.And(Arc.Domain.Specifications.ISpecification{`0})">
+            <summary>
+            Adds and operator to this and other.
+            </summary>
+            <param name="other">The other.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Specifications.ISpecification`1.IsSatisfiedBy(`0)">
+            <summary>
+            Determines whether specification is satisfied by item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>
+            	<c>true</c> if the specification is satisfied by the specified item; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Specifications.ISpecification`1.Not">
+            <summary>
+            Adds not operator to specification.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Specifications.ISpecification`1.Or(Arc.Domain.Specifications.ISpecification{`0})">
+            <summary>
+            Adds or operator to this and other.
+            </summary>
+            <param name="other">The other.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Arc.Domain.Specifications.ISpecification`1.Predicate">
+            <summary>
+            Gets the predicate.
+            </summary>
+            <value>The predicate.</value>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.BuildPredicateFrom(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Builds the predicate from lambda expression and assigns it to Predicate.
+            </summary>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.And(Arc.Domain.Specifications.ISpecification{`0})">
+            <summary>
+            Adds and operator to this and other.
+            </summary>
+            <param name="other">The other.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.Or(Arc.Domain.Specifications.ISpecification{`0})">
+            <summary>
+            Adds or operator to this and other.
+            </summary>
+            <param name="other">The other.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.Not">
+            <summary>
+            Adds not operator to specification.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.IsSatisfiedBy(`0)">
+            <summary>
+            Determines whether specification is satisfied by item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns>
+            	<c>true</c> if the specification is satisfied by the specified item; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Specifications.BaseSpecification`1.Predicate">
+            <summary>
+            Gets the predicate.
+            </summary>
+            <value>The predicate.</value>
+        </member>
+        <member name="T:Arc.Domain.Specifications.BaseSpecification`1.AndSpecification`1">
+            <summary>
+            And specification.
+            </summary>
+            <typeparam name="TSub">Specification type.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.AndSpecification`1.#ctor(Arc.Domain.Specifications.ISpecification{`1},Arc.Domain.Specifications.ISpecification{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Specifications.BaseSpecification`1.AndSpecification`1"/> class.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+        </member>
+        <member name="T:Arc.Domain.Specifications.BaseSpecification`1.OrSpecification`1">
+            <summary>
+            Or specification.
+            </summary>
+            <typeparam name="TSub">Specification type.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.OrSpecification`1.#ctor(Arc.Domain.Specifications.ISpecification{`1},Arc.Domain.Specifications.ISpecification{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Specifications.BaseSpecification`1.OrSpecification`1"/> class.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+        </member>
+        <member name="T:Arc.Domain.Specifications.BaseSpecification`1.NotSpecification`1">
+            <summary>
+            Not specification.
+            </summary>
+            <typeparam name="TSub">Specification type.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Specifications.BaseSpecification`1.NotSpecification`1.#ctor(Arc.Domain.Specifications.ISpecification{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Specifications.BaseSpecification`1.NotSpecification`1"/> class.
+            </summary>
+            <param name="specification">The specification.</param>
+        </member>
+        <member name="T:Arc.Domain.Specifications.Specification`1">
+            <summary>
+            Generic specification with lambda.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Specifications.Specification`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Specifications.Specification`1"/> class.
+            </summary>
+            <param name="expression">The expression.</param>
+        </member>
+        <member name="T:Arc.Domain.Time.Clock">
+            <summary>
+            System clock.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Time.IClock">
+            <summary>
+            System clock.
+            </summary>
+        </member>
+        <member name="P:Arc.Domain.Time.IClock.Now">
+            <summary>
+            Gets the current date and time.
+            </summary>
+            <value>The current date and time.</value>
+        </member>
+        <member name="P:Arc.Domain.Time.IClock.Today">
+            <summary>
+            Gets the today's date.
+            </summary>
+            <value>The today's date.</value>
+        </member>
+        <member name="P:Arc.Domain.Time.Clock.Now">
+            <summary>
+            Gets the current date and time.
+            </summary>
+            <value>The current date and time.</value>
+        </member>
+        <member name="P:Arc.Domain.Time.Clock.Today">
+            <summary>
+            Gets the today's date.
+            </summary>
+            <value>The today's date.</value>
+        </member>
+        <member name="T:Arc.Domain.Units.CurrencyConstants">
+            <summary>
+            Abbreviation constants for currencies.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.AUD">
+            <summary>
+            Australian dollar.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.BGN">
+            <summary>
+            Bulgarian lev.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.CAD">
+            <summary>
+            Canadian dollar.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.CHF">
+            <summary>
+            Swiss franc.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.CZK">
+            <summary>
+            Czech koruna.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.DKK">
+            <summary>
+            Danish crone.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.EEK">
+            <summary>
+            Estonian kroon.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.EUR">
+            <summary>
+            Euro.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.GBP">
+            <summary>
+            Great Britain pound.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.HRK">
+            <summary>
+            Croatian kuna.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.HUF">
+            <summary>
+            Hungarian forint.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.JPY">
+            <summary>
+            Japan yen.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.LTL">
+            <summary>
+            Lithuanian litas.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.LVL">
+            <summary>
+            Latvian lats.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.NOK">
+            <summary>
+            Norwegian krone.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.PLN">
+            <summary>
+            Polish zloty.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.RON">
+            <summary>
+            Romanian lei.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.RUB">
+            <summary>
+            Russian ruble.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.SEK">
+            <summary>
+            Swedish krona.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.TRY">
+            <summary>
+            Turkish lira.
+            </summary>
+        </member>
+        <member name="F:Arc.Domain.Units.CurrencyConstants.USD">
+            <summary>
+            United States dollar.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Units.DatePeriod">
+            <summary>
+            Time period for dates. 
+            Date part is only considered.
+            </summary>
+        </member>
+        <member name="T:Arc.Domain.Units.Range`1">
+            <summary>
+            Range for comparable objects.
+            </summary>
+            <typeparam name="T">Type of range element.</typeparam>
+        </member>
+        <member name="T:Arc.Domain.Units.BaseRange`1">
+            <summary>
+            Range.
+            </summary>
+            <typeparam name="T">Type of range element.</typeparam>
+        </member>
+        <member name="T:Arc.Domain.Units.IRange`1">
+            <summary>
+            Range.
+            </summary>
+            <typeparam name="T">Type of range element.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Units.IRange`1.Contains(`0)">
+            <summary>
+            Determines whether the specified element contains in range.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            	<c>true</c> if the specified element contains in range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.IRange`1.Contains(Arc.Domain.Units.BaseRange{`0})">
+            <summary>
+            Determines whether the specified range contains in this range.
+            </summary>
+            <param name="range">The range.</param>
+            <returns>
+            	<c>true</c> if the specified range contains in this range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Units.IRange`1.Upper">
+            <summary>
+            Gets or sets the upper bound.
+            </summary>
+            <value>The upper bound.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.IRange`1.Lower">
+            <summary>
+            Gets or sets the lower bound.
+            </summary>
+            <value>The lower bound.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.IRange`1.IsUpperInclusive">
+            <summary>
+            Gets or sets a value indicating whether this instance is upper bound inclusive.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is upper bound inclusive; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Units.IRange`1.IsLowerInclusive">
+            <summary>
+            Gets or sets a value indicating whether this instance is lower bound inclusive.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is lower bound inclusive; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Arc.Domain.Units.BaseRange`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.BaseRange`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.BaseRange`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.BaseRange`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The upper bound.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.BaseRange`1.#ctor(`0,System.Boolean,`0,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.BaseRange`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The upper bound.</param>
+            <param name="isUpperInclusive">if set to <c>true</c> upper bound is inclusive.</param>
+            <param name="isLowerInclusive">if set to <c>true</c> lower bound is inclusive.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.BaseRange`1.Contains(`0)">
+            <summary>
+            Determines whether the specified element contains in range.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            	<c>true</c> if the specified element contains in range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.BaseRange`1.Contains(Arc.Domain.Units.BaseRange{`0})">
+            <summary>
+            Determines whether the specified range contains in this range.
+            </summary>
+            <param name="range">The range.</param>
+            <returns>
+            	<c>true</c> if the specified range contains in this range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Units.BaseRange`1.Upper">
+            <summary>
+            Gets or sets the upper bound.
+            </summary>
+            <value>The upper bound.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.BaseRange`1.Lower">
+            <summary>
+            Gets or sets the lower bound.
+            </summary>
+            <value>The lower bound.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.BaseRange`1.IsUpperInclusive">
+            <summary>
+            Gets or sets a value indicating whether this instance is upper bound inclusive.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is upper bound inclusive; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Domain.Units.BaseRange`1.IsLowerInclusive">
+            <summary>
+            Gets or sets a value indicating whether this instance is lower bound inclusive.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is lower bound inclusive; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Range`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.#ctor(`0,`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Range`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The upper bound.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.#ctor(`0,System.Boolean,`0,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Range`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="isLowerInclusive">if set to <c>true</c> lower bound is inclusive.</param>
+            <param name="upper">The upper bound.</param>
+            <param name="isUpperInclusive">if set to <c>true</c> upper bound is inclusive.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.Contains(`0)">
+            <summary>
+            Determines whether the specified element contains in range.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            	<c>true</c> if the specified element contains in range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Range`1.Contains(Arc.Domain.Units.BaseRange{`0})">
+            <summary>
+            Determines whether the specified range contains in this range.
+            </summary>
+            <param name="range">The range.</param>
+            <returns>
+            	<c>true</c> if the specified range contains in this range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.DatePeriod.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.DatePeriod"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.DatePeriod.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.DatePeriod"/> class.
+            </summary>
+            <param name="lower">The lower bound. Beginning of date period.</param>
+            <param name="upper">The upper bound. End of date period.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.DatePeriod.#ctor(System.DateTime,System.Boolean,System.DateTime,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.DatePeriod"/> class.
+            </summary>
+            <param name="lower">The lower bound. Beginning of date period.</param>
+            <param name="upper">The upper bound. End of date period.</param>
+            <param name="isLowerInclusive">if set to <c>true</c> lower bound is inclusive.</param>
+            <param name="isUpperInclusive">if set to <c>true</c> upper bound is inclusive.</param>
+        </member>
+        <member name="P:Arc.Domain.Units.DatePeriod.Lower">
+            <summary>
+            Gets or sets beginning of date period. Considers only date part of time.
+            </summary>
+            <value>The beginning of date period.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.DatePeriod.Upper">
+            <summary>
+            Gets or sets the end of date period. Considers only date part of time.
+            </summary>
+            <value>The end of date period.</value>
+        </member>
+        <member name="T:Arc.Domain.Units.Moneybag">
+            <summary>
+            Bag of money.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Moneybag.Add(Arc.Domain.Units.Money)">
+            <summary>
+            Adds the specified money.
+            </summary>
+            <param name="money">The money.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Moneybag.Remove(Arc.Domain.Units.Currency)">
+            <summary>
+            Removes the specified currency.
+            </summary>
+            <param name="currency">The currency.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Moneybag.Contains(Arc.Domain.Units.Currency)">
+            <summary>
+            Determines whether the specified currency is in bag.
+            </summary>
+            <param name="currency">The currency.</param>
+            <returns>
+            	<c>true</c> if the specified currency is in bag; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Moneybag.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Units.Moneybag.Bag">
+            <summary>
+            Gets the bag.
+            </summary>
+            <value>The bag.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Moneybag.Item(Arc.Domain.Units.Currency)">
+            <summary>
+            Gets the <see cref="T:Arc.Domain.Units.Money"/> with the specified currency.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Arc.Domain.Units.Moneybag.Money">
+            <summary>
+            Gets the all money in bag.
+            </summary>
+            <value>The money.</value>
+        </member>
+        <member name="T:Arc.Domain.Units.NullableRange`1">
+            <summary>
+            Range for nullable structures.
+            </summary>
+            <typeparam name="T">Type of range element structure.</typeparam>
+        </member>
+        <member name="M:Arc.Domain.Units.NullableRange`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.NullableRange`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.NullableRange`1.#ctor(System.Nullable{`0},System.Nullable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.NullableRange`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The upper bound.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.NullableRange`1.#ctor(System.Nullable{`0},System.Boolean,System.Nullable{`0},System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.NullableRange`1"/> class.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="isLowerInclusive">if set to <c>true</c> lower bound is inclusive.</param>
+            <param name="upper">The upper bound.</param>
+            <param name="isUpperInclusive">if set to <c>true</c> upper bound is inclusive.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.NullableRange`1.Contains(System.Nullable{`0})">
+            <summary>
+            Determines whether the specified element contains in range.
+            </summary>
+            <param name="element">The element.</param>
+            <returns>
+            	<c>true</c> if the specified element contains in range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.NullableRange`1.Contains(Arc.Domain.Units.BaseRange{System.Nullable{`0}})">
+            <summary>
+            Determines whether the specified range contains in this range.
+            </summary>
+            <param name="range">The range.</param>
+            <returns>
+            	<c>true</c> if the specified range contains in this range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Arc.Domain.Units.Currency">
+            <summary>
+            Currency.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Currency"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Currency"/> class.
+            </summary>
+            <param name="abbreviation">The abbreviation.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.Format(System.Decimal)">
+            <summary>
+            Formats the specified number in current currency.
+            </summary>
+            <param name="number">The number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.op_Equality(Arc.Domain.Units.Currency,Arc.Domain.Units.Currency)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.op_Inequality(Arc.Domain.Units.Currency,Arc.Domain.Units.Currency)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <exception cref="T:System.NullReferenceException">
+            The <paramref name="obj"/> parameter is null.
+            </exception>
+        </member>
+        <member name="M:Arc.Domain.Units.Currency.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.Abbreviation">
+            <summary>
+            Gets the abbreviation.
+            </summary>
+            <value>The abbreviation.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.None">
+            <summary>
+            Gets the null currency.
+            </summary>
+            <value>The null currency.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.AUD">
+            <summary>
+            Gets the AUD.
+            </summary>
+            <value>The AUD.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.BGN">
+            <summary>
+            Gets the BGN.
+            </summary>
+            <value>The BGN.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.CAD">
+            <summary>
+            Gets the CAD.
+            </summary>
+            <value>The CAD.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.CHF">
+            <summary>
+            Gets the CHF.
+            </summary>
+            <value>The CHF.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.CZK">
+            <summary>
+            Gets the CZK.
+            </summary>
+            <value>The CZK.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.DKK">
+            <summary>
+            Gets the DKK.
+            </summary>
+            <value>The DKK.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.EEK">
+            <summary>
+            Gets the EEK.
+            </summary>
+            <value>The EEK.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.EUR">
+            <summary>
+            Gets the EUR.
+            </summary>
+            <value>The EUR.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.GBP">
+            <summary>
+            Gets the GBP.
+            </summary>
+            <value>The GBP.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.HRK">
+            <summary>
+            Gets the HRK.
+            </summary>
+            <value>The HRK.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.HUF">
+            <summary>
+            Gets the HUF.
+            </summary>
+            <value>The HUF.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.JPY">
+            <summary>
+            Gets the JPY.
+            </summary>
+            <value>The JPY.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.LTL">
+            <summary>
+            Gets the LTL.
+            </summary>
+            <value>The LTL.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.LVL">
+            <summary>
+            Gets the LVL.
+            </summary>
+            <value>The LVL.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.NOK">
+            <summary>
+            Gets the NOK.
+            </summary>
+            <value>The NOK.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.PLN">
+            <summary>
+            Gets the PLN.
+            </summary>
+            <value>The PLN.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.RON">
+            <summary>
+            Gets the RON.
+            </summary>
+            <value>The RON.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.RUB">
+            <summary>
+            Gets the RUB.
+            </summary>
+            <value>The RUB.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.SEK">
+            <summary>
+            Gets the SEK.
+            </summary>
+            <value>The SEK.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.TRY">
+            <summary>
+            Gets the TRY.
+            </summary>
+            <value>The TRY.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Currency.USD">
+            <summary>
+            Gets the USD.
+            </summary>
+            <value>The USD.</value>
+        </member>
+        <member name="T:Arc.Domain.Units.Money">
+            <summary>
+            Class for money.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Money"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.#ctor(System.Decimal,Arc.Domain.Units.Currency)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Money"/> class.
+            </summary>
+            <param name="amount">The amount.</param>
+            <param name="currency">The currency.</param>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.Add(Arc.Domain.Units.Money)">
+            <summary>
+            Adds the specified addend to money.
+            </summary>
+            <param name="addend">The addend.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.Subtract(Arc.Domain.Units.Money)">
+            <summary>
+            Subtracts the specified subtrahend from money.
+            </summary>
+            <param name="subtrahend">The subtrahend.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.Multiply(System.Int32)">
+            <summary>
+            Multiplies the money.
+            </summary>
+            <param name="multiplier">The multiplier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_Addition(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator +.
+            </summary>
+            <param name="augend">The augend.</param>
+            <param name="addend">The addend.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_Subtraction(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator -.
+            </summary>
+            <param name="minuend">The minuend.</param>
+            <param name="subtrahend">The subtrahend.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_Multiply(Arc.Domain.Units.Money,System.Int32)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="multiplicand">The multiplicand.</param>
+            <param name="multiplier">The multiplier.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_Multiply(System.Int32,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator *.
+            </summary>
+            <param name="multiplier">The multiplier.</param>
+            <param name="multiplicand">The multiplicand.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_GreaterThan(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator &gt;.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_LessThan(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator &lt;.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_GreaterThanOrEqual(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator &gt;=.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_LessThanOrEqual(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator &lt;=.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_Equality(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.op_Inequality(Arc.Domain.Units.Money,Arc.Domain.Units.Money)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left side.</param>
+            <param name="right">The right side.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.CompareTo(Arc.Domain.Units.Money)">
+            <summary>
+            Compares the current object with another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            A 32-bit signed integer that indicates the relative order of the objects being compared. The return value has the following meanings:
+            Value
+            Meaning
+            Less than zero
+            This object is less than the <paramref name="other"/> parameter.
+            Zero
+            This object is equal to <paramref name="other"/>.
+            Greater than zero
+            This object is greater than <paramref name="other"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><c>other</c> is null.</exception>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
+            <returns>
+            true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+            </returns>
+            <exception cref="T:System.NullReferenceException">
+            The <paramref name="obj"/> parameter is null.
+            </exception>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type.
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="M:Arc.Domain.Units.Money.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Arc.Domain.Units.Money.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>The amount.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Money.Currency">
+            <summary>
+            Gets or sets the currency.
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="T:Arc.Domain.Units.Quantity">
+            <summary>
+            Quantity.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Quantity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Quantity"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Domain.Units.Quantity.#ctor(System.Decimal,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Domain.Units.Quantity"/> class.
+            </summary>
+            <param name="amount">The amount.</param>
+            <param name="unit">The unit.</param>
+        </member>
+        <member name="P:Arc.Domain.Units.Quantity.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>The amount.</value>
+        </member>
+        <member name="P:Arc.Domain.Units.Quantity.Unit">
+            <summary>
+            Gets or sets the unit.
+            </summary>
+            <value>The unit.</value>
+        </member>
+    </members>
+</doc>

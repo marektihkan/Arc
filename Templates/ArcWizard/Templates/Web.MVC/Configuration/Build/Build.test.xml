@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="Test" default="Test">
+
+  <!-- Load external tasks -->
+  <loadtasks assembly="${path.ncoverexplorer.tasks}" />
+
+  <!-- Settings -->
+  <property name="tests.unit.project.name" value="UnitTests" />
+  <property name="tests.unit.output.name" value="UnitTests" />
+  
+  <property name="tests.integration.project.name" value="IntegrationTests" />
+  <property name="tests.integration.output.name" value="IntegrationTests" />
+  
+  <!-- Main targets -->
+  <target name="FastTest" 
+          description="Runs solution tests"
+          depends="Compile, RunUnitTests" />
+
+  <target name="FullTest"
+          description="Runs solution tests"
+          depends="FastTest,RunIntegrationTests" />
+
+  <!-- Targets -->
+  <target name="CreateUnitTestsProject">
+    
+    <nunitproject 
+	    project="${build.tests.path}\${tests.unit.project.name}.nunit" 
+	    verbose="${verbose}">
+      
+	    <fileset basedir="${build.tests.path}">
+        <include name="*.Unit.Tests.dll" />
+      </fileset>
+	  
+    </nunitproject>
+	
+  </target>
+  
+  <target name="CreateIntegrationTestsProject">
+	
+    <nunitproject 
+	    project="${build.tests.path}\${tests.integration.project.name}.nunit" 
+	    verbose="${verbose}">
+      
+	    <fileset basedir="${build.tests.path}">
+        <include name="*.Integration.Tests.dll" />
+      </fileset>
+	  
+    </nunitproject>
+    
+  </target>
+  
+  <!-- Targets -->
+  <target name="RunUnitTests" depends="CreateUnitTestsProject">
+    
+    <exec program="${path.nunit.console}" verbose="${verbose}">
+      <arg path="${build.tests.path}\${tests.unit.project.name}.nunit" />
+      <arg value="/xml" />
+      <arg path="${build.results.path}\${tests.unit.output.name}.xml" />
+      <arg value="/nodots" />
+      <arg value="/nologo" />
+    </exec>
+
+    <echo>[OK] Ran unit tests.</echo>
+  </target>
+  
+  <target name="RunIntegrationTests" depends="CreateIntegrationTestsProject">
+
+    <exec program="${path.nunit.console}" verbose="${verbose}">
+      <arg path="${build.tests.path}\${tests.integration.project.name}.nunit" />
+      <arg value="/xml" />
+      <arg path="${build.results.path}\${tests.integration.output.name}.xml" />
+      <arg value="/nodots" />
+      <arg value="/nologo" />
+    </exec>
+
+    <echo>[OK] Ran integration tests.</echo>
+  </target>
+  
+</project>

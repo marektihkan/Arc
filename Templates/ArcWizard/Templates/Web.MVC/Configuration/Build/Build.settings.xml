@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="common-settings" default="none" basedir=".">
+
+	<!-- Project settings -->
+	<property name="project.name" value="$solutionname$" />
+	<property name="project.author" value="Unknown" />
+  <property name="project.version" value="1.0.0" />
+
+	<property name="project.publishable.web" value="$solutionname$.Web" />
+  
+
+	<!-- Project directories -->
+	<property name="project.config.dir" value="Configuration" overwrite="false" />
+	<property name="project.config.build.dir" value="Build" overwrite="false" />
+	<property name="project.external_libraries.dir" value="External Libraries" overwrite="false" />
+	<property name="project.schema.dir" value="Schema" overwrite="false" />
+	<property name="project.source.dir" value="Source" overwrite="false" />
+	<property name="project.tests.dir" value="Tests" overwrite="false" />
+
+	<!-- Project paths -->
+	<property name="path.workspace" value="." overwrite="false" />
+	<property name="project.root.path" value="${path.workspace}\${project.name}" overwrite="false" />
+	<property name="project.config.path" value="${project.root.path}\${project.config.dir}" overwrite="false" />
+	<property name="project.config.build.path" value="${project.config.path}\${project.config.build.dir}" overwrite="false" />
+	<property name="project.external_library.path" value="${project.root.path}\${project.external_libraries.dir}" overwrite="false" />
+	<property name="project.schema.path" value="${project.root.path}\${project.schema.dir}" overwrite="false" />
+	<property name="project.source.path" value="${project.root.path}\${project.source.dir}" overwrite="false" />
+	<property name="project.tests.path" value="${project.root.path}\${project.tests.dir}" overwrite="false" />
+	
+	<!-- Build directories -->
+	<property name="build.root.dir" value="build" overwrite="false" />
+	<property name="build.binary.dir" value="bin" overwrite="false" />
+	<property name="build.documentation.dir" value="doc" overwrite="false" /> 
+	<property name="build.tests.dir" value="tests" overwrite="false" />
+	<property name="build.results.dir" value="results" overwrite="false" />
+	<property name="build.deploy.dir" value="deploy" overwrite="false" />
+	<property name="build.package.dir" value="packages" overwrite="false" />
+	<property name="build.source.dir" value="source" overwrite="false" />
+	
+	<!-- Build paths -->
+	<property name="build.root.path" value="${project.root.path}\${build.root.dir}" overwrite="false" />
+	<property name="build.binary.path" value="${build.root.path}\${build.binary.dir}" overwrite="false" />
+	<property name="build.documentation.path" value="${build.root.path}\${build.documentation.dir}" overwrite="false" /> 
+	<property name="build.tests.path" value="${build.root.path}\${build.tests.dir}" overwrite="false" />
+	<property name="build.results.path" value="${build.root.path}\${build.results.dir}" overwrite="false" />
+	<property name="build.deploy.path" value="${build.root.path}\${build.deploy.dir}" overwrite="false" />
+	<property name="build.deploy.packages.path" value="${build.deploy.path}\${build.package.dir}" overwrite="false" />
+	<property name="build.source.path" value="${build.root.path}\${build.source.dir}" overwrite="false" />
+	
+</project>

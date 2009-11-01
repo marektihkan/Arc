@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E8DD68BF-6612-4050-AF97-5FE61D18496C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="Arc\Arc.Domain.dll" />
+    <Content Include="Arc\Arc.Domain.XML" />
+    <Content Include="Arc\Arc.Infrastructure.dll" />
+    <Content Include="Arc\Arc.Infrastructure.XML" />
+
+    <Content Include="Arc\AutoMapper.dll" />
+
+    <Content Include="Arc\Data\NHibernate\Antlr3.Runtime.dll" />
+    <Content Include="Arc\Data\NHibernate\Arc.Infrastructure.Data.NHibernate.dll" />
+    <Content Include="Arc\Data\NHibernate\Arc.Infrastructure.Data.NHibernate.XML" />
+    <Content Include="Arc\Data\NHibernate\Castle.Core.dll" />
+    <Content Include="Arc\Data\NHibernate\Castle.Core.XML" />
+    <Content Include="Arc\Data\NHibernate\Castle.DynamicProxy2.dll" />
+    <Content Include="Arc\Data\NHibernate\Castle.DynamicProxy2.XML" />
+    <Content Include="Arc\Data\NHibernate\FluentNHibernate.dll" />
+    <Content Include="Arc\Data\NHibernate\FluentNHibernate.XML" />
+    <Content Include="Arc\Data\NHibernate\Iesi.Collections.dll" />
+    <Content Include="Arc\Data\NHibernate\Iesi.Collections.XML" />
+    <Content Include="Arc\Data\NHibernate\log4net.dll" />
+    <Content Include="Arc\Data\NHibernate\log4net.XML" />
+    <Content Include="Arc\Data\NHibernate\NHibernate.ByteCode.Castle.dll" />
+    <Content Include="Arc\Data\NHibernate\NHibernate.ByteCode.Castle.XML" />
+    <Content Include="Arc\Data\NHibernate\NHibernate.dll" />
+    <Content Include="Arc\Data\NHibernate\NHibernate.XML" />
+
+    <Content Include="Arc\Logging\Log4Net\Arc.Infrastructure.Logging.Log4Net.dll" />
+    <Content Include="Arc\Logging\Log4Net\Arc.Infrastructure.Logging.Log4Net.XML" />
+    <Content Include="Arc\Logging\Log4Net\log4net.dll" />
+    <Content Include="Arc\Logging\Log4Net\log4net.XML" />
+
+    <Content Include="Arc\Presentation\Mvc\Arc.Infrastructure.Presentation.Mvc.dll" />
+    <Content Include="Arc\Presentation\Mvc\Arc.Infrastructure.Presentation.Mvc.XML" />
+    <Content Include="Arc\Presentation\Mvc\System.Web.Mvc.dll" />
+    <Content Include="Arc\Presentation\Mvc\System.Web.Mvc.XML" />
+
+    <Content Include="Arc\Presentation\Mvp\Arc.Infrastructure.Presentation.Mvp.dll" />
+    <Content Include="Arc\Presentation\Mvp\Arc.Infrastructure.Presentation.Mvp.XML" />
+
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.dll" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.XML" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Castle.Core.dll" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Castle.Core.XML" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Castle.MicroKernel.dll" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Castle.MicroKernel.XML" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Castle.Windsor.dll" />
+    <Content Include="Arc\ServiceLocators\CastleWindsor\Castle.Windsor.XML" />
+
+    <Content Include="Arc\ServiceLocators\Ninject\Arc.Infrastructure.Dependencies.Ninject.dll" />
+    <Content Include="Arc\ServiceLocators\Ninject\Arc.Infrastructure.Dependencies.Ninject.XML" />
+    <Content Include="Arc\ServiceLocators\Ninject\Ninject.Core.dll" />
+    <Content Include="Arc\ServiceLocators\Ninject\Ninject.Core.XML" />
+
+    <Content Include="Arc\ServiceLocators\StructureMap\Arc.Infrastructure.Dependencies.StructureMap.dll" />
+    <Content Include="Arc\ServiceLocators\StructureMap\Arc.Infrastructure.Dependencies.StructureMap.XML" />
+    <Content Include="Arc\ServiceLocators\StructureMap\StructureMap.dll" />
+
+    <Content Include="Arc\Validation\EnterpriseLibrary\Arc.Infrastructure.Validation.EnterpriseLibrary.dll" />
+    <Content Include="Arc\Validation\EnterpriseLibrary\Arc.Infrastructure.Validation.EnterpriseLibrary.XML" />
+    <Content Include="Arc\Validation\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="Arc\Validation\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.XML" />
+    <Content Include="Arc\Validation\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.dll" />
+    <Content Include="Arc\Validation\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.XML" />
+    <Content Include="Arc\Validation\EnterpriseLibrary\Microsoft.Practices.ObjectBuilder2.dll" />
+
+    <Content Include="Arc\Validation\FluentValidation\Arc.Infrastructure.Validation.FluentValidation.dll" />
+    <Content Include="Arc\Validation\FluentValidation\Arc.Infrastructure.Validation.FluentValidation.XML" />
+    <Content Include="Arc\Validation\FluentValidation\FluentValidation.dll" />
+    <Content Include="Arc\Validation\FluentValidation\FluentValidation.XML" />
+
+    <Content Include="NUnit\nunit.framework.dll" />
+    <Content Include="NUnit\nunit.framework.xml" />
+	<Content Include="NUnit\nunit.mocks.dll" />
+	<Content Include="NUnit\pnunit.framework.dll" />
+
+    <Content Include="RhinoMocks\Rhino.Mocks.dll" />
+    <Content Include="RhinoMocks\Rhino.Mocks.xml" />
+	
+	<Content Include="Spark\Spark.dll" />
+	<Content Include="Spark\Spark.Web.Mvc.dll" />
+  </ItemGroup>
+</Project>

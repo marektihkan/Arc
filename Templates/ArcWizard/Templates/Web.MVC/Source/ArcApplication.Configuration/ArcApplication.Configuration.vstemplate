@@ -1,0 +1,34 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ArcApplication.Configuration</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ArcApplication.Configuration</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ArcApplication.Configuration.csproj" File="ArcApplication.Configuration.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Bootstrapper.cs">Bootstrapper.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ArcApplication.cs">ArcApplication.cs</ProjectItem>
+      <Folder Name="Dependencies" TargetFolderName="Dependencies">
+        <ProjectItem ReplaceParameters="true" TargetFileName="ControllersConvention.cs">ControllersConvention.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Mappings" TargetFolderName="Mappings" />
+      <Folder Name="Routing" TargetFolderName="Routing">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Routes.cs">Routes.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties" />
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.SourceProjectWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

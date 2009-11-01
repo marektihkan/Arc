@@ -20,11 +20,6 @@ namespace ArcWizard
             var movedProject = _moveProjectTask.MoveTo(project, "\\Source\\", "Source");
             
             movedProject.ProjectItems.AddFromFile(Configuration.RootPath + "\\Source\\CommonAssemblyInfo.cs");
-
-            if (Solution.ShouldNHibernateConfiguration(movedProject.Name))
-            {
-                new AddNHibernateConfigurationTask().AddConfigurationLinkTo(movedProject, Configuration.RootPath);
-            }
         }
     }
 }

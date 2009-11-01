@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E9D66CC-3240-4623-96B0-5002DF16522A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="Temp\sn.exe" />
+    <Content Include="Temp\sn.exe.config" />
+    <Content Include="Build\Build - Default.bat" />
+    <Content Include="Build\Build - Default - Fast.bat" />
+    <Content Include="Build\Build - Server.bat" />
+    <Content Include="Build\Build - CleanUp.bat" />
+    <Content Include="NAnt\bin\extensions\common\2.0\NAnt.MSBuild.dll" />
+    <Content Include="NAnt\bin\extensions\common\2.0\NAnt.MSBuild.xml" />
+    <Content Include="NAnt\bin\lib\common\neutral\ICSharpCode.SharpCvsLib.Console.dll" />
+    <Content Include="NAnt\bin\lib\common\neutral\ICSharpCode.SharpCvsLib.dll" />
+    <Content Include="NAnt\bin\lib\common\neutral\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="NAnt\bin\lib\common\neutral\NUnitCore.dll" />
+    <Content Include="NAnt\bin\lib\mono\1.0\NDoc.Core.dll" />
+    <Content Include="NAnt\bin\lib\mono\1.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="NAnt\bin\lib\mono\1.0\NDoc.ExtendedUI.dll" />
+    <Content Include="NAnt\bin\lib\mono\1.0\nunit.core.dll" />
+    <Content Include="NAnt\bin\lib\mono\1.0\nunit.framework.dll" />
+    <Content Include="NAnt\bin\lib\mono\1.0\nunit.util.dll" />
+    <Content Include="NAnt\bin\lib\mono\2.0\NDoc.Core.dll" />
+    <Content Include="NAnt\bin\lib\mono\2.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="NAnt\bin\lib\mono\2.0\NDoc.ExtendedUI.dll" />
+    <Content Include="NAnt\bin\lib\mono\2.0\nunit.core.dll" />
+    <Content Include="NAnt\bin\lib\mono\2.0\nunit.framework.dll" />
+    <Content Include="NAnt\bin\lib\mono\2.0\nunit.util.dll" />
+    <Content Include="NAnt\bin\lib\net\1.0\NDoc.Core.dll" />
+    <Content Include="NAnt\bin\lib\net\1.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="NAnt\bin\lib\net\1.0\NDoc.ExtendedUI.dll" />
+    <Content Include="NAnt\bin\lib\net\1.0\nunit.core.dll" />
+    <Content Include="NAnt\bin\lib\net\1.0\nunit.framework.dll" />
+    <Content Include="NAnt\bin\lib\net\1.0\nunit.util.dll" />
+    <Content Include="NAnt\bin\lib\net\1.1\NDoc.Core.dll" />
+    <Content Include="NAnt\bin\lib\net\1.1\NDoc.Documenter.Msdn.dll" />
+    <Content Include="NAnt\bin\lib\net\1.1\NDoc.ExtendedUI.dll" />
+    <Content Include="NAnt\bin\lib\net\1.1\nunit.core.dll" />
+    <Content Include="NAnt\bin\lib\net\1.1\nunit.framework.dll" />
+    <Content Include="NAnt\bin\lib\net\1.1\nunit.util.dll" />
+    <Content Include="NAnt\bin\lib\net\2.0\NDoc.Core.dll" />
+    <Content Include="NAnt\bin\lib\net\2.0\NDoc.Documenter.Msdn.dll" />
+    <Content Include="NAnt\bin\lib\net\2.0\NDoc.ExtendedUI.dll" />
+    <Content Include="NAnt\bin\lib\net\2.0\nunit.core.dll" />
+    <Content Include="NAnt\bin\lib\net\2.0\nunit.framework.dll" />
+    <Content Include="NAnt\bin\lib\net\2.0\nunit.util.dll" />
+    <Content Include="NAnt\bin\log4net.dll" />
+    <Content Include="NAnt\bin\NAnt.CompressionTasks.dll" />
+    <Content Include="NAnt\bin\NAnt.CompressionTasks.xml" />
+    <Content Include="NAnt\bin\NAnt.Core.dll" />
+    <Content Include="NAnt\bin\NAnt.Core.xml" />
+    <Content Include="NAnt\bin\NAnt.DotNetTasks.dll" />
+    <Content Include="NAnt\bin\NAnt.DotNetTasks.xml" />
+    <Content Include="NAnt\bin\NAnt.exe" />
+    <Content Include="NAnt\bin\NAnt.MSNetTasks.dll" />
+    <Content Include="NAnt\bin\NAnt.MSNetTasks.xml" />
+    <Content Include="NAnt\bin\NAnt.NUnit.dll" />
+    <Content Include="NAnt\bin\NAnt.NUnit.xml" />
+    <Content Include="NAnt\bin\NAnt.NUnit1Tasks.dll" />
+    <Content Include="NAnt\bin\NAnt.NUnit1Tasks.xml" />
+    <Content Include="NAnt\bin\NAnt.NUnit2Tasks.dll" />
+    <Content Include="NAnt\bin\NAnt.NUnit2Tasks.xml" />
+    <Content Include="NAnt\bin\NAnt.SourceControlTasks.dll" />
+    <Content Include="NAnt\bin\NAnt.SourceControlTasks.xml" />
+    <Content Include="NAnt\bin\NAnt.VisualCppTasks.dll" />
+    <Content Include="NAnt\bin\NAnt.VisualCppTasks.xml" />
+    <Content Include="NAnt\bin\NAnt.VSNetTasks.dll" />
+    <Content Include="NAnt\bin\NAnt.VSNetTasks.xml" />
+    <Content Include="NAnt\bin\NAnt.Win32Tasks.dll" />
+    <Content Include="NAnt\bin\NAnt.Win32Tasks.xml" />
+    <Content Include="NAnt\bin\NAnt.xml" />
+    <Content Include="NAnt\bin\NDoc.Documenter.NAnt.dll" />
+    <Content Include="NAnt\bin\scvs.exe" />
+    <Content Include="NAnt\Tasks\Contrib\CollectionGen.dll" />
+    <Content Include="NAnt\Tasks\Contrib\Interop.MsmMergeTypeLib.dll" />
+    <Content Include="NAnt\Tasks\Contrib\Interop.StarTeam.dll" />
+    <Content Include="NAnt\Tasks\Contrib\Interop.WindowsInstaller.dll" />
+    <Content Include="NAnt\Tasks\Contrib\NAnt.Contrib.Tasks.dll" />
+    <Content Include="NAnt\Tasks\Contrib\NAnt.Contrib.Tasks.xml" />
+    <Content Include="NAnt\Tasks\Contrib\SLiNgshoT.Core.dll" />
+    <Content Include="NAnt\Tasks\Contrib\SLiNgshoT.exe" />
+    <Content Include="NAnt\Tasks\Contrib\SourceSafe.Interop.dll" />
+    <Content Include="NAnt\Tasks\FTPTask\ConsolePasswordInput.dll" />
+    <Content Include="NAnt\Tasks\FTPTask\edtftpnet-1.1.3.dll" />
+    <Content Include="NAnt\Tasks\FTPTask\ftptask.dll" />
+    <Content Include="NAnt\Tasks\FTPTask\ftptask.xml" />
+    <Content Include="NAnt\Tasks\NCoverExplorer\NCoverExplorer.MSBuildTasks.dll" />
+    <Content Include="NAnt\Tasks\NCoverExplorer\NCoverExplorer.MSBuildTasks.xml" />
+    <Content Include="NAnt\Tasks\NCoverExplorer\NCoverExplorer.NAntTasks.dll" />
+    <Content Include="NAnt\Tasks\NCoverExplorer\NCoverExplorer.NAntTasks.xml" />
+    <Content Include="NAnt\Tasks\NDepend\NDepend.Build.NAntTasks.dll" />
+    <Content Include="NCover\Coverage.old.Xml" />
+    <Content Include="NCover\Coverage.Xml" />
+    <Content Include="NCover\Coverage.xsl" />
+    <Content Include="NCover\CoverLib.dll" />
+    <Content Include="NCover\MSVCP80.dll" />
+    <Content Include="NCover\MSVCR80.dll" />
+    <Content Include="NCover\NCover.Console.exe" />
+    <Content Include="NCover\NCover.Framework.dll" />
+    <Content Include="NCover\NCoverExplorer.Extras\bin\NCoverExplorer.MSBuildTasks.dll" />
+    <Content Include="NCover\NCoverExplorer.Extras\bin\NCoverExplorer.MSBuildTasks.xml" />
+    <Content Include="NCover\NCoverExplorer.Extras\bin\NCoverExplorer.NAntTasks.dll" />
+    <Content Include="NCover\NCoverExplorer.Extras\bin\NCoverExplorer.NAntTasks.xml" />
+    <Content Include="NCover\NCoverExplorer.Extras\CruiseControl.Net\NCoverExplorer.xsl" />
+    <Content Include="NCover\NCoverExplorer.Extras\CruiseControl.Net\NCoverExplorerSummary.xsl" />
+    <Content Include="NCover\NCoverExplorer.Extras\CruiseControl.Net\readme.txt" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NAntTemplate\images\arrow.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NAntTemplate\images\bullet.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NAntTemplate\images\logo.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NAntTemplate\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NAntTemplate\style.css" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\contents.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\intevent.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\intfield.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\intmethod.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\intoperator.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\intproperty.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\MSDN.css" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.Common.CoverageReportType.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.Common.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.Common.NCoverLogLevel.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.Common.NCoverXmlFormat.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.Common.TreeFilterStyle.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.Common.TreeSortStyle.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.CommonHierarchy.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.Assemblies.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.AssemblyList.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.CommandLineArgs.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.CommandLineExe.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.CoverageFile.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.ExcludeAttributes.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.Execute.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.LogFile.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.LogLevel.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.ProfiledProcessModule.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.ProfileIIS.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.ProfileService.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.RegisterProfiler.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.WorkingDirectory.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCover.XmlFormat.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverConstructor.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.ConfigName.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.CoverageFiles.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.Exclusions.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.Execute.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.FailCombinedMinimum.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.FailMinimum.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.Filter.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.HtmlReportName.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.MergeFileName.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.MinimumCoverage.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.ModuleThresholds.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.OutputDir.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.ProjectName.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.ReportType.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.SatisfactoryCoverage.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.ShowExcluded.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.Sort.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorer.XmlReportName.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorerConstructor.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorerMembers.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorerMethods.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverExplorerProperties.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverMembers.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverMethods.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NCoverProperties.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProject.AppBase.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProject.AppConfig.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProject.Assemblies.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProject.Execute.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProject.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProject.Project.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProjectConstructor.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProjectMembers.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProjectMethods.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.NUnitProjectProperties.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasksHierarchy.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\privevent.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\privfield.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\privmethod.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\privoperator.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\privproperty.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\protevent.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\protfield.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\protmethod.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\protoperator.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\protproperty.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\pubevent.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\pubfield.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\pubmethod.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\puboperator.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\pubproperty.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\static.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\tree.css" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\tree.js" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\treenodedot.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\treenodeminus.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.MSBuildTasks\treenodeplus.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\elements\NCoverExplorer.NAntTasks.Types.CoverageExclusion.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\elements\NCoverExplorer.NAntTasks.Types.ModuleThreshold.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\enums\NCoverExplorer.Common.NCoverLogLevel.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\enums\NCoverExplorer.Common.NCoverXmlFormat.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\filters\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\functions\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\images\arrow.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\images\bullet.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\images\logo.gif" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\style.css" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\tasks\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\tasks\ncover.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\tasks\ncoverexplorer.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\tasks\nunitproject.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\doc\NCoverExplorer.NAntTasks\types\index.html" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.csproj" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.sln" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\lib\log4net.dll" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\lib\NAnt.Core.dll" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\lib\NAnt.Core.xml" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NCoverExplorer.NAntTasks.csproj" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NCoverExplorer.NAntTasks.sln" />
+    <Content Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NCoverExplorer.NAntTasks.xml" />
+    <Content Include="NCover\NCoverExplorer.Extras\TaskReleaseNotes.html" />
+    <Content Include="NCover\NCoverExplorer\ActiproEULA.html" />
+    <Content Include="NCover\NCoverExplorer\ActiproSoftware.Shared.Net11.dll" />
+    <Content Include="NCover\NCoverExplorer\ActiproSoftware.SyntaxEditor.Net11.dll" />
+    <Content Include="NCover\NCoverExplorer\ActiproSoftware.WinUICore.Net11.dll" />
+    <Content Include="NCover\NCoverExplorer\CommandBars.dll" />
+    <Content Include="NCover\NCoverExplorer\CoverageReport.xsl" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorer.Console.exe" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorer.Core.dll" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorer.exe" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorer.NCoverRunner.dll" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorer.WinForms.dll" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorerFAQ.html" />
+    <Content Include="NCover\NCoverExplorer\NCoverExplorerReleaseNotes.html" />
+    <Content Include="NCover\NCoverFAQ.html" />
+    <Content Include="NUnit\bin\addins\NUnitExtension.RowTest.AddIn.dll" />
+    <Content Include="NUnit\bin\addins\NUnitExtension.RowTest.dll" />
+    <Content Include="NUnit\bin\Failure.jpg" />
+    <Content Include="NUnit\bin\fit.dll" />
+    <Content Include="NUnit\bin\Ignored.jpg" />
+    <Content Include="NUnit\bin\loadtest-assembly.dll" />
+    <Content Include="NUnit\bin\mock-assembly.dll" />
+    <Content Include="NUnit\bin\nonamespace-assembly.dll" />
+    <Content Include="NUnit\bin\notestfixtures-assembly.dll" />
+    <Content Include="NUnit\bin\nunit-console-runner.dll" />
+    <Content Include="NUnit\bin\nunit-console-x86.exe" />
+    <Content Include="NUnit\bin\nunit-console.exe" />
+    <Content Include="NUnit\bin\nunit-console.tests.dll" />
+    <Content Include="NUnit\bin\nunit-gui-runner.dll" />
+    <Content Include="NUnit\bin\nunit-gui.tests.dll" />
+    <Content Include="NUnit\bin\nunit-x86.exe" />
+    <Content Include="NUnit\bin\nunit.core.dll" />
+    <Content Include="NUnit\bin\nunit.core.extensions.dll" />
+    <Content Include="NUnit\bin\nunit.core.interfaces.dll" />
+    <Content Include="NUnit\bin\nunit.core.tests.dll" />
+    <Content Include="NUnit\bin\nunit.exe" />
+    <Content Include="NUnit\bin\nunit.extensions.tests.dll" />
+    <Content Include="NUnit\bin\nunit.fixtures.dll" />
+    <Content Include="NUnit\bin\nunit.fixtures.tests.dll" />
+    <Content Include="NUnit\bin\nunit.framework.dll" />
+    <Content Include="NUnit\bin\nunit.framework.extensions.dll" />
+    <Content Include="NUnit\bin\nunit.framework.tests.dll" />
+    <Content Include="NUnit\bin\nunit.framework.xml" />
+    <Content Include="NUnit\bin\nunit.mocks.dll" />
+    <Content Include="NUnit\bin\nunit.mocks.tests.dll" />
+    <Content Include="NUnit\bin\nunit.uikit.dll" />
+    <Content Include="NUnit\bin\nunit.uikit.tests.dll" />
+    <Content Include="NUnit\bin\nunit.util.dll" />
+    <Content Include="NUnit\bin\nunit.util.tests.dll" />
+    <Content Include="NUnit\bin\NUnitFitTests.html" />
+    <Content Include="NUnit\bin\runFile.exe" />
+    <Content Include="NUnit\bin\Success.jpg" />
+    <Content Include="NUnit\bin\test-assembly.dll" />
+    <Content Include="NUnit\bin\test-utilities.dll" />
+    <Content Include="NUnit\bin\timing-tests.dll" />
+    <Content Include="NUnit\Logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NAnt\bin\NAnt.exe.config" />
+    <None Include="NAnt\schema\nant.xsd" />
+    <None Include="NAnt\Tasks\Contrib\MSITaskErrors.mst" />
+    <None Include="NAnt\Tasks\Contrib\MSITaskTemplate.msi" />
+    <None Include="NAnt\Tasks\Contrib\MSMTaskErrors.mst" />
+    <None Include="NAnt\Tasks\Contrib\MSMTaskTemplate.msm" />
+    <None Include="NCover\Coverage.Log" />
+    <None Include="NCover\Coverage.old.Log" />
+    <None Include="NCover\Microsoft.VC80.CRT.manifest" />
+    <None Include="NCover\NCover.Console.exe.config" />
+    <None Include="NCover\NCoverExplorer.Extras\CruiseControl.Net\dashboard.config" />
+    <None Include="NCover\NCoverExplorer.Extras\examples\example.build" />
+    <None Include="NCover\NCoverExplorer.Extras\examples\example.proj" />
+    <None Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\NCoverExplorer.MSBuildTasks.ndoc" />
+    <None Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NCoverExplorer.NAntTasks.resharperoptions" />
+    <None Include="NCover\NCoverExplorer.Extras\NCoverExplorer.Tasks.build" />
+    <None Include="NCover\NCoverExplorer.Extras\release.cmd" />
+    <None Include="NCover\NCoverExplorer\ConsoleConfig.xsd" />
+    <None Include="NCover\NCoverExplorer\ConsoleExample.config" />
+    <None Include="NCover\NCoverExplorer\LicencePersonal.rtf" />
+    <None Include="NCover\NCoverExplorer\NCoverExplorer.exe.config" />
+    <None Include="NUnit\bin\clr.bat" />
+    <None Include="NUnit\bin\nunit-console-x86.exe.config" />
+    <None Include="NUnit\bin\nunit-console.exe.config" />
+    <None Include="NUnit\bin\nunit-x86.exe.config" />
+    <None Include="NUnit\bin\nunit.exe.config" />
+    <None Include="NUnit\bin\NUnitTests.config" />
+    <None Include="NUnit\bin\NUnitTests.nunit" />
+    <None Include="NUnit\bin\runFile.exe.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NCover\NCoverExplorer.Extras\Common\Enumerations.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\Common\NCoverUtilities.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\Common\PathSearch.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\AssemblyInfo.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\NCover.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\NCoverExplorer.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\NUnitProject.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\Properties\Resources.Designer.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\AssemblyInfo.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NCoverExplorerTask.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NCoverTask.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NDoc2Task.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\NUnitProjectTask.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\Types\CoverageExclusion.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\Types\CoverageExclusionCollection.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\Types\ModuleThreshold.cs" />
+    <Compile Include="NCover\NCoverExplorer.Extras\NCoverExplorer.NAntTasks\Types\ModuleThresholdCollection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NCover\NCoverExplorer.Extras\NCoverExplorer.MSBuildTasks\Properties\Resources.resx" />
+  </ItemGroup>
+</Project>

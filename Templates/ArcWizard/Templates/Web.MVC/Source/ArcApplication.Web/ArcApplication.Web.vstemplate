@@ -1,0 +1,48 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ArcApplication.Web</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ArcApplication.Web</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ArcApplication.Web.csproj" File="ArcApplication.Web.csproj" ReplaceParameters="true">
+      <Folder Name="content" TargetFolderName="content">
+        <Folder Name="images" TargetFolderName="images" />
+        <Folder Name="scripts" TargetFolderName="scripts">
+          <ProjectItem ReplaceParameters="true" TargetFileName="jquery-1.3.2.min.js">jquery-1.3.2.min.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MicrosoftAjax.js">MicrosoftAjax.js</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="MicrosoftMvcAjax.js">MicrosoftMvcAjax.js</ProjectItem>
+        </Folder>
+        <Folder Name="styles" TargetFolderName="styles" />
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx">Default.aspx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx.cs">Default.aspx.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax">Global.asax</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Global.asax.cs">Global.asax.cs</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties" />
+      <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+      <Folder Name="Views" TargetFolderName="Views">
+        <Folder Name="Home" TargetFolderName="Home">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Index.spark">Index.spark</ProjectItem>
+        </Folder>
+        <Folder Name="Shared" TargetFolderName="Shared">
+          <ProjectItem ReplaceParameters="true" TargetFileName="Application.spark">Application.spark</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+<WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.SourceProjectWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

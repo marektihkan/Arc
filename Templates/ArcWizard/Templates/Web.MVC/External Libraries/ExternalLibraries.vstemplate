@@ -1,0 +1,126 @@
+<VSTemplate Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>ExternalLibraries</Name>
+    <Description>Arc application external libraries.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ExternalLibraries</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ExternalLibraries.csproj" File="ExternalLibraries.csproj">
+      <Folder Name="Arc" TargetFolderName="Arc">
+        <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Domain.dll">Arc.Domain.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Domain.xml">Arc.Domain.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.dll">Arc.Infrastructure.dll</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.xml">Arc.Infrastructure.xml</ProjectItem>
+        <ProjectItem ReplaceParameters="false" TargetFileName="AutoMapper.dll">AutoMapper.dll</ProjectItem>
+        <Folder Name="Data" TargetFolderName="Data">
+          <Folder Name="NHibernate" TargetFolderName="NHibernate">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Antlr3.Runtime.dll">Antlr3.Runtime.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Data.NHibernate.dll">Arc.Infrastructure.Data.NHibernate.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Data.NHibernate.XML">Arc.Infrastructure.Data.NHibernate.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Castle.Core.dll">Castle.Core.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Castle.Core.xml">Castle.Core.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Castle.DynamicProxy2.dll">Castle.DynamicProxy2.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Castle.DynamicProxy2.xml">Castle.DynamicProxy2.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="FluentNHibernate.dll">FluentNHibernate.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="FluentNHibernate.xml">FluentNHibernate.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Iesi.Collections.dll">Iesi.Collections.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Iesi.Collections.xml">Iesi.Collections.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="log4net.dll">log4net.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="log4net.xml">log4net.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="NHibernate.ByteCode.Castle.dll">NHibernate.ByteCode.Castle.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="NHibernate.ByteCode.Castle.xml">NHibernate.ByteCode.Castle.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="NHibernate.dll">NHibernate.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="NHibernate.xml">NHibernate.xml</ProjectItem>
+          </Folder>
+        </Folder>
+        <Folder Name="Logging" TargetFolderName="Logging">
+          <Folder Name="Log4Net" TargetFolderName="Log4Net">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Logging.Log4Net.dll">Arc.Infrastructure.Logging.Log4Net.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Logging.Log4Net.XML">Arc.Infrastructure.Logging.Log4Net.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="log4net.dll">log4net.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="log4net.xml">log4net.xml</ProjectItem>
+          </Folder>
+        </Folder>
+        <Folder Name="Presentation" TargetFolderName="Presentation">
+          <Folder Name="Mvc" TargetFolderName="Mvc">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Presentation.Mvc.dll">Arc.Infrastructure.Presentation.Mvc.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Presentation.Mvc.XML">Arc.Infrastructure.Presentation.Mvc.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="System.Web.Mvc.dll">System.Web.Mvc.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="System.Web.Mvc.xml">System.Web.Mvc.xml</ProjectItem>
+          </Folder>
+          <Folder Name="Mvp" TargetFolderName="Mvp">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Presentation.Mvp.dll">Arc.Infrastructure.Presentation.Mvp.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Presentation.Mvp.XML">Arc.Infrastructure.Presentation.Mvp.XML</ProjectItem>
+          </Folder>
+        </Folder>
+        <Folder Name="ServiceLocators" TargetFolderName="ServiceLocators">
+          <Folder Name="CastleWindsor" TargetFolderName="CastleWindsor">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Dependencies.CastleWindsor.dll">Arc.Infrastructure.Dependencies.CastleWindsor.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Dependencies.CastleWindsor.XML">Arc.Infrastructure.Dependencies.CastleWindsor.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Castle.Core.dll">Castle.Core.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Castle.Core.xml">Castle.Core.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Castle.MicroKernel.dll">Castle.MicroKernel.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Castle.MicroKernel.xml">Castle.MicroKernel.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Castle.Windsor.dll">Castle.Windsor.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Castle.Windsor.xml">Castle.Windsor.xml</ProjectItem>
+          </Folder>
+          <Folder Name="Ninject" TargetFolderName="Ninject">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Dependencies.Ninject.dll">Arc.Infrastructure.Dependencies.Ninject.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Dependencies.Ninject.XML">Arc.Infrastructure.Dependencies.Ninject.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Ninject.Core.dll">Ninject.Core.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Ninject.Core.xml">Ninject.Core.xml</ProjectItem>
+          </Folder>
+          <Folder Name="StructureMap" TargetFolderName="StructureMap">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Dependencies.StructureMap.dll">Arc.Infrastructure.Dependencies.StructureMap.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Dependencies.StructureMap.XML">Arc.Infrastructure.Dependencies.StructureMap.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="StructureMap.dll">StructureMap.dll</ProjectItem>
+          </Folder>
+        </Folder>
+        <Folder Name="Validation" TargetFolderName="Validation">
+          <Folder Name="EnterpriseLibrary" TargetFolderName="EnterpriseLibrary">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Validation.EnterpriseLibrary.dll">Arc.Infrastructure.Validation.EnterpriseLibrary.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Validation.EnterpriseLibrary.XML">Arc.Infrastructure.Validation.EnterpriseLibrary.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Microsoft.Practices.EnterpriseLibrary.Common.dll">Microsoft.Practices.EnterpriseLibrary.Common.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Microsoft.Practices.EnterpriseLibrary.Common.xml">Microsoft.Practices.EnterpriseLibrary.Common.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Microsoft.Practices.EnterpriseLibrary.Validation.dll">Microsoft.Practices.EnterpriseLibrary.Validation.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Microsoft.Practices.EnterpriseLibrary.Validation.xml">Microsoft.Practices.EnterpriseLibrary.Validation.xml</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Microsoft.Practices.ObjectBuilder2.dll">Microsoft.Practices.ObjectBuilder2.dll</ProjectItem>
+          </Folder>
+          <Folder Name="FluentValidation" TargetFolderName="FluentValidation">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Arc.Infrastructure.Validation.FluentValidation.dll">Arc.Infrastructure.Validation.FluentValidation.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Arc.Infrastructure.Validation.FluentValidation.XML">Arc.Infrastructure.Validation.FluentValidation.XML</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="FluentValidation.dll">FluentValidation.dll</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="FluentValidation.xml">FluentValidation.xml</ProjectItem>
+          </Folder>
+        </Folder>
+      </Folder>
+      <Folder Name="NUnit" TargetFolderName="NUnit">
+        <ProjectItem>nunit.framework.dll</ProjectItem>
+        <ProjectItem>nunit.framework.xml</ProjectItem>
+		<ProjectItem>nunit.mocks.dll</ProjectItem>
+		<ProjectItem>pnunit.framework.dll</ProjectItem>
+      </Folder>
+      <Folder Name="RhinoMocks" TargetFolderName="RhinoMocks">
+        <ProjectItem>Rhino.Mocks.dll</ProjectItem>
+        <ProjectItem>Rhino.Mocks.xml</ProjectItem>
+      </Folder>
+      <Folder Name="Spark" TargetFolderName="Spark">
+        <ProjectItem>Spark.dll</ProjectItem>
+        <ProjectItem>Spark.Web.Mvc.dll</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+        <Assembly>ArcWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=241f56c91e230eb9, Custom=null</Assembly>
+        <FullClassName>ArcWizard.ExternalLibrariesWizard</FullClassName>
+    </WizardExtension>
+</VSTemplate>

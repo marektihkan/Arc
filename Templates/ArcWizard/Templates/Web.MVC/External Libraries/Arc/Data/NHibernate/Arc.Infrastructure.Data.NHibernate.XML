@@ -1,0 +1,847 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Data.NHibernate</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.BaseRepository`1">
+            <summary>
+            Base repository for NHibernate aware repositories.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.BaseRepository`1.#ctor(Arc.Infrastructure.Data.NHibernate.INHibernateRepository{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.BaseRepository`1"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.DataConfiguration">
+            <summary>
+            Configuration for data access with NHibernate.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.DataConfiguration.Default(FluentNHibernate.Cfg.FluentConfiguration)">
+            <summary>
+            Creates default data configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.DataConfiguration.WithValidation(FluentNHibernate.Cfg.FluentConfiguration)">
+            <summary>
+            Creates data configuration with validation listeners.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.DataConfiguration.Load(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Loads data configuration to service locator.
+            </summary>
+            <param name="handler">The service locator.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.DataConfiguration.NHConfiguration">
+            <summary>
+            Gets or sets the NHibernate configuration.
+            </summary>
+            <value>The NHibernate configuration.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Alias">
+            <summary>
+            Alias factory.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Alias.For``1">
+            <summary>
+            Creates alias for specified entity type.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Alias.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Alias.From``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Creates alias from specified property of entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.IAlias">
+            <summary>
+            Alias for collection member or criteria.
+            </summary>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.FluentCriteria.IAlias.AliasName">
+            <summary>
+            Gets or sets the name of the alias.
+            </summary>
+            <value>The name of the alias.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.FluentCriteria.IAlias.AliasPath">
+            <summary>
+            Gets or sets the alias path.
+            </summary>
+            <value>The alias path.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.AliasSyntax">
+            <summary>
+            Syntax for creating alias with path.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.AliasSyntax.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.AliasSyntax"/> class.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.AliasSyntax.For``1">
+            <summary>
+            Creates alias for specified entity type.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Alias.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Criteria">
+            <summary>
+            Helper class for creating criteria.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Criteria.With``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Creates criterion with specified type and criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Criterion.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Criteria.For``1">
+            <summary>
+            Creates empty criteria for specified type.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Empty criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Criteria.For``1(System.Linq.Expressions.Expression{System.Func{System.Object}})">
+            <summary>
+            Creates empty criteria for specified type with alias.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="alias">The alias.</param>
+            <returns>Empty criteria.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaExtensions">
+            <summary>
+            Extensions for criteria.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaExtensions.With``1(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Adds the specified criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaExtensions.With``1(NHibernate.Criterion.DetachedCriteria,Arc.Domain.Specifications.ISpecification{``0})">
+            <summary>
+            Adds the specified specification.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="criteria">The criteria.</param>
+            <param name="specification">The specification.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaJoinExtensions">
+            <summary>
+            Joining extensions for criteria.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaJoinExtensions.Join(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{System.Object}},NHibernate.SqlCommand.JoinType)">
+            <summary>
+            Adds join to the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <param name="alias">The alias.</param>
+            <param name="joinType">Type of the join.</param>
+            <returns>Criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaJoinExtensions.InnerJoin(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{System.Object}})">
+            <summary>
+            Adds inner join to the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <param name="alias">The alias.</param>
+            <returns>Criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaJoinExtensions.LeftJoin(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{System.Object}})">
+            <summary>
+            Adds left outer join to the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <param name="alias">The alias.</param>
+            <returns>Criteria</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaJoinExtensions.RightJoin(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{System.Object}})">
+            <summary>
+            Adds right outer join to the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <param name="alias">The alias.</param>
+            <returns>Criteria</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaJoinExtensions.FullJoin(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{System.Object}})">
+            <summary>
+            Adds full join to the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <param name="alias">The alias.</param>
+            <returns>Criteria</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaOrderingExtensions">
+            <summary>
+            Criteria extensions for ordering.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaOrderingExtensions.AscendingOrdering``1(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Adds ascending ordering.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.CriteriaOrderingExtensions.DescendingOrdering``1(NHibernate.Criterion.DetachedCriteria,System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Adds descending ordering.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Ordering">
+            <summary>
+            Criteria ordering.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Ordering.Ascending``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Creates ascending ordering with specified property.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.FluentCriteria.Ordering.Descending``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Creates descending ordering with specified property.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.INHibernateConfiguration">
+            <summary>
+            Configuration for NHibernate.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateConfiguration.Default">
+            <summary>
+            Resets configuration to default.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateConfiguration.Configure(System.Action{FluentNHibernate.Cfg.FluentConfiguration})">
+            <summary>
+            Configures the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateConfiguration.BuildSessionFactory">
+            <summary>
+            Builds the session factory.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.INHibernateConfiguration.Configuration">
+            <summary>
+            Gets or sets the configuration.
+            </summary>
+            <value>The configiuration.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.INHibernateRepository">
+            <summary>
+            Repository with NHibernate spesifics.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.GetEntityBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Entity which matches to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.GetEntityBy``1(NHibernate.Criterion.DetachedCriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Entity which match to criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.GetEntitiesBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>List of entities which matches to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.GetEntitiesBy``1(NHibernate.Criterion.DetachedCriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Entities which match to criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.CreateCriteria``1">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.Count(NHibernate.Criterion.DetachedCriteria)">
+            <summary>
+            Counts results of the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>Count of results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.Count(NHibernate.ICriteria)">
+            <summary>
+            Counts results of the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>Count of results.</returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.INHibernateRepository.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The session.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.INHibernateRepository`1">
+            <summary>
+            Repository with NHibernate specifics.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository`1.GetEntityBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>Entity which matches to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository`1.GetEntitiesBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>List of entities which matches to specified criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.INHibernateRepository`1.CreateCriteria">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Listeners.BaseValidationListener">
+            <summary>
+            Base class for integrating validation to NHibernate.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Listeners.BaseValidationListener.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.Listeners.BaseValidationListener"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Listeners.BaseValidationListener.#ctor(Arc.Infrastructure.Validation.IValidationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.Listeners.BaseValidationListener"/> class.
+            </summary>
+            <param name="validation">The validation service.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Listeners.BaseValidationListener.Validate(System.Object,System.Type)">
+            <summary>
+            Validates the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="type">The type.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Listeners.PreInsertEventListener">
+            <summary>
+            NHibernate pre insert event listener for validation.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Listeners.PreInsertEventListener.OnPreInsert(NHibernate.Event.PreInsertEvent)">
+            <summary>
+            Validates entity.
+            </summary>
+            <param name="event"></param>
+            <returns>False; It should not be vetoed.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Listeners.PreUpdateEventListener">
+            <summary>
+            NHibernate pre update event lister for validation.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Listeners.PreUpdateEventListener.OnPreUpdate(NHibernate.Event.PreUpdateEvent)">
+            <summary>
+            Validates entity.
+            </summary>
+            <param name="event"></param>
+            <returns>False; It should not be vetoed.</returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration">
+            <summary>
+            Configuration for NHibernate.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration.#ctor(FluentNHibernate.Cfg.FluentConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration.Default">
+            <summary>
+            Resets configuration to default.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration.Configure(System.Action{FluentNHibernate.Cfg.FluentConfiguration})">
+            <summary>
+            Configures the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration.BuildSessionFactory">
+            <summary>
+            Builds the session factory.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.NHibernateConfiguration.Configuration">
+            <summary>
+            Gets or sets the configuration.
+            </summary>
+            <value>The configiuration.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Repository`1">
+            <summary>
+            Repository.
+            </summary>
+            <typeparam name="TEntity">The type of the entity.</typeparam>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.#ctor(Arc.Infrastructure.Data.IUnitOfWork)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.Repository`1"/> class.
+            </summary>
+            <param name="unitOfWork">The unit of work.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityById(System.Object)">
+            <summary>
+            Gets the entity by identity.
+            </summary>
+            <param name="identity">The identity.</param>
+            <returns>
+            Entity which matches to specified identity.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityById``1(System.Object)">
+            <summary>
+            Gets the entity by identity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="identity">The identity.</param>
+            <returns>
+            Entity which matches to specified identity.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            Entity which matches to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            Entity which matches to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetAllEntities">
+            <summary>
+            Gets all entities.
+            </summary>
+            <returns>List of all entities.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetAllEntities``1">
+            <summary>
+            Gets all entities.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>List of all entities of specified type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntitiesBy(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            List of entities which matches to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntitiesBy``1(NHibernate.ICriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>
+            List of entities which matches to specified criteria.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityBy``1(Arc.Domain.Specifications.ISpecification{``0})">
+            <summary>
+            Gets the entity by specification.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="specification">The specification.</param>
+            <returns>Entity which match to specification.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntitiesBy``1(Arc.Domain.Specifications.ISpecification{``0})">
+            <summary>
+            Gets the entities by specification.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="specification">The specification.</param>
+            <returns>
+            List of entities which match to specification.
+            </returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntityBy``1(NHibernate.Criterion.DetachedCriteria)">
+            <summary>
+            Gets the entity by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Entity which match to criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.GetEntitiesBy``1(NHibernate.Criterion.DetachedCriteria)">
+            <summary>
+            Gets the entities by criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="criteria">The criteria.</param>
+            <returns>Entities which match to criteria.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.CreateCriteria">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.CreateCriteria``1">
+            <summary>
+            Creates the criteria.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <returns>Criteria for specified entity type.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Count(NHibernate.Criterion.DetachedCriteria)">
+            <summary>
+            Counts results of the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>Count of results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Count``1(Arc.Domain.Specifications.ISpecification{``0})">
+            <summary>
+            Counts results of the specified specification.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="specification">The specification.</param>
+            <returns>Count of results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Count(NHibernate.ICriteria)">
+            <summary>
+            Counts results of the specified criteria.
+            </summary>
+            <param name="criteria">The criteria.</param>
+            <returns>Count of results.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Save(`0)">
+            <summary>
+            Saves the specified entity.
+            </summary>
+            <param name="savable">The savable entity.</param>
+            <returns>Saved entity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Save``1(``0)">
+            <summary>
+            Saves the specified entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="savable">The savable entity.</param>
+            <returns>Saved entity.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Delete(`0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <param name="deletable">The deletable entity.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Delete``1(``0)">
+            <summary>
+            Deletes the specified entity.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="deletable">The deletable entity.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Clear">
+            <summary>
+            Clears unit of work.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Repository`1.Evict(System.Object)">
+            <summary>
+            Evicts the specified evitable.
+            </summary>
+            <param name="evitable">The evitable.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.Repository`1.UnitOfWork">
+            <summary>
+            Gets the unit of work.
+            </summary>
+            <value>The unit of work.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.Repository`1.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The session.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Specifications.CriterionConverter">
+            <summary>
+            Converts specifications to NHibernate criterion.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Specifications.CriterionConverter.Convert``1(Arc.Domain.Specifications.ISpecification{``0})">
+            <summary>
+            Converts the specified specification to criterion.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="specification">The specification.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Specifications.CriterionConverter.Convert``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Converts the specified expression to criterion.
+            </summary>
+            <typeparam name="T">Type of entity.</typeparam>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Specifications.MemberFinder">
+            <summary>
+            Finds member path from expression.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Specifications.MemberFinder.FindFromExpression(System.Linq.Expressions.Expression)">
+            <summary>
+            Finds member path from expression.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>Member path.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Specifications.MemberFinder.IsPropertyExpression(System.Linq.Expressions.Expression)">
+            <summary>
+            Determines whether the specified expression is property expression.
+            </summary>
+            <param name="expression">The expression.</param>
+            <returns>
+            	<c>true</c> if the specified expression is property expression; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.Transaction">
+            <summary>
+            NHibernate transaction adapter.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.#ctor(NHibernate.ITransaction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.Transaction"/> class.
+            </summary>
+            <param name="transaction">The NHibernate transaction.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Commit">
+            <summary>
+            Commits this transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Rollback">
+            <summary>
+            Rollbacks this transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.Transaction.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.Transaction.IsActive">
+            <summary>
+            Gets a value indicating whether this transaction is active.
+            </summary>
+            <value>
+            	<c>true</c> if this transaction is active; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.UnitOfWork">
+            <summary>
+            NHibernate unit of work adapter.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.#ctor(NHibernate.ISession,Arc.Infrastructure.Data.IUnitOfWorkFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.UnitOfWork"/> class.
+            </summary>
+            <param name="session">The NHibernate session.</param>
+            <param name="factory">The factory.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.BeginTransaction">
+            <summary>
+            Begins the transaction.
+            </summary>
+            <returns>Transaction.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.TransactionalFlush">
+            <summary>
+            Flushes changes in transaction.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWork.RealSession">
+            <summary>
+            Gets or sets the real session.
+            </summary>
+            <value>The real session.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWork.Session">
+            <summary>
+            Gets the NHibernate session.
+            </summary>
+            <value>The NHibernate session.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWork.IsInTransaction">
+            <summary>
+            Gets a value indicating whether this instance is in transaction.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is in transaction; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory">
+            <summary>
+            Unit of work factory.
+            </summary>
+        </member>
+        <member name="F:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.UnitOfWorkKey">
+            <summary>
+            Key for registering unit of work to registry.
+            </summary>
+        </member>
+        <member name="F:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.SessionKey">
+            <summary>
+            Key for registring NHibernate session to registry.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.#ctor(Arc.Infrastructure.Registry.IRegistry,NHibernate.ISessionFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory"/> class.
+            </summary>
+            <param name="registry">The registry.</param>
+            <param name="factory">The NHibernate session factory.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.Create">
+            <summary>
+            Creates new unit of work or returns existing.
+            </summary>
+            <returns>New or existing unit of work.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.Release(Arc.Infrastructure.Data.IUnitOfWork)">
+            <summary>
+            Releases the specified unit of work.
+            </summary>
+            <param name="releasable">The releasable unit of work.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.CurrentUnitOfWork">
+            <summary>
+            Gets the current unit of work.
+            </summary>
+            <value>The current unit of work.</value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.IsUnitOfWorkOpen">
+            <summary>
+            Gets a value indicating whether current unit of work is open.
+            </summary>
+            <value>
+            	<c>true</c> if current unit of work is open; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Arc.Infrastructure.Data.NHibernate.UnitOfWorkFactory.CurrentSession">
+            <summary>
+            Gets the current session.
+            </summary>
+            <value>The current session.</value>
+        </member>
+    </members>
+</doc>

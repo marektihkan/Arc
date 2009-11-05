@@ -11,7 +11,7 @@
       <exec program="${path.msbuild.console}">
         <arg value="${project.source.path}/${project.publishable.value}/${project.publishable.value}.csproj" />
         <arg value="/target:_CopyWebApplication" />
-        <arg value="/property:$safeprojectname$=${project.config}" />
+        <arg value="/property:Configuration=${project.config}" />
         <arg value='/property:OutDir="${build.deploy.path}\${project.publishable.value}\\"' />
         <arg value='/property:WebProjectOutputDir="${build.deploy.path}\${project.publishable.value}\\"' />
         <arg value="/verbosity:${verbosity}" />

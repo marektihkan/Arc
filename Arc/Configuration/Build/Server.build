@@ -3,10 +3,12 @@
   <description />
 
   <!-- Load project settings -->
-  <include buildfile="Build.local.xml" />
+  <include buildfile="Build.local.xml" if="${file::exists('Build.local.xml')}" />
+  <include buildfile="../../../../Configurations/Arc.local.xml" if="${file::exists('../../../../Configurations/Arc.local.xml')}" />
   <include buildfile="Build.settings.xml" />
   <include buildfile="Build.environment.xml" />
   <include buildfile="Build.environment.local.xml" if="${file::exists('Build.environment.local.xml')}" />
+  <include buildfile="../../../../Configurations/Arc.environment.local.xml" if="${file::exists('../../../../Configurations/Arc.environment.local.xml')}" />
     
   <!-- Load external tasks -->
   <loadtasks assembly="${path.nantcontrib.tasks}" />

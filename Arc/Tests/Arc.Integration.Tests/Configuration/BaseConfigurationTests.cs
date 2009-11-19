@@ -79,6 +79,8 @@ namespace Arc.Integration.Tests.Configuration
             Assert.That(ServiceLocator.Resolve<IUnitOfWork>(), Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<INHibernateRepository<DomainEntity>>(), Is.Not.Null);
             Assert.That(ServiceLocator.Resolve<IRepository<DomainEntity>>(), Is.Not.Null);
+            Assert.That(ServiceLocator.Resolve<IRepository>(), Is.Not.Null);
+            Assert.That(ServiceLocator.Resolve<INHibernateRepository<DomainEntity>>(), Is.Not.Null);
         }
         
         private FluentConfiguration BuildNHibernateConfiguration()

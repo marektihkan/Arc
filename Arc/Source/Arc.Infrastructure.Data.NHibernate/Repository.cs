@@ -28,7 +28,7 @@ namespace Arc.Infrastructure.Data.NHibernate
     /// <summary>
     /// Repository.
     /// </summary>
-    public class Repository : IRepository
+    public class Repository : IRepository, INHibernateRepository
     {
         private readonly IUnitOfWork _unitOfWork;
 

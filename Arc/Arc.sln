@@ -11,21 +11,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C20F3F2-0E2E-4F58-8E4F-A20E921A7728}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{D9611E44-AF99-453C-A26D-8348B7F074ED}"
-	ProjectSection(SolutionItems) = preProject
-		Configuration\Build\Build.analyze.xml = Configuration\Build\Build.analyze.xml
-		Configuration\Build\Build.archive.xml = Configuration\Build\Build.archive.xml
-		Configuration\Build\Build.compile.xml = Configuration\Build\Build.compile.xml
-		Configuration\Build\Build.documentation.xml = Configuration\Build\Build.documentation.xml
-		Configuration\Build\Build.environment.xml = Configuration\Build\Build.environment.xml
-		Configuration\Build\Build.local.xml.template = Configuration\Build\Build.local.xml.template
-		Configuration\Build\Build.prepare.xml = Configuration\Build\Build.prepare.xml
-		Configuration\Build\Build.settings.xml = Configuration\Build\Build.settings.xml
-		Configuration\Build\Build.test.xml = Configuration\Build\Build.test.xml
-		Configuration\Build\Default.build = Configuration\Build\Default.build
-		Configuration\Build\Server.build = Configuration\Build\Server.build
-		Configuration\Build\Solution.Documentation.shfb = Configuration\Build\Solution.Documentation.shfb
-		Configuration\Build\Solution.FxCop = Configuration\Build\Solution.FxCop
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{9C3AA209-6672-45E4-8D4B-1FCA795A8168}"
 EndProject

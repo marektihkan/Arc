@@ -44,13 +44,13 @@ namespace Arc.Learning.Tests
                     .AddConcreteType<ObjectFactoryImpl>()
                     .CacheBy(InstanceScope.Singleton));
 
-            var instance = new ConstructorInstance<object>(context =>
-            {
-                wasFactoryMethodCalled = true;
-                return context.GetInstance<IObjectFactory>().Create();
-            });
+            //var instance = new ConstructorInstance<object>(context =>
+            //{
+            //    wasFactoryMethodCalled = true;
+            //    return context.GetInstance<IObjectFactory>().Create();
+            //});
 
-            container.SetDefault(typeof(ICreatedObject), instance);
+            //container.SetDefault(typeof(ICreatedObject), instance);
 
             var actual = container.GetInstance<ICreatedObject>();
 
@@ -71,13 +71,13 @@ namespace Arc.Learning.Tests
 
             container.Configure(x => x.ForRequestedType(typeof(ICreatedObject)).CacheBy(InstanceScope.Singleton));
 
-            var instance = new ConstructorInstance<object>(context =>
-            {
-                wasFactoryMethodCalledCount++;
-                return context.GetInstance<IObjectFactory>().Create();
-            });
+            //var instance = new ConstructorInstance<object>(context =>
+            //{
+            //    wasFactoryMethodCalledCount++;
+            //    return context.GetInstance<IObjectFactory>().Create();
+            //});
 
-            container.SetDefault(typeof(ICreatedObject), instance);
+            //container.SetDefault(typeof(ICreatedObject), instance);
 
             var first = container.GetInstance<ICreatedObject>();
             var second = container.GetInstance<ICreatedObject>();

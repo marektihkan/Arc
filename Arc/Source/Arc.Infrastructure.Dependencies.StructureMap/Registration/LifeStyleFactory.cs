@@ -17,7 +17,7 @@
 #endregion
 
 using Arc.Infrastructure.Dependencies.Registration;
-using StructureMap.Attributes;
+using StructureMap;
 
 namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
 {

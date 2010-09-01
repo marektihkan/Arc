@@ -17,7 +17,6 @@
 #endregion
 
 using Arc.Infrastructure.Dependencies.Registration;
-using StructureMap.Pipeline;
 
 namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
 {
@@ -32,10 +31,8 @@ namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
         {
             ServiceLocator.Container.Configure(x =>
                 x.ForRequestedType(Registration.ServiceType)
-                    .CacheBy(LifeStyleFactory.Create(Registration.Scope)));
-
-            var instance = new ConstructorInstance<object>(context => Registration.Factory.Invoke(ServiceLocator));
-            ServiceLocator.Container.SetDefault(Registration.ServiceType, instance);
+                    .LifecycleIs(LifeStyleFactory.Create(Registration.Scope))
+                    .Use(context => Registration.Factory.Invoke(ServiceLocator)));
         }
     }
 }

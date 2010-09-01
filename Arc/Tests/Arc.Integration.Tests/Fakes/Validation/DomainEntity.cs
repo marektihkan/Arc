@@ -1,6 +1,6 @@
 using Arc.Domain.Identity;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
-using NHibernate.Validator;
+using NHibernate.Validator.Constraints;
 
 namespace Arc.Integration.Tests.Fakes.Validation
 {

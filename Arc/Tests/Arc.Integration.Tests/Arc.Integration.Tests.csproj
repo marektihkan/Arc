@@ -88,9 +88,9 @@
     <Reference Include="NHibernate.Linq">
       <HintPath>..\..\lib\nhibernate\Required_Bins\NHibernate.Linq.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.Validator, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
+    <Reference Include="NHibernate.Validator, Version=1.2.0.3001, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\External Libraries\NHibernateValidator\NHibernate.Validator.dll</HintPath>
+      <HintPath>..\..\lib\nhibernate.validator\bin\net-3.5\NHibernate.Validator.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\lib\ninject\net-3.5\Ninject.dll</HintPath>

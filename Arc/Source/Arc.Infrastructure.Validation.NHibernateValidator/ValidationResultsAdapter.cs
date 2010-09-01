@@ -8,16 +8,16 @@ namespace Arc.Infrastructure.Validation.NHibernateValidator
 {
     public class ValidationResultsAdapter : IValidationResults
     {
-        private readonly InvalidValue[] _values;
+        private readonly IEnumerable<InvalidValue> _values;
 
-        public ValidationResultsAdapter(InvalidValue[] values)
+        public ValidationResultsAdapter(IEnumerable<InvalidValue> values)
         {
             _values = values;
         }
 
         public bool IsValid
         {
-            get { return _values.Length == 0; }
+            get { return _values.Count() == 0; }
         }
 
         public string GetFirstMessageFor(string tag)

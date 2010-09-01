@@ -1,10 +1,10 @@
 using Arc.Integration.Tests.Fakes.Model.Services;
 using Arc.Integration.Tests.Fakes.Presentation.Mvp;
-using Ninject.Core;
+using Ninject.Modules;
 
 namespace Arc.Integration.Tests.Fakes.DependencyInjection
 {
-    public class ConfigurationModule : StandardModule
+    public class ConfigurationModule : NinjectModule
     {
         public const string ValidModuleName = "Arc.Integration.Tests.Fakes.DependencyInjection.ConfigurationModule, Arc.Integration.Tests";
         public const string InvalidModuleName = "Arc.Integration.Tests.Fakes.DependencyInjection.NotFoundConfigurationModule, Arc.Integration.Tests";

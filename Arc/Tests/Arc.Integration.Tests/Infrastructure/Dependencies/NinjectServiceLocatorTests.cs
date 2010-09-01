@@ -2,7 +2,7 @@ using System;
 using Arc.Infrastructure.Dependencies;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
-using Ninject.Core;
+using Ninject;
 using NUnit.Framework;
 using Rhino.Mocks;
 

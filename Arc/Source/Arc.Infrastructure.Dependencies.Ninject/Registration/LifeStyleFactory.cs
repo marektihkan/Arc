@@ -16,30 +16,32 @@
 //
 #endregion
 
+using System;
 using System.Web;
 using Arc.Infrastructure.Dependencies.Registration;
-using Ninject.Core.Behavior;
+using Ninject.Activation;
+using Ninject.Infrastructure;
 
 namespace Arc.Infrastructure.Dependencies.Ninject.Registration
 {
     internal static class LifeStyleFactory
     {
-        public static IBehavior Create(ServiceLifeStyle lifeStyle)
+        public static Func<IContext, object> Create(ServiceLifeStyle lifeStyle)
         {
             switch (lifeStyle)
             {
                 case ServiceLifeStyle.Transient:
-                    return new TransientBehavior();
+                    return StandardScopeCallbacks.Transient;
                 case ServiceLifeStyle.Singleton:
-                    return new SingletonBehavior();
+                    return StandardScopeCallbacks.Singleton;
                 case ServiceLifeStyle.OnePerThread:
-                    return new OnePerThreadBehavior();
+                    return StandardScopeCallbacks.Thread;
                 case ServiceLifeStyle.OnePerRequest:
-                    return new OnePerRequestBehavior();
+                    return StandardScopeCallbacks.Request;
                 case ServiceLifeStyle.OnePerRequestOrThread:
-                    return (HttpContext.Current != null) ? (IBehavior) new OnePerRequestBehavior() : new OnePerThreadBehavior();
+                    return (HttpContext.Current != null) ? StandardScopeCallbacks.Request : StandardScopeCallbacks.Thread;
                 default:
-                    return new TransientBehavior();
+                    return StandardScopeCallbacks.Transient;
             }           
         }
     }

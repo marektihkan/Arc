@@ -17,11 +17,14 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
+using Arc.Domain.Dsl;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Ninject.Registration;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Utilities;
-using Ninject.Core;
+using Ninject;
+using Ninject.Modules;
 
 namespace Arc.Infrastructure.Dependencies.Ninject
 {
@@ -58,11 +61,12 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// <exception cref="ArgumentException">moduleName</exception>
         public void Load(string moduleName)
         {
-            var moduleType = Find.TypeWithInterface<IModule>(moduleName);
-            var configuration = ResolveProvider<IModule>.WithRealType(moduleType);
-                
-            if (!Kernel.Components.ModuleManager.IsLoaded(configuration))
-                Kernel.Load(configuration);
+            var moduleType = Find.TypeWithInterface<INinjectModule>(moduleName);
+            var configuration = ResolveProvider<INinjectModule>.WithRealType(moduleType);
+
+            if (Kernel.HasModule(configuration.Name)) return;
+
+            Kernel.Load(configuration);
         }
 
         /// <summary>
@@ -72,10 +76,7 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// <param name="moduleNames">The module names.</param>
         public void Load(params string[] moduleNames)
         {
-            foreach (var module in moduleNames)
-            {
-                Load(module);
-            }
+            moduleNames.Each(Load);
         }
 
         /// <summary>
@@ -126,7 +127,13 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// <returns></returns>
         public object Resolve(Type service, IParameters parameters)
         {
-            return Kernel.Get(service, global::Ninject.Core.Parameters.With.Parameters.ConstructorArguments(parameters.GetArguments()));
+            var arguments = new List<global::Ninject.Parameters.IParameter>();
+            parameters.Arguments.Each(argument =>
+            {
+                var parameter = new global::Ninject.Parameters.ConstructorArgument(argument.Key, argument.Value);
+                arguments.Add(parameter);
+            });
+            return Kernel.Get(service, arguments.ToArray());
         }
 
         /// <summary>
@@ -144,12 +151,7 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         /// <param name="registrations">The registrations.</param>
         public void Register(params IRegistration[] registrations)
         {
-            //TODO: Registration
-
-            foreach (var registration in registrations)
-            {
-                RegistrationStrategyFactory.Create(registration, this).Register();
-            }
+            registrations.Each(registration => RegistrationStrategyFactory.Create(registration, this).Register());
         }
 
         /// <summary>

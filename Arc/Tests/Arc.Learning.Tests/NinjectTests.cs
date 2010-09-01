@@ -1,5 +1,5 @@
 using Arc.Learning.Tests.Fakes.Model;
-using Ninject.Core;
+using Ninject;
 using NUnit.Framework;
 
 namespace Arc.Learning.Tests
@@ -12,19 +12,18 @@ namespace Arc.Learning.Tests
         {
             IKernel kernel = new StandardKernel();
 
-            kernel.Load(new InlineModule(x => x.Bind<IService>().To<ServiceImpl>()));
+            kernel.Bind<IService>().To<ServiceImpl>();
 
             Assert.That(kernel.Get<IService>(), Is.Not.Null);
         }
 
         [Test]
-        [Ignore]
         public void Should_not_throw_exception_when_loading_multiple_inline_modules()
         {
             IKernel kernel = new StandardKernel();
             
-            kernel.Load(new InlineModule(x => x.Bind<IService>().To<ServiceImpl>()));
-            kernel.Load(new InlineModule(x => x.Bind<IService2>().To<Service2Impl>()));
+            kernel.Bind<IService>().To<ServiceImpl>();
+            kernel.Bind<IService2>().To<Service2Impl>();
         }
 
         [Test]
@@ -32,7 +31,7 @@ namespace Arc.Learning.Tests
         {
             IKernel kernel = new StandardKernel();
 
-            kernel.Load(new InlineModule(x => x.Bind(typeof(IGenericService<>)).To(typeof(GenericServiceImpl<>))));
+            kernel.Bind(typeof(IGenericService<>)).To(typeof(GenericServiceImpl<>));
 
             Assert.That(kernel.Get<IGenericService<DomainEntity>>(), Is.Not.Null);
         }

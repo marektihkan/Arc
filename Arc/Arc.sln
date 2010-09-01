@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{5A0FC70C-1C4B-486A-9230-34A219EAEA2F}"
 	ProjectSection(SolutionItems) = preProject
 		Configuration\Arc.snk = Configuration\Arc.snk
@@ -9,10 +9,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{41AE4800-1C86-40EF-BD2E-5271936FC808}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C20F3F2-0E2E-4F58-8E4F-A20E921A7728}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure", "Source\Arc.Infrastructure\Arc.Infrastructure.csproj", "{F815EB09-BB4F-4011-82A3-03774C64CE20}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Domain", "Source\Arc.Domain\Arc.Domain.csproj", "{DFBFA36C-C313-4FF2-A1C4-21FA13520536}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{D9611E44-AF99-453C-A26D-8348B7F074ED}"
 	ProjectSection(SolutionItems) = preProject
@@ -31,13 +27,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{D9611E44
 		Configuration\Build\Solution.FxCop = Configuration\Build\Solution.FxCop
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{9C3AA209-6672-45E4-8D4B-1FCA795A8168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure", "Source\Arc.Infrastructure\Arc.Infrastructure.csproj", "{F815EB09-BB4F-4011-82A3-03774C64CE20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Domain", "Source\Arc.Domain\Arc.Domain.csproj", "{DFBFA36C-C313-4FF2-A1C4-21FA13520536}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Unit.Tests", "Tests\Arc.Unit.Tests\Arc.Unit.Tests.csproj", "{A765671D-1D0A-4CFE-8993-2693DEB854E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Integration.Tests", "Tests\Arc.Integration.Tests\Arc.Integration.Tests.csproj", "{FBC13603-AD63-4E70-B25C-F74070B00DC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Learning.Tests", "Tests\Arc.Learning.Tests\Arc.Learning.Tests.csproj", "{FE6D3B01-7816-4B72-9181-168AD75D3AD4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{9C3AA209-6672-45E4-8D4B-1FCA795A8168}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.Ninject", "Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj", "{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}"
 EndProject
@@ -131,9 +131,9 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D9611E44-AF99-453C-A26D-8348B7F074ED} = {5A0FC70C-1C4B-486A-9230-34A219EAEA2F}
+		{9C3AA209-6672-45E4-8D4B-1FCA795A8168} = {41AE4800-1C86-40EF-BD2E-5271936FC808}
 		{F815EB09-BB4F-4011-82A3-03774C64CE20} = {41AE4800-1C86-40EF-BD2E-5271936FC808}
 		{DFBFA36C-C313-4FF2-A1C4-21FA13520536} = {41AE4800-1C86-40EF-BD2E-5271936FC808}
-		{9C3AA209-6672-45E4-8D4B-1FCA795A8168} = {41AE4800-1C86-40EF-BD2E-5271936FC808}
 		{A765671D-1D0A-4CFE-8993-2693DEB854E8} = {8C20F3F2-0E2E-4F58-8E4F-A20E921A7728}
 		{FBC13603-AD63-4E70-B25C-F74070B00DC6} = {8C20F3F2-0E2E-4F58-8E4F-A20E921A7728}
 		{FE6D3B01-7816-4B72-9181-168AD75D3AD4} = {8C20F3F2-0E2E-4F58-8E4F-A20E921A7728}

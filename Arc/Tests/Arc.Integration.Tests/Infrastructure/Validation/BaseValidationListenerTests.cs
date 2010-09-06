@@ -17,7 +17,7 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
         public void TestFixtureSetUp()
         {
             Application.ServiceLocatorIs(new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator())
-                .Load(Arc.Infrastructure.Validation.EnterpriseLibrary.ValidationConfiguration.Default());
+                .Load(Arc.Infrastructure.Validation.FluentValidation.ValidationConfiguration.Default());
         }
 
         [SetUp]
@@ -52,9 +52,13 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
         [ExpectedException(typeof(ValidationException))]
         public void Should_throw_exception_when_entity_is_not_valid()
         {
+            var validationResults = MockRepository.GenerateMock<IValidationResults>();
+            validationResults.Stub(x => x.IsValid).Return(false);
             var entity = EntityFactory.CreateInvalidDomainEntity();
+            var type = typeof(DomainEntity);
+            _validation.Stub(x => x.Validate(entity, type)).Return(validationResults);
 
-            CreateSUT().Validate(entity, typeof(DomainEntity));
+            CreateSUTWithFakes().Validate(entity, type);
         }
 
         [Test]

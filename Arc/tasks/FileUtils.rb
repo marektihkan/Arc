@@ -25,6 +25,10 @@ class Copy
     CopyCommand.new "config,cfg.xml"
   end
 
+  def self.all
+    CopyCommand.new "*"
+  end 
+
   def self.files(extensions)
 	CopyCommand.new extensions
   end

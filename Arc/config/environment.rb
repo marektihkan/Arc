@@ -7,7 +7,9 @@ CONFIG = {
     :lib => 'lib',
     :src => 'Source',
     :tests => 'Tests',
-    :configuration => 'config'
+    :configuration => 'config',
+    :binary => 'bin',
+    :publish => 'package'
   },  
   :solution => 'Arc',
   :owner => 'Marek Tihkan',

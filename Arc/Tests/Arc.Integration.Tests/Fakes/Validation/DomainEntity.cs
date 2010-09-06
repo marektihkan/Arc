@@ -1,5 +1,4 @@
 using Arc.Domain.Identity;
-using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 using NHibernate.Validator.Constraints;
 
 namespace Arc.Integration.Tests.Fakes.Validation
@@ -8,7 +7,6 @@ namespace Arc.Integration.Tests.Fakes.Validation
     {
         public int Id { get; set; }
 
-        [NotNullValidator] //Enterprise Library Validation Application Block
         [NotNull] //NHibernate Validator
         public string Name { get; set; }
     }

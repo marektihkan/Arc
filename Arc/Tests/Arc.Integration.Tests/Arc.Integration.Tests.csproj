@@ -52,7 +52,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL" />
+    <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\castle.core\Castle.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.MicroKernel, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\External Libraries\Castle Windsor\Castle.MicroKernel.dll</HintPath>
@@ -69,8 +71,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\fluentvalidation\FluentValidation\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\nhibernate\Required_Bins\NHibernate.dll</HintPath>
@@ -93,7 +93,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\nunit\net-2.0\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL" />
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\rhino.mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -153,7 +155,6 @@
     <Compile Include="Infrastructure\Presentation\Mvp\PageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\UserControlTests.cs" />
     <Compile Include="Infrastructure\Validation\BaseValidationListenerTests.cs" />
-    <Compile Include="Infrastructure\Validation\EnterpriseLibraryTests.cs" />
     <Compile Include="Infrastructure\Validation\FluentValidationTests.cs" />
     <Compile Include="Infrastructure\Validation\NHibernateValidatorTests.cs" />
     <Compile Include="Infrastructure\Validation\ValidationServiceTests.cs" />
@@ -190,10 +191,6 @@
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj">
       <Project>{9C458400-AACB-482E-81DE-7ED7B41FA52A}</Project>
       <Name>Arc.Infrastructure.Presentation.Mvp</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Validation.EnterpriseLibrary\Arc.Infrastructure.Validation.EnterpriseLibrary.csproj">
-      <Project>{4CE43D2B-4EF9-4097-8690-B8AFDD0F9170}</Project>
-      <Name>Arc.Infrastructure.Validation.EnterpriseLibrary</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Validation.FluentValidation\Arc.Infrastructure.Validation.FluentValidation.csproj">
       <Project>{F90247AA-0927-4AD9-8FA5-85A21B211AF7}</Project>

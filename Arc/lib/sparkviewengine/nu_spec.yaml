@@ -1,0 +1,87 @@
+--- !ruby/object:Gem::Specification 
+name: sparkviewengine
+version: !ruby/object:Gem::Version 
+  hash: 87
+  prerelease: false
+  segments: 
+  - 1
+  - 1
+  - 0
+  - 0
+  version: 1.1.0.0
+platform: ruby
+authors: 
+- Louis Dejardin
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-08-09 07:00:00 +03:00
+default_executable: 
+dependencies: []
+
+description: "\tSpark is a view engine for Asp.Net Mvc and Castle Project MonoRail frameworks. \n\
+  \tThe idea is to allow the html to dominate the flow and the code to fit seamlessly.\n"
+email: spark-dev@googlegroups.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- lib/Castle.MonoRail.Views.Spark.dll
+- lib/Castle.MonoRail.Views.Spark.pdb
+- lib/Spark.dll
+- lib/Spark.pdb
+- lib/Spark.Python.pdb
+- lib/Spark.Ruby.dll
+- lib/Spark.Ruby.pdb
+- lib/Spark.Web.Mvc.dll
+- lib/Spark.Web.Mvc.pdb
+- lib/Spark.Web.Mvc.Pdf.dll
+- lib/Spark.Web.Mvc.Pdf.pdb
+- lib/Spark.Web.Mvc.Python.dll
+- lib/Spark.Web.Mvc.Python.pdb
+- lib/Spark.Web.Mvc.Ruby.dll
+- lib/Spark.Web.Mvc.Ruby.pdb
+- lib/Xpark.exe
+- lib/Xpark.pdb
+- docs/index.html
+- docs/samples.zip
+has_rdoc: true
+homepage: http://sparkviewengine.com
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: sparkviewengine
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 3
+summary: Spark View Engine for Asp.Net Mvc and Castle Project MonoRail
+test_files: []
+

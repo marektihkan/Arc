@@ -1,0 +1,75 @@
+--- !ruby/object:Gem::Specification 
+name: rhino.mocks
+version: !ruby/object:Gem::Version 
+  hash: 79
+  prerelease: false
+  segments: 
+  - 3
+  - 6
+  - 0
+  - 0
+  version: 3.6.0.0
+platform: ruby
+authors: 
+- Ayende Rahien
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-07-23 08:00:00 +03:00
+default_executable: 
+dependencies: []
+
+description: |
+  A dynamic mock object framework for the .Net platform. It's purpose is to ease testing by allowing the developer to create mock implementations of custom objects and verify the interactions using unit testing.
+  
+  Rhino.Mocks is an attempt to create easier way to build and use mock objects and allow better refactoring support from the current tools. It's a hybrid approach between the pure Record/Replay of EasyMock.Net's model and NMock's expectation based model. Rhino.Mocks originated from EasyMock.Net and attempt to improve on their model to create easy to use and power mocking framework. It's free for use and modification for open source and commercial software.
+
+email: rhinomocks@googlegroups.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- lib/Rhino.Mocks.dll
+- lib/Rhino.Mocks.xml
+- docs/acknowledgements.txt
+- docs/license.txt
+has_rdoc: true
+homepage: http://www.ayende.com/projects/rhino-mocks.aspx
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: rhino.mocks
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 3
+summary: Rhino.Mocks - A dynamic mock object framework for the .Net platform
+test_files: []
+

@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="../../build/NHibernate.Validator-1.2.0.CR1/bin/net-3.5/NHibernate.Validator.Tests.dll" total="408" errors="0" failures="0" not-run="4" ignored="4" skipped="0" invalid="0" date="2009-11-25" time="23:31:40">
+  <environment nunit-version="2.5.0.9122" clr-version="2.0.50727.4927" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="D:\src\nhv - trunk\src\NHibernate.Validator.Tests" machine-name="LUCERO" user="Dario" user-domain="Lucero" />
+  <culture-info current-culture="es-ES" current-uiculture="es-ES" />
+  <test-suite name="../../build/NHibernate.Validator-1.2.0.CR1/bin/net-3.5/NHibernate.Validator.Tests.dll" executed="True" success="True" time="7.770" asserts="0">
+    <results>
+      <test-suite name="NHibernate" executed="True" success="True" time="7.716" asserts="0">
+        <results>
+          <test-suite name="Validator" executed="True" success="True" time="7.661" asserts="0">
+            <results>
+              <test-suite name="Tests" executed="True" success="True" time="7.660" asserts="0">
+                <results>
+                  <test-suite name="Base" executed="True" success="True" time="1.344" asserts="0">
+                    <results>
+                      <test-suite name="CompositionFixture" executed="True" success="True" time="0.097" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.CompositionFixture.CompositionHasValidationRules" executed="True" success="True" time="0.036" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="DigitsFixture" executed="True" success="True" time="0.338" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.DigitsFixture.TestDigits" executed="True" success="True" time="0.338" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="DigitsFixtureXml" executed="True" success="True" time="0.446" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.DigitsFixtureXml.TestDigits" executed="True" success="True" time="0.445" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="LuhnTest" executed="True" success="True" time="0.008" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.LuhnTest.GivingInvalidState_HasInvalidValues" executed="True" success="True" time="0.006" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Base.LuhnTest.GivingValidState_NoInvalidValues" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="LuhnTestXml" executed="True" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.LuhnTestXml.GivingInvalidState_HasInvalidValues" executed="True" success="True" time="0.005" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Base.LuhnTestXml.GivingValidState_NoInvalidValues" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorFixture" executed="True" success="True" time="0.052" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixture.AddressValid" executed="True" success="True" time="0.018" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixture.Circularity" executed="True" success="True" time="0.013" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixture.DuplicateAnnotations" executed="True" success="True" time="0.011" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixture.EntityValidator" executed="True" success="True" time="0.005" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixture.FieldIsNotNullNotEmpty" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorFixtureLoquacious" executed="True" success="True" time="0.349" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureLoquacious.AddressValid" executed="True" success="True" time="0.003" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureLoquacious.Circularity" executed="True" success="True" time="0.003" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureLoquacious.DuplicateAnnotations" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureLoquacious.EntityValidator" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureLoquacious.FieldIsNotNullNotEmpty" executed="True" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorFixtureXml" executed="True" success="True" time="0.031" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureXml.AddressValid" executed="True" success="True" time="0.015" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureXml.Circularity" executed="True" success="True" time="0.004" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureXml.DuplicateAnnotations" executed="True" success="True" time="0.004" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureXml.EntityValidator" executed="True" success="True" time="0.003" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Base.ValidatorFixtureXml.FieldIsNotNullNotEmpty" executed="True" success="True" time="0.002" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="WebImageFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.WebImageFixture.ImageValidationTest" executed="True" success="True" time="0.002" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="WebImageFixtureXml" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Base.WebImageFixtureXml.ImageValidationTest" executed="True" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Collections" executed="True" success="True" time="0.090" asserts="0">
+                    <results>
+                      <test-suite name="CollectionFixture" executed="True" success="True" time="0.046" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixture.Array" executed="True" success="True" time="0.022" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixture.Collection" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixture.Dictionary" executed="True" success="True" time="0.009" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixture.Size" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixture.SizeArrayWithValid" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixture.SizeWithValid" executed="True" success="True" time="0.004" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="CollectionFixtureLoquacious" executed="True" success="True" time="0.031" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixtureLoquacious.Array" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixtureLoquacious.Collection" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixtureLoquacious.Dictionary" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixtureLoquacious.Size" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixtureLoquacious.SizeArrayWithValid" executed="True" success="True" time="0.012" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.CollectionFixtureLoquacious.SizeWithValid" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlCollectionFixture" executed="True" success="True" time="0.012" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Collections.XmlCollectionFixture.Array" executed="True" success="True" time="0.005" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.XmlCollectionFixture.Collection" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.XmlCollectionFixture.Dictionary" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.XmlCollectionFixture.Size" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.XmlCollectionFixture.SizeArrayWithValid" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Collections.XmlCollectionFixture.SizeWithValid" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Configuration" executed="True" success="True" time="0.341" asserts="0">
+                    <results>
+                      <test-suite name="CfgXmlHelperFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Configuration.CfgXmlHelperFixture.InvalidValidatorMode" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.CfgXmlHelperFixture.ValidatorModeTest" executed="True" success="True" time="0.001" asserts="6" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="Loquacious" executed="True" success="True" time="0.092" asserts="0">
+                        <results>
+                          <test-suite name="FluentConfigurationFixture" executed="True" success="True" time="0.019" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.CanInitialezeValidatorEngine" executed="True" success="True" time="0.009" asserts="2" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.ConfigureCustomResourceManager" executed="True" success="True" time="0.000" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.Minimal" executed="True" success="True" time="0.002" asserts="10" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.RegisterDefinitions" executed="True" success="True" time="0.002" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.RegisterSpecificDefinitions" executed="True" success="True" time="0.001" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.ShouldAddEntityTypeInspector" executed="True" success="True" time="0.001" asserts="3" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentConfigurationFixture.ShouldAddValidationDefInstance" executed="True" success="True" time="0.002" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="FluentMappingLoaderFixture" executed="True" success="True" time="0.037" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddAssembly" executed="True" success="True" time="0.017" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddAssemblyByName" executed="True" success="True" time="0.001" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddClassDefinitionByType" executed="True" success="True" time="0.000" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddNameSpace" executed="True" success="True" time="0.001" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddTypedClassDefinition" executed="True" success="True" time="0.001" asserts="2" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddWrongAssembly" executed="True" success="True" time="0.001" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.AddWrongClassDefinition" executed="True" success="True" time="0.001" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.ClassNotFound" executed="True" success="True" time="0.004" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.LoadMappingsFromAssembly" executed="True" success="True" time="0.002" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.LoadMappingsNull" executed="True" success="True" time="0.001" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.FluentMappingLoaderFixture.LoadMappingsSpecific" executed="True" success="True" time="0.002" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="IntegrationFixture" executed="True" success="True" time="0.007" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.IntegrationFixture.LoadMappingsSpecific" executed="True" success="True" time="0.007" asserts="4" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="ValidationDefFixture" executed="True" success="True" time="0.024" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.ValidationDefFixture.ShouldAddPropertiesValidators" executed="True" success="True" time="0.002" asserts="4" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.ValidationDefFixture.ShouldAssignRuleArgsOptions" executed="True" success="True" time="0.002" asserts="2" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.ValidationDefFixture.ShouldWorkWithCollectionConstraints" executed="True" success="True" time="0.002" asserts="2" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.ValidationDefFixture.ShouldWorkWithEnum" executed="True" success="True" time="0.004" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.ValidationDefFixture.ShouldWorkWithGuid" executed="True" success="True" time="0.006" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Configuration.Loquacious.ValidationDefFixture.ShouldWorkWithStringConstraint" executed="True" success="True" time="0.006" asserts="8" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="RuleAttributeFactoryFixture" executed="True" success="True" time="0.042" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.CreateAttributeFromClass" executed="True" success="True" time="0.000" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.CreateAttributeFromClassWrongName" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.CreateAttributeFromRule" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.KnownRulesConvertAssing" executed="True" success="True" time="0.035" asserts="38" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.RegexOptionsParsing" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.SingleRegexOptionsParsing" executed="True" success="True" time="0.001" asserts="10" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.RuleAttributeFactoryFixture.WrongPropertyInCustomAttribute" executed="True" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlConfigurationFixture" executed="True" success="True" time="0.123" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.BadMapping" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.BadSchema" executed="True" success="True" time="0.037" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.CanReadCustomResourceManager" executed="True" success="True" time="0.004" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.CanReadEntityTypeInspectors" executed="True" success="True" time="0.002" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.IgnoreEmptyConfiguration" executed="True" success="True" time="0.003" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.IgnoreEmptyItems" executed="True" success="True" time="0.001" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.IgnoreEmptyItemsEntityTypeInspectors" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.MappingConfigurationCtors" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.MappingConfigurationToString" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.MappingEquatable" executed="True" success="True" time="0.001" asserts="7" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.NotDuplicatedItems" executed="True" success="True" time="0.001" asserts="7" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.NullReader" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlConfigurationFixture.WellFormedConfiguration" executed="True" success="True" time="0.063" asserts="13" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlMappingLoaderFixture" executed="True" success="True" time="0.075" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddAssembly" executed="True" success="True" time="0.010" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddAssemblyByName" executed="True" success="True" time="0.006" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddFile" executed="True" success="True" time="0.026" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddStream" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddWrongAssembly" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddWrongFile" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddWrongFileName" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.AddWrongStream" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.CompiledMappings" executed="True" success="True" time="0.005" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.GetMappingForType" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.LoadMappingsNull" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.LoadMappingsTest" executed="True" success="True" time="0.009" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.MappingDocumentParserTest" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.MixingLoaders" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Configuration.XmlMappingLoaderFixture.ResourceNotFound" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ConstraintContext" executed="True" success="True" time="0.017" asserts="0">
+                    <results>
+                      <test-suite name="ConstraintContextIntegrationFixture" executed="True" success="True" time="0.009" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintContextIntegrationFixture.ShouldAddAnothersMessages" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintContextIntegrationFixture.ShouldAddAnothersMessagesUsingEntityValidation" executed="True" success="True" time="0.003" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintContextIntegrationFixture.ShouldAddAnothersMessagesUsingValidationProperties" executed="True" success="True" time="0.002" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintContextIntegrationFixture.ShouldDisableTheDefaultMessageAndAddAnothers" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintContextIntegrationFixture.ShouldDisableTheDefaultMessageAndAddAnothersUsingEntityValidation" executed="True" success="True" time="0.000" asserts="3" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ConstraintValidatorContextFixture" executed="True" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintValidatorContextFixture.ShouldAddMessage" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintValidatorContextFixture.ShouldBeTheCustomMessageAdded" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintValidatorContextFixture.ShouldBeTheCustomMessageAddedWithAnotherProperty" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintValidatorContextFixture.ShouldBeTheCustomMessageAddedWithAnotherPropertyUsingExpression" executed="True" success="True" time="0.002" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintValidatorContextFixture.ShouldDisableDefault" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.ConstraintContext.ConstraintValidatorContextFixture.ShouldDisableDefaultMessage" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ConstraintFactory" executed="True" success="True" time="0.009" asserts="0">
+                    <results>
+                      <test-suite name="ConstraintFactoryFixtureUsingAttributes" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ConstraintFactory.ConstraintFactoryFixtureUsingAttributes.Should_Create_Constraints_With_Custom_Factory" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ConstraintFactoryFixtureUsingAttributesAndEnvironment" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ConstraintFactory.ConstraintFactoryFixtureUsingAttributesAndEnvironment.Should_Create_Constraints_With_Custom_Factory" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ConstraintFactoryFixtureUsingFluent" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ConstraintFactory.ConstraintFactoryFixtureUsingFluent.Should_Create_Constraints_With_Custom_Factory" executed="True" success="True" time="0.002" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ConstraintFactoryFixtureUsingXml" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ConstraintFactory.ConstraintFactoryFixtureUsingXml.Should_Create_Constraints_With_Custom_Factory" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="CustomValidator" executed="True" success="True" time="0.015" asserts="0">
+                    <results>
+                      <test-suite name="BadValidatorFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.CustomValidator.BadValidatorFixture.ExceptionMustBeThrown" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.CustomValidator.BadValidatorFixture.MessageNull" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="SubnetIPFixture" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.CustomValidator.SubnetIPFixture.IPIsInSubnetByPrefix" executed="True" success="True" time="0.007" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorClassFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.CustomValidator.ValidatorClassFixture.IntegrationWithValidation" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.CustomValidator.ValidatorClassFixture.OnlyAttributes" executed="True" success="True" time="0.000" asserts="3" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="DeepIntegration" executed="True" success="True" time="3.353" asserts="0">
+                    <results>
+                      <test-suite name="DynamicComponentFixture" executed="True" success="True" time="2.582" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.DynamicComponentFixture.CointainInvalidValues" executed="True" success="True" time="0.580" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MultipleBagFetchFixture" executed="True" success="True" time="0.418" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleBagFetchFixture.InvalidCollection" executed="True" success="True" time="0.170" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleBagFetchFixture.InvalidValuesInCollections" executed="True" success="True" time="0.149" asserts="6" />
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleBagFetchFixture.NoInitializeAfterFetch" executed="True" success="True" time="0.037" asserts="8" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MultipleListFetchFixture" executed="True" success="True" time="0.182" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleListFetchFixture.InvalidCollection" executed="True" success="True" time="0.056" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleListFetchFixture.InvalidValuesInCollections" executed="True" success="True" time="0.030" asserts="6" />
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleListFetchFixture.NoInitializeAfterFetch" executed="True" success="True" time="0.018" asserts="8" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MultipleSetFetchFixture" executed="True" success="True" time="0.168" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleSetFetchFixture.InvalidCollection" executed="True" success="True" time="0.059" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleSetFetchFixture.InvalidValuesInCollections" executed="True" success="True" time="0.022" asserts="6" />
+                          <test-case name="NHibernate.Validator.Tests.DeepIntegration.MultipleSetFetchFixture.NoInitializeAfterFetch" executed="True" success="True" time="0.017" asserts="8" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="DelegatedEntityValidator" executed="True" success="True" time="0.003" asserts="0">
+                    <results>
+                      <test-suite name="EngineIntegrationTest" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.DelegatedEntityValidator.EngineIntegrationTest.DelegatedValidate_WithoutMessageHasInvalidValue" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.DelegatedEntityValidator.EngineIntegrationTest.DelegatedValidate_WithoutMessageNotThrow" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.DelegatedEntityValidator.EngineIntegrationTest.Engine_Validate" executed="True" success="True" time="0.001" asserts="2" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="EmailTests" executed="True" success="True" time="0.022" asserts="0">
+                    <results>
+                      <test-suite name="EmailFixture" executed="True" success="True" time="0.013" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.EmailTests.EmailFixture.testEmail" executed="True" success="True" time="0.012" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlEmailFixture" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.EmailTests.XmlEmailFixture.testEmail" executed="True" success="True" time="0.007" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Engine" executed="True" success="True" time="0.251" asserts="0">
+                    <results>
+                      <test-suite name="AttributeAsValidatorTest" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Engine.AttributeAsValidatorTest.ShouldUseTheValidatorForTheClass" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.AttributeAsValidatorTest.ShouldUseTheValidatorForTheProperty" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ClassValidatorFixture" executed="True" success="True" time="0.011" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Engine.ClassValidatorFixture.CrazyUseOrNHVFault" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ClassValidatorFixture.CreationOfValidatorForSystemTypeShouldThrow" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ClassValidatorFixture.GetInvalidValuesOfEntity" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ClassValidatorFixture.GetInvalidValuesOfProperty" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ClassValidatorFixture.GetMemberConstraints" executed="True" success="True" time="0.003" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ClassValidatorFixture.GetMemberConstraintsLoquacious" executed="True" success="True" time="0.002" asserts="3" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MultiEntityTypeInspectorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Engine.MultiEntityTypeInspectorFixture.Ctor" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.MultiEntityTypeInspectorFixture.ReturnFirstValid" executed="True" success="True" time="0.002" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.MultiEntityTypeInspectorFixture.ReturnNull" executed="True" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ReferenceEqualityComparerTests" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Engine.ReferenceEqualityComparerTests.TwoClassInstances_AreNotEquals" executed="True" success="True" time="0.007" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="Tagging" executed="True" success="True" time="0.085" asserts="0">
+                        <results>
+                          <test-suite name="ClassValidatorTagging" executed="True" success="True" time="0.035" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.MemberConstraints_ByTagOfEnums" executed="True" success="True" time="0.004" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.MemberConstraints_ByTagOfStrings" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.MemberConstraints_ByTagOfType" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.ProofFor_NHV48" executed="True" success="True" time="0.010" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.UseOnlySpecificTaggedValidators" executed="True" success="True" time="0.002" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenNoTagIsSpecified_ValidateAnything" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenTagIsSpecified_ValidateCollectionForGivenTags" executed="True" success="True" time="0.003" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenTagIsSpecified_ValidateOnlyWithTag" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenTagIsSpecified_ValidatePotentialValueForGivenTags" executed="True" success="True" time="0.002" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenTagIsSpecified_ValidateRelationForGivenTags" executed="True" success="True" time="0.002" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenTagsIncludeNull_ValidateOnlyWithTagAndWithNoTags" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ClassValidatorTagging.WhenTagsIncludeOnlyNull_ValidateOnlyWithNoTags" executed="True" success="True" time="0.001" asserts="0" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="EmbeddedRulesTaggingTest" executed="True" success="True" time="0.013" asserts="0">
+                            <results>
+                              <test-suite name="AllRuleArgs_SupportsTags" executed="True" success="True" time="0.013" asserts="0">
+                                <results>
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.AssertFalseAttribute)" executed="True" success="True" time="0.001" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.AssertTrueAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.CreditCardNumberAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.DecimalMaxAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.DecimalMinAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.DelegatedValidatorAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.DigitsAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.EANAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.EmailAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.FileExistsAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.FutureAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.IBANAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.IPAddressAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.IsNumericAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.LengthAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.MaxAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.MinAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.NotEmptyAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.NotNullAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.NotNullNotEmptyAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.PastAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.PatternAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.RangeAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.SizeAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                  <test-case name="NHibernate.Validator.Tests.Engine.Tagging.EmbeddedRulesTaggingTest.AllRuleArgs_SupportsTags(NHibernate.Validator.Constraints.WithinAttribute)" executed="True" success="True" time="0.000" asserts="0" />
+                                </results>
+                              </test-suite>
+                            </results>
+                          </test-suite>
+                          <test-suite name="InvalidValuesTags" executed="True" success="True" time="0.020" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.InvalidValuesTags.WhenNoTagIsSpecified_AllTagsMatch" executed="True" success="True" time="0.014" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.InvalidValuesTags.WhenTagIsSpecified_MatchTagsContainOnlyMatchs" executed="True" success="True" time="0.006" asserts="0" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="ValidatorEngineTaggingLoquacious" executed="True" success="True" time="0.005" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ValidatorEngineTaggingLoquacious.MemberConstraints_DoesNotHaveTags" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ValidatorEngineTaggingLoquacious.MemberConstraints_HasTags" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ValidatorEngineTaggingLoquacious.ValidateEntityWithTags" executed="True" success="True" time="0.001" asserts="0" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="ValidatorEngineTaggingXml" executed="True" success="True" time="0.003" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ValidatorEngineTaggingXml.MemberConstraints_DoesNotHaveTags" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Engine.Tagging.ValidatorEngineTaggingXml.MemberConstraints_HasTags" executed="True" success="True" time="0.000" asserts="0" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatableElementFixture" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatableElementFixture.DefCtor" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatableElementFixture.SubElements" executed="True" success="True" time="0.002" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatableElementFixture.ValidatableElementTest" executed="True" success="True" time="0.002" asserts="7" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorEngineFixture" executed="True" success="True" time="0.126" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.AddValidatorWithoutUseIt" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.AssertValid" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.Configure" executed="True" success="True" time="0.006" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.ConfigureFile" executed="True" success="True" time="0.002" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.ConfigureNHVConfiguration" executed="True" success="True" time="0.001" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.CustomResourceManagerWasSetInStateFullClassValidatorFactory" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.DuplicateClassDef" executed="True" success="True" time="0.007" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.GetInterpolator" executed="True" success="True" time="0.006" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.GetMappingLoader" executed="True" success="True" time="0.004" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.InitializeValidators" executed="True" success="True" time="0.015" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.IntentWrongNHVConfig" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.IntentWrongXmlConfig" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.NullIsAllwaysValid" executed="True" success="True" time="0.001" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.UseCustomResourceManager" executed="True" success="True" time="0.060" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.ValidateAnyClass" executed="True" success="True" time="0.003" asserts="7" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.ValidatePropertyValue" executed="True" success="True" time="0.005" asserts="12" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.ValidatePropertyValueOfInstance" executed="True" success="True" time="0.004" asserts="13" />
+                          <test-case name="NHibernate.Validator.Tests.Engine.ValidatorEngineFixture.WhenExceptionWithResourceManager_ValidatorConfigurationException" executed="True" success="True" time="0.001" asserts="2" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="GraphNavigation" executed="True" success="True" time="0.006" asserts="0">
+                    <results>
+                      <test-suite name="Fixture" executed="True" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.GraphNavigation.Fixture.GraphNavigationDeterminism" executed="False">
+                            <reason>
+                              <message><![CDATA[Not implemented yet.]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="NHibernate.Validator.Tests.GraphNavigation.Fixture.NoEndlessLoop" executed="True" success="True" time="0.004" asserts="7" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Inheritance" executed="True" success="True" time="0.009" asserts="0">
+                    <results>
+                      <test-suite name="InheritanceFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Inheritance.InheritanceFixture.TestInh" executed="True" success="True" time="0.002" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="LoquaciousInheritanceFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Inheritance.LoquaciousInheritanceFixture.TestInh" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlInheritanceFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Inheritance.XmlInheritanceFixture.TestInh" executed="True" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Integration" executed="True" success="True" time="0.965" asserts="0">
+                    <results>
+                      <test-suite name="DefaultEntityTypeInspectorFixture" executed="True" success="True" time="0.038" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.DefaultEntityTypeInspectorFixture.DoesNotRecognizeConcreteType" executed="True" success="True" time="0.003" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.DefaultEntityTypeInspectorFixture.ReturnTheCorrectType" executed="True" success="True" time="0.009" asserts="2" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="HibernateAnnotationIntegrationFixture" executed="True" success="True" time="0.316" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.Apply" executed="True" success="True" time="0.006" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.ApplyOnIdColumn" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.ApplyOnManyToOne" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.Components" executed="True" success="True" time="0.008" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.DontValidate" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.EnsureSharedEngine" executed="True" success="True" time="0.002" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.Events" executed="True" success="True" time="0.084" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.InvalidInitializer" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.HibernateAnnotationIntegrationFixture.SingleTableAvoidNotNull" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="IntegrationOwnEngineFixture" executed="True" success="True" time="0.139" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.Apply" executed="True" success="True" time="0.006" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.ApplyOnIdColumn" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.ApplyOnManyToOne" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.Components" executed="True" success="True" time="0.004" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.DontValidate" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.Events" executed="True" success="True" time="0.022" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.InvalidInitializer" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.IntegrationOwnEngineFixture.SingleTableAvoidNotNull" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidateEventsFixture" executed="True" success="True" time="0.117" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidateEventsFixture.Components" executed="False">
+                            <reason>
+                              <message><![CDATA[Not supported yet without initialization.]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidateEventsFixture.NoInitialization" executed="True" success="True" time="0.006" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidateEventsFixture.UpdateEvent" executed="True" success="True" time="0.014" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatingProxyFixture" executed="True" success="True" time="0.136" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatingProxyFixture.ValidateChangedPropertyOfProxy" executed="True" success="True" time="0.040" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatingProxyFixture.ValidateHasValidElementsWithProxies" executed="True" success="True" time="0.007" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatingProxyFixture.ValidateInitializedProxyAtDeepLevel" executed="True" success="True" time="0.013" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatingProxyFixture.ValidateInitializedProxyAtFirstLevel" executed="True" success="True" time="0.019" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatingProxyFixture.ValidateNotInitializeProxyAtDeepLevel" executed="True" success="True" time="0.006" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatingProxyFixture.ValidateNotInitializeProxyAtFirstLevel" executed="True" success="True" time="0.003" asserts="2" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorInitializerFixture" executed="True" success="True" time="0.064" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatorInitializerFixture.ApplyWrongConstraint" executed="True" success="True" time="0.016" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatorInitializerFixture.ShouldAppendToExistingListeners" executed="True" success="True" time="0.003" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.ValidatorInitializerFixture.WorkWithOutSharedEngine" executed="True" success="True" time="0.044" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlHibernateAnnotationIntegrationFixture" executed="True" success="True" time="0.151" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.Apply" executed="True" success="True" time="0.005" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.ApplyOnIdColumn" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.ApplyOnManyToOne" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.Components" executed="True" success="True" time="0.005" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.DontValidate" executed="True" success="True" time="0.009" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.EnsureSharedEngine" executed="True" success="True" time="0.001" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.Events" executed="True" success="True" time="0.015" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.InvalidInitializer" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Integration.XmlHibernateAnnotationIntegrationFixture.SingleTableAvoidNotNull" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Interpolation" executed="True" success="True" time="0.025" asserts="0">
+                    <results>
+                      <test-suite name="DefaultMessageInterpolatorAggregatorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.DefaultMessageInterpolatorAggregatorFixture.GetAttributeMessage" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.DefaultMessageInterpolatorAggregatorFixture.Interpolate" executed="True" success="True" time="0.001" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.DefaultMessageInterpolatorAggregatorFixture.Serialization" executed="False">
+                            <reason>
+                              <message><![CDATA[Not supported yet.]]></message>
+                            </reason>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite name="InterpolatingValuesFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.InterpolatingValuesFixture.InterpolatingMemberAndSubMembers" executed="True" success="True" time="0.002" asserts="3" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="InterpolationFixture" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.InterpolationFixture.InterpolatingValues" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.InterpolationFixture.InterpolatingValues_WrongMember" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.InterpolationFixture.MissingKey" executed="True" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MessageTranslatorTest" executed="True" success="True" time="0.012" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.ParseTokensToTranslate" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.RelevantTokens_DoesNotReturnDuplications" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.RelevantTokens_ExcludeEscaped" executed="True" success="True" time="0.005" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.RelevantTokens_ExcludeNotValidVariableNames" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.Replace_Duplications" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.Replace_Escaped" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.Replace_IgnoreReplacementsNotRequired" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.Replace_NullWithEmpty" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Interpolation.MessageTranslatorTest.Replace_TokensToTranslate" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="IPFixture" executed="True" success="True" time="0.007" asserts="0">
+                    <results>
+                      <test-suite name="IPAddressFixture" executed="True" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.IPFixture.IPAddressFixture.TestInvalidIPAddresses" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.IPFixture.IPAddressFixture.TestValidIPAddresses" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlIPAddressFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.IPFixture.XmlIPAddressFixture.TestInvalidIPAddresses" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.IPFixture.XmlIPAddressFixture.TestValidIPAddresses" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Mappings" executed="True" success="True" time="0.034" asserts="0">
+                    <results>
+                      <test-suite name="MixedClassMappingFixture" executed="True" success="True" time="0.012" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Mappings.MixedClassMappingFixture.ClassAttributes" executed="True" success="True" time="0.003" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.MixedClassMappingFixture.GetEntityType" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.MixedClassMappingFixture.MemberAttributes" executed="True" success="True" time="0.005" asserts="8" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.MixedClassMappingFixture.Members" executed="True" success="True" time="0.002" asserts="2" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="OpenClassMappingFixture" executed="True" success="True" time="0.009" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Mappings.OpenClassMappingFixture.AddEntityValidator" executed="True" success="True" time="0.001" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.OpenClassMappingFixture.AddFieldConstraint" executed="True" success="True" time="0.002" asserts="7" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.OpenClassMappingFixture.AddPropertyConstraint" executed="True" success="True" time="0.001" asserts="7" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.OpenClassMappingFixture.EntityType" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.OpenClassMappingFixture.MixingPropertiesAndFields" executed="True" success="True" time="0.001" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.OpenClassMappingFixture.ShouldNotAddAttributeMutipleTimesIfNotAllowed" executed="True" success="True" time="0.001" asserts="6" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ReflectionClassMappingFixture" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Mappings.ReflectionClassMappingFixture.ClassAttributes" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.ReflectionClassMappingFixture.GetEntityType" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.ReflectionClassMappingFixture.MemberAttributes" executed="True" success="True" time="0.001" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.ReflectionClassMappingFixture.Members" executed="True" success="True" time="0.001" asserts="2" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlClassMappingFixture" executed="True" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Mappings.XmlClassMappingFixture.ClassAttributes" executed="True" success="True" time="0.001" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.XmlClassMappingFixture.GetEntityType" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.XmlClassMappingFixture.InvalidPropertyName" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.XmlClassMappingFixture.MemberAttributes" executed="True" success="True" time="0.001" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Mappings.XmlClassMappingFixture.Members" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Polimorphism" executed="True" success="True" time="0.015" asserts="0">
+                    <results>
+                      <test-suite name="PolimorphismFixture" executed="True" success="True" time="0.014" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Polimorphism.PolimorphismFixture.Coposition" executed="True" success="True" time="0.004" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Polimorphism.PolimorphismFixture.CopositionUsingEngine" executed="True" success="True" time="0.002" asserts="3" />
+                          <test-case name="NHibernate.Validator.Tests.Polimorphism.PolimorphismFixture.DoPolimorphismWithClasses" executed="True" success="True" time="0.003" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Polimorphism.PolimorphismFixture.DoPolimorphismWithInterfaces" executed="True" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ResourceFixture" executed="True" success="True" time="0.050" asserts="0">
+                    <results>
+                      <test-suite name="ResourcesTest" executed="True" success="True" time="0.050" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ResourceFixture.ResourcesTest.CanGetResources" executed="True" success="True" time="0.049" asserts="7" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Satisfier" executed="True" success="True" time="0.095" asserts="0">
+                    <results>
+                      <test-suite name="CollectionConstraintsTests" executed="True" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.CollectionConstraintsTests.Validate" executed="True" success="True" time="0.004" asserts="3" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="DateTimeConstraintsTests" executed="True" success="True" time="0.008" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.DateTimeConstraintsTests.Validate" executed="True" success="True" time="0.007" asserts="4" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="FloatConstraintsTests" executed="True" success="True" time="0.026" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.FloatConstraintsTests.ValidateDecimal" executed="True" success="True" time="0.009" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.FloatConstraintsTests.ValidateDouble" executed="True" success="True" time="0.008" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.FloatConstraintsTests.ValidateFloat" executed="True" success="True" time="0.008" asserts="4" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="IntegerConstraintsTests" executed="True" success="True" time="0.048" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.IntegerConstraintsTests.ValidateInt" executed="True" success="True" time="0.007" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.IntegerConstraintsTests.ValidateLong" executed="True" success="True" time="0.006" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.IntegerConstraintsTests.ValidateShorts" executed="True" success="True" time="0.008" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.IntegerConstraintsTests.ValidateUInt" executed="True" success="True" time="0.008" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.IntegerConstraintsTests.ValidateULong" executed="True" success="True" time="0.008" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.IntegerConstraintsTests.ValidateUShorts" executed="True" success="True" time="0.008" asserts="4" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="StringConstraintsTests" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.StringConstraintsTests.ValidateWithMultipleConditions" executed="True" success="True" time="0.005" asserts="8" />
+                          <test-case name="NHibernate.Validator.Tests.Satisfier.StringConstraintsTests.ValidateWithSingleCondition" executed="True" success="True" time="0.001" asserts="2" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Serialization" executed="True" success="True" time="0.112" asserts="0">
+                    <results>
+                      <test-suite name="ClassValidatorSerializationFixture" executed="True" success="True" time="0.061" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ClassValidatorSerializationFixture.CanBeSerialized" executed="True" success="True" time="0.029" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ClassValidatorSerializationFixture.IsSerializable" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ClassValidatorSerializationFixture.WorkAfterDeserialization" executed="True" success="True" time="0.029" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="RuleArgsSerializationFixture" executed="True" success="True" time="0.012" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Serialization.RuleArgsSerializationFixture.AllRuleArgsAreSerializable" executed="True" success="True" time="0.001" asserts="24" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.RuleArgsSerializationFixture.AllRuleArgsCanBeSerialized" executed="True" success="True" time="0.006" asserts="24" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.RuleArgsSerializationFixture.DelegatedEntityValidatorAttributeIsSerializable" executed="True" success="True" time="0.003" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorEngineSerializationFixture" executed="True" success="True" time="0.026" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorEngineSerializationFixture.CanBeSerialized" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorEngineSerializationFixture.IsSerializable" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorEngineSerializationFixture.WorkAfterDeserialization" executed="True" success="True" time="0.023" asserts="12" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorsSerializationFixture" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorsSerializationFixture.AllValidatorsAreSerializable" executed="True" success="True" time="0.001" asserts="24" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorsSerializationFixture.AllValidatorsCanBeSerialized" executed="True" success="True" time="0.003" asserts="24" />
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorsSerializationFixture.AllValidatorsCanBeSerializedAfterInitialization" executed="False">
+                            <reason>
+                              <message><![CDATA[Test not Implemented.]]></message>
+                            </reason>
+                          </test-case>
+                          <test-case name="NHibernate.Validator.Tests.Serialization.ValidatorsSerializationFixture.DelegatedConstraintIsSerializable" executed="True" success="True" time="0.002" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlSerializationFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Serialization.XmlSerializationFixture.CanParseValidator" executed="True" success="True" time="0.001" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Specifics" executed="True" success="True" time="0.108" asserts="0">
+                    <results>
+                      <test-suite name="NHV25" executed="True" success="True" time="0.014" asserts="0">
+                        <results>
+                          <test-suite name="DictionaryValueKeyFixture" executed="True" success="True" time="0.011" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV25.DictionaryValueKeyFixture.DictionaryEnumKey" executed="True" success="True" time="0.008" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV25.DictionaryValueKeyFixture.DictionaryIntKey" executed="True" success="True" time="0.003" asserts="0" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="XmlDictionaryValueKeyFixture" executed="True" success="True" time="0.002" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV25.XmlDictionaryValueKeyFixture.DictionaryEnumKey" executed="True" success="True" time="0.001" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV25.XmlDictionaryValueKeyFixture.DictionaryIntKey" executed="True" success="True" time="0.001" asserts="0" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="NHV29" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-suite name="Fixture" executed="True" success="True" time="0.004" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV29.Fixture.Should_Be_Able_To_Validate_A_Invalid_Entity_With_Custom_Validator" executed="True" success="True" time="0.003" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV29.Fixture.Should_Be_Able_To_Validate_A_Valid_Entity_With_Custom_Validator" executed="True" success="True" time="0.000" asserts="0" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="NHV41" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-suite name="FixtureNHV40" executed="True" success="True" time="0.002" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV41.FixtureNHV40.InterpolatingMemberAndSubMembers" executed="True" success="True" time="0.002" asserts="3" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="NHV62" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-suite name="Fixture" executed="True" success="True" time="0.002" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV62.Fixture.InterpolatingMemberAndSubMembers" executed="True" success="True" time="0.001" asserts="2" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="NHV71" executed="True" success="True" time="0.072" asserts="0">
+                        <results>
+                          <test-suite name="ValidComponentTester" executed="True" success="True" time="0.071" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV71.ValidComponentTester.when_commit_customer_with_invalid_name_and_email_should_throw_invalid_state_ex_with_two_invalid_values" executed="True" success="True" time="0.025" asserts="0" />
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV71.ValidComponentTester.when_validate_customer_with_invalid_name_and_email_should_return_two_invalid_values" executed="True" success="True" time="0.009" asserts="0" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                      <test-suite name="NHV79" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-suite name="Fixture" executed="True" success="True" time="0.004" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.Specifics.NHV79.Fixture.can_validate_legs" executed="True" success="True" time="0.004" asserts="0" />
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ThreadSafe" executed="True" success="True" time="0.489" asserts="0">
+                    <results>
+                      <test-suite name="ThreadSafeFixture" executed="True" success="True" time="0.489" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ThreadSafe.ThreadSafeFixture.AddValidator" executed="True" success="True" time="0.151" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ThreadSafe.ThreadSafeFixture.IsValid" executed="True" success="True" time="0.172" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ThreadSafe.ThreadSafeFixture.Validate" executed="True" success="True" time="0.166" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Utils" executed="True" success="True" time="0.010" asserts="0">
+                    <results>
+                      <test-suite name="AttributeUtilsFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Utils.AttributeUtilsFixture.AttributeCanBeMultiplied" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.AttributeUtilsFixture.AttributeCannotBeMultiplied" executed="True" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="TypeUtilsFixture" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.DecodeMemberAccessExpression" executed="True" success="True" time="0.002" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.GetGenericTypesOfDictionary" executed="True" success="True" time="0.001" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.GetMemberType" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.GetMemberValue" executed="True" success="True" time="0.000" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.GetPropertyOrField" executed="True" success="True" time="0.001" asserts="6" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.GetterWithException" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.GetTypeOfMember" executed="True" success="True" time="0.001" asserts="4" />
+                          <test-case name="NHibernate.Validator.Tests.Utils.TypeUtilsFixture.IsGenericDictionary" executed="True" success="True" time="0.000" asserts="5" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ValidatorsTest" executed="True" success="True" time="0.174" asserts="0">
+                    <results>
+                      <test-suite name="AssertFalseFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.AssertFalseFixture.IsValid" executed="True" success="True" time="0.001" asserts="4" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="CreditCardNumberFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.CreditCardNumberFixture.IsValid" executed="True" success="True" time="0.001" asserts="13" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="DecimalMaxValidatorFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.DecimalMaxValidatorFixture.IsValid" executed="True" success="True" time="0.002" asserts="14" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="DecimalMinValidatorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.DecimalMinValidatorFixture.IsValid" executed="True" success="True" time="0.003" asserts="18" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="DigitsValidatorFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.DigitsValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="25" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="EANValidatorFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.EANValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="10" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="EmailValidatorFixture" executed="True" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.EmailValidatorFixture.IsValid" executed="True" success="True" time="0.006" asserts="20" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="FileExistsValidatorFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.FileExistsValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="4" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="FutureValidatorFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.FutureValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="8" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="IBANFixture" executed="True" success="True" time="0.082" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IBANFixture.IsValid" executed="True" success="True" time="0.082" asserts="61" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="IPAddressValidatorFixture" executed="True" success="True" time="0.000" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IPAddressValidatorFixture.IsValid" executed="True" success="True" time="0.000" asserts="9" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="IsNumericValidatorFixture" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.Attributes" executed="True" success="True" time="0.001" asserts="3" />
+                          <test-suite name="IsNotValid" executed="True" success="True" time="0.002" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.IsNotValid(&quot;123.,&quot;)" executed="True" success="True" time="0.000" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.IsNotValid(&quot;12345...6&quot;)" executed="True" success="True" time="0.000" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.IsNotValid(&quot;a&quot;)" executed="True" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-suite name="IsValid" executed="True" success="True" time="0.001" asserts="0">
+                            <results>
+                              <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.IsValid(&quot;0&quot;)" executed="True" success="True" time="0.000" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.IsValid(&quot;123&quot;)" executed="True" success="True" time="0.000" asserts="1" />
+                              <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.IsValid(&quot;12345.6&quot;)" executed="True" success="True" time="0.000" asserts="1" />
+                            </results>
+                          </test-suite>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.IsNumericValidatorFixture.Loquacious" executed="True" success="True" time="0.001" asserts="2" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="LengthValidatorFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.LengthValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="10" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MaxValidatorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.MaxValidatorFixture.Extreme" executed="True" success="True" time="0.002" asserts="18" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.MaxValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="10" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="MinValidatorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.MinValidatorFixture.Extreme" executed="True" success="True" time="0.002" asserts="18" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.MinValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="10" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="NotEmptyValidatorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.NotEmptyValidatorFixture.CanValidateGuid" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.NotEmptyValidatorFixture.IsValid" executed="True" success="True" time="0.000" asserts="9" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.NotEmptyValidatorFixture.WhenEnumeratorIsDisposable_ShouldDispose" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="NotNullNotEmptyValidatorFixture" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.NotNullNotEmptyValidatorFixture.CanValidateGuid" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.NotNullNotEmptyValidatorFixture.IsValid" executed="True" success="True" time="0.000" asserts="8" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.NotNullNotEmptyValidatorFixture.WhenEnumeratorIsDisposable_ShouldDispose" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="PastValidatorFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.PastValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="9" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="PatternValidatorFixture" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.PatternValidatorFixture.AllowMoreThanOne" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.PatternValidatorFixture.IsValid" executed="True" success="True" time="0.003" asserts="6" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="RangeValidatorFixture" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.RangeValidatorFixture.Attribute" executed="True" success="True" time="0.001" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.RangeValidatorFixture.Extreme" executed="True" success="True" time="0.003" asserts="36" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.RangeValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="12" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="SizeValidatorFixture" executed="True" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.SizeValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="8" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="ValidatorsFixture" executed="True" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.ValidatorsFixture.LengthTest" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.ValidatorsFixture.NotEmptyTest" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.ValidatorsFixture.NullString" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.ValidatorsFixture.PastAndFuture" executed="True" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="WithinValidatorFixture" executed="True" success="True" time="0.008" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.WithinValidatorFixture.Attribute" executed="True" success="True" time="0.002" asserts="5" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.WithinValidatorFixture.Extreme" executed="True" success="True" time="0.003" asserts="37" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.WithinValidatorFixture.IsValid" executed="True" success="True" time="0.001" asserts="12" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlValidatorsFixture" executed="True" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.XmlValidatorsFixture.LengthTest" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.XmlValidatorsFixture.NotEmptyTest" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.XmlValidatorsFixture.NullString" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidatorsTest.XmlValidatorsFixture.PastAndFuture" executed="True" success="True" time="0.002" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ValidTests" executed="True" success="True" time="0.009" asserts="0">
+                    <results>
+                      <test-suite name="ValidTest" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidTests.ValidTest.OneToOneValid" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidTests.ValidTest.TestDeepValid" executed="True" success="True" time="0.002" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="XmlValidTest" executed="True" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.ValidTests.XmlValidTest.OneToOneValid" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.ValidTests.XmlValidTest.TestDeepValid" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="XmlAndAttributesMix" executed="True" success="True" time="0.009" asserts="0">
+                    <results>
+                      <test-suite name="OverrideAttributeWithXmlFixture" executed="True" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.XmlAndAttributesMix.OverrideAttributeWithXmlFixture.AttributeLengthForAddressOverridesAttribute" executed="True" success="True" time="0.002" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.XmlAndAttributesMix.OverrideAttributeWithXmlFixture.GetAttributeOnlyDefinition" executed="True" success="True" time="0.001" asserts="0" />
+                          <test-case name="NHibernate.Validator.Tests.XmlAndAttributesMix.OverrideAttributeWithXmlFixture.GetCombinedDefinition" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite name="OverrideXmlWithAttributeFixture" executed="True" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="NHibernate.Validator.Tests.XmlAndAttributesMix.OverrideXmlWithAttributeFixture.AttributeLengthForAddressOverridesXml" executed="True" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,149 @@
+Documentation and examples are available at www.nhforge.org
+Any feedback or issue can be sent to NHibernate user group(http://groups.google.com/group/nhusers) and will be greatly anticipated. 
+
+Release Notes - NHibernate.Validator - Version 1.2.0
+** BREAKING CHANGES
+    * Target framework .NET 3.5
+    * Constraints moved in Constraints namespace.
+    * ValidatorMode values was changed (see NHibernate.Validator.Engine.ValidatorMode for reference)
+    * The class NHibernate.Validator.Cfg.NHVConfiguration was renamed to XmlConfiguration
+	* The interface NHibernate.Validator.Engine.IMessageInterpolator and implementations had changed the signature. See [NHV-40]
+	* Using IClassValidator all invalid states methods now return IEnumerable<InvalidValue> instead InvalidValue[]
+
+	
+Release Notes - NHibernate.Validator - Version 1.2.0CR1
+
+** Bug
+    * [NHV-71] - Inconsistent component validation
+    * [NHV-72] - NotNullAttribute uses {validator.notEmpty} message, not {validator.notNull} as expected
+    * [NHV-76] - CUIT Validator Argentina No Valida CUIT Nro 20-13499715-0
+
+** Improvement
+    * [NHV-73] - NotEmptyValidator and NotNullNotEmptyValidator IEnumerator should be disposed of.
+    * [NHV-75] - Return IEnumerable<InvalidValue> instead InvalidValue[]
+    * [NHV-77] - Ability to have Attribute as Validator
+    * [NHV-78] - Put invalid value on ArgumentOutOfRangeException in ClassValidator ctor
+    * [NHV-80] - Guid in Loquacios
+
+** New Feature
+    * [NHV-16] - Should support params to work with
+    * [NHV-74] - Validate through Tags
+
+** Patch
+    * [NHV-70] - Loquacious configuration for enum properties causes exception
+    * [NHV-79] - Define a constraints fluently for BYTE property
+
+Release Notes - NHibernate.Validator - Version 1.2.0Beta3
+
+** New Feature
+    * [NHV-60] - Custom ResourceManager Configuration
+    * [NHV-66] - Entity-Validation by lambda
+    * [NHV-67] - Property validation by lambda
+    * [NHV-68] - Within Validator
+	
+	
+Release Notes - NHibernate.Validator - Version 1.2.0Beta2
+
+** Bug
+    * [NHV-54] - ugly Fail using external validation mapping with proxy
+
+** Improvement
+    * [NHV-55] - Fluent conf.: Allow the registration of a ValidationDef instance
+
+
+** Patch
+    * [NHV-53] - CreditCardNumberValidator fails if users put a space or a letter in the cc field
+    * [NHV-56] - ValidatePropertyValue fail with proxies from nhibernate
+    * [NHV-57] - AmbiguousMatchException within complex hierarchies
+    * [NHV-59] - Proxy in collection with HasValidElements constraints
+    * [NHV-61] - Polish Specific Validators
+    * [NHV-62] - Adding error with the property name when using Entity-Validator
+    * [NHV-63] - DecimalMax and DecimalMin validators
+
+
+Release Notes - NHibernate.Validator - Version 1.2.0Beta1
+
+** Improvement
+    * [NHV-52] - Allowing to configure ConstraintValidatorFactory instances
+
+** Patch
+    * [NHV-42] - Translation problems with Null and Empty messages
+
+
+Release Notes - NHibernate.Validator - Version 1.2.0Alpha4
+	
+** Improvement
+    * [NHV-29] - <rule attribute="..."> without parameters
+    * [NHV-47] - Renaming Bean property in Entity at NHibernate.Validator.Engine.InvalidValue
+    * [NHV-49] - Internals: Renaming Bean to Entity, and BeanClass to EntityType
+    * [NHV-51] - Messages Polish translation
+
+** New Feature
+    * [NHV-46] - Constraint Validator Context implementation
+    * [NHV-50] - Constraint Validator Factory
+
+** Patch
+    * [NHV-44] - Dutch translation fixes
+
+Release Notes - NHibernate.Validator - Version 1.2.0Alpha3
+	* Updated to NHibernate 2.1Alpha2
+
+Release Notes - NHibernate.Validator - Version 1.2.0Alpha2
+
+** Bug
+    * [NHV-41] - Bad message caching when Interpolate Values
+
+Release Notes - NHibernate.Validator - Version 1.2.0Alpha1
+
+** Sub-task
+    * [NHV-31] - Documentation of NotNullNotEmpty
+
+** Bug
+    * [NHV-25] - Exception throw validating generic dictionary with key of Enum type
+    * [NHV-34] - Child validation don't work in XML
+
+** Improvement
+    * [NHV-26] - Latvian (lv) language resources for default validation messages
+    * [NHV-27] - Register listeners without deleting others previously registered in the same configuration.
+    * [NHV-30] - Dutch (nl) language resources for default validation messages
+    * [NHV-35] - Strongly typed ValidatePropertyValue (on engine)
+    * [NHV-40] - MessageInterpolator allow to use values
+
+** New Feature
+    * [NHV-15] - Numeric Validator
+    * [NHV-23] - zip-code from Brazil (CEP)
+    * [NHV-24] - Fiscal Code for Brazil (CPF)
+    * [NHV-32] - Allow external "mapping-source"
+    * [NHV-33] - Validators fluent-configuration
+    * [NHV-36] - MemberValidator available from IClassValidator
+
+Release Notes - NHibernate.Validator - Version 1.0.0GA
+
+** Bug
+    * [NHV-14] - Make NHibernate.Validator Assembly Strongly-Named
+** Improvement
+    * [NHV-12] - ValidatorEngine Serializable
+    * [NHV-13] - ValidatorEngine Thread-Safe
+    * [NHV-17] - Also use String in ValidatorClass("Company.Project.MyValidator, MyAssembly") attribute
+    * [NHV-20] - Nant scripts
+	* [NHV-21] - Upgrade to NH 2.0.1 GA
+** Patch
+    * [NHV-19] - Mark Assemblies with Allow Partially Trusted Callers by Default
+
+Release Notes - NHibernate.Validator - Version 1.0.0CR1
+
+** New Feature
+    * [NHV-2] - Add Validation for Uruguayan Identity document check digit
+    * [NHV-7] - New IBAN generic Validator
+    * [NHV-11] - CUIT/CUIL Validator for Argentina
+
+Release Notes - NHibernate.Validator - Version 1.0.0Beta1
+
+** Improvement
+    * [NHV-4] - Suggest: Return True if a PartitaIva value is String.Empty
+** New Feature
+    * [NHV-1] - Add a DLL with specific validations for different countries-cultures
+    * [NHV-3] - PartitaIVA
+    * [NHV-6] - Specific Validator for Italy: CodiceFiscale
+** Patch
+    * [NHV-5] - Change name of class "Cliente" under NHibernate.Validator.Specific.Tests.It

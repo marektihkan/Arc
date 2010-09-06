@@ -1,0 +1,75 @@
+--- !ruby/object:Gem::Specification 
+name: automapper
+version: !ruby/object:Gem::Version 
+  hash: 40202231
+  prerelease: false
+  segments: 
+  - 1
+  - 1
+  - 0
+  - 188
+  - 20100804
+  version: 1.1.0.188.20100804
+platform: ruby
+authors: 
+- Jimmy Bogard
+- Eric Hexter
+- Jeffrey Palermo
+- Tom Jaeschke
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-08-03 01:00:00 +03:00
+default_executable: 
+dependencies: []
+
+description: |
+  AutoMapper uses a fluent configuration API to define an object-object mapping strategy. AutoMapper uses a convention-based matching algorithm to match up source to destination values. Currently, AutoMapper is geared towards model projection scenarios to flatten complex object models to DTOs and other simple objects, whose design is better suited for serialization, communication, messaging, or simply an anti-corruption layer between the domain and application layer.
+
+email: automapper-users@googlegroups.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- lib/NET35/AutoMapper.dll
+- lib/SL3/AutoMapper.Silverlight.dll
+has_rdoc: true
+homepage: http://automapper.codeplex.com/
+licenses: []
+
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: automapper
+rubygems_version: 1.3.7
+signing_key: 
+specification_version: 3
+summary: AutoMapper - A convention-based object-object mapper.
+test_files: []
+

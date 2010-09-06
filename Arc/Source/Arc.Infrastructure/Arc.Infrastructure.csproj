@@ -38,9 +38,9 @@
     <DocumentationFile>bin\Release\Arc.Infrastructure.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=0.4.0.126, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\External Libraries\AutoMapper\AutoMapper.dll</HintPath>
+      <HintPath>..\..\lib\automapper\NET35\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

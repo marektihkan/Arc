@@ -30,9 +30,9 @@ namespace Arc.Domain.Units
         /// <summary>
         /// Initializes a new instance of the <see cref="Quantity"/> class.
         /// </summary>
-        public Quantity() : this(0, string.Empty)
-        {
-        }
+        public Quantity() : this(0, null) { }
+
+        public Quantity(decimal amount) : this(amount, null) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Quantity"/> class.

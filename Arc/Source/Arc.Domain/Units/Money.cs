@@ -36,6 +36,8 @@ namespace Arc.Domain.Units
         {
         }
 
+        public Money(decimal amount) : this(amount, null) { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Money"/> class.
         /// </summary>

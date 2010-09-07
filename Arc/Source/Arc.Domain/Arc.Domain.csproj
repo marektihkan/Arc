@@ -57,6 +57,7 @@
     <Compile Include="Dsl\Parsing\ParsingResult.cs" />
     <Compile Include="Dsl\Should.cs" />
     <Compile Include="Identity\GuidIdentityEntity.cs" />
+    <Compile Include="Identity\IActiveRecord.cs" />
     <Compile Include="Identity\IDeletable.cs" />
     <Compile Include="Identity\IDomainObject.cs" />
     <Compile Include="Identity\IEntity.cs" />
@@ -64,15 +65,11 @@
     <Compile Include="Identity\ISaveable.cs" />
     <Compile Include="Identity\IValueObject.cs" />
     <Compile Include="Identity\IVersioned.cs" />
-    <Compile Include="Security\IPasswordGenerator.cs" />
-    <Compile Include="Security\PasswordGenerator.cs" />
-    <Compile Include="Specifications\BaseSpecification.cs" />
-    <Compile Include="Specifications\ISpecification.cs" />
     <Compile Include="Specifications\Specification.cs" />
-    <Compile Include="Time\Clock.cs" />
+    <Compile Include="Specifications\ISpecification.cs" />
+    <Compile Include="Units\SystemTime.cs" />
     <Compile Include="Units\CurrencyConstants.cs" />
     <Compile Include="Units\DatePeriod.cs" />
-    <Compile Include="Time\IClock.cs" />
     <Compile Include="Units\IRange.cs" />
     <Compile Include="Units\MoneyBag.cs" />
     <Compile Include="Units\NullableRange.cs" />
@@ -81,6 +78,7 @@
     <Compile Include="Units\Money.cs" />
     <Compile Include="Units\Quantity.cs" />
     <Compile Include="Units\Range.cs" />
+    <Compile Include="Units\UnitExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Configuration\Arc.snk">

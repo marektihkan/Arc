@@ -18,29 +18,22 @@
 
 using System;
 
-namespace Arc.Domain.Time
+namespace Arc.Domain.Units
 {
-    /// <summary>
-    /// System clock.
-    /// </summary>
-    public class Clock : IClock
+    public static class SystemTime
     {
-        /// <summary>
-        /// Gets the current date and time.
-        /// </summary>
-        /// <value>The current date and time.</value>
-        public DateTime Now
+        private static Func<DateTime> _now = () => DateTime.Now;
+
+        public static void Reset()
         {
-            get { return DateTime.Now; }
+            Is(() => DateTime.Now);
         }
 
-        /// <summary>
-        /// Gets the today's date.
-        /// </summary>
-        /// <value>The today's date.</value>
-        public DateTime Today
+        public static void Is(Func<DateTime> expression)
         {
-            get { return DateTime.Today; }
+            _now = expression;
         }
+
+        public static DateTime Now { get { return _now(); } }
     }
 }

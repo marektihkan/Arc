@@ -38,10 +38,6 @@
     <DocumentationFile>bin\Release\Arc.Infrastructure.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\automapper\NET35\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -56,6 +52,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Configuration\Application.cs" />
+    <Compile Include="Configuration\Dependencies\MappingIsNotUsed.cs" />
     <Compile Include="Configuration\IConvention.cs" />
     <Compile Include="Configuration\Dependencies\RegistryConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
@@ -69,12 +66,19 @@
     <Compile Include="Data\BaseGenericRepository.cs" />
     <Compile Include="Data\Find.cs" />
     <Compile Include="Configuration\Conventions\ServiceLocatorConvention.cs" />
+    <Compile Include="Mapping\IMapper.cs" />
+    <Compile Include="Mapping\IMapToSyntax.cs" />
+    <Compile Include="Mapping\Map.cs" />
     <Compile Include="Dependencies\Registration\IRegistration.cs" />
     <Compile Include="Dependencies\Registration\IServiceBindingSyntax.cs" />
     <Compile Include="Dependencies\Registration\IServiceLifeStyleSyntax.cs" />
     <Compile Include="Dependencies\Registration\RegistrationImpl.cs" />
     <Compile Include="Dependencies\Registration\Requested.cs" />
     <Compile Include="Dependencies\Registration\ServiceLifeStyle.cs" />
+    <Compile Include="Mapping\MappingOf.cs" />
+    <Compile Include="Mapping\MappingOfGenericType.cs" />
+    <Compile Include="Mapping\MappingOfUnknownType.cs" />
+    <Compile Include="Mapping\NullMapper.cs" />
     <Compile Include="Registry\HybridRegistry.cs" />
     <Compile Include="Registry\IHybridRegistry.cs" />
     <Compile Include="Registry\ILocalRegistry.cs" />
@@ -91,7 +95,6 @@
     <Compile Include="Data\IUnitOfWorkFactory.cs" />
     <Compile Include="Utilities\Expressions\MemberFinder.cs" />
     <Compile Include="Utilities\Expressions\ValueFinder.cs" />
-    <Compile Include="Data\ObjectMapperExtensions.cs" />
     <Compile Include="Data\UnitOfWorkWebModule.cs" />
     <Compile Include="Dependencies\Registration\Auto\BaseRegisterTypeStrategy.cs" />
     <Compile Include="Dependencies\Registration\Auto\IBindingSyntax.cs" />

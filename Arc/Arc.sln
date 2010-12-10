@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presenta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvp", "Source\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj", "{9C458400-AACB-482E-81DE-7ED7B41FA52A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Mapping.AutoMapper", "Source\Arc.Infrastructure.Mapping.AutoMapper\Arc.Infrastructure.Mapping.AutoMapper.csproj", "{076FABBF-5718-4EBC-A03C-6858E2FCD03F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,6 +104,10 @@ Global
 		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C458400-AACB-482E-81DE-7ED7B41FA52A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076FABBF-5718-4EBC-A03C-6858E2FCD03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076FABBF-5718-4EBC-A03C-6858E2FCD03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076FABBF-5718-4EBC-A03C-6858E2FCD03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076FABBF-5718-4EBC-A03C-6858E2FCD03F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,5 +128,6 @@ Global
 		{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
 		{9173994F-C413-4B4B-9831-978A1319A030} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
 		{9C458400-AACB-482E-81DE-7ED7B41FA52A} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
+		{076FABBF-5718-4EBC-A03C-6858E2FCD03F} = {9C3AA209-6672-45E4-8D4B-1FCA795A8168}
 	EndGlobalSection
 EndGlobal

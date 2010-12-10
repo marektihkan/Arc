@@ -52,6 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL" />
     <Reference Include="Castle.Core, Version=1.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\lib\castle.core\Castle.Core.dll</HintPath>
     </Reference>
@@ -121,6 +122,8 @@
     <Compile Include="Fakes\DependencyInjection\ConfigurationModule.cs" />
     <Compile Include="Fakes\DependencyInjection\DependencyConfiguration.cs" />
     <Compile Include="Fakes\DependencyInjection\RegisterServicesConvention.cs" />
+    <Compile Include="Fakes\DomainObject.cs" />
+    <Compile Include="Fakes\DomainObjectDto.cs" />
     <Compile Include="Fakes\Model\FakeEntity.cs" />
     <Compile Include="Fakes\Model\Services\GenericServiceHostImpl.cs" />
     <Compile Include="Fakes\Model\Services\GenericServiceImpl.cs" />
@@ -151,6 +154,7 @@
     <Compile Include="Infrastructure\Dependencies\CastleWindsorServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\NinjectServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\StructureMapServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Mapping\MappingTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\MasterPageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\PageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\UserControlTests.cs" />
@@ -183,6 +187,10 @@
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
       <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
       <Name>Arc.Infrastructure.Logging.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Mapping.AutoMapper\Arc.Infrastructure.Mapping.AutoMapper.csproj">
+      <Project>{076FABBF-5718-4EBC-A03C-6858E2FCD03F}</Project>
+      <Name>Arc.Infrastructure.Mapping.AutoMapper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Source\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj">
       <Project>{9173994F-C413-4B4B-9831-978A1319A030}</Project>

@@ -139,7 +139,6 @@
     <Compile Include="Infrastructure\Data\BaseRepositoryTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\CriteriaExamples.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\CriteriaTests.cs" />
-    <Compile Include="Infrastructure\Data\ObjectMapperExtensionsTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\RepositoryTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\SpecificationConverterTests.cs" />
     <Compile Include="Fakes\Data\SpecificationConverterTestValues.cs" />

@@ -54,8 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentValidation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\fluentvalidation\FluentValidation\FluentValidation.dll</HintPath>
+      <HintPath>..\..\packages\FluentValidation.1.3.0.0\lib\NET35\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -76,6 +75,7 @@
     <None Include="..\..\Configuration\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Arc.Infrastructure\Arc.Infrastructure.csproj">

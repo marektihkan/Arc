@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}</ProjectGuid>
+    <ProjectGuid>{9173994F-C413-4B4B-9831-978A1319A030}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Arc.Infrastructure.Validation.NHibernateValidator</RootNamespace>
-    <AssemblyName>Arc.Infrastructure.Validation.NHibernateValidator</AssemblyName>
+    <RootNamespace>Arc.Infrastructure.Presentation.Mvc</RootNamespace>
+    <AssemblyName>Arc.Infrastructure.Presentation.Mvc</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -50,29 +50,29 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Arc.Infrastructure.Validation.NHibernateValidator.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Arc.Infrastructure.Presentation.Mvc.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NHibernate.Validator, Version=1.2.0.3001, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\nhibernate.validator\bin\net-3.5\NHibernate.Validator.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.XML" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ValidationConfiguration.cs" />
-    <Compile Include="ValidationResultsAdapter.cs" />
-    <Compile Include="ValidationService.cs" />
+    <Compile Include="ControllerFactory.cs" />
+    <Compile Include="PresentationConfiguration.cs" />
+    <Compile Include="RoutesConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
   </ItemGroup>

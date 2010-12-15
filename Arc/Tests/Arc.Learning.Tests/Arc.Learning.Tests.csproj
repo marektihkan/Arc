@@ -105,13 +105,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Source\CommonAssemblyInfo.cs">
+    <Compile Include="..\..\src\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Bugs.cs" />
@@ -136,31 +136,31 @@
     <Compile Include="WindsorRegistration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
+    <ProjectReference Include="..\..\src\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
       <Project>{820F4A44-E9EF-41C9-830A-26F6B290431F}</Project>
       <Name>Arc.Infrastructure.Data.NHibernate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj">
       <Project>{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}</Project>
       <Name>Arc.Infrastructure.Dependencies.CastleWindsor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
       <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>
       <Name>Arc.Infrastructure.Dependencies.Ninject</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.StructureMap\Arc.Infrastructure.Dependencies.StructureMap.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Dependencies.StructureMap\Arc.Infrastructure.Dependencies.StructureMap.csproj">
       <Project>{DE37A51C-1BD2-4AE6-9CCA-EC3C5B93F5EE}</Project>
       <Name>Arc.Infrastructure.Dependencies.StructureMap</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
       <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
       <Name>Arc.Infrastructure.Logging.Log4Net</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>
     </ProjectReference>

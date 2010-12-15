@@ -4,9 +4,9 @@ CONFIG = {
   },
   :directories => {
     :build => 'build',
-    :lib => 'lib',
-    :src => 'Source',
-    :tests => 'Tests',
+    :lib => 'packages',
+    :src => 'src',
+    :tests => 'tests',
     :configuration => 'config',
     :binary => 'bin',
     :publish => 'package'

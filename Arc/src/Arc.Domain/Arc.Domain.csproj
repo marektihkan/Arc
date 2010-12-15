@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</ProjectGuid>
+    <ProjectGuid>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Arc.Infrastructure.Logging.Log4Net</RootNamespace>
-    <AssemblyName>Arc.Infrastructure.Logging.Log4Net</AssemblyName>
+    <RootNamespace>Arc.Domain</RootNamespace>
+    <AssemblyName>Arc.Domain</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -18,21 +18,6 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,12 +35,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Arc.Infrastructure.Logging.Log4Net.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Arc.Domain.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -65,37 +47,43 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Logger.cs" />
-    <Compile Include="LoggingConfiguration.cs" />
+    <Compile Include="Dsl\ActionExtensions.cs" />
+    <Compile Include="Dsl\ComparableExtensions.cs" />
+    <Compile Include="Dsl\LoopExtensions.cs" />
+    <Compile Include="Dsl\NullExtensions.cs" />
+    <Compile Include="Dsl\Parsing\EmptyParsingResult.cs" />
+    <Compile Include="Dsl\Parsing\IParsingResult.cs" />
+    <Compile Include="Dsl\Parse.cs" />
+    <Compile Include="Dsl\Parsing\ParsingResult.cs" />
+    <Compile Include="Dsl\Should.cs" />
+    <Compile Include="Identity\GuidIdentityEntity.cs" />
+    <Compile Include="Identity\IActiveRecord.cs" />
+    <Compile Include="Identity\IDeletable.cs" />
+    <Compile Include="Identity\IDomainObject.cs" />
+    <Compile Include="Identity\IEntity.cs" />
+    <Compile Include="Identity\IntegerIdentityEntity.cs" />
+    <Compile Include="Identity\ISaveable.cs" />
+    <Compile Include="Identity\IValueObject.cs" />
+    <Compile Include="Identity\IVersioned.cs" />
+    <Compile Include="Specifications\Specification.cs" />
+    <Compile Include="Specifications\ISpecification.cs" />
+    <Compile Include="Units\SystemTime.cs" />
+    <Compile Include="Units\CurrencyConstants.cs" />
+    <Compile Include="Units\DatePeriod.cs" />
+    <Compile Include="Units\IRange.cs" />
+    <Compile Include="Units\MoneyBag.cs" />
+    <Compile Include="Units\NullableRange.cs" />
+    <Compile Include="Units\BaseRange.cs" />
+    <Compile Include="Units\Currency.cs" />
+    <Compile Include="Units\Money.cs" />
+    <Compile Include="Units\Quantity.cs" />
+    <Compile Include="Units\Range.cs" />
+    <Compile Include="Units\UnitExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Arc.Infrastructure\Arc.Infrastructure.csproj">
-      <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
-      <Name>Arc.Infrastructure</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

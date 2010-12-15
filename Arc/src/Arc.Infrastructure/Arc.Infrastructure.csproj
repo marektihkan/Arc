@@ -124,7 +124,7 @@
     <Compile Include="Validation\ValidationException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
   </ItemGroup>

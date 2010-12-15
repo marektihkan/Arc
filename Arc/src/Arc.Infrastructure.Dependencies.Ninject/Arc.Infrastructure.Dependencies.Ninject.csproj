@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9173994F-C413-4B4B-9831-978A1319A030}</ProjectGuid>
+    <ProjectGuid>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Arc.Infrastructure.Presentation.Mvc</RootNamespace>
-    <AssemblyName>Arc.Infrastructure.Presentation.Mvc</AssemblyName>
+    <RootNamespace>Arc.Infrastructure.Dependencies.Ninject</RootNamespace>
+    <AssemblyName>Arc.Infrastructure.Dependencies.Ninject</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
@@ -50,33 +50,42 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Arc.Infrastructure.Presentation.Mvc.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Arc.Infrastructure.Dependencies.Ninject.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=2.1.0.76, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Ninject.2.1.0.76\lib\35\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Routing">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="ControllerFactory.cs" />
-    <Compile Include="PresentationConfiguration.cs" />
-    <Compile Include="RoutesConfiguration.cs" />
+    <Compile Include="Registration\BaseRegistrationStrategy.cs" />
+    <Compile Include="Registration\FactoryRegistrationStrategy.cs" />
+    <Compile Include="Registration\ImplementedRegistrationStrategy.cs" />
+    <Compile Include="Registration\IRegistrationStrategy.cs" />
+    <Compile Include="Registration\LifeStyleFactory.cs" />
+    <Compile Include="Registration\RegistrationStrategyFactory.cs" />
+    <Compile Include="ServiceLocator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Arc.Domain\Arc.Domain.csproj">
+      <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
+      <Name>Arc.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>

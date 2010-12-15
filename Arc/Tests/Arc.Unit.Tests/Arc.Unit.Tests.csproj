@@ -109,13 +109,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Source\CommonAssemblyInfo.cs">
+    <Compile Include="..\..\src\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Domain\Dsl\ComparableTests.cs" />
@@ -176,31 +176,31 @@
     <Compile Include="Infrastructure\Validation\ValidationExceptionTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\Arc.Domain\Arc.Domain.csproj">
+    <ProjectReference Include="..\..\src\Arc.Domain\Arc.Domain.csproj">
       <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
       <Name>Arc.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
       <Project>{820F4A44-E9EF-41C9-830A-26F6B290431F}</Project>
       <Name>Arc.Infrastructure.Data.NHibernate</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
       <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>
       <Name>Arc.Infrastructure.Dependencies.Ninject</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
       <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
       <Name>Arc.Infrastructure.Logging.Log4Net</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj">
       <Project>{9173994F-C413-4B4B-9831-978A1319A030}</Project>
       <Name>Arc.Infrastructure.Presentation.Mvc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj">
       <Project>{9C458400-AACB-482E-81DE-7ED7B41FA52A}</Project>
       <Name>Arc.Infrastructure.Presentation.Mvp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Source\Arc.Infrastructure\Arc.Infrastructure.csproj">
+    <ProjectReference Include="..\..\src\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>
     </ProjectReference>

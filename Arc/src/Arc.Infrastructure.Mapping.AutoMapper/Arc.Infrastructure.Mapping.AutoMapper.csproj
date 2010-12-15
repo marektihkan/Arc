@@ -52,7 +52,7 @@
     <Compile Include="MappingConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Configuration\Arc.snk">
+    <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
     <None Include="packages.config" />

@@ -7,35 +7,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C20F3F2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{9C3AA209-6672-45E4-8D4B-1FCA795A8168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure", "Source\Arc.Infrastructure\Arc.Infrastructure.csproj", "{F815EB09-BB4F-4011-82A3-03774C64CE20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure", "src\Arc.Infrastructure\Arc.Infrastructure.csproj", "{F815EB09-BB4F-4011-82A3-03774C64CE20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Domain", "Source\Arc.Domain\Arc.Domain.csproj", "{DFBFA36C-C313-4FF2-A1C4-21FA13520536}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Domain", "src\Arc.Domain\Arc.Domain.csproj", "{DFBFA36C-C313-4FF2-A1C4-21FA13520536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Unit.Tests", "Tests\Arc.Unit.Tests\Arc.Unit.Tests.csproj", "{A765671D-1D0A-4CFE-8993-2693DEB854E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Unit.Tests", "tests\Arc.Unit.Tests\Arc.Unit.Tests.csproj", "{A765671D-1D0A-4CFE-8993-2693DEB854E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Integration.Tests", "Tests\Arc.Integration.Tests\Arc.Integration.Tests.csproj", "{FBC13603-AD63-4E70-B25C-F74070B00DC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Integration.Tests", "tests\Arc.Integration.Tests\Arc.Integration.Tests.csproj", "{FBC13603-AD63-4E70-B25C-F74070B00DC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Learning.Tests", "Tests\Arc.Learning.Tests\Arc.Learning.Tests.csproj", "{FE6D3B01-7816-4B72-9181-168AD75D3AD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Learning.Tests", "tests\Arc.Learning.Tests\Arc.Learning.Tests.csproj", "{FE6D3B01-7816-4B72-9181-168AD75D3AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.Ninject", "Source\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj", "{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.Ninject", "src\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj", "{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Logging.Log4Net", "Source\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj", "{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Logging.Log4Net", "src\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj", "{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.StructureMap", "Source\Arc.Infrastructure.Dependencies.StructureMap\Arc.Infrastructure.Dependencies.StructureMap.csproj", "{DE37A51C-1BD2-4AE6-9CCA-EC3C5B93F5EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.StructureMap", "src\Arc.Infrastructure.Dependencies.StructureMap\Arc.Infrastructure.Dependencies.StructureMap.csproj", "{DE37A51C-1BD2-4AE6-9CCA-EC3C5B93F5EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.CastleWindsor", "Source\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj", "{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Dependencies.CastleWindsor", "src\Arc.Infrastructure.Dependencies.CastleWindsor\Arc.Infrastructure.Dependencies.CastleWindsor.csproj", "{0A7EC48D-2A31-498A-A503-FA6A2EAF3949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Data.NHibernate", "Source\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj", "{820F4A44-E9EF-41C9-830A-26F6B290431F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Data.NHibernate", "src\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj", "{820F4A44-E9EF-41C9-830A-26F6B290431F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Validation.FluentValidation", "Source\Arc.Infrastructure.Validation.FluentValidation\Arc.Infrastructure.Validation.FluentValidation.csproj", "{F90247AA-0927-4AD9-8FA5-85A21B211AF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Validation.FluentValidation", "src\Arc.Infrastructure.Validation.FluentValidation\Arc.Infrastructure.Validation.FluentValidation.csproj", "{F90247AA-0927-4AD9-8FA5-85A21B211AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Validation.NHibernateValidator", "Source\Arc.Infrastructure.Validation.NHibernateValidator\Arc.Infrastructure.Validation.NHibernateValidator.csproj", "{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Validation.NHibernateValidator", "src\Arc.Infrastructure.Validation.NHibernateValidator\Arc.Infrastructure.Validation.NHibernateValidator.csproj", "{88C4282E-29BE-4D8A-BBEA-B82A2AEEC8E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvc", "Source\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj", "{9173994F-C413-4B4B-9831-978A1319A030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvc", "src\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj", "{9173994F-C413-4B4B-9831-978A1319A030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvp", "Source\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj", "{9C458400-AACB-482E-81DE-7ED7B41FA52A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Presentation.Mvp", "src\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj", "{9C458400-AACB-482E-81DE-7ED7B41FA52A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Mapping.AutoMapper", "Source\Arc.Infrastructure.Mapping.AutoMapper\Arc.Infrastructure.Mapping.AutoMapper.csproj", "{076FABBF-5718-4EBC-A03C-6858E2FCD03F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arc.Infrastructure.Mapping.AutoMapper", "src\Arc.Infrastructure.Mapping.AutoMapper\Arc.Infrastructure.Mapping.AutoMapper.csproj", "{076FABBF-5718-4EBC-A03C-6858E2FCD03F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

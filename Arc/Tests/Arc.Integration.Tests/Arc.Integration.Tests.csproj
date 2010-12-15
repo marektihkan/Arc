@@ -154,6 +154,7 @@
     <Compile Include="Infrastructure\Dependencies\CastleWindsorServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\NinjectServiceLocatorTests.cs" />
     <Compile Include="Infrastructure\Dependencies\StructureMapServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Mapping\AutoMapperMappingTests.cs" />
     <Compile Include="Infrastructure\Mapping\MappingTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\MasterPageTests.cs" />
     <Compile Include="Infrastructure\Presentation\Mvp\PageTests.cs" />

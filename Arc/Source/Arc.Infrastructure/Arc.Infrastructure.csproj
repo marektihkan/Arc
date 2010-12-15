@@ -66,6 +66,7 @@
     <Compile Include="Data\BaseGenericRepository.cs" />
     <Compile Include="Data\Find.cs" />
     <Compile Include="Configuration\Conventions\ServiceLocatorConvention.cs" />
+    <Compile Include="Logging\Log.cs" />
     <Compile Include="Mapping\IMapper.cs" />
     <Compile Include="Mapping\IMapToSyntax.cs" />
     <Compile Include="Mapping\Map.cs" />

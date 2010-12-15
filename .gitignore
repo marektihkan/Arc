@@ -14,6 +14,11 @@
 */Tests/*/obj
 */Schema/*/sql
 */Schema/*/obj
+*/src/*/bin
+*/src/*/obj
+*/tests/*/bin
+*/tests/*/obj
 */Source/CommonAssemblyInfo.cs
+*/src/CommonAssemblyInfo.cs
 */Templates/ArcWizard/ArcWizard/bin
 */Templates/ArcWizard/ArcWizard/obj

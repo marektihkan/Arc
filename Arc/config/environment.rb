@@ -1,12 +1,12 @@
 CONFIG = {
   :paths => { 
-    :nunit => 'lib/nunit/net-2.0/nunit-console.exe' 
+    :nunit => 'packages/NUnit.2.5.7.10213/Tools/nunit-console.exe' 
   },
   :directories => {
     :build => 'build',
-    :lib => 'lib',
-    :src => 'Source',
-    :tests => 'Tests',
+    :lib => 'packages',
+    :src => 'src',
+    :tests => 'tests',
     :configuration => 'config',
     :binary => 'bin',
     :publish => 'package'

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A765671D-1D0A-4CFE-8993-2693DEB854E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Arc.Unit.Tests</RootNamespace>
+    <AssemblyName>Arc.Unit.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\config\Arc.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.1.3.42154, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Antlr.3.1.3.42154\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=1.1.0.188, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.1.1.0.118\lib\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=2.5.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Castle.Core.2.5.2\lib\NET35\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\..\packages\Castle.DynamicProxy.2.2.0\lib\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\..\packages\Castle.Windsor.2.5.2\lib\NET35\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentNHibernate.1.1.1.694\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.1.0.1\lib\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.2001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.Core.3.0.0.2001\lib\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=3.0.0.2001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.Core.3.0.0.2001\lib\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.2.5.7.10213\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.mocks, Version=2.5.7.10213, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NUnit.2.5.7.10213\lib\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\..\packages\NUnit.2.5.7.10213\lib\pnunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq">
+      <HintPath>..\..\packages\NHibernate.Core.3.0.0.2001\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\config\Arc.snk">
+      <Link>Properties\Arc.snk</Link>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\src\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Domain\Dsl\ComparableTests.cs" />
+    <Compile Include="Domain\Dsl\DslTests.cs" />
+    <Compile Include="Domain\Dsl\LoopTests.cs" />
+    <Compile Include="Domain\Dsl\NullTests.cs" />
+    <Compile Include="Domain\Dsl\ParseTests.cs" />
+    <Compile Include="Domain\Dsl\Parsing\EmptyParsingResultTests.cs" />
+    <Compile Include="Domain\Dsl\Parsing\ParsingResultTests.cs" />
+    <Compile Include="Domain\Identity\GuidIdentityEntityTests.cs" />
+    <Compile Include="Domain\Identity\IntegerIdentityEntityTests.cs" />
+    <Compile Include="Domain\Specifications\SpecificationTests.cs" />
+    <Compile Include="Domain\Units\UnitExtensionsTests.cs" />
+    <Compile Include="Fakes\Entities\ContactCard.cs" />
+    <Compile Include="Fakes\Entities\Email.cs" />
+    <Compile Include="Fakes\Entities\Organization.cs" />
+    <Compile Include="Fakes\Entities\ServiceImpl.cs" />
+    <Compile Include="Domain\Units\SystemTimeTests.cs" />
+    <Compile Include="Domain\Units\CurrencyTests.cs" />
+    <Compile Include="Domain\Units\DatePeriodTests.cs" />
+    <Compile Include="Domain\Units\MoneyBagTests.cs" />
+    <Compile Include="Domain\Units\MoneyTests.cs" />
+    <Compile Include="Domain\Units\QuantityTests.cs" />
+    <Compile Include="Domain\Units\BaseRangeTests.cs" />
+    <Compile Include="Domain\Units\RangeTests.cs" />
+    <Compile Include="Fakes\Data\Repository.cs" />
+    <Compile Include="Fakes\Data\SpecificationConverterStaticTestValues.cs" />
+    <Compile Include="Fakes\DomainObject.cs" />
+    <Compile Include="Fakes\DomainObjectDto.cs" />
+    <Compile Include="Fakes\DummyException.cs" />
+    <Compile Include="Fakes\DummyReflection.cs" />
+    <Compile Include="Fakes\Entities\IService.cs" />
+    <Compile Include="Fakes\Entities\Person.cs" />
+    <Compile Include="Fakes\Entities\PersonDataContract.cs" />
+    <Compile Include="Fakes\Factories\GuidFactory.cs" />
+    <Compile Include="Fakes\Factories\MoneyFactory.cs" />
+    <Compile Include="Fakes\Identity\GuidIdentityEntityTester.cs" />
+    <Compile Include="Fakes\Identity\IntegerIdentityEntityTester.cs" />
+    <Compile Include="Fakes\Units\RangeTester.cs" />
+    <Compile Include="Infrastructure\Data\FindTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\AliasTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\AssertCriteria.cs" />
+    <Compile Include="Infrastructure\Data\BaseRepositoryTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\CriteriaExamples.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\CriteriaTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\RepositoryTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\SpecificationConverterTests.cs" />
+    <Compile Include="Fakes\Data\SpecificationConverterTestValues.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\TransactionTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\UnitOfWorkFactoryTests.cs" />
+    <Compile Include="Infrastructure\Data\NHibernate\UnitOfWorkTests.cs" />
+    <Compile Include="Infrastructure\Dependencies\StaticServiceLocatorTests.cs" />
+    <Compile Include="Infrastructure\Logging\LoggerTests.cs" />
+    <Compile Include="Infrastructure\Registry\LocalRegistryTests.cs" />
+    <Compile Include="Infrastructure\Utilities\FindTests.cs" />
+    <Compile Include="Infrastructure\Utilities\ResolveProviderTests.cs" />
+    <Compile Include="Infrastructure\Validation\EmptyValidationResultsTests.cs" />
+    <Compile Include="Infrastructure\Validation\ValidationExceptionTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Arc.Domain\Arc.Domain.csproj">
+      <Project>{DFBFA36C-C313-4FF2-A1C4-21FA13520536}</Project>
+      <Name>Arc.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Data.NHibernate\Arc.Infrastructure.Data.NHibernate.csproj">
+      <Project>{820F4A44-E9EF-41C9-830A-26F6B290431F}</Project>
+      <Name>Arc.Infrastructure.Data.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Dependencies.Ninject\Arc.Infrastructure.Dependencies.Ninject.csproj">
+      <Project>{BB9B2E5D-07B3-40AC-A8EB-B7081E1A1171}</Project>
+      <Name>Arc.Infrastructure.Dependencies.Ninject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Logging.Log4Net\Arc.Infrastructure.Logging.Log4Net.csproj">
+      <Project>{C5FE62B2-9AAF-42A4-8185-2D3F86DB6102}</Project>
+      <Name>Arc.Infrastructure.Logging.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Presentation.Mvc\Arc.Infrastructure.Presentation.Mvc.csproj">
+      <Project>{9173994F-C413-4B4B-9831-978A1319A030}</Project>
+      <Name>Arc.Infrastructure.Presentation.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Arc.Infrastructure.Presentation.Mvp\Arc.Infrastructure.Presentation.Mvp.csproj">
+      <Project>{9C458400-AACB-482E-81DE-7ED7B41FA52A}</Project>
+      <Name>Arc.Infrastructure.Presentation.Mvp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Arc.Infrastructure\Arc.Infrastructure.csproj">
+      <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
+      <Name>Arc.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

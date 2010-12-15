@@ -19,8 +19,8 @@
 using System;
 using System.Linq.Expressions;
 using Arc.Infrastructure.Utilities.Expressions;
-using Castle.DynamicProxy;
 using MemberFinder=Arc.Infrastructure.Data.NHibernate.Specifications.MemberFinder;
+using Castle.DynamicProxy;
 
 namespace Arc.Infrastructure.Data.NHibernate.FluentCriteria
 {

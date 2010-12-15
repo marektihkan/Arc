@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Dependencies.CastleWindsor</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Dependencies.CastleWindsor.Extensions.ComponentRegistrationExtensions">
+            <summary>
+            Extensions for Castle Windsor factory method.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.Extensions.ComponentRegistrationExtensions.FactoryMethod``2(Castle.MicroKernel.Registration.ComponentRegistration{``0},System.Func{``1})">
+            <summary>
+            Registers to factory method.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="registration">The regegistration.</param>
+            <param name="factory">The factory method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.Extensions.ComponentRegistrationExtensions.FactoryMethod``2(Castle.MicroKernel.Registration.ComponentRegistration{``0},System.Func{Castle.MicroKernel.IKernel,``1})">
+            <summary>
+            Registers to factory method.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="registration">The registration.</param>
+            <param name="factory">The factory.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Arc.Infrastructure.Dependencies.CastleWindsor.Extensions.ComponentRegistrationExtensions.Kernel">
+            <summary>
+            Gets or sets the kernel.
+            </summary>
+            <value>The kernel.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator">
+            <summary>
+            Ninject adapter for service locator.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator"/> class.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.#ctor(Castle.Windsor.IWindsorContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator"/> class.
+            </summary>
+            <param name="container">The container.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Load(System.String)">
+            <summary>
+            Loads the specified module by name.
+            Module should implement <c>Arc.Dependencies.IServiceLocatorModule&lt;Castle.Windsor.IWindsorContainer&gt;</c>
+            </summary>
+            <param name="moduleName">Name of the module.</param>
+            <exception cref="T:System.ArgumentException">moduleName</exception>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Load(System.String[])">
+            <summary>
+            Loads the specified modules by name.
+            Module should implement <c>Arc.Dependencies.IServiceLocatorModule&lt;Castle.Windsor.IWindsorContainer&gt;</c>
+            </summary>
+            <param name="moduleNames">The module names.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Load(Arc.Infrastructure.Configuration.IConfiguration{Arc.Infrastructure.Dependencies.IServiceLocator})">
+            <summary>
+            Loads the specified configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Resolve``1">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Resolve(System.Type)">
+            <summary>
+            Resolves requested service.
+            </summary>
+            <param name="type">The service type.</param>
+            <returns>Requested service.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Resolve``1(Arc.Infrastructure.Dependencies.IParameters)">
+            <summary>
+            Resolves the specified parameters.
+            </summary>
+            <typeparam name="TService">The type of the service.</typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Resolve(System.Type,Arc.Infrastructure.Dependencies.IParameters)">
+            <summary>
+            Resolves service with specified parameters.
+            </summary>
+            <param name="service">The service.</param>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Release(System.Object)">
+            <summary>
+            Releases the specified object.
+            </summary>
+            <param name="releasable">The releasable object.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Register(Arc.Infrastructure.Dependencies.Registration.IRegistration[])">
+            <summary>
+            Registers the specified bindings.
+            </summary>
+            <param name="registrations">The registrations.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Dependencies.CastleWindsor.ServiceLocator.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposeAll"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+    </members>
+</doc>

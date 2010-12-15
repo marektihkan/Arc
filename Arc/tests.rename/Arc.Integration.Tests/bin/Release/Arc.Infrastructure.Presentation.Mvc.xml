@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Presentation.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Presentation.Mvc.PresentationConfiguration">
+            <summary>
+            Configuration for MVC application.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvc.PresentationConfiguration.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Presentation.Mvc.PresentationConfiguration"/> class.
+            </summary>
+            <param name="routeConfigurationType">Type of the route configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvc.PresentationConfiguration.Default">
+            <summary>
+            Creates default configuration.
+            </summary>
+            <returns>Default configuration.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvc.PresentationConfiguration.WithRouting``1">
+            <summary>
+            Creates presentation configuratiob with routing.
+            </summary>
+            <typeparam name="TRoutesConfiguration">The type of the routes configuration.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvc.PresentationConfiguration.Load(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Loads presentation configuration to service locator.
+            </summary>
+            <param name="handler">The handler.</param>
+        </member>
+        <member name="T:Arc.Infrastructure.Presentation.Mvc.RoutesConfiguration">
+            <summary>
+            Configuration for MVC application routes.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvc.RoutesConfiguration.IgnoreRoute(Arc.Infrastructure.Configuration.Routing.IRouteBuilder,System.Web.Routing.RouteCollection)">
+            <summary>
+            Ignores the route.
+            </summary>
+            <param name="route">The route.</param>
+            <param name="routes">The routes.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Presentation.Mvc.RoutesConfiguration.RegisterRoute(Arc.Infrastructure.Configuration.Routing.IRouteBuilder,System.Web.Routing.RouteCollection)">
+            <summary>
+            Registers the route.
+            </summary>
+            <param name="route">The route.</param>
+            <param name="routes">The routes.</param>
+        </member>
+    </members>
+</doc>

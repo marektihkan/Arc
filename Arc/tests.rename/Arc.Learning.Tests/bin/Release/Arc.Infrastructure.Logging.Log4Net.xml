@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Logging.Log4Net</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Logging.Log4Net.Logger">
+            <summary>
+            Logging service adapter for Log4Net.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.#ctor(log4net.ILog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Logging.Log4Net.Logger"/> class.
+            </summary>
+            <param name="logger">The Log4Net logger.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Debug(System.String)">
+            <summary>
+            Registers debug message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Debug(System.String,System.Exception)">
+            <summary>
+            Registers debug message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Information(System.String)">
+            <summary>
+            Registers information message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Information(System.String,System.Exception)">
+            <summary>
+            Registers information message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Warning(System.String)">
+            <summary>
+            Registers warning message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Warning(System.String,System.Exception)">
+            <summary>
+            Registers warning message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Error(System.String)">
+            <summary>
+            Registers error message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Error(System.String,System.Exception)">
+            <summary>
+            Registers error message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Fatal(System.String)">
+            <summary>
+            Registers fatal message.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.Logger.Fatal(System.String,System.Exception)">
+            <summary>
+            Registers fatal message with exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="P:Arc.Infrastructure.Logging.Log4Net.Logger.InnerLogger">
+            <summary>
+            Gets the inner logger.
+            </summary>
+            <value>The inner logger.</value>
+        </member>
+        <member name="T:Arc.Infrastructure.Logging.Log4Net.LoggingConfiguration">
+            <summary>
+            Configuration for logging services with Log4Net.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.LoggingConfiguration.Default">
+            <summary>
+            Creates default configuration.
+            </summary>
+            <returns>Default configuration.</returns>
+        </member>
+        <member name="M:Arc.Infrastructure.Logging.Log4Net.LoggingConfiguration.Load(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Loads logging configuration to service locator.
+            </summary>
+            <param name="handler">The service locator.</param>
+        </member>
+    </members>
+</doc>

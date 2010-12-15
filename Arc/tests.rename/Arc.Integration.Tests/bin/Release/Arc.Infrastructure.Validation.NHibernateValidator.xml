@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.Infrastructure.Validation.NHibernateValidator</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.Infrastructure.Validation.NHibernateValidator.ValidationConfiguration">
+            <summary>
+            Configuration for validation with NHibernate Validator.
+            </summary>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernateValidator.ValidationConfiguration.#ctor(NHibernate.Validator.Cfg.INHVConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Arc.Infrastructure.Validation.NHibernateValidator.ValidationConfiguration"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernateValidator.ValidationConfiguration.Load(Arc.Infrastructure.Dependencies.IServiceLocator)">
+            <summary>
+            Loads validation configuration to service locator.
+            </summary>
+            <param name="handler">The service locator.</param>
+        </member>
+        <member name="M:Arc.Infrastructure.Validation.NHibernateValidator.ValidationConfiguration.Default(NHibernate.Validator.Cfg.INHVConfiguration)">
+            <summary>
+            Creates default validation configuration.
+            </summary>
+            <param name="configuration">The configuration.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

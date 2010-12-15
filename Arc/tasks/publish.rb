@@ -20,6 +20,8 @@ namespace :publish do
     Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Data/NHibernate"
     Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Logging"
     Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Logging/Log4Net"
+    Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Mappers"
+    Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Mappers/AutoMapper"
     Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Validation"
     Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Validation/NHibernateValidator"
     Create.directory "#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Validation/FluentValidation"
@@ -31,12 +33,13 @@ namespace :publish do
   task :copy => [:copy_binaries, :copy_servicelocators, :copy_data, :copy_validation, :copy_logging, :copy_presentation]
   task :copy_servicelocators => [:copy_structuremap, :copy_ninject, :copy_windsor]
   task :copy_data => [:copy_nhibernate]
+  task :copy_mapping => [:copy_automapper]
   task :copy_validation => [:copy_nhibernatevalidator, :copy_fluentvalidation]
   task :copy_logging => [:copy_log4net]
   task :copy_presentation => [:copy_mvc, :copy_mvp]
 
   task :copy_binaries do
-    Copy.assemblies.matching('Arc.Domain,Arc.Infrastructure,AutoMapper').
+    Copy.assemblies.matching('Arc.Domain,Arc.Infrastructure').
       from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
       to("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}")
   end
@@ -69,6 +72,12 @@ namespace :publish do
     Copy.assemblies.matching('*log4net*').
       from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
       to("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Logging/Log4Net")
+  end
+  
+  task :copy_structuremap do
+    Copy.assemblies.matching('*AutoMapper*').
+      from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
+      to("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:publish]}/Mappers/AutoMapper")
   end
   
   task :copy_fluentvalidation do

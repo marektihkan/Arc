@@ -97,38 +97,4 @@ namespace Arc.Infrastructure.Data
         /// <param name="evitable">The evitable.</param>
         void Evict(object evitable);
     }
-
-    
-    /// <summary>
-    /// Repository for concrete type of entity.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public interface IRepository<TEntity> : IRepository where TEntity : class
-    {
-        /// <summary>
-        /// Gets the entity by identity.
-        /// </summary>
-        /// <param name="identity">The identity.</param>
-        /// <returns>Entity which matches to specified identity.</returns>
-        TEntity GetEntityById(object identity);
-
-        /// <summary>
-        /// Gets all entities.
-        /// </summary>
-        /// <returns>List of all entities.</returns>
-        IList<TEntity> GetAllEntities();
-
-        /// <summary>
-        /// Saves the specified entity.
-        /// </summary>
-        /// <param name="savable">The savable entity.</param>
-        /// <returns>Saved entity.</returns>
-        TEntity Save(TEntity savable);
-
-        /// <summary>
-        /// Deletes the specified entity.
-        /// </summary>
-        /// <param name="deletable">The deletable entity.</param>
-        void Delete(TEntity deletable);
-    }
 }

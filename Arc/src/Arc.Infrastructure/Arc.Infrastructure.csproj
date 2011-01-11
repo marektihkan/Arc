@@ -63,7 +63,6 @@
     <Compile Include="Configuration\Routing\IRouteBuilder.cs" />
     <Compile Include="Configuration\Routing\Route.cs" />
     <Compile Include="Data\ActiveRecordExtensions.cs" />
-    <Compile Include="Data\BaseGenericRepository.cs" />
     <Compile Include="Data\Find.cs" />
     <Compile Include="Configuration\Conventions\ServiceLocatorConvention.cs" />
     <Compile Include="Logging\Log.cs" />
@@ -89,7 +88,6 @@
     <Compile Include="Registry\ThreadRegistry.cs" />
     <Compile Include="Utilities\Find.cs" />
     <Compile Include="Utilities\ResolveProvider.cs" />
-    <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\ITransaction.cs" />
     <Compile Include="Data\IUnitOfWork.cs" />

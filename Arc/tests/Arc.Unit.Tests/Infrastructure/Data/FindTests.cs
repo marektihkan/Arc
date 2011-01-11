@@ -12,17 +12,17 @@ namespace Arc.Unit.Tests.Infrastructure.Data
     public class FindTests
     {
         private IServiceLocator _serviceLocator;
-        private IRepository<Person> _repository;
+        private IRepository _repository;
 
         [SetUp]
         public void SetUp()
         {
             _serviceLocator = MockRepository.GenerateMock<IServiceLocator>();
-            _repository = MockRepository.GenerateMock<IRepository<Person>>();
+            _repository = MockRepository.GenerateMock<IRepository>();
 
             Application.ServiceLocatorIs(_serviceLocator);
 
-            _serviceLocator.Stub(x => x.Resolve<IRepository<Person>>()).Return(_repository);
+            _serviceLocator.Stub(x => x.Resolve<IRepository>()).Return(_repository);
         }
 
 
@@ -31,7 +31,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data
         {
             Find<Person>.ByIdentity(1);
 
-            _repository.AssertWasCalled(x => x.GetEntityById(1));
+            _repository.AssertWasCalled(x => x.GetEntityById<Person>(1));
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data
         {
             Find<Person>.All();
 
-            _repository.AssertWasCalled(x => x.GetAllEntities());
+            _repository.AssertWasCalled(x => x.GetAllEntities<Person>());
         }
 
         [Test]

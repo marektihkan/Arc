@@ -30,9 +30,9 @@ namespace Arc.Infrastructure.Data
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public static class Find<TEntity> where TEntity : class 
     {
-        private static IRepository<TEntity> Repository
+        private static IRepository Repository
         {
-            get { return ServiceLocator.Resolve<IRepository<TEntity>>(); }
+            get { return ServiceLocator.Resolve<IRepository>(); }
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Arc.Infrastructure.Data
         /// <returns></returns>
         public static TEntity ByIdentity(object identity)
         {
-            return Repository.GetEntityById(identity);
+            return Repository.GetEntityById<TEntity>(identity);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Arc.Infrastructure.Data
         /// <returns></returns>
         public static IList<TEntity> All()
         {
-            return Repository.GetAllEntities();
+            return Repository.GetAllEntities<TEntity>();
         }
 
         /// <summary>

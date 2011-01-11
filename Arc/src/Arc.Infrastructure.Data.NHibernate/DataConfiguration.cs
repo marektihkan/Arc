@@ -99,14 +99,8 @@ namespace Arc.Infrastructure.Data.NHibernate
                 Requested.Service<IRepository>()
                     .IsImplementedBy<Repository>(),
 
-                Requested.Service(typeof(IRepository<>))
-                    .IsImplementedBy(typeof(Repository<>)),
-
                 Requested.Service<INHibernateRepository>()
-                    .IsImplementedBy<Repository>(),
-
-                Requested.Service(typeof(INHibernateRepository<>))
-                    .IsImplementedBy(typeof(Repository<>))
+                    .IsImplementedBy<Repository>()
             );
 
             

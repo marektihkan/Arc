@@ -24,9 +24,9 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             _unitOfWork.Stub(x => x.Session).Return(_session).Repeat.Any();
         }
 
-        private INHibernateRepository<IEntity> CreateSUT()
+        private INHibernateRepository CreateSUT()
         {
-            return new Repository<IEntity>(_unitOfWork);
+            return new Repository(_unitOfWork);
         }
 
         private IEntity CreateEntity()
@@ -54,7 +54,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
 
             _session.Stub(x => x.Get<IEntity>(1)).Return(expected);
 
-            var actual = CreateSUT().GetEntityById(1);
+            var actual = CreateSUT().GetEntityById<IEntity>(1);
 
             Assert.That(actual, Is.SameAs(expected));
         }
@@ -64,7 +64,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         {
             _session.Stub(x => x.Get<IEntity>(1)).Return(null);
 
-            var actual = CreateSUT().GetEntityById(1);
+            var actual = CreateSUT().GetEntityById<IEntity>(1);
 
             Assert.That(actual, Is.Null);
         }
@@ -78,7 +78,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             _session.Stub(x => x.CreateCriteria(typeof(IEntity))).Return(criteria);
             criteria.Stub(x => x.List<IEntity>()).Return(entities);
 
-            var actual = CreateSUT().GetAllEntities();
+            var actual = CreateSUT().GetAllEntities<IEntity>();
 
             Assert.That(actual, Is.Not.Null);
             Assert.That(actual.Count, Is.GreaterThan(0));
@@ -92,7 +92,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             _session.Stub(x => x.CreateCriteria(typeof(IEntity))).Return(criteria);
             criteria.Stub(x => x.List<IEntity>()).Return(null);
 
-            var actual = CreateSUT().GetAllEntities();
+            var actual = CreateSUT().GetAllEntities<IEntity>();
 
             Assert.That(actual, Is.Null);
         }
@@ -117,7 +117,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             var entity = CreateEntity();
 
             _session.Expect(x => x.SaveOrUpdate(entity));
-            _session.Expect(x => x.Flush());
+            _session.Expect(x => x.Flush()).Repeat.Never();
             
             CreateSUT().Save(entity);
 
@@ -129,8 +129,8 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         {
             _session.Expect(x => x.SaveOrUpdate(null)).Repeat.Never();
             _session.Expect(x => x.Flush()).Repeat.Never();
-            
-            CreateSUT().Save(null);
+
+            CreateSUT().Save<IEntity>(null);
 
             _session.VerifyAllExpectations();
         }
@@ -143,7 +143,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             var entity = CreateEntity();
 
             _session.Expect(x => x.Delete(entity));
-            _session.Expect(x => x.Flush());
+            _session.Expect(x => x.Flush()).Repeat.Never();
 
             CreateSUT().Delete(entity);
 
@@ -156,7 +156,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             _session.Expect(x => x.Delete(null)).Repeat.Never();
             _session.Expect(x => x.Flush()).Repeat.Never();
 
-            CreateSUT().Delete(null);
+            CreateSUT().Delete<IEntity>(null);
 
             _session.VerifyAllExpectations();
         }
@@ -170,7 +170,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             
             _session.Stub(x => x.CreateCriteria(typeof(IEntity))).Return(expected);
 
-            var actual = CreateSUT().CreateCriteria();
+            var actual = CreateSUT().CreateCriteria<IEntity>();
 
             Assert.That(actual, Is.SameAs(expected));
         }
@@ -180,7 +180,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         {
             var criteria = MockRepository.GenerateMock<ICriteria>();
 
-            CreateSUT().GetEntitiesBy(criteria);
+            CreateSUT().GetEntitiesBy<IEntity>(criteria);
 
             criteria.AssertWasCalled(x => x.List<IEntity>());
         }
@@ -188,7 +188,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         [Test]
         public void Should_return_empty_list_when_querying_entities_by_null_criteria()
         {
-            var actual = CreateSUT().GetEntitiesBy(null);
+            var actual = CreateSUT().GetEntitiesBy<IEntity>((ICriteria) null);
 
             Assert.That(actual, Is.Not.Null);
             Assert.That(actual.Count, Is.EqualTo(0));
@@ -201,7 +201,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         {
             var criteria = MockRepository.GenerateMock<ICriteria>();
 
-            CreateSUT().GetEntityBy(criteria);
+            CreateSUT().GetEntityBy<IEntity>(criteria);
 
             criteria.AssertWasCalled(x => x.UniqueResult<IEntity>());
         }
@@ -209,7 +209,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         [Test]
         public void Should_not_query_entity_by_null_criteria()
         {
-            var actual = CreateSUT().GetEntityBy(null);
+            var actual = CreateSUT().GetEntityBy<IEntity>((ICriteria) null);
 
             Assert.That(actual, Is.Null);
         }

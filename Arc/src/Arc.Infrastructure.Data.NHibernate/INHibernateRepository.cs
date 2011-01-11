@@ -86,31 +86,4 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <returns>Count of results.</returns>
         long Count(ICriteria criteria);
     }
-
-    /// <summary>
-    /// Repository with NHibernate specifics.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public interface INHibernateRepository<TEntity> : INHibernateRepository, IRepository<TEntity> where TEntity : class
-    {
-        /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entity which matches to specified criteria.</returns>
-        TEntity GetEntityBy(ICriteria criteria);
-
-        /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>List of entities which matches to specified criteria.</returns>
-        IList<TEntity> GetEntitiesBy(ICriteria criteria);
-
-        /// <summary>
-        /// Creates the criteria.
-        /// </summary>
-        /// <returns>Criteria for specified entity type.</returns>
-        ICriteria CreateCriteria();
-    }
 }

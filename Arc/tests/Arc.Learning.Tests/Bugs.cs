@@ -22,7 +22,7 @@ namespace Arc.Learning.Tests
                     LoggingIsNotUsedConfiguration.Default(),
                     ValidationIsNotUsedConfiguration.Default());
 
-            var actual = ServiceLocator.Resolve<INHibernateRepository<DomainEntity>>();
+            var actual = ServiceLocator.Resolve<INHibernateRepository>();
 
             Assert.That(actual, Is.Not.Null);
             Assert.That(actual.Session, Is.Not.Null);

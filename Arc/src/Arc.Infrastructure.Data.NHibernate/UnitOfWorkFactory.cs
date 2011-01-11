@@ -85,10 +85,7 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <value>The current session.</value>
         public ISession CurrentSession
         {
-            get
-            {
-                return _registry.Get<ISession>(SessionKey) ?? CreateAndRegisterNewSession();
-            }
+            get { return _registry.Get<ISession>(SessionKey) ?? CreateAndRegisterNewSession(); }
         }
 
         private IUnitOfWork CreateAndRegisterNewUnitOfWork()

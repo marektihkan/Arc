@@ -209,11 +209,7 @@ namespace Arc.Infrastructure.Data.NHibernate
             if (savable == null)
                 return default(T);
 
-            var session = Session;
-
-            session.SaveOrUpdate(savable);
-            session.Flush();
-            
+            Session.SaveOrUpdate(savable);
             return savable;
         }
 
@@ -227,10 +223,7 @@ namespace Arc.Infrastructure.Data.NHibernate
             if (deletable == null)
                 return;
 
-            var session = Session;
-
-            session.Delete(deletable);
-            session.Flush();
+            Session.Delete(deletable);
         }
 
         /// <summary>
@@ -248,92 +241,6 @@ namespace Arc.Infrastructure.Data.NHibernate
         public void Evict(object evitable)
         {
             Session.Evict(evitable);
-        }
-    }
-
-    /// <summary>
-    /// Repository.
-    /// </summary>
-    /// <typeparam name="TEntity">The type of the entity.</typeparam>
-    public class Repository<TEntity> : Repository, INHibernateRepository<TEntity> where TEntity : class
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Repository&lt;TEntity&gt;"/> class.
-        /// </summary>
-        /// <param name="unitOfWork">The unit of work.</param>
-        public Repository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
-
-        /// <summary>
-        /// Gets the entity by identity.
-        /// </summary>
-        /// <param name="identity">The identity.</param>
-        /// <returns>
-        /// Entity which matches to specified identity.
-        /// </returns>
-        public TEntity GetEntityById(object identity)
-        {
-            return GetEntityById<TEntity>(identity);
-        }
-
-        /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>
-        /// Entity which matches to specified criteria.
-        /// </returns>
-        public TEntity GetEntityBy(ICriteria criteria)
-        {
-            return GetEntityBy<TEntity>(criteria);
-        }
-
-        /// <summary>
-        /// Gets all entities.
-        /// </summary>
-        /// <returns>List of all entities.</returns>
-        public IList<TEntity> GetAllEntities()
-        {
-            return GetAllEntities<TEntity>();
-        }
-
-        /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>
-        /// List of entities which matches to specified criteria.
-        /// </returns>
-        public IList<TEntity> GetEntitiesBy(ICriteria criteria)
-        {
-            return GetEntitiesBy<TEntity>(criteria);
-        }
-
-        /// <summary>
-        /// Creates the criteria.
-        /// </summary>
-        /// <returns>Criteria for specified entity type.</returns>
-        public ICriteria CreateCriteria()
-        {
-            return CreateCriteria<TEntity>();
-        }
-
-        /// <summary>
-        /// Saves the specified entity.
-        /// </summary>
-        /// <param name="savable">The savable entity.</param>
-        /// <returns>Saved entity.</returns>
-        public TEntity Save(TEntity savable)
-        {
-            return Save<TEntity>(savable);
-        }
-
-        /// <summary>
-        /// Deletes the specified entity.
-        /// </summary>
-        /// <param name="deletable">The deletable entity.</param>
-        public void Delete(TEntity deletable)
-        {
-            Delete<TEntity>(deletable);
         }
     }
 }

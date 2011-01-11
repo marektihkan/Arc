@@ -9,12 +9,12 @@ namespace Arc.Unit.Tests.Infrastructure.Data
     [TestFixture]
     public class BaseRepositoryTests
     {
-        private IRepository<IEntity> _repository;
+        private IRepository _repository;
 
         [SetUp]
         public void SetUp()
         {
-            _repository = MockRepository.GenerateMock<IRepository<IEntity>>();
+            _repository = MockRepository.GenerateMock<IRepository>();
 
             _repository.Stub(x => x.UnitOfWork).Return(MockRepository.GenerateStub<IUnitOfWork>()).Repeat.Any();
         }

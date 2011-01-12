@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using System.Linq;
 using Arc.Domain.Identity;
 using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Data.NHibernate;
 using NHibernate;
 using NHibernate.Criterion;
+using NHibernate.Linq;
 using NUnit.Framework;
 using Rhino.Mocks;
 
@@ -73,9 +75,9 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         public void Should_get_all_entities()
         {
             var entities = new List<IEntity> { CreateEntity() };
-            var criteria = MockRepository.GenerateMock<ICriteria>();
+            var criteria = MockRepository.GenerateMock<IQueryOver<IEntity, IEntity>>();
 
-            _session.Stub(x => x.CreateCriteria(typeof(IEntity))).Return(criteria);
+            _session.Stub(x => x.QueryOver<IEntity>()).Return(criteria);
             criteria.Stub(x => x.List<IEntity>()).Return(entities);
 
             var actual = CreateSUT().GetAllEntities<IEntity>();
@@ -87,9 +89,9 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         [Test]
         public void Should_get_null_list_when_entities_are_not_found_in_repository()
         {
-            var criteria = MockRepository.GenerateMock<ICriteria>();
+            var criteria = MockRepository.GenerateMock<IQueryOver<IEntity, IEntity>>();
 
-            _session.Stub(x => x.CreateCriteria(typeof(IEntity))).Return(criteria);
+            _session.Stub(x => x.QueryOver<IEntity>()).Return(criteria);
             criteria.Stub(x => x.List<IEntity>()).Return(null);
 
             var actual = CreateSUT().GetAllEntities<IEntity>();
@@ -97,19 +99,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
             Assert.That(actual, Is.Null);
         }
 
-        [Test]
-        public void Should_create_count_criteria()
-        {
-            var criteria = MockRepository.GenerateMock<ICriteria>();
-
-            criteria.Stub(x => x.UniqueResult()).Return(1);
-
-            var actual = CreateSUT().Count(criteria);
-
-            Assert.That(actual, Is.EqualTo(1));
-
-            criteria.AssertWasCalled(x => x.SetProjection(Arg<CountProjection>.Is.NotNull));
-        }
+        
 
         [Test]
         public void Should_save_entity_to_repository()
@@ -160,61 +150,6 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
 
             _session.VerifyAllExpectations();
         }
-
-        //TODO: Test deleting in transaction
-
-        [Test]
-        public void Should_create_criteria()
-        {
-            var expected = MockRepository.GenerateStub<ICriteria>();
-            
-            _session.Stub(x => x.CreateCriteria(typeof(IEntity))).Return(expected);
-
-            var actual = CreateSUT().CreateCriteria<IEntity>();
-
-            Assert.That(actual, Is.SameAs(expected));
-        }
-
-        [Test]
-        public void Should_query_entities_by_criteria()
-        {
-            var criteria = MockRepository.GenerateMock<ICriteria>();
-
-            CreateSUT().GetEntitiesBy<IEntity>(criteria);
-
-            criteria.AssertWasCalled(x => x.List<IEntity>());
-        }
-
-        [Test]
-        public void Should_return_empty_list_when_querying_entities_by_null_criteria()
-        {
-            var actual = CreateSUT().GetEntitiesBy<IEntity>((ICriteria) null);
-
-            Assert.That(actual, Is.Not.Null);
-            Assert.That(actual.Count, Is.EqualTo(0));
-        }
-
-        //TODO: Test with detached criteria
-
-        [Test]
-        public void Should_query_entity_by_criteria()
-        {
-            var criteria = MockRepository.GenerateMock<ICriteria>();
-
-            CreateSUT().GetEntityBy<IEntity>(criteria);
-
-            criteria.AssertWasCalled(x => x.UniqueResult<IEntity>());
-        }
-
-        [Test]
-        public void Should_not_query_entity_by_null_criteria()
-        {
-            var actual = CreateSUT().GetEntityBy<IEntity>((ICriteria) null);
-
-            Assert.That(actual, Is.Null);
-        }
-
-        //TODO: Test with detached criteria
 
         [Test]
         public void Should_evict_specified_object()

@@ -17,6 +17,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Linq;
 using Arc.Domain.Specifications;
 
 namespace Arc.Infrastructure.Data
@@ -62,6 +63,8 @@ namespace Arc.Infrastructure.Data
         /// <param name="specification">The specification.</param>
         /// <returns>List of entities which match to specification.</returns>
         IList<T> GetEntitiesBy<T>(ISpecification<T> specification) where T : class;
+
+        IQueryable<TEntity> Query<TEntity>();
 
         /// <summary>
         /// Counts results of the specified specification.

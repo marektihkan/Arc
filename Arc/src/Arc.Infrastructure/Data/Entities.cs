@@ -16,12 +16,24 @@
 //
 #endregion
 
-using NHibernate.Criterion;
+using System.Linq;
+using Arc.Infrastructure.Dependencies;
 
-namespace Arc.Infrastructure.Data.NHibernate.Specifications
+namespace Arc.Infrastructure.Data
 {
-    internal interface IActionProcessor
+    /// <summary>
+    /// Context for entities.
+    /// </summary>
+    public class Entities
     {
-        ICriterion Process();
+        /// <summary>
+        /// Gets all entities of specified type.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <returns></returns>
+        public static IQueryable<TEntity> All<TEntity>()
+        {
+            return ServiceLocator.Resolve<IRepository>().Query<TEntity>();
+        }
     }
 }

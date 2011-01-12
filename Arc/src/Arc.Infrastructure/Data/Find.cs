@@ -16,11 +16,8 @@
 //
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using Arc.Domain.Specifications;
 using Arc.Infrastructure.Dependencies;
+using System.Linq;
 
 namespace Arc.Infrastructure.Data
 {
@@ -46,52 +43,12 @@ namespace Arc.Infrastructure.Data
         }
 
         /// <summary>
-        /// Finds entity by the specified specification.
-        /// </summary>
-        /// <param name="specification">The specification.</param>
-        /// <returns></returns>
-        public static TEntity By(ISpecification<TEntity> specification)
-        {
-            return Repository.GetEntityBy(specification);
-        }
-
-        /// <summary>
-        /// Finds entity by the specified predicate.
-        /// </summary>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public static TEntity By(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Repository.GetEntityBy(new Specification<TEntity>(predicate));
-        }
-
-        /// <summary>
         /// Finds all entities.
         /// </summary>
         /// <returns></returns>
-        public static IList<TEntity> All()
+        public static IQueryable<TEntity> All
         {
-            return Repository.GetAllEntities<TEntity>();
-        }
-
-        /// <summary>
-        /// Finds all entities by specification.
-        /// </summary>
-        /// <param name="specification">The specification.</param>
-        /// <returns></returns>
-        public static IList<TEntity> AllBy(ISpecification<TEntity> specification)
-        {
-            return Repository.GetEntitiesBy(specification);
-        }
-
-        /// <summary>
-        /// Finds all entities by predicate.
-        /// </summary>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public static IList<TEntity> AllBy(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Repository.GetEntitiesBy(new Specification<TEntity>(predicate));
+            get { return Repository.Query<TEntity>(); }
         }
     }
 }

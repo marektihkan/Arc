@@ -18,17 +18,17 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Arc.Domain.Specifications;
-using Arc.Infrastructure.Data.NHibernate.FluentCriteria;
 using NHibernate;
-using NHibernate.Criterion;
+using NHibernate.Linq;
 
 namespace Arc.Infrastructure.Data.NHibernate
 {
     /// <summary>
     /// Repository.
     /// </summary>
-    public class Repository : IRepository, INHibernateRepository
+    public class Repository : INHibernateRepository
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -58,156 +58,86 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <summary>
         /// Gets the entity by identity.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">Type of entity.</typeparam>
         /// <param name="identity">The identity.</param>
         /// <returns>
         /// Entity which matches to specified identity.
         /// </returns>
-        public T GetEntityById<T>(object identity) where T : class
+        public TEntity GetEntityById<TEntity>(object identity) where TEntity : class
         {
-            return Session.Get<T>(identity);
-        }
-
-        /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>
-        /// Entity which matches to specified criteria.
-        /// </returns>
-        public T GetEntityBy<T>(ICriteria criteria) where T : class 
-        {
-            return (criteria == null) ? null : criteria.UniqueResult<T>();
+            return Session.Get<TEntity>(identity);
         }
 
         /// <summary>
         /// Gets all entities.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">Type of entity.</typeparam>
         /// <returns>List of all entities of specified type.</returns>
-        public IList<T> GetAllEntities<T>() where T : class
+        public IList<TEntity> GetAllEntities<TEntity>() where TEntity : class
         {
-            return CreateCriteria<T>().List<T>();
-        }
-
-        /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>
-        /// List of entities which matches to specified criteria.
-        /// </returns>
-        public IList<T> GetEntitiesBy<T>(ICriteria criteria) where T : class
-        {
-            return (criteria == null) ? new List<T>() : criteria.List<T>();
+            return QueryOver<TEntity>().List<TEntity>();
         }
 
         /// <summary>
         /// Gets the entity by specification.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">Type of entity.</typeparam>
         /// <param name="specification">The specification.</param>
         /// <returns>Entity which match to specification.</returns>
-        public T GetEntityBy<T>(ISpecification<T> specification) where T : class 
+        public TEntity GetEntityBy<TEntity>(ISpecification<TEntity> specification) where TEntity : class 
         {
-            var criteria = Criteria.For<T>().With(specification);
-            return GetEntityBy<T>(criteria);
+            return QueryOver<TEntity>().Where(specification.Predicate).SingleOrDefault();
         }
 
         /// <summary>
         /// Gets the entities by specification.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">Type of entity.</typeparam>
         /// <param name="specification">The specification.</param>
         /// <returns>
         /// List of entities which match to specification.
         /// </returns>
-        public IList<T> GetEntitiesBy<T>(ISpecification<T> specification) where T : class 
+        public IList<TEntity> GetEntitiesBy<TEntity>(ISpecification<TEntity> specification) where TEntity : class 
         {
-            var criteria = Criteria.For<T>().With(specification);
-            return GetEntitiesBy<T>(criteria);
+            return QueryOver<TEntity>().Where(specification.Predicate).List();
         }
 
-        /// <summary>
-        /// Gets the entity by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entity which match to criteria.</returns>
-        public T GetEntityBy<T>(DetachedCriteria criteria) where T : class 
+        public IQueryable<TEntity> Query<TEntity>()
         {
-            var executableCriteria = criteria.GetExecutableCriteria(Session);
-            return GetEntityBy<T>(executableCriteria);
-        }
-
-        /// <summary>
-        /// Gets the entities by criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Entities which match to criteria.</returns>
-        public IList<T> GetEntitiesBy<T>(DetachedCriteria criteria) where T : class 
-        {
-            var executableCriteria = criteria.GetExecutableCriteria(Session);
-            return GetEntitiesBy<T>(executableCriteria);
-        }
-
-        /// <summary>
-        /// Creates the criteria.
-        /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
-        /// <returns>Criteria for specified entity type.</returns>
-        public ICriteria CreateCriteria<T>() where T : class
-        {
-            return Session.CreateCriteria(typeof(T));
-        }
-
-        /// <summary>
-        /// Counts results of the specified criteria.
-        /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Count of results.</returns>
-        public long Count(DetachedCriteria criteria)
-        {
-            return Count(criteria.GetExecutableCriteria(Session));
+            return Session.Query<TEntity>();
         }
 
         /// <summary>
         /// Counts results of the specified specification.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="specification">The specification.</param>
         /// <returns>Count of results.</returns>
-        public long Count<T>(ISpecification<T> specification) where T : class
+        public long Count<TEntity>(ISpecification<TEntity> specification) where TEntity : class
         {
-            var criteria = Criteria.For<T>().With(specification);
-            return Count(criteria);
+            return QueryOver<TEntity>().Where(specification.Predicate).RowCountInt64();
         }
 
         /// <summary>
-        /// Counts results of the specified criteria.
+        /// Entity query.
         /// </summary>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>Count of results.</returns>
-        public long Count(ICriteria criteria)
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <returns></returns>
+        public IQueryOver<TEntity, TEntity> QueryOver<TEntity>() where TEntity : class
         {
-            criteria.SetProjection(Projections.RowCount());
-            object count = criteria.UniqueResult();
-            return Convert.ToInt64(count);
+            return Session.QueryOver<TEntity>();
         }
 
         /// <summary>
         /// Saves the specified entity.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">Type of entity.</typeparam>
         /// <param name="savable">The savable entity.</param>
         /// <returns>Saved entity.</returns>
-        public T Save<T>(T savable) 
+        public TEntity Save<TEntity>(TEntity savable) 
         {
             if (savable == null)
-                return default(T);
+                return default(TEntity);
 
             Session.SaveOrUpdate(savable);
             return savable;
@@ -216,9 +146,9 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <summary>
         /// Deletes the specified entity.
         /// </summary>
-        /// <typeparam name="T">Type of entity.</typeparam>
+        /// <typeparam name="TEntity">Type of entity.</typeparam>
         /// <param name="deletable">The deletable entity.</param>
-        public void Delete<T>(T deletable)  
+        public void Delete<TEntity>(TEntity deletable)  
         {
             if (deletable == null)
                 return;

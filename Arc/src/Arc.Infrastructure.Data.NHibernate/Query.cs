@@ -16,23 +16,24 @@
 //
 #endregion
 
-namespace Arc.Infrastructure.Data.NHibernate.FluentCriteria
+using Arc.Infrastructure.Dependencies;
+using NHibernate;
+
+namespace Arc.Infrastructure.Data.NHibernate
 {
     /// <summary>
-    /// Alias for collection member or criteria.
+    /// Starting point for creating NHibernate queries.
     /// </summary>
-    public interface IAlias
+    public class Query
     {
         /// <summary>
-        /// Gets or sets the name of the alias.
+        /// Creates query over the specified type of entities.
         /// </summary>
-        /// <value>The name of the alias.</value>
-        string AliasName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the alias path.
-        /// </summary>
-        /// <value>The alias path.</value>
-        string AliasPath { get; set; }
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <returns></returns>
+        public static IQueryOver<TEntity, TEntity> Over<TEntity>() where TEntity : class
+        {
+            return ServiceLocator.Resolve<INHibernateRepository>().QueryOver<TEntity>();
+        }
     }
 }

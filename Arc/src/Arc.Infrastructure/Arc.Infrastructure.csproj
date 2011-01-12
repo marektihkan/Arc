@@ -68,6 +68,7 @@
     <Compile Include="Configuration\Conventions\ServiceLocatorConvention.cs" />
     <Compile Include="Data\SpecificationExtensions.cs" />
     <Compile Include="Logging\Log.cs" />
+    <Compile Include="Mapping\IMapCollectionToSyntax.cs" />
     <Compile Include="Mapping\IMapper.cs" />
     <Compile Include="Mapping\IMapToSyntax.cs" />
     <Compile Include="Mapping\Map.cs" />
@@ -79,7 +80,9 @@
     <Compile Include="Dependencies\Registration\ServiceLifeStyle.cs" />
     <Compile Include="Mapping\MappingOf.cs" />
     <Compile Include="Mapping\MappingOfGenericType.cs" />
+    <Compile Include="Mapping\MappingOfGenericTypeCollection.cs" />
     <Compile Include="Mapping\MappingOfUnknownType.cs" />
+    <Compile Include="Mapping\MappingOfUnknownTypeCollection.cs" />
     <Compile Include="Mapping\NullMapper.cs" />
     <Compile Include="Registry\HybridRegistry.cs" />
     <Compile Include="Registry\IHybridRegistry.cs" />

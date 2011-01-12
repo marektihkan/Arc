@@ -1,4 +1,4 @@
-#region License
+﻿#region License
 //
 //   Copyright 2009 Marek Tihkan
 //
@@ -19,30 +19,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Arc.Infrastructure.Dependencies;
 
 namespace Arc.Infrastructure.Mapping
 {
-    public static class Map
+    public class MappingOfGenericTypeCollection<TSource> : MappingOf<IEnumerable<TSource>>, IMapCollectionToSyntax
     {
-        public static IMapToSyntax From<TSource>(TSource source)
+        public MappingOfGenericTypeCollection(IEnumerable<TSource> source, Func<IMapper> resolveMapper) : base(source, resolveMapper)
         {
-            return new MappingOfGenericType<TSource>(source, ServiceLocator.Resolve<IMapper>);
         }
 
-        public static IMapToSyntax From(object source, Type type)
+        public IEnumerable<TDestination> To<TDestination>()
         {
-            return new MappingOfUnknownType(source, type, ServiceLocator.Resolve<IMapper>);
+            return Mapper.Map<TSource, TDestination>(Source);
         }
 
-        public static IMapCollectionToSyntax CollectionOf<TSource>(IEnumerable<TSource> sources)
+        public IEnumerable To(Type type)
         {
-            return new MappingOfGenericTypeCollection<TSource>(sources, ServiceLocator.Resolve<IMapper>);
-        }
-
-        public static IMapCollectionToSyntax CollectionOf(IEnumerable sources, Type type)
-        {
-            return new MappingOfUnknownTypeCollection(sources, type, ServiceLocator.Resolve<IMapper>);
+            return Mapper.Map(Source, typeof(TSource), type);
         }
     }
 }

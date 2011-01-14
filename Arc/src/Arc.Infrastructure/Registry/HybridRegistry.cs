@@ -40,25 +40,16 @@ namespace Arc.Infrastructure.Registry
         {
             get
             {
-                return IsHttpContextAvailable() ? GetHttpContextRegistry() : GetThreadRegistry();
+                return isHttpContextAvailable() ? getHttpContextRegistry() : getThreadRegistry();
             }
         }
 
-        private bool IsHttpContextAvailable()
+        private static bool isHttpContextAvailable()
         {
             return HttpContext.Current != null;
         }
 
-        private IDictionary GetThreadRegistry()
-        {
-            if (_map == null)
-            {
-                _map = new Hashtable();
-            }
-            return _map;
-        }
-
-        private IDictionary GetHttpContextRegistry()
+        private static IDictionary getHttpContextRegistry()
         {           
             var registry = HttpContext.Current.Items[Key] as IDictionary;
             if (registry == null)
@@ -67,6 +58,11 @@ namespace Arc.Infrastructure.Registry
                 HttpContext.Current.Items[Key] = registry;
             }
             return registry;
+        }
+
+        private IDictionary getThreadRegistry()
+        {
+            return _map ?? (_map = new Hashtable());
         }
     }
 }

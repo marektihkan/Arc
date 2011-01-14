@@ -9,7 +9,7 @@ namespace Arc.Infrastructure.Mapping.AutoMapper
     {
         public TDestination Map<TSource, TDestination>(TSource source, TDestination destination)
         {
-            return global::AutoMapper.Mapper.Map<TSource, TDestination>(source, destination);
+            return global::AutoMapper.Mapper.Map(source, destination);
         }
 
         public TDestination Map<TSource, TDestination>(TSource source)

@@ -146,7 +146,6 @@
     <Compile Include="Fakes\DomainObject.cs" />
     <Compile Include="Fakes\DomainObjectDto.cs" />
     <Compile Include="Fakes\DummyException.cs" />
-    <Compile Include="Fakes\DummyReflection.cs" />
     <Compile Include="Fakes\Entities\IService.cs" />
     <Compile Include="Fakes\Entities\Person.cs" />
     <Compile Include="Fakes\Entities\PersonDataContract.cs" />

@@ -18,8 +18,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Arc.Infrastructure.Configuration;
+using Arc.Domain.Dsl;
 
 namespace Arc.Infrastructure.Dependencies.Registration.Auto
 {
@@ -57,10 +59,7 @@ namespace Arc.Infrastructure.Dependencies.Registration.Auto
         public static IPickingSyntax For(params string[] assemblyNames)
         {
             var assemblies = new List<Assembly>();
-            foreach (var name in assemblyNames)
-            {
-                assemblies.Add(Assembly.Load(name));
-            }
+            assemblyNames.Each(name => assemblies.Add(Assembly.Load(name)));
             return new AutoRegistration(assemblies.ToArray());
         }
 
@@ -153,12 +152,9 @@ namespace Arc.Infrastructure.Dependencies.Registration.Auto
 
         private void RegisterTypes(Assembly assembly, IServiceLocator locator)
         {
-            foreach (var type in assembly.GetTypes())
-            {
-                if (IsConcreteTypeAndMatchForCriteria(type)) continue;
-
-                _strategy.Register(type, locator);
-            }
+            assembly.GetTypes()
+                .Where(type => !IsConcreteTypeAndMatchForCriteria(type))
+                .Each(type => _strategy.Register(type, locator));
         }
 
         private bool IsConcreteTypeAndMatchForCriteria(Type type)

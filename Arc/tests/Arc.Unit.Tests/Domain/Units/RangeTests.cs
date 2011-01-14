@@ -10,9 +10,9 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Element_should_be_in_range_when_its_between_lower_and_upper_bound()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 2;
-            var expectedElement = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 2;
+            const int expectedElement = 1;
 
             var target = new Range<int>(expectedLowerBound, expectedUpperBound);
             var actual = target.Contains(expectedElement);
@@ -23,9 +23,9 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Element_should_not_be_in_range_when_its_not_between_lower_and_upper_bound()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
-            var expectedElement = 2;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
+            const int expectedElement = 2;
 
             var target = new Range<int>(expectedLowerBound, expectedUpperBound);
             var actual = target.Contains(expectedElement);
@@ -36,9 +36,9 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Element_should_be_in_range_when_its_equal_to_lower_bound_and_its_inclusive()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
-            var expectedElement = 0;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
+            const int expectedElement = 0;
 
             var target = new Range<int>(expectedLowerBound, expectedUpperBound);
             var actual = target.Contains(expectedElement);
@@ -49,9 +49,9 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Element_should_be_in_range_when_its_equal_to_upper_bound_and_its_inclusive()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
-            var expectedElement = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
+            const int expectedElement = 1;
 
             var target = new Range<int>(expectedLowerBound, expectedUpperBound);
             var actual = target.Contains(expectedElement);
@@ -62,9 +62,9 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Element_should_not_be_in_range_when_its_equal_to_lower_bound_and_its_not_inclusive()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
-            var expectedElement = 0;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
+            const int expectedElement = 0;
 
             var target = new Range<int>(expectedLowerBound, false, expectedUpperBound, false);
             var actual = target.Contains(expectedElement);
@@ -75,9 +75,9 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Element_should_not_be_in_range_when_its_equal_to_upper_bound_and_its_not_inclusive()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
-            var expectedElement = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
+            const int expectedElement = 1;
 
             var target = new Range<int>(expectedLowerBound, false, expectedUpperBound, false);
             var actual = target.Contains(expectedElement);
@@ -88,8 +88,8 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Inclusive_range_should_contain_same_not_inclusive_range()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
             var expectedRange = new Range<int>(expectedLowerBound, false, expectedUpperBound, false);
 
             var target = new Range<int>(expectedLowerBound, true, expectedUpperBound, true);
@@ -101,8 +101,8 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Not_inclusive_range_should_not_contain_same_inclusive_range()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
             var expectedRange = new Range<int>(expectedLowerBound, true, expectedUpperBound, true);
 
             var target = new Range<int>(expectedLowerBound, false, expectedUpperBound, false);
@@ -114,8 +114,8 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Range_with_not_inclusive_upper_bound_should_not_contain_same_inclusive_range()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
             var expectedRange = new Range<int>(expectedLowerBound, true, expectedUpperBound, true);
 
             var target = new Range<int>(expectedLowerBound, true, expectedUpperBound, false);

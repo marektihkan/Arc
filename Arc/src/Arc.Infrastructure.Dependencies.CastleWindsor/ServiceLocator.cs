@@ -51,7 +51,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
             Container = container;
         }
 
-        internal IWindsorContainer Container { get; set; }
+        internal IWindsorContainer Container { get; private set; }
 
         /// <summary>
         /// Loads the specified module by name.

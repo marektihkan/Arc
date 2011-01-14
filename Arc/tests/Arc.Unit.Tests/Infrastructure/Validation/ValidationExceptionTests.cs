@@ -24,7 +24,7 @@ namespace Arc.Unit.Tests.Infrastructure.Validation
         [Test]
         public void Exception_message_should_return_validation_results_summary()
         {
-            var expected = "Errors Summary";
+            const string expected = "Errors Summary";
 
             _validationResults.Stub(x => x.Summary).Return(expected);
 
@@ -44,7 +44,7 @@ namespace Arc.Unit.Tests.Infrastructure.Validation
         [Test]
         public void Should_have_constructor_with_error_message()
         {
-            var expectedMessage = "Message";
+            const string expectedMessage = "Message";
             
             var target = new ValidationException(expectedMessage);
 
@@ -55,7 +55,7 @@ namespace Arc.Unit.Tests.Infrastructure.Validation
         [Test]
         public void Should_have_constructor_with_error_message_and_inner_exception()
         {
-            var expectedMessage = "Message";
+            const string expectedMessage = "Message";
             var expectedInnerException = new Exception("Inner Message");
 
             var target = new ValidationException(expectedMessage, expectedInnerException);

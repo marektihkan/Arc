@@ -70,7 +70,7 @@ namespace Arc.Infrastructure.Configuration.Conventions
         public void Apply(IServiceLocator handler)
         {
             DefineRules();
-            Configurations.Each(configuration => handler.Load(configuration)); 
+            Configurations.Each(handler.Load); 
         }
 
         /// <summary>

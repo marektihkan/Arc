@@ -50,7 +50,7 @@ namespace Arc.Infrastructure.Dependencies.Ninject
         }
 
 
-        internal IKernel Kernel { get; set; }
+        internal IKernel Kernel { get; private set; }
 
 
         /// <summary>

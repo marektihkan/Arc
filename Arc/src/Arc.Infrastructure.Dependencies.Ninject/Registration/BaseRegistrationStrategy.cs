@@ -28,8 +28,8 @@ namespace Arc.Infrastructure.Dependencies.Ninject.Registration
             Registration = registration;
         }
 
-        protected ServiceLocator ServiceLocator { get; set; }
-        protected IRegistration Registration { get; set; }
+        protected ServiceLocator ServiceLocator { get; private set; }
+        protected IRegistration Registration { get; private set; }
         
         public abstract void Register();
     }

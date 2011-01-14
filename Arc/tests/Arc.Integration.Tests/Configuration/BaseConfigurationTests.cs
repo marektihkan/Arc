@@ -9,7 +9,6 @@ using Arc.Infrastructure.Validation;
 using Arc.Infrastructure.Validation.FluentValidation;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model;
-using Arc.Integration.Tests.Fakes.Validation;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;

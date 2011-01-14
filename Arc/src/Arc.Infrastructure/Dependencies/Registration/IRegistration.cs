@@ -17,7 +17,6 @@
 #endregion
 
 using System;
-using System.Linq.Expressions;
 
 namespace Arc.Infrastructure.Dependencies.Registration
 {

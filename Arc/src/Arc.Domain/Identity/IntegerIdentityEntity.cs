@@ -16,8 +16,6 @@
 //
 #endregion
 
-using System;
-
 namespace Arc.Domain.Identity
 {
     /// <summary>

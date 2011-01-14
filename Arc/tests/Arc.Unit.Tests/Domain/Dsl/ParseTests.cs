@@ -16,7 +16,7 @@ namespace Arc.Unit.Tests.Domain.Dsl
         [Test]
         public void Should_get_default_value_when_parsing_integer_fails()
         {
-            var defaultValue = 2;
+            const int defaultValue = 2;
             Assert.That(Parse.Integer("x1").Default(defaultValue).Value, Is.EqualTo(defaultValue));
         }
 
@@ -36,7 +36,7 @@ namespace Arc.Unit.Tests.Domain.Dsl
         [Test]
         public void Should_get_default_value_when_parsing_decimal_fails()
         {
-            var defaultValue = 2m;
+            const decimal defaultValue = 2m;
             Assert.That(Parse.Decimal("x1").Default(defaultValue).Value, Is.EqualTo(defaultValue));
         }
 

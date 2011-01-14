@@ -65,7 +65,7 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <value>The current unit of work.</value>
         public IUnitOfWork CurrentUnitOfWork
         {
-            get { return _registry.Get<IUnitOfWork>(UnitOfWorkKey) ?? CreateAndRegisterNewUnitOfWork(); }
+            get { return _registry.Get<IUnitOfWork>(UnitOfWorkKey) ?? createAndRegisterNewUnitOfWork(); }
         }
 
         /// <summary>
@@ -85,17 +85,17 @@ namespace Arc.Infrastructure.Data.NHibernate
         /// <value>The current session.</value>
         public ISession CurrentSession
         {
-            get { return _registry.Get<ISession>(SessionKey) ?? CreateAndRegisterNewSession(); }
+            get { return _registry.Get<ISession>(SessionKey) ?? createAndRegisterNewSession(); }
         }
 
-        private IUnitOfWork CreateAndRegisterNewUnitOfWork()
+        private IUnitOfWork createAndRegisterNewUnitOfWork()
         {
             var unitOfWork = new UnitOfWork(CurrentSession, this);
             _registry.Register(UnitOfWorkKey, unitOfWork);
             return unitOfWork;
         }
 
-        private ISession CreateAndRegisterNewSession()
+        private ISession createAndRegisterNewSession()
         {
             var session = _factory.OpenSession();
             _registry.Register(SessionKey, session);

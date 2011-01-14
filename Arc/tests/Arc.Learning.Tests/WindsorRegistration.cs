@@ -43,7 +43,7 @@ namespace Arc.Learning.Tests
             var container = new WindsorContainer();
 
             container.Register(
-                AllTypes.Pick().FromAssembly(Assembly.GetExecutingAssembly())
+                AllTypes.FromAssembly(Assembly.GetExecutingAssembly()).Pick()
                 .If(t => t.FullName == "").WithService.FirstInterface());
         }
 

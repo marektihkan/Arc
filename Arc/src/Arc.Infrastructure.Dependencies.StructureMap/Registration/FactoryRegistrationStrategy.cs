@@ -30,7 +30,7 @@ namespace Arc.Infrastructure.Dependencies.StructureMap.Registration
         public override void Register()
         {
             ServiceLocator.Container.Configure(x =>
-                x.ForRequestedType(Registration.ServiceType)
+                x.For(Registration.ServiceType)
                     .LifecycleIs(LifeStyleFactory.Create(Registration.Scope))
                     .Use(context => Registration.Factory.Invoke(ServiceLocator)));
         }

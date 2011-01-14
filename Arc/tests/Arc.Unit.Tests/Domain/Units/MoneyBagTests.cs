@@ -89,8 +89,8 @@ namespace Arc.Unit.Tests.Domain.Units
             target.Add(MoneyFactory.TwoUSD);
 
             var actual = target.ToString();
-            Assert.That(actual, Text.Contains("1,00 €"));
-            Assert.That(actual, Text.Contains("$2.00"));
+            Assert.That(actual, Is.StringContaining("1,00 €"));
+            Assert.That(actual, Is.StringContaining("$2.00"));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Should_be_able_to_create_new_quantity_with_amount_and_unit()
         {
-            var expectedAmount = 1m;
+            const decimal expectedAmount = 1m;
             var expectedUnit = string.Empty;
             
             var target = new Quantity(expectedAmount, expectedUnit);
@@ -27,7 +27,7 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Quantity_should_have_amount()
         {
-            var expected = 1m;
+            const decimal expected = 1m;
             var target = CreateSUT();
             target.Amount = expected;
             Assert.That(target.Amount, Is.EqualTo(expected));

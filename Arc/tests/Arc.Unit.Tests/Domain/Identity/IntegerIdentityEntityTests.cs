@@ -25,7 +25,7 @@ namespace Arc.Unit.Tests.Domain.Identity
         [Test]
         public void Integer_based_entities_should_have_identity()
         {
-            var expectedIdentity = 1;
+            const int expectedIdentity = 1;
             
             var target = CreateSUT(expectedIdentity);
 
@@ -152,10 +152,7 @@ namespace Arc.Unit.Tests.Domain.Identity
             var person = new Person(1);
             var organization = new Organization(1);
 
-            var hashtable = new Hashtable();
-
-            hashtable.Add(person, "Person");
-            hashtable.Add(organization, "Organization");
+            var hashtable = new Hashtable {{person, "Person"}, {organization, "Organization"}};
 
             Assert.That(hashtable[person], Is.EqualTo("Person"));
             Assert.That(hashtable[organization], Is.EqualTo("Organization"));

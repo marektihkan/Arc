@@ -47,7 +47,7 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
             Container = container;
         }
 
-        internal IContainer Container { get; set; }
+        internal IContainer Container { get; private set; }
 
         /// <summary>
         /// Loads the specified module by name.

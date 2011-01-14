@@ -58,7 +58,7 @@ namespace Arc.Unit.Tests.Domain.Units
         public void Should_be_able_to_multiply_money()
         {
             var money = MoneyFactory.OneUSD;
-            var multiplier = 3;
+            const int multiplier = 3;
             var expecedAmount = multiplier * money.Amount;
 
             var actual = multiplier * money;

@@ -11,7 +11,7 @@ namespace Arc.Unit.Tests.Domain.Dsl
         public void Should_check_object_value()
         {
             const object nullTarget = null;
-            object notNullTarget = new object();
+            var notNullTarget = new object();
 
             Assert.That(nullTarget.IsNull(), Is.True);
             Assert.That(notNullTarget.IsNull(), Is.False);
@@ -21,7 +21,7 @@ namespace Arc.Unit.Tests.Domain.Dsl
         public void Should_check_string_value()
         {
             const string nullTarget = null;
-            string emptyTarget = string.Empty;
+            var emptyTarget = string.Empty;
             const string notNullTarget = "a";
 
             Assert.That(nullTarget.IsNull(), Is.True);

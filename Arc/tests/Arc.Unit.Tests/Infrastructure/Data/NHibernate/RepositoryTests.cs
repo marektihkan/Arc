@@ -1,11 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using Arc.Domain.Identity;
 using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Data.NHibernate;
 using NHibernate;
-using NHibernate.Criterion;
-using NHibernate.Linq;
 using NUnit.Framework;
 using Rhino.Mocks;
 

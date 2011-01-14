@@ -9,8 +9,8 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Should_create_range_of_specified_type()
         {
-            var expectedLowerBound = 0;
-            var expectedUpperBound = 1;
+            const int expectedLowerBound = 0;
+            const int expectedUpperBound = 1;
 
             var target = new RangeTester<int>(expectedLowerBound, expectedUpperBound);
 
@@ -33,9 +33,7 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Should_be_able_to_set_upper_case_to_inclusive()
         {
-            var target = new RangeTester<int>(0, 1);
-
-            target.IsUpperInclusive = true;
+            var target = new RangeTester<int>(0, 1) {IsUpperInclusive = true};
 
             Assert.That(target.IsUpperInclusive, Is.True);
         }
@@ -43,9 +41,7 @@ namespace Arc.Unit.Tests.Domain.Units
         [Test]
         public void Should_be_able_to_set_lower_case_to_inclusive()
         {
-            var target = new RangeTester<int>(0, 1);
-
-            target.IsLowerInclusive = true;
+            var target = new RangeTester<int>(0, 1) {IsLowerInclusive = true};
 
             Assert.That(target.IsLowerInclusive, Is.True);
         }

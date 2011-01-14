@@ -1,4 +1,3 @@
-using Arc.Domain.Specifications;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Data;
 using Arc.Infrastructure.Dependencies;

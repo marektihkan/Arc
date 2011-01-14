@@ -26,8 +26,7 @@ namespace Arc.Unit.Tests.Domain.Units
             var date = DateTime.Now;
             var expectedDate = date.Date;
 
-            var target = new DatePeriod();
-            target.Lower = date;
+            var target = new DatePeriod {Lower = date};
 
             Assert.That(target.Lower, Is.EqualTo(expectedDate));
         }
@@ -38,8 +37,7 @@ namespace Arc.Unit.Tests.Domain.Units
             var date = DateTime.Now;
             var expectedDate = date.Date;
 
-            var target = new DatePeriod(date, date);
-            target.Upper = date;
+            var target = new DatePeriod(date, date) {Upper = date};
 
             Assert.That(target.Upper, Is.EqualTo(expectedDate));
         }

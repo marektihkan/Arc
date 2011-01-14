@@ -45,7 +45,7 @@ namespace Arc.Domain.Dsl
         /// <param name="action">The action.</param>
         public static void Times(this uint count, Action<int> action)
         {
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
                 action.Invoke(i);
         }
 

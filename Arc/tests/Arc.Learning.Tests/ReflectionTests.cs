@@ -23,8 +23,8 @@ namespace Arc.Learning.Tests
 
             var genericType = type.MakeGenericType(validationType);
 
-            Assert.That(genericType.FullName, Text.Contains("Arc.Infrastructure.Validation.IValidator`1"));
-            Assert.That(genericType.FullName, Text.Contains("Arc.Learning.Tests.Fakes.Model.DomainEntity"));
+            Assert.That(genericType.FullName, Is.StringContaining("Arc.Infrastructure.Validation.IValidator`1"));
+            Assert.That(genericType.FullName, Is.StringContaining("Arc.Learning.Tests.Fakes.Model.DomainEntity"));
         }
     }
 }

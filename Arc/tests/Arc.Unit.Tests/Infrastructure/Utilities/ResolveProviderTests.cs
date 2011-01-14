@@ -18,7 +18,7 @@ namespace Arc.Unit.Tests.Infrastructure.Utilities
             var actual = ResolveProvider<IService>.Named(ValidServiceProviderTypeName);
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual, Is.InstanceOfType(typeof (IService)));
+            Assert.That(actual, Is.InstanceOf<IService>());
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace Arc.Unit.Tests.Infrastructure.Utilities
             var actual = ResolveProvider<IService>.WithRealType(typeof(ServiceImpl));
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual, Is.InstanceOfType(typeof(IService)));
+            Assert.That(actual, Is.InstanceOf<IService>());
         }
 
         [Test]

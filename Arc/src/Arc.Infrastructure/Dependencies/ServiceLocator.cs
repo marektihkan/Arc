@@ -27,17 +27,11 @@ namespace Arc.Infrastructure.Dependencies
     /// </summary>
     public static class ServiceLocator
     {
-        private static IServiceLocator _locator;
-
         /// <summary>
         /// Gets or sets the inner service locator.
         /// </summary>
         /// <value>The inner service locator.</value>
-        public static IServiceLocator InnerServiceLocator
-        {
-            get { return _locator; }
-            set { _locator = value; }
-        }
+        public static IServiceLocator InnerServiceLocator { get; set; }
 
         /// <summary>
         /// Loads the specified module by name.

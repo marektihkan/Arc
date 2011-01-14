@@ -55,7 +55,7 @@ namespace Arc.Integration.Tests.Infrastructure.Validation
 
             var actual = target.Validate<DomainEntity>(null);
 
-            Assert.That(actual, Is.InstanceOfType(typeof(EmptyValidationResults)));
+            Assert.That(actual, Is.InstanceOf<EmptyValidationResults>());
         }
     }
 }

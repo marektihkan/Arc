@@ -35,15 +35,7 @@ namespace Arc.Infrastructure.Registry
         /// <value>The map.</value>
         protected override IDictionary Map
         {
-            get
-            {
-                if (_map == null)
-                {
-                    _map = new Hashtable();
-                }
-                return _map;
-
-            }
+            get { return _map ?? (_map = new Hashtable()); }
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             var actual = target.Resolve<IParameterlessService>();
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual, Is.InstanceOfType(typeof(ParameterlessServiceImpl)));
+            Assert.That(actual, Is.InstanceOf<ParameterlessServiceImpl>());
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             var actual = target.Resolve<IParameterlessService>();
 
             Assert.That(actual, Is.Not.Null);
-            Assert.That(actual, Is.InstanceOfType(typeof(ParameterlessServiceImpl)));
+            Assert.That(actual, Is.InstanceOf<ParameterlessServiceImpl>());
         }
 
         [Test]

@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Arc.Domain.Dsl;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Utilities;
 
@@ -28,23 +30,18 @@ namespace Arc.Infrastructure.Configuration
 
         public Application Load(params IConfiguration<IServiceLocator>[] configurations)
         {
-            foreach (var configuration in configurations)
-            {
-                if (configuration != null)
-                    configuration.Load(ServiceLocator.InnerServiceLocator);    
-            }
-            return this;
-        }
-       
-        public Application Apply(params IConvention<IServiceLocator>[] conventions)
-        {
-            foreach (var convention in conventions)
-            {
-                if (convention != null)
-                    convention.Apply(ServiceLocator.InnerServiceLocator);   
-            }
+            configurations
+                .Where(configuration => configuration != null)
+                .Each(configuration => configuration.Load(ServiceLocator.InnerServiceLocator));
             return this;
         }
 
+        public Application Apply(params IConvention<IServiceLocator>[] conventions)
+        {
+            conventions
+                .Where(convention => convention != null)
+                .Each(convention => convention.Apply(ServiceLocator.InnerServiceLocator));
+            return this;
+        }
     }
 }

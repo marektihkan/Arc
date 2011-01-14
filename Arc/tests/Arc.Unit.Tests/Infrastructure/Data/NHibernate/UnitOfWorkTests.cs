@@ -38,7 +38,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         [Test]
         public void Should_begin_transaction()
         {
-            var transaction = MockRepository.GenerateMock<global::NHibernate.ITransaction>();
+            var transaction = MockRepository.GenerateMock<ITransaction>();
 
             _session.Stub(x => x.BeginTransaction()).Return(transaction);
             transaction.Stub(x => x.IsActive).Return(true);
@@ -66,7 +66,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         [Test]
         public void Should_flush_unit_of_work_and_end_active_transaction()
         {
-            var transaction = MockRepository.GenerateMock<global::NHibernate.ITransaction>();
+            var transaction = MockRepository.GenerateMock<ITransaction>();
 
             _session.Stub(x => x.BeginTransaction()).Return(transaction);
             transaction.Stub(x => x.IsActive).Return(true);
@@ -80,7 +80,7 @@ namespace Arc.Unit.Tests.Infrastructure.Data.NHibernate
         [Test]
         public void Should_rollback_unit_of_works_transaction_when_exception_occurs()
         {
-            var transaction = MockRepository.GenerateMock<global::NHibernate.ITransaction>();
+            var transaction = MockRepository.GenerateMock<ITransaction>();
 
             _session.Stub(x => x.BeginTransaction()).Return(transaction);
             transaction.Stub(x => x.IsActive).Return(true).Repeat.Any();

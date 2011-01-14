@@ -22,7 +22,7 @@ namespace Arc.Unit.Tests.Domain.Specifications
 
             foreach (var value in result)
             {
-                Assert.That(value, Text.Contains("a"));
+                Assert.That(value, Is.StringContaining("a"));
                 Assert.That(value.Length, Is.GreaterThan(3));
             }
         }

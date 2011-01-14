@@ -43,7 +43,7 @@ namespace Arc.Integration.Tests.Infrastructure.Mapping
         {
             var target = CreateSUT();
             var actual = new DomainObjectDto();
-            actual = target.Map<DomainObject, DomainObjectDto>(_source, actual);
+            actual = target.Map(_source, actual);
             assertMappings(actual, _destination);
         }
 

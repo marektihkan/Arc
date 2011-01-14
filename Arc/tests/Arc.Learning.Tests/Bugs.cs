@@ -2,7 +2,6 @@ using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Configuration.Dependencies;
 using Arc.Infrastructure.Data.NHibernate;
 using Arc.Infrastructure.Dependencies;
-using Arc.Learning.Tests.Fakes.Model;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NUnit.Framework;
@@ -30,7 +29,7 @@ namespace Arc.Learning.Tests
 
         private IServiceLocator CreateServiceLocator()
         {
-            return new Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator();
+            return new Infrastructure.Dependencies.StructureMap.ServiceLocator();
         }
 
         private FluentConfiguration BuildNHibernateConfiguration()

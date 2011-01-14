@@ -26,9 +26,9 @@ namespace Arc.Infrastructure.Data
     public interface IUnitOfWork : IDisposable
     {
         /// <summary>
-        /// Gets the NHibernate session.
+        /// Gets the provider's session.
         /// </summary>
-        /// <value>The NHibernate session.</value>
+        /// <value>The provider's session.</value>
         object Session { get; }
 
         /// <summary>
@@ -44,6 +44,11 @@ namespace Arc.Infrastructure.Data
         /// </summary>
         /// <returns>Transaction.</returns>
         ITransaction BeginTransaction();
+
+        /// <summary>
+        /// Flushes changes to database.
+        /// </summary>
+        void Flush();
 
         /// <summary>
         /// Flushes changes in transaction.

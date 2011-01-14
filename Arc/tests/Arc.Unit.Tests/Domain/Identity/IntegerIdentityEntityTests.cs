@@ -2,6 +2,7 @@ using System.Collections;
 using Arc.Domain.Identity;
 using Arc.Unit.Tests.Fakes.Entities;
 using Arc.Unit.Tests.Fakes.Identity;
+using Arc.Unit.Tests.Helpers;
 using Castle.DynamicProxy;
 using NUnit.Framework;
 
@@ -161,15 +162,14 @@ namespace Arc.Unit.Tests.Domain.Identity
         }
 
         [Test]
-        [Ignore("Needs reflection")]
         public void Two_integer_based_proxies_should_be_equal()
         {
             var generator = new ProxyGenerator();
             var first = (Person)generator.CreateClassProxy(typeof(Person), new ProxyGenerationOptions());
-            //first.SetValueTo("Id", 1);
+            first.SetValueTo("Id", 1);
 
             var second = (Person) generator.CreateClassProxy(typeof(Person), new ProxyGenerationOptions());
-            //second.SetValueTo("Id", 1);
+            second.SetValueTo("Id", 1);
 
             Assert.That(first, Is.EqualTo(second));
         }

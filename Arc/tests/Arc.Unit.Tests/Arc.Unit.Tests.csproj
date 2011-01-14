@@ -155,14 +155,9 @@
     <Compile Include="Fakes\Identity\GuidIdentityEntityTester.cs" />
     <Compile Include="Fakes\Identity\IntegerIdentityEntityTester.cs" />
     <Compile Include="Fakes\Units\RangeTester.cs" />
+    <Compile Include="Helpers\ReflectionExtensions.cs" />
     <Compile Include="Infrastructure\Data\FindTests.cs" />
-    <Compile Include="Infrastructure\Data\NHibernate\AliasTests.cs" />
-    <Compile Include="Infrastructure\Data\NHibernate\AssertCriteria.cs" />
-    <Compile Include="Infrastructure\Data\BaseRepositoryTests.cs" />
-    <Compile Include="Infrastructure\Data\NHibernate\CriteriaExamples.cs" />
-    <Compile Include="Infrastructure\Data\NHibernate\CriteriaTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\RepositoryTests.cs" />
-    <Compile Include="Infrastructure\Data\NHibernate\SpecificationConverterTests.cs" />
     <Compile Include="Fakes\Data\SpecificationConverterTestValues.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\TransactionTests.cs" />
     <Compile Include="Infrastructure\Data\NHibernate\UnitOfWorkFactoryTests.cs" />

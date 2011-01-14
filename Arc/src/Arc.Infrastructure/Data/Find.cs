@@ -16,11 +16,8 @@
 //
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using Arc.Domain.Specifications;
 using Arc.Infrastructure.Dependencies;
+using System.Linq;
 
 namespace Arc.Infrastructure.Data
 {
@@ -30,9 +27,9 @@ namespace Arc.Infrastructure.Data
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     public static class Find<TEntity> where TEntity : class 
     {
-        private static IRepository<TEntity> Repository
+        private static IRepository Repository
         {
-            get { return ServiceLocator.Resolve<IRepository<TEntity>>(); }
+            get { return ServiceLocator.Resolve<IRepository>(); }
         }
 
         /// <summary>
@@ -42,56 +39,16 @@ namespace Arc.Infrastructure.Data
         /// <returns></returns>
         public static TEntity ByIdentity(object identity)
         {
-            return Repository.GetEntityById(identity);
-        }
-
-        /// <summary>
-        /// Finds entity by the specified specification.
-        /// </summary>
-        /// <param name="specification">The specification.</param>
-        /// <returns></returns>
-        public static TEntity By(ISpecification<TEntity> specification)
-        {
-            return Repository.GetEntityBy(specification);
-        }
-
-        /// <summary>
-        /// Finds entity by the specified predicate.
-        /// </summary>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public static TEntity By(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Repository.GetEntityBy(new Specification<TEntity>(predicate));
+            return Repository.GetEntityById<TEntity>(identity);
         }
 
         /// <summary>
         /// Finds all entities.
         /// </summary>
         /// <returns></returns>
-        public static IList<TEntity> All()
+        public static IQueryable<TEntity> All
         {
-            return Repository.GetAllEntities();
-        }
-
-        /// <summary>
-        /// Finds all entities by specification.
-        /// </summary>
-        /// <param name="specification">The specification.</param>
-        /// <returns></returns>
-        public static IList<TEntity> AllBy(ISpecification<TEntity> specification)
-        {
-            return Repository.GetEntitiesBy(specification);
-        }
-
-        /// <summary>
-        /// Finds all entities by predicate.
-        /// </summary>
-        /// <param name="predicate">The predicate.</param>
-        /// <returns></returns>
-        public static IList<TEntity> AllBy(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Repository.GetEntitiesBy(new Specification<TEntity>(predicate));
+            get { return Repository.Query<TEntity>(); }
         }
     }
 }

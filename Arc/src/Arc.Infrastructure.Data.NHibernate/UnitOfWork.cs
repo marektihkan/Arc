@@ -77,6 +77,14 @@ namespace Arc.Infrastructure.Data.NHibernate
         }
 
         /// <summary>
+        /// Flushes changes to database.
+        /// </summary>
+        public void Flush()
+        {
+            RealSession.Flush();
+        }
+
+        /// <summary>
         /// Flushes changes in transaction.
         /// </summary>
         public void TransactionalFlush()

@@ -33,7 +33,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Registration
         {
             ServiceLocator.Container.Register(
                 Component.For(Registration.ServiceType)
-					.FactoryMethod(() => Registration.Factory.Invoke(ServiceLocator))
+					.FactoryMethod(() => Registration.Factory.Invoke(ServiceLocator), Registration.ServiceType)
                     .LifeStyle.Is(LifeStyleFactory.Create(Registration.Scope)));
         }
     }

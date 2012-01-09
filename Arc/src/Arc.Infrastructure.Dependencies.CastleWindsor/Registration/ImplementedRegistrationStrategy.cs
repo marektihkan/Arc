@@ -17,11 +17,11 @@
 #endregion
 
 using Castle.MicroKernel.Registration;
-using IRegistration=Arc.Infrastructure.Dependencies.Registration.IRegistration;
+using IRegistration = Arc.Infrastructure.Dependencies.Registration.IRegistration;
 
 namespace Arc.Infrastructure.Dependencies.CastleWindsor.Registration
 {
-    internal class ImplementedRegistrationStrategy : BaseRegistrationStrategy, IRegistrationStrategy
+    internal class ImplementedRegistrationStrategy : BaseRegistrationStrategy
     {
         public ImplementedRegistrationStrategy(IRegistration registration, ServiceLocator serviceLocator) 
             : base(registration, serviceLocator)
@@ -32,7 +32,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Registration
         {
             ServiceLocator.Container.Register(
                 Component.For(Registration.ServiceType)
-                    .Named(Registration.ServiceType.FullName + "_" + Registration.ImplementationType.FullName)
+					.Named(Registration.ServiceType.FullName + "_" + Registration.ImplementationType.FullName)
                     .ImplementedBy(Registration.ImplementationType)
                     .LifeStyle.Is(LifeStyleFactory.Create(Registration.Scope))
                 );        

@@ -41,14 +41,15 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Extensions
         /// <param name="registration">The regegistration.</param>
         /// <param name="factory">The factory method.</param>
         /// <returns></returns>
-        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<TResult> factory) 
+        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<TResult> factory, Type serviceType) 
 			where TResult : TService 
 			where TService : class
         {
-			var factoryName = typeof(GenericFactory<>).FullName + "[" + registration.Implementation.FullName + "]";
+        	var factoryType = typeof(GenericFactory<>).MakeGenericType(serviceType);
+			var factoryName = factoryType.FullName;
             
             Kernel.Register(
-                Component.For<GenericFactory<TResult>>()
+                Component.For(factoryType)
                     .Named(factoryName)
                     .Instance(new GenericFactory<TResult>(factory)));
             

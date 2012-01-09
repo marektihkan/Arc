@@ -139,7 +139,6 @@ namespace Arc.Unit.Tests.Domain.Units
         {
             Assert.That(MoneyFactory.OneEUR.ToString(), Is.EqualTo("1,00 €"));
             Assert.That(MoneyFactory.OneUSD.ToString(), Is.EqualTo("$1.00"));
-            Assert.That(MoneyFactory.OneEEK.ToString(), Is.EqualTo("1.00 kr"));
         }
     }
 }

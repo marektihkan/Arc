@@ -25,13 +25,11 @@ namespace Arc.Infrastructure.Mapping
         private readonly Func<IMapper> _resolveMapper;
         private IMapper _mapper;
 
-        
-        public MappingOf(T source, Func<IMapper> resolveMapper)
+    	protected MappingOf(T source, Func<IMapper> resolveMapper)
         {
             Source = source;
             _resolveMapper = resolveMapper;
         }
-
 
         protected T Source { get; set; }
 

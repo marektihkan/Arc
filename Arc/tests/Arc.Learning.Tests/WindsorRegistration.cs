@@ -62,7 +62,7 @@ namespace Arc.Learning.Tests
     {
         public static IKernel Kernel { private get; set; }
 
-        public static ComponentRegistration<T> FactoryMethod<T, S>(this ComponentRegistration<T> reg, Func<S> factory) where S : T
+        public static ComponentRegistration<T> FactoryMethod<T, S>(this ComponentRegistration<T> reg, Func<S> factory) where S : T where T : class
         {
             var factoryName = typeof(GenericFactory<S>).FullName;
             Kernel.Register(Component.For<GenericFactory<S>>().Named(factoryName).Instance(new GenericFactory<S>(factory)));
@@ -70,7 +70,7 @@ namespace Arc.Learning.Tests
             return reg;
         }
 
-        public static ComponentRegistration<T> FactoryMethod<T, S>(this ComponentRegistration<T> reg, Func<IKernel, S> factory) where S : T
+        public static ComponentRegistration<T> FactoryMethod<T, S>(this ComponentRegistration<T> reg, Func<IKernel, S> factory) where S : T where T : class
         {
             var factoryName = typeof(GenericFactoryWithKernel<S>).FullName;
             Kernel.Register(Component.For<GenericFactoryWithKernel<S>>().Named(factoryName).Instance(new GenericFactoryWithKernel<S>(factory, Kernel)));

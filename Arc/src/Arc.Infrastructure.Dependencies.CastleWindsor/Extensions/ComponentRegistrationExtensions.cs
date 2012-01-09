@@ -41,9 +41,11 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Extensions
         /// <param name="registration">The regegistration.</param>
         /// <param name="factory">The factory method.</param>
         /// <returns></returns>
-        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<TResult> factory) where TResult : TService
+        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<TResult> factory) 
+			where TResult : TService 
+			where TService : class
         {
-            var factoryName = typeof(GenericFactory<>).FullName + "[" + registration.ServiceType.FullName + "]";
+			var factoryName = typeof(GenericFactory<>).FullName + "[" + registration.Implementation.FullName + "]";
             
             Kernel.Register(
                 Component.For<GenericFactory<TResult>>()
@@ -65,9 +67,11 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Extensions
         /// <param name="registration">The registration.</param>
         /// <param name="factory">The factory.</param>
         /// <returns></returns>
-        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<IKernel, TResult> factory) where TResult : TService
+        public static ComponentRegistration<TService> FactoryMethod<TService, TResult>(this ComponentRegistration<TService> registration, Func<IKernel, TResult> factory) 
+			where TResult : TService 
+			where TService : class
         {
-            var factoryName = typeof(GenericFactoryWithKernel<>).FullName + "[" + registration.ServiceType.FullName + "]";
+			var factoryName = typeof(GenericFactoryWithKernel<>).FullName + "[" + registration.Implementation.FullName + "]";
 
             Kernel.Register(
                 Component.For<GenericFactoryWithKernel<TResult>>()

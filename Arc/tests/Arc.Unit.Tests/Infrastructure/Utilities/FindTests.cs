@@ -9,6 +9,7 @@ namespace Arc.Unit.Tests.Infrastructure.Utilities
     public class FindTests
     {
         private const string ValidTypeName = "Arc.Unit.Tests.Fakes.Entities.ServiceImpl, Arc.Unit.Tests";
+        private const string ValidGenericTypeName = "Arc.Unit.Tests.Fakes.Entities.GenericServiceImpl, Arc.Unit.Tests";
         private const string InvalidTypeName = "Arc.Unit.Tests.Fakes.Entities.Service, Arc.Unit.Tests";
         private const string TypeWithoutInterfaceName = "Arc.Unit.Tests.Fakes.Entities.Person, Arc.Unit.Tests";
 
@@ -30,6 +31,15 @@ namespace Arc.Unit.Tests.Infrastructure.Utilities
             Assert.That(actual, Is.Not.Null);
             Assert.That(actual, Is.EqualTo(typeof(ServiceImpl)));
         }
+
+    	[Test]
+    	public void Should_find_specified_type_with_generic_interface()
+    	{
+			var actual = Find.TypeWithInterface<IGenericService<Person>>(ValidGenericTypeName);
+
+			Assert.That(actual, Is.Not.Null);
+			Assert.That(actual, Is.EqualTo(typeof(GenericServiceImpl)));
+    	}
 
         [Test]
         [ExpectedException(typeof (ArgumentException))]

@@ -121,6 +121,8 @@
     <Compile Include="Domain\Units\UnitExtensionsTests.cs" />
     <Compile Include="Fakes\Entities\ContactCard.cs" />
     <Compile Include="Fakes\Entities\Email.cs" />
+    <Compile Include="Fakes\Entities\GenericServiceImpl.cs" />
+    <Compile Include="Fakes\Entities\IGenericService.cs" />
     <Compile Include="Fakes\Entities\Organization.cs" />
     <Compile Include="Fakes\Entities\ServiceImpl.cs" />
     <Compile Include="Domain\Units\SystemTimeTests.cs" />

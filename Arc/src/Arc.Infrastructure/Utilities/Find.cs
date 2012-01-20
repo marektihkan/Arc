@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Linq;
 
 namespace Arc.Infrastructure.Utilities
 {
@@ -50,10 +51,12 @@ namespace Arc.Infrastructure.Utilities
         {
             var type = Type(typeName);
 
-            var typeInterface = typeof(TInterface).FullName;
+			var interfaceType = typeof(TInterface);
 
-            if (type.GetInterface(typeInterface) == null)
-                throw new ArgumentException("Named type ( " + typeName + ") is not implementing " + typeInterface + " interface.", "typeName");
+			if (!type.GetInterfaces().Any(x => x == interfaceType))
+			{
+				throw new ArgumentException("Named type ( " + typeName + ") is not implementing " + interfaceType.FullName + " interface.", "typeName");
+			}
 
             return type;
         }

@@ -31,10 +31,10 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor.Registration
 
         public override void Register()
         {
-            ServiceLocator.Container.Register(
-                Component.For(Registration.ServiceType)
-					.FactoryMethod(() => Registration.Factory.Invoke(ServiceLocator), Registration.ServiceType)
-                    .LifeStyle.Is(LifeStyleFactory.Create(Registration.Scope)));
+			ServiceLocator.Container.Register(
+				Component.For(Registration.ServiceType)
+					.UsingFactoryMethod(() => Registration.Factory.Invoke(ServiceLocator))
+					.LifeStyle.Is(LifeStyleFactory.Create(Registration.Scope)));
         }
     }
 }

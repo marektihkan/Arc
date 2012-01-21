@@ -46,7 +46,7 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
         public ServiceLocator(IWindsorContainer container)
         {
             ComponentRegistrationExtensions.Kernel = container.Kernel;
-            container.AddFacility("factory.support", new FactorySupportFacility());
+			container.AddFacility<FactorySupportFacility>();
 
             Container = container;
         }

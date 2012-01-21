@@ -18,7 +18,7 @@ namespace Arc.Learning.Tests
             var container = new WindsorContainer();
 
             ComponentRegistrationExtensions.Kernel = container.Kernel;
-            container.AddFacility("factory.support", new FactorySupportFacility());
+			container.AddFacility<FactorySupportFacility>();
 
             container.Register(
                 Component.For<IObjectFactory>()
@@ -29,12 +29,10 @@ namespace Arc.Learning.Tests
                     .LifeStyle.Transient
                 );
 
-
             var firstCreatedObject = container.Resolve<ICreatedObject>();
             var secondCreatedObject = container.Resolve<ICreatedObject>();
 
             Assert.That(firstCreatedObject, Is.Not.SameAs(secondCreatedObject));
-
         }
 
         [Test]

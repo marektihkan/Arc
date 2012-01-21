@@ -19,10 +19,7 @@ namespace :build do
     info.copyright = "Copyright #{Date.today.year} by #{CONFIG[:owner]}"
     info.output_file = "#{CONFIG[:directories][:src]}/CommonAssemblyInfo.cs"
 
-    version = '0.0.0.0'
-    version = File.open('VERSION', 'r').gets if File.exist?('VERSION')
-
-    info.version = version
+    info.version = Version.get
   end
 
   desc "Compiles solution"

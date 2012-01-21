@@ -12,6 +12,14 @@ class Create
   end
 end
 
+class Ensure
+  def self.path(name)
+    if !Dir.exists?(name) then
+	  FileUtils.mkdir_p(name)
+	end
+  end
+end
+
 class Copy
   def self.binaries
      CopyCommand.new "dll"

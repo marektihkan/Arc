@@ -16,6 +16,8 @@
 //
 #endregion
 
+using System;
+
 namespace Arc.Domain.Identity
 {
     /// <summary>
@@ -44,5 +46,6 @@ namespace Arc.Domain.Identity
     /// </summary>
     public interface IEntity
     {
+		Type GetUnproxiedType();
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="Identity\ISaveable.cs" />
     <Compile Include="Identity\IValueObject.cs" />
     <Compile Include="Identity\IVersioned.cs" />
+    <Compile Include="Identity\StringIdentityEntity.cs" />
     <Compile Include="Specifications\Specification.cs" />
     <Compile Include="Specifications\ISpecification.cs" />
     <Compile Include="Units\SystemTime.cs" />

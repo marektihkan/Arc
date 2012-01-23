@@ -14,9 +14,9 @@ namespace :nuget do
 
   task :prepare do
 	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc/lib"
-	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc-Data/lib"
-	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc-Log4Net/lib"
-	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc-StructureMap/lib"
+	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.Data/lib"
+	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.Log4Net/lib"
+	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.StructureMap/lib"
   end
 
   task :package do
@@ -28,19 +28,19 @@ namespace :nuget do
 	Rake::Task["nuget:create_package"].invoke("Arc")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc-Data", "Arc", [{"Arc" => version}, {"FluentNHibernate" => "1.2.0.712"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.Data", "Arc", [{"Arc" => version}, {"FluentNHibernate" => "1.2.0.712"}])
 	Rake::Task["nuget:create_package"].reenable
-	Rake::Task["nuget:create_package"].invoke("Arc-Data")
+	Rake::Task["nuget:create_package"].invoke("Arc.Data")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc-Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "1.2.11"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "1.2.11"}])
 	Rake::Task["nuget:create_package"].reenable
-	Rake::Task["nuget:create_package"].invoke("Arc-Log4Net")
+	Rake::Task["nuget:create_package"].invoke("Arc.Log4Net")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc-StructureMap", "Arc", [{"Arc" => version}, {"structuremap" => "2.6.3"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.StructureMap", "Arc", [{"Arc" => version}, {"structuremap" => "2.6.3"}])
 	Rake::Task["nuget:create_package"].reenable
-	Rake::Task["nuget:create_package"].invoke("Arc-StructureMap")
+	Rake::Task["nuget:create_package"].invoke("Arc.StructureMap")
 	
   end
   
@@ -84,19 +84,19 @@ namespace :nuget do
   task :copy_data do
 	Copy.assemblies.matching('Arc.Infrastructure.Data.NHibernate').
       from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
-      to("#{CONFIG[:directories][:nuget]}/Arc-Data/lib")
+      to("#{CONFIG[:directories][:nuget]}/Arc.Data/lib")
   end
   
   task :copy_logging do
 	Copy.assemblies.matching('Arc.Infrastructure.Logging.Log4Net').
       from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
-      to("#{CONFIG[:directories][:nuget]}/Arc-Log4Net/lib")
+      to("#{CONFIG[:directories][:nuget]}/Arc.Log4Net/lib")
   end
   
   task :copy_structuremap do
 	Copy.assemblies.matching('Arc.Infrastructure.Dependencies.StructureMap').
       from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
-      to("#{CONFIG[:directories][:nuget]}/Arc-StructureMap/lib")
+      to("#{CONFIG[:directories][:nuget]}/Arc.StructureMap/lib")
   end
 
 end

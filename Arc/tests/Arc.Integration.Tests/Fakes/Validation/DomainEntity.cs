@@ -1,3 +1,4 @@
+using System;
 using Arc.Domain.Identity;
 using NHibernate.Validator.Constraints;
 
@@ -9,5 +10,10 @@ namespace Arc.Integration.Tests.Fakes.Validation
 
         [NotNull] //NHibernate Validator
         public string Name { get; set; }
+
+		public Type GetUnproxiedType()
+		{
+			return GetType();
+		}
     }
 }

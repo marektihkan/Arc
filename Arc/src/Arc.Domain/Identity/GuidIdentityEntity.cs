@@ -90,6 +90,11 @@ namespace Arc.Domain.Identity
             return (other == null || IsTransient) ? false : Id.Equals(other.Id);
         }
 
+		public virtual Type GetUnproxiedType()
+		{
+			return GetType();
+		}
+
         /// <summary>
         /// Gets the version number.
         /// </summary>

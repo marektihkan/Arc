@@ -16,6 +16,8 @@
 //
 #endregion
 
+using System;
+
 namespace Arc.Domain.Identity
 {
     /// <summary>
@@ -106,11 +108,16 @@ namespace Arc.Domain.Identity
 
             if (IsTransient) return ReferenceEquals(this, obj);
 
-            var objType = obj.GetType();
-            var type = GetType();
+			var objType = obj.GetUnproxiedType();
+			var type = GetUnproxiedType();
 
             return obj.Id == Id && objType == type;
         }
+
+		public virtual Type GetUnproxiedType()
+		{
+			return GetType();
+		}
 
         /// <summary>
         /// Serves as a hash function for a particular type.

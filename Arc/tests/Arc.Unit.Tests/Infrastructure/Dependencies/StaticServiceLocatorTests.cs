@@ -87,5 +87,13 @@ namespace Arc.Unit.Tests.Infrastructure.Dependencies
 
             _locator.AssertWasCalled(x => x.Release(releasable));
         }
+
+    	[Test]
+    	public void Should_delegate_resolve_all()
+    	{
+    		ServiceLocator.ResolveAll<IRepository>();
+
+    		_locator.AssertWasCalled(x => x.ResolveAll<IRepository>());
+    	}
     }
 }

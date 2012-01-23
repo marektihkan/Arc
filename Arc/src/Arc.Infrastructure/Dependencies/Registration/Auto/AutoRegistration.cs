@@ -34,7 +34,6 @@ namespace Arc.Infrastructure.Dependencies.Registration.Auto
         private readonly Assembly[] _assemblies;
         private Func<Type, bool> _criteria;
 
-
         private AutoRegistration(Assembly[] assemblies)
         {
             _assemblies = assemblies;
@@ -106,6 +105,17 @@ namespace Arc.Infrastructure.Dependencies.Registration.Auto
             _strategy = new RegisterTypeToFirstMatchStrategy(criteria);
             return this;
         }
+
+		/// <summary>
+		/// Binds all to the specified criteria.
+		/// </summary>
+		/// <param name="criteria">The criteria. (interface)</param>
+		/// <returns></returns>
+		public AutoRegistration BindToInterfaces(Func<Type, bool> criteria)
+		{
+			_strategy = new RegisterTypeToAllMatchStrategy(criteria);
+			return this;
+		}
 
         /// <summary>
         /// Binds to self.

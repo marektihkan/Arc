@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Registration;
 
@@ -27,6 +28,13 @@ namespace Arc.Infrastructure.Dependencies
     /// </summary>
     public interface IServiceLocator : IDisposable
     {
+		/// <summary>
+		/// Resolves all services for given type
+		/// </summary>
+		/// <typeparam name="TService">The type of the service.</typeparam>
+		/// <returns></returns>
+		IEnumerable<TService> ResolveAll<TService>();
+
         /// <summary>
         /// Resolves requested service.
         /// </summary>

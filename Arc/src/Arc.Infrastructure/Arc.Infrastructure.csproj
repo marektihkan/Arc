@@ -67,6 +67,7 @@
     <Compile Include="Data\Find.cs" />
     <Compile Include="Configuration\Conventions\ServiceLocatorConvention.cs" />
     <Compile Include="Data\SpecificationExtensions.cs" />
+    <Compile Include="Dependencies\Registration\Auto\RegisterTypeToAllMatchStrategy.cs" />
     <Compile Include="Logging\Log.cs" />
     <Compile Include="Mapping\IMapCollectionToSyntax.cs" />
     <Compile Include="Mapping\IMapper.cs" />

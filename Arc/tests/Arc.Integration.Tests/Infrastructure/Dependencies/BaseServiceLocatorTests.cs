@@ -1,9 +1,12 @@
+using System.Linq;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Integration.Tests.Fakes.DependencyInjection;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
 using Rhino.Mocks;
+using IService = Arc.Integration.Tests.Fakes.Model.Services.IService;
+using ServiceImpl = Arc.Integration.Tests.Fakes.Model.Services.ServiceImpl;
 using With=Arc.Infrastructure.Dependencies.With;
 
 namespace Arc.Integration.Tests.Infrastructure.Dependencies
@@ -199,5 +202,18 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             Assert.That(actual, Is.TypeOf(typeof(ServiceImpl)));
             Assert.That(actual.Dependency, Is.SameAs(dependency));
         }
+
+    	[Test]
+    	public void It_should_resolve_all_service_implementations()
+    	{
+    		var target = CreateSUT();
+
+			target.Load(new DependencyConfiguration());
+
+    		var actual = target.ResolveAll<IHandler<string>>();
+
+    		Assert.That(actual.First(), Is.TypeOf<PreHandler>());
+    		Assert.That(actual.Last(), Is.TypeOf<PostHandler>());
+    	}
     }
 }

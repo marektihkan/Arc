@@ -50,5 +50,12 @@ namespace Arc.Infrastructure.Dependencies.Registration.Auto
         /// <param name="criteria">The criteria. (interface, realType)</param>
         /// <returns></returns>
         AutoRegistration BindToInterface(Func<Type, Type, bool> criteria);
+
+		/// <summary>
+		/// Binds all to the specified criteria.
+		/// </summary>
+		/// <param name="criteria">The criteria. (interface)</param>
+		/// <returns></returns>
+		AutoRegistration BindToInterfaces(Func<Type, bool> criteria);
     }
 }

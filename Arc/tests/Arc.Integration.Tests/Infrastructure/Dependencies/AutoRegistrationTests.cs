@@ -4,7 +4,8 @@ using Arc.Infrastructure.Dependencies.Registration;
 using Arc.Infrastructure.Dependencies.Registration.Auto;
 using Arc.Integration.Tests.Fakes.Model.Services;
 using NUnit.Framework;
-using ServiceLocator=Arc.Infrastructure.Dependencies.Ninject.ServiceLocator;
+using IService = Arc.Integration.Tests.Fakes.Model.Services.IService;
+using ServiceLocator=Arc.Infrastructure.Dependencies.StructureMap.ServiceLocator;
 
 namespace Arc.Integration.Tests.Infrastructure.Dependencies
 {
@@ -56,6 +57,18 @@ namespace Arc.Integration.Tests.Infrastructure.Dependencies
             SetupConfiguration(configuration);
             Assert.That(_serviceLocator.Resolve<ParameterlessServiceImpl>(), Is.Not.Null);
         }
+
+    	[Test]
+    	public void Binding_to_all_interfaces_example()
+    	{
+    		var configuration = AutoRegistration.For("Arc.Integration.Tests")
+    			.AllConcreteTypes
+    			.BindToInterfaces(x => x.Name.Contains("Factory"));
+
+			SetupConfiguration(configuration);
+    		Assert.That(_serviceLocator.Resolve<IPersonFactory>(), Is.TypeOf<FactoryImpl>());
+    		Assert.That(_serviceLocator.Resolve<IEmailFactory>(), Is.TypeOf<FactoryImpl>());
+    	}
 
         [Test]
         public void Should_bind_all_types_with_singleton_scope()

@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Registration;
 
@@ -70,6 +71,15 @@ namespace Arc.Infrastructure.Dependencies
             InnerServiceLocator.Register(registrations);
         }
 
+		/// <summary>
+		/// Resolves all services for given type
+		/// </summary>
+		/// <typeparam name="TService">The type of the service.</typeparam>
+		/// <returns></returns>
+		public static IEnumerable<TService> ResolveAll<TService>()
+		{
+			return InnerServiceLocator.ResolveAll<TService>();
+		}
 
         /// <summary>
         /// Resolves requested service.

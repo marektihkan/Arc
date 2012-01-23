@@ -134,14 +134,20 @@
     <Compile Include="Fakes\DomainObject.cs" />
     <Compile Include="Fakes\DomainObjectDto.cs" />
     <Compile Include="Fakes\Model\FakeEntity.cs" />
+    <Compile Include="Fakes\Model\Services\FactoryImpl.cs" />
     <Compile Include="Fakes\Model\Services\GenericServiceHostImpl.cs" />
     <Compile Include="Fakes\Model\Services\GenericServiceImpl.cs" />
+    <Compile Include="Fakes\Model\Services\IEmailFactory.cs" />
     <Compile Include="Fakes\Model\Services\IGenericService.cs" />
     <Compile Include="Fakes\Model\Services\IGenericServiceHost.cs" />
+    <Compile Include="Fakes\Model\Services\IHandler.cs" />
     <Compile Include="Fakes\Model\Services\IParameterlessService.cs" />
+    <Compile Include="Fakes\Model\Services\IPersonFactory.cs" />
     <Compile Include="Fakes\Model\Services\IService.cs" />
     <Compile Include="Fakes\Model\Services\IServiceFactory.cs" />
     <Compile Include="Fakes\Model\Services\ParameterlessServiceImpl.cs" />
+    <Compile Include="Fakes\Model\Services\PostHandler.cs" />
+    <Compile Include="Fakes\Model\Services\PreHandler.cs" />
     <Compile Include="Fakes\Model\Services\ServiceFactoryImpl.cs" />
     <Compile Include="Fakes\Model\Services\ServiceImpl.cs" />
     <Compile Include="Fakes\Validation\DomainEntity.cs" />
@@ -221,10 +227,6 @@
     <ProjectReference Include="..\..\src\Arc.Infrastructure\Arc.Infrastructure.csproj">
       <Project>{F815EB09-BB4F-4011-82A3-03774C64CE20}</Project>
       <Name>Arc.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Arc.Unit.Tests\Arc.Unit.Tests.csproj">
-      <Project>{A765671D-1D0A-4CFE-8993-2693DEB854E8}</Project>
-      <Name>Arc.Unit.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

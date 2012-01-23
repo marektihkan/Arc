@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.Registration;
@@ -93,6 +94,11 @@ namespace Arc.Infrastructure.Dependencies.StructureMap
 		public IEnumerable<TService> ResolveAll<TService>()
 		{
 			return Container.GetAllInstances<TService>();
+		}
+
+		public IEnumerable ResolveAll(Type service)
+		{
+			return Container.GetAllInstances(service);
 		}
 
         /// <summary>

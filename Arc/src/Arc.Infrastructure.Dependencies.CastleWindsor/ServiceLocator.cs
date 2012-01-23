@@ -17,6 +17,7 @@
 #endregion
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies.CastleWindsor.Extensions;
@@ -99,7 +100,12 @@ namespace Arc.Infrastructure.Dependencies.CastleWindsor
 			return Container.ResolveAll<TService>();
 		}
 
-        /// <summary>
+    	public IEnumerable ResolveAll(Type service)
+    	{
+    		return Container.ResolveAll(service);
+    	}
+
+    	/// <summary>
         /// Resolves requested service.
         /// </summary>
         /// <typeparam name="TService">The type of the service.</typeparam>

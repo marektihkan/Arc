@@ -85,6 +85,7 @@
     <Compile Include="Mapping\MappingOfUnknownType.cs" />
     <Compile Include="Mapping\MappingOfUnknownTypeCollection.cs" />
     <Compile Include="Mapping\NullMapper.cs" />
+    <Compile Include="Mapping\MapperExtensions.cs" />
     <Compile Include="Registry\HybridRegistry.cs" />
     <Compile Include="Registry\IHybridRegistry.cs" />
     <Compile Include="Registry\ILocalRegistry.cs" />

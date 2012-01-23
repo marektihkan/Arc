@@ -17,6 +17,8 @@ namespace :nuget do
 	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.Data/lib"
 	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.Log4Net/lib"
 	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.StructureMap/lib"
+	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.AutoMapper/lib"
+	Ensure.path "#{CONFIG[:directories][:nuget]}/Arc.FluentValidation/lib"
   end
 
   task :package do
@@ -33,7 +35,7 @@ namespace :nuget do
 	Rake::Task["nuget:create_package"].invoke("Arc.Data")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "1.2.11"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "1.2.10"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.Log4Net")
 	
@@ -41,6 +43,16 @@ namespace :nuget do
 	Rake::Task["nuget:prepare_package"].invoke("Arc.StructureMap", "Arc", [{"Arc" => version}, {"structuremap" => "2.6.3"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.StructureMap")
+	
+	Rake::Task["nuget:prepare_package"].reenable
+	Rake::Task["nuget:prepare_package"].invoke("Arc.AutoMapper", "Arc", [{"Arc" => version}, {"AutoMapper" => "2.0.0"}])
+	Rake::Task["nuget:create_package"].reenable
+	Rake::Task["nuget:create_package"].invoke("Arc.AutoMapper")
+	
+	Rake::Task["nuget:prepare_package"].reenable
+	Rake::Task["nuget:prepare_package"].invoke("Arc.FluentValidation", "Arc", [{"Arc" => version}, {"FluentValidation" => "3.2.0.0"}])
+	Rake::Task["nuget:create_package"].reenable
+	Rake::Task["nuget:create_package"].invoke("Arc.FluentValidation")
 	
   end
   
@@ -73,7 +85,7 @@ namespace :nuget do
 	nugetpack.output = "#{CONFIG[:directories][:nuget]}/packages"
   end
   
-  task :copy_assemblies => [:copy_arc, :copy_data, :copy_structuremap, :copy_logging]
+  task :copy_assemblies => [:copy_arc, :copy_data, :copy_structuremap, :copy_logging, :copy_automapper, :copy_validation]
   
   task :copy_arc do
 	Copy.assemblies.matching('Arc.Domain,Arc.Infrastructure').
@@ -97,6 +109,18 @@ namespace :nuget do
 	Copy.assemblies.matching('Arc.Infrastructure.Dependencies.StructureMap').
       from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
       to("#{CONFIG[:directories][:nuget]}/Arc.StructureMap/lib")
+  end
+  
+  task :copy_automapper do
+	Copy.assemblies.matching('Arc.Infrastructure.Mapping.AutoMapper').
+      from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
+      to("#{CONFIG[:directories][:nuget]}/Arc.AutoMapper/lib")
+  end
+  
+  task :copy_validation do
+	Copy.assemblies.matching('Arc.Infrastructure.Validation.FluentValidation').
+      from("#{CONFIG[:directories][:build]}/#{CONFIG[:directories][:binary]}").
+      to("#{CONFIG[:directories][:nuget]}/Arc.FluentValidation/lib")
   end
 
 end

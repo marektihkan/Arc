@@ -35,7 +35,7 @@ namespace :nuget do
 	Rake::Task["nuget:create_package"].invoke("Arc.Data")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "1.2.10"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "[1.2.10]"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.Log4Net")
 	

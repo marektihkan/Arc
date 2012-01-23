@@ -15,7 +15,7 @@ namespace Arc.Domain.Identity
 			Id = identity;
 		}
 
-		public virtual string Id { get; protected set; }
+		public virtual string Id { get; set; }
 
 		public virtual bool IsTransient
 		{

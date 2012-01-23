@@ -9,6 +9,11 @@ namespace Arc.Infrastructure.Validation.FluentValidation
     {
         private readonly ValidatorAdapter<TEntity> _validator = new ValidatorAdapter<TEntity>();
 
+		public AbstractValidator<TEntity> InnerValidator
+		{
+			get { return _validator; }
+		}
+
         public void Custom(Func<TEntity, ValidationFailure> customValidator)
         {
             _validator.Custom(customValidator);

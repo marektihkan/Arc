@@ -58,6 +58,7 @@
     <Compile Include="Configuration\Dependencies\LoggingIsNotUsedConfiguration.cs" />
     <Compile Include="Configuration\Dependencies\ValidationIsNotUsedConfiguration.cs" />
     <Compile Include="Configuration\IConfiguration.cs" />
+    <Compile Include="Configuration\IMapperConfiguration.cs" />
     <Compile Include="Configuration\Routing\BaseRouteConfiguration.cs" />
     <Compile Include="Configuration\Routing\INamedRouteBuilder.cs" />
     <Compile Include="Configuration\Routing\IRouteBuilder.cs" />

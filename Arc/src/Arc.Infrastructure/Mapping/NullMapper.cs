@@ -39,7 +39,12 @@ namespace Arc.Infrastructure.Mapping
             return new List<TDestination>();
         }
 
-        public object Map(object source, Type sourceType, Type destinationType)
+    	public IEnumerable<TDestination> Map<TDestination>(IEnumerable sources, Type sourceType)
+    	{
+			return new List<TDestination>();
+    	}
+
+    	public object Map(object source, Type sourceType, Type destinationType)
         {
             return Activator.CreateInstance(destinationType);
         }

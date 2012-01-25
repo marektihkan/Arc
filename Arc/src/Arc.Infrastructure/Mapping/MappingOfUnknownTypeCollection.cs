@@ -22,23 +22,23 @@ using System.Collections.Generic;
 
 namespace Arc.Infrastructure.Mapping
 {
-    public class MappingOfUnknownTypeCollection : MappingOf<object>, IMapCollectionToSyntax
+    public class MappingOfUnknownTypeCollection : MappingOf<IEnumerable>, IMapCollectionToSyntax
     {
         private readonly Type _sourceType;
 
-        public MappingOfUnknownTypeCollection(object source, Type sourceType, Func<IMapper> resolveMapper) : base(source, resolveMapper)
+        public MappingOfUnknownTypeCollection(IEnumerable source, Type sourceType, Func<IMapper> resolveMapper) : base(source, resolveMapper)
         {
             _sourceType = sourceType;
         }
 
         public IEnumerable<TDestination> To<TDestination>()
         {
-            return (IEnumerable<TDestination>) Mapper.Map(Source, _sourceType, typeof(TDestination));
+            return Mapper.Map<TDestination>(Source, _sourceType);
         }
 
         public IEnumerable To(Type type)
         {
-            return (IEnumerable) Mapper.Map(Source, _sourceType, type);
+            return Mapper.Map(Source, _sourceType, type);
         }
     }
 }

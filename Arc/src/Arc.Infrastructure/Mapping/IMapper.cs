@@ -29,11 +29,13 @@ namespace Arc.Infrastructure.Mapping
         TDestination Map<TSource, TDestination>(TSource source);
         
         IEnumerable<TDestination> Map<TSource, TDestination>(IEnumerable<TSource> sources);
-        
-        object Map(object source, Type sourceType, Type destinationType);
-        
-        object Map(object source, Type sourceType, object destination, Type destinationType);
 
-        IEnumerable Map(IEnumerable sources, Type sourceType, Type destinationType);
+    	IEnumerable<TDestination> Map<TDestination>(IEnumerable sources, Type sourceType);
+		
+		IEnumerable Map(IEnumerable sources, Type sourceType, Type destinationType);
+
+    	object Map(object source, Type sourceType, Type destinationType);
+
+    	object Map(object source, Type sourceType, object destination, Type destinationType);
     }
 }

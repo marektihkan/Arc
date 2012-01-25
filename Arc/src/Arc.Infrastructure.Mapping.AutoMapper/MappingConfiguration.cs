@@ -16,6 +16,10 @@
 //
 #endregion
 
+using System;
+using System.Linq;
+using System.Reflection;
+using Arc.Domain.Dsl;
 using Arc.Infrastructure.Configuration;
 using Arc.Infrastructure.Dependencies;
 using Arc.Infrastructure.Dependencies.Registration;
@@ -24,16 +28,36 @@ namespace Arc.Infrastructure.Mapping.AutoMapper
 {
     public class MappingConfiguration : IConfiguration<IServiceLocator>
     {
-        public static MappingConfiguration Default()
+    	private readonly Assembly[] _assemblies;
+
+    	public static MappingConfiguration Default(params Assembly[] assemblies)
         {
-            return new MappingConfiguration();
+            return new MappingConfiguration(assemblies);
         }
 
-        public void Load(IServiceLocator handler)
-        {
-            handler.Register(
+    	protected MappingConfiguration(Assembly[] assemblies)
+    	{
+    		_assemblies = assemblies;
+    	}
+
+    	public virtual void Load(IServiceLocator handler)
+    	{
+    		handler.Register(
                 Requested.Service<IMapper>().IsImplementedBy<Mapper>().LifeStyle.IsSingelton()
             );
-        }
+
+    		ConfigureMaps();
+    	}
+
+    	private void ConfigureMaps()
+    	{
+    		_assemblies.SelectMany(x => x.GetTypes())
+    			.Where(x => x.GetInterface(typeof(IMapperConfiguration).FullName) != null)
+    			.Each(x =>
+    			      	{
+    			      		var mapping = (IMapperConfiguration)Activator.CreateInstance(x);
+    			      		mapping.Configure();
+    			      	});
+    	}
     }
 }

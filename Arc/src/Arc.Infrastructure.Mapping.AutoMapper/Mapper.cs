@@ -28,7 +28,19 @@ namespace Arc.Infrastructure.Mapping.AutoMapper
             return result;
         }
 
-        public object Map(object source, Type sourceType, Type destinationType)
+    	public IEnumerable<TDestination> Map<TDestination>(IEnumerable sources, Type sourceType)
+    	{
+			var destinationType = typeof(TDestination);
+			var result = new List<TDestination>();
+			foreach (var source in sources)
+			{
+				var destination = (TDestination) global::AutoMapper.Mapper.Map(source, sourceType, destinationType);
+				result.Add(destination);
+			}
+    		return result;
+    	}
+
+    	public object Map(object source, Type sourceType, Type destinationType)
         {
             return global::AutoMapper.Mapper.Map(source, sourceType, destinationType);
         }
@@ -40,13 +52,13 @@ namespace Arc.Infrastructure.Mapping.AutoMapper
 
         public IEnumerable Map(IEnumerable sources, Type sourceType, Type destinationType)
         {
-            var result = new ArrayList();
-            foreach (var source in sources)
-            {
-                var destination = global::AutoMapper.Mapper.Map(source, sourceType, destinationType);
-                result.Add(destination);
-            }
-            return result;
+			var result = new ArrayList();
+			foreach (var source in sources)
+			{
+				var destination = global::AutoMapper.Mapper.Map(source, sourceType, destinationType);
+				result.Add(destination);
+			}
+			return result;
         }
     }
 }

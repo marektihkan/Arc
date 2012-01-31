@@ -27,7 +27,7 @@ namespace Arc.Infrastructure.Registry
     public class ThreadRegistry : BaseRegistry, IThreadRegistry
     {
         [ThreadStatic] 
-        private IDictionary _map;
+        private static IDictionary _map;
 
         /// <summary>
         /// Gets the map where items are stored.

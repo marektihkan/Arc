@@ -28,7 +28,7 @@ namespace Arc.Infrastructure.Registry
     public class HybridRegistry : BaseRegistry, IHybridRegistry
     {
         [ThreadStatic]
-        private IDictionary _map;
+        private static IDictionary _map;
 
         private const string Key = "Arc.Infrastructure.Registry.HybridRegistry";
 

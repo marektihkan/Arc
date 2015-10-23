@@ -95,7 +95,9 @@
     <None Include="..\..\config\Arc.snk">
       <Link>Properties\Arc.snk</Link>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Arc.Domain\Arc.Domain.csproj">

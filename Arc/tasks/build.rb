@@ -15,8 +15,8 @@ namespace :build do
   assemblyinfo :solutioninfo do |info|
     info.product_name = CONFIG[:solution]
     info.title = CONFIG[:solution]
-    info.company_name = CONFIG[:owner]
-    info.copyright = "Copyright #{Date.today.year} by #{CONFIG[:owner]}"
+    info.company_name = CONFIG[:owner].join
+    info.copyright = "Copyright #{Date.today.year} by #{CONFIG[:owner].join}"
     info.output_file = "#{CONFIG[:directories][:src]}/CommonAssemblyInfo.cs"
 
     info.version = Version.get
@@ -25,7 +25,7 @@ namespace :build do
   desc "Compiles solution"
   msbuild :compile do |compiler|
     compiler.properties :configuration => CONFIG[:build_configuration]
-    compiler.targets :Clean, :Build
+    compiler.targets :Build
     compiler.solution = "#{CONFIG[:solution]}.sln"
   end
   

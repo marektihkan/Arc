@@ -7,4 +7,4 @@ require 'environment'
 include FileTest
 
 desc "**Default**, compiles and runs tests"
-task :default => [:clean, :build, :tests]
+task :default => [:clean, :build, :nuget]

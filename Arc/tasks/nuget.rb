@@ -30,17 +30,17 @@ namespace :nuget do
 	Rake::Task["nuget:create_package"].invoke("Arc")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc.Data", "Arc", [{"Arc" => version}, {"FluentNHibernate" => "1.2.0.712"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.Data", "Arc", [{"Arc" => version}, {"FluentNHibernate" => "[2.0.3]"}, {"NHibernate" => "4.0.4.4000"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.Data")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "[1.2.10]"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.Log4Net", "Arc", [{"Arc" => version}, {"log4net" => "2.0.3"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.Log4Net")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc.StructureMap", "Arc", [{"Arc" => version}, {"structuremap" => "2.6.3"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.StructureMap", "Arc", [{"Arc" => version}, {"structuremap" => "[2.6.3]"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.StructureMap")
 	
@@ -50,7 +50,7 @@ namespace :nuget do
 	Rake::Task["nuget:create_package"].invoke("Arc.AutoMapper")
 	
 	Rake::Task["nuget:prepare_package"].reenable
-	Rake::Task["nuget:prepare_package"].invoke("Arc.FluentValidation", "Arc", [{"Arc" => version}, {"FluentValidation" => "3.2.0.0"}])
+	Rake::Task["nuget:prepare_package"].invoke("Arc.FluentValidation", "Arc", [{"Arc" => version}, {"FluentValidation" => "5.6.2"}])
 	Rake::Task["nuget:create_package"].reenable
 	Rake::Task["nuget:create_package"].invoke("Arc.FluentValidation")
 	
@@ -65,10 +65,10 @@ namespace :nuget do
 	nuspec.authors = CONFIG[:owner]
 	nuspec.owners = CONFIG[:owner]
 	nuspec.description = args.description
-	nuspec.licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0'
-	nuspec.projectUrl = 'http://github.com/marektihkan/arc'
-	nuspec.working_directory =  "#{CONFIG[:directories][:nuget]}/#{args.package_id}"
-	nuspec.output_file = "#{args.package_id}.nuspec"
+	nuspec.license_url = 'http://www.apache.org/licenses/LICENSE-2.0'
+	nuspec.project_url = 'http://github.com/marektihkan/arc'
+	#nuspec.working_directory =  "#{CONFIG[:directories][:nuget]}/#{args.package_id}"
+	nuspec.output_file = "#{CONFIG[:directories][:nuget]}/#{args.package_id}/#{args.package_id}.nuspec"
 	
 	args.dependencies.each do |d|
 		d.each do |name,version|
@@ -81,8 +81,9 @@ namespace :nuget do
   nugetpack :create_package, [:package_id] do |nugetpack, args|
 	nugetpack.command = "#{CONFIG[:paths][:nuget]}"
 	nugetpack.nuspec = "#{CONFIG[:directories][:nuget]}/#{args.package_id}/#{args.package_id}.nuspec"
-	nugetpack.base_folder = "#{CONFIG[:directories][:nuget]}/#{args.package_id}"
-	nugetpack.output = "#{CONFIG[:directories][:nuget]}/packages"
+	nugetpack.base_path = "#{CONFIG[:directories][:nuget]}/#{args.package_id}"
+	nugetpack.output_directory = "#{CONFIG[:directories][:nuget]}/packages"
+    nugetpack.symbols
   end
   
   task :copy_assemblies => [:copy_arc, :copy_data, :copy_structuremap, :copy_logging, :copy_automapper, :copy_validation]

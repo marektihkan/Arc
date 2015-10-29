@@ -14,6 +14,6 @@ CONFIG = {
 	:nuget => 'build/nuget'
   },  
   :solution => 'Arc',
-  :owner => 'Marek Tihkan, Siim Viikman',
+  :owner => ['Marek Tihkan', 'Siim Viikman'],
   :build_configuration => 'Release'
 }
